@@ -4,6 +4,10 @@
 
 /* Global Styles */
 
+body {
+    background-color: #f8f8ff;
+}
+
 .title-text {
   font-family: "Oswald", sans-serif;
   color: #9c8300;
