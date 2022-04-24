@@ -36,6 +36,10 @@ DEBUG = 'DEVELOPMENT' in os.environ
 ALLOWED_HOSTS = ["cafe-manbo.herokuapp.com", "127.0.0.1", "localhost"]
 
 
+ACCOUNT_EMAIL_VERIFICATION = 'none'
+
+X_FRAME_OPTIONS = "SAMEORIGIN"
+
 # Application definition
 
 INSTALLED_APPS = [
