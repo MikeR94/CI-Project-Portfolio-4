@@ -1,0 +1,1 @@
+web: gunicorn Cafe_Manbo.wsgi
