@@ -1,15 +1,45 @@
-/* Fonts */
+/* Google Fonts */
 
 @import url("https://fonts.googleapis.com/css2?family=Oswald&family=Roboto:wght@300&display=swap");
+
+/* Hero Section */
+
+.hero-image {
+    background-size: cover;
+    background: url('https://res.cloudinary.com/duvrjdbbc/image/upload/v1649076309/static/images/hero.9dba0bf5a3e0.jpg');
+    min-height: 70vh;
+    position: relative;
+    color: white;
+  }
+
+  .color-overlay {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+  }
+  
+  .cafe-manbo-text {
+    color: white;
+    font-family: "Oswald", sans-serif;
+    font-size: 150px;
+  }
+  
+  .established-text {
+    color: white;
+    font-family: "Roboto", sans-serif;
+    font-size: 40px;
+    font-weight: 300;
+  }
 
 /* Navigation Bar */
 
 .nav-item a {
-  color: black;
+  color: white;
   font-family: "Roboto", sans-serif;
   font-weight: 300;
   margin-left: 25px;
   margin-right: 25px;
+  font-size: 18px;
 }
 
 .navbar :nth-child(4) {
@@ -25,7 +55,7 @@
 }
 
 .dropdown-item {
-  color: black !important;
+  color: white !important;
   display: inline;
   padding: 0;
   font-family: "Roboto", sans-serif;
@@ -34,7 +64,7 @@
 
 .dropdown-item:hover {
   color: #9c8300 !important;
-  background-color: white;
+  background-color: transparent;
 }
 
 .nav-bar-logo {
@@ -46,6 +76,8 @@
 
 .dropdown-menu {
     border: none;
+    background-color: transparent!important;
+    color: white !important;
 }
 
 /* Navbar Toggler Animation */
