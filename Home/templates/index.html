@@ -2,6 +2,8 @@
 
 {% load static %}
 
+{% include "navbar.html" %}
+
 <div class="container">
     <h1>This is the home page</h1>
 
@@ -10,5 +12,7 @@
     <img src="{% static 'images/chefs-image.jpg'%}" alt="Chefs smiling" />
 
 </div>
+
+{% include "footer.html" %}
 
 {% endblock content %}
