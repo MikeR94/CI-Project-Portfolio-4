@@ -2,34 +2,50 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Oswald&family=Roboto:wght@300&display=swap");
 
+/* Global Styles */
+
+.title-text {
+  font-family: "Oswald", sans-serif;
+  color: #9c8300;
+  margin-bottom: 50px;
+  font-size: 60px;
+}
+
+.body-text {
+  font-family: "Roboto", sans-serif;
+  color: black;
+  font-size: 18px;
+  margin-bottom: 30px;
+}
+
 /* Hero Section */
 
 .hero-image {
-    background-size: cover;
-    background: url('https://res.cloudinary.com/duvrjdbbc/image/upload/v1649076309/static/images/hero.9dba0bf5a3e0.jpg');
-    min-height: 70vh;
-    position: relative;
-    color: white;
-  }
+  background-size: cover;
+  background: url("https://res.cloudinary.com/duvrjdbbc/image/upload/v1650836042/static/images/hero-image.9eedada8efe0.jpg");
+  min-height: 80vh;
+  position: relative;
+  color: white;
+}
 
-  .color-overlay {
-    position: absolute;
-    height: 100%;
-    width: 100%;
-  }
-  
-  .cafe-manbo-text {
-    color: white;
-    font-family: "Oswald", sans-serif;
-    font-size: 150px;
-  }
-  
-  .established-text {
-    color: white;
-    font-family: "Roboto", sans-serif;
-    font-size: 40px;
-    font-weight: 300;
-  }
+.color-overlay {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
+.cafe-manbo-text {
+  color: white;
+  font-family: "Oswald", sans-serif;
+  font-size: 150px;
+}
+
+.established-text {
+  color: white;
+  font-family: "Roboto", sans-serif;
+  font-size: 40px;
+  font-weight: 300;
+}
 
 /* Navigation Bar */
 
@@ -75,9 +91,9 @@
 }
 
 .dropdown-menu {
-    border: none;
-    background-color: transparent!important;
-    color: white !important;
+  border: none;
+  background-color: transparent !important;
+  color: white !important;
 }
 
 /* Navbar Toggler Animation */
@@ -138,4 +154,10 @@
 
 .navbar-toggler.collapsed .toggler-icon {
   background-color: #777777;
+}
+
+/* Our Story Section */
+
+.our-story-image img {
+  width: 100%;
 }
