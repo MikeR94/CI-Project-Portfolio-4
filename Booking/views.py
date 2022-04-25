@@ -1,6 +1,9 @@
 from django.shortcuts import render
 from . import forms
 from django.http import HttpResponseRedirect
+from django.core.mail import EmailMessage
+from django.conf import settings
+from django.template.loader import render_to_string
 
 # Create your views here.
 
@@ -16,6 +19,15 @@ def book_now(request):
             context = {
             "data": instance,
         }
+        template = render_to_string('email_template.html')
+        email = EmailMessage(
+            'Thank you for booking!',
+            template,
+            settings.EMAIL_HOST_USER,
+            ['mikeyralph@hotmail.co.uk'],
+        )
+        email.fail_silently = False
+        email.send()
         return render(request, "book-success.html", context)
     form = forms.BookingForm()
     context = {
