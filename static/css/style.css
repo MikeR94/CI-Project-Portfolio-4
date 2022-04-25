@@ -111,7 +111,7 @@ body {
 
 .dropdown-menu {
   border: none;
-  background-color: transparent !important;
+  background-color: #212529;
   color: white !important;
 }
 
