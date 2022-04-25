@@ -205,6 +205,13 @@ body {
   margin-bottom: 30px;
 }
 
+/* JS Map Section */
+
+#map {
+  height: 400px;
+  width: 100%;
+}
+
 /* Footer Section */
 
 .footer-links a {
