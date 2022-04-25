@@ -16,7 +16,7 @@ def staff_dashboard(request):
 
 def staff_pending_bookings(request):
     if request.user.is_staff:
-        pending_bookings = Booking.objects.filter(booking_approved=False)
+        pending_bookings = Booking.objects.filter(booking_acknowledged=False)
         context = {
             "pending_bookings": pending_bookings,
         }
@@ -28,5 +28,16 @@ def staff_approve_booking(request, booking_id):
     booking = Booking.objects.filter(id=booking_id)
     for object in booking:
         object.booking_approved = True
+        object.booking_acknowledged = True
+        object.save()
+    return HttpResponseRedirect(next)
+
+
+def staff_deny_booking(request, booking_id):
+    next = request.POST.get("next", "/")
+    booking = Booking.objects.filter(id=booking_id)
+    for object in booking:
+        object.booking_denied = True
+        object.booking_acknowledged = True
         object.save()
     return HttpResponseRedirect(next)
