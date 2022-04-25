@@ -29,6 +29,8 @@ class Booking(models.Model):
     guest_attended = models.BooleanField(default=False)
     contact_number = models.CharField(default="", max_length=25)
     bill_settled = models.BooleanField(default=False)
+    booking_approved = models.BooleanField(default=False)
+    booking_denied = models.BooleanField(default=False)
     user = models.ForeignKey(User, null=True, on_delete=models.SET_NULL)
 
     def __str__(self):
