@@ -47,7 +47,7 @@
             <ul class="dropdown-menu text-center" aria-labelledby="navbarDropdown">
               {% if request.user.is_authenticated %}
                 {% if request.user.is_staff %}
-                <li><a class="dropdown-item" href="#">Staff Dashboard</a></li>
+                <li><a class="dropdown-item" href="{% url 'staff-dashboard' %}">Staff Dashboard</a></li>
                 {% endif %}
                 <li><a class="dropdown-item" href="#">My Reservations</a></li>
                 <li><a class="dropdown-item" href="#">Write A Review</a></li>
