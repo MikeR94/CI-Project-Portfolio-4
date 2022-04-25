@@ -1,8 +1,32 @@
 {% extends "base.html" %} {% block content %} {% include "navbar-2.html" %}
 
-
-<div class="container page-space pt-5 pb-5">
-  <h4>Book success</h4>
+<div class="container page-space">
+  <p class="body-text mt-5">Thank you for your booking, please double check the details that we have for you to make sure they are accurate</p>
+  <p class="body-text mt-5">If they are not accurate, please contact the restaurant immediately</p>
+  <table>
+    <thead>
+      <tr>
+        <th scope="col">First Name</th>
+        <th scope="col">Last Name</th>
+        <th scope="col">Ref Number</th>
+        <th scope="col">Date</th>
+        <th scope="col">Time</th>
+        <th scope="col">Guests</th>
+        <th scope="col">Contact Number</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td data-label="First Name">{{ data.first_name }}</td>
+        <td data-label="Last Name">{{ data.last_name }}</td>
+        <td data-label="Ref Number">{{ data.ref_number }}</td>
+        <td data-label="Date">{{ data.date_of_visit }}</td>
+        <td data-label="Time">{{ data.time_of_visit }}</td>
+        <td data-label="Guests">{{ data.number_of_guests }}</td>
+        <td data-label="Contact Number">{{ data.contact_number }}</td>
+      </tr>
+    </tbody>
+  </table>
 </div>
 
 {% include "footer.html" %} {% endblock %}

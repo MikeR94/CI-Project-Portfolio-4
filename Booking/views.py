@@ -13,7 +13,10 @@ def book_now(request):
                 instance.user = request.user
                 instance.save()
             instance.save()
-        return HttpResponseRedirect("/")
+            context = {
+            "data": instance,
+        }
+        return render(request, "book-success.html", context)
     form = forms.BookingForm()
     context = {
         "form": form,
