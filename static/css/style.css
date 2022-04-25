@@ -37,6 +37,10 @@ body {
   margin-bottom: 30px;
 }
 
+.page-space {
+  min-height: calc(53vh - 40px);
+}
+
 /* Hero Section */
 
 .hero-image {
