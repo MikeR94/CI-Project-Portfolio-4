@@ -1,0 +1,27 @@
+{% extends "base.html" %} {% block content %} {% include "navbar.html" %}
+
+
+<div class="container pt-5 pb-5">
+  <div class="row">
+    <div class="col-lg-6">
+      <div class="pt-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique molestiae, aliquam dolorum vel commodi officiis culpa dolores nihil, aperiam adipisci illo dignissimos odit quidem excepturi?</div>
+    </div>
+    <div class="col-lg-6">
+      <div class="center-form">
+        <form name="reservations" class="booking-form" method="POST" action="">    
+    
+          <h3 class="mt-5 mb-5">Book your stay</h3>
+          <form method="POST">
+              {% csrf_token %}
+              <div>
+                  <p>
+                      <button type="submit">Book Now</button>
+                  </p>
+              </div>
+          </form>
+        </div>
+    </div>
+  </div>
+</div>
+
+{% include "footer.html" %} {% endblock %}
