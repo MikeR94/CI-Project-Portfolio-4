@@ -1,0 +1,125 @@
+{% extends "base.html" %} {% block content %} {% include "navbar-2.html" %}
+
+<div class="container page-space">
+  <div class="row">
+    <div class="col-12 mt-3 mb-1">
+      <h5 class="text-uppercase text-center mt-5 mb-5">Staff Dashboard</h5>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xl-3 col-sm-6 col-12 mb-4">
+      <div class="card">
+        <div class="card-body">
+          <div class="d-flex justify-content-between px-md-1">
+            <div class="align-self-center">
+              <i class="fas fa-pencil-alt text-danger fa-3x"></i>
+            </div>
+            <div class="text-end">
+              <h3>43</h3>
+              <p class="mb-0">Total Bookings</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-3 col-sm-6 col-12 mb-4">
+      <div class="card">
+        <div class="card-body">
+          <div class="d-flex justify-content-between px-md-1">
+            <div class="align-self-center">
+              <i class="fas fa-user text-info fa-3x"></i>
+            </div>
+            <div class="text-end">
+              <h3>160</h3>
+              <p class="mb-0">Total Guests</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-3 col-sm-6 col-12 mb-4">
+      <div class="card">
+        <div class="card-body">
+          <div class="d-flex justify-content-between px-md-1">
+            <div class="align-self-center">
+              <i class="far fa-comment-alt text-warning fa-3x"></i>
+            </div>
+            <div class="text-end">
+              <h3>50</h3>
+              <p class="mb-0">Total Reviews</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-3 col-sm-6 col-12 mb-4">
+      <div class="card">
+        <div class="card-body">
+          <div class="d-flex justify-content-between px-md-1">
+            <div class="align-self-center">
+              <i class="fas fa-chart-line text-success fa-3x"></i>
+            </div>
+            <div class="text-end">
+              <h3>£ 500</h3>
+              <p class="mb-0">Total Income</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+    <div class="row">
+      <div class="col-xl-3 col-sm-6 col-12 mb-4">
+        <div class="card">
+          <div class="card-body text-center">
+            <h5 class="card-title">Pending Bookings</h5>
+            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+            <form action="#" method="GET">
+              {% csrf_token %}
+              <button class="golden-button" type="submit" type="button">Click Here</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-3 col-sm-6 col-12 mb-4">
+        <div class="card">
+          <div class="card-body text-center">
+            <h5 class="card-title">Pending Reviews</h5>
+            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+            <form action="#" method="GET">
+              {% csrf_token %}
+              <button class="golden-button" type="submit" type="button">Click Here</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-3 col-sm-6 col-12 mb-4">
+        <div class="card">
+          <div class="card-body text-center">
+            <h5 class="card-title">All Bookings</h5>
+            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+            <form action="#" method="GET">
+              {% csrf_token %}
+              <button class="golden-button" type="submit" type="button">Click Here</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-3 col-sm-6 col-12 mb-4">
+        <div class="card">
+          <div class="card-body text-center">
+            <h5 class="card-title">All Reviews</h5>
+            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+            <form action="#" method="GET">
+              {% csrf_token %}
+              <button class="golden-button" type="submit" type="button">Click Here</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{% include "footer.html" %} {% endblock %}
