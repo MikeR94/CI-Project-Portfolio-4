@@ -114,6 +114,54 @@ def staff_dashboard(request):
             .filter(date_of_visit__lte=dec_end)
             .aggregate(sum=Sum("number_of_guests"))["sum"]
         )
+        jan_bookings = (
+            Booking.objects.filter(date_of_visit__gte=jan_start)
+            .filter(date_of_visit__lte=jan_end).count()
+        )
+        feb_bookings = (
+            Booking.objects.filter(date_of_visit__gte=feb_start)
+            .filter(date_of_visit__lte=feb_end).count()
+        )
+        mar_bookings = (
+            Booking.objects.filter(date_of_visit__gte=mar_start)
+            .filter(date_of_visit__lte=mar_end).count()
+        )
+        apr_bookings = (
+            Booking.objects.filter(date_of_visit__gte=apr_start)
+            .filter(date_of_visit__lte=apr_end).count()
+        )
+        may_bookings = (
+            Booking.objects.filter(date_of_visit__gte=may_start)
+            .filter(date_of_visit__lte=may_end).count()
+        )
+        jun_bookings = (
+            Booking.objects.filter(date_of_visit__gte=jun_start)
+            .filter(date_of_visit__lte=jun_end).count()
+        )
+        jul_bookings = (
+            Booking.objects.filter(date_of_visit__gte=jul_start)
+            .filter(date_of_visit__lte=jul_end).count()
+        )
+        aug_bookings = (
+            Booking.objects.filter(date_of_visit__gte=aug_start)
+            .filter(date_of_visit__lte=aug_end).count()
+        )
+        sep_bookings = (
+            Booking.objects.filter(date_of_visit__gte=sep_start)
+            .filter(date_of_visit__lte=sep_end).count()
+        )
+        oct_bookings = (
+            Booking.objects.filter(date_of_visit__gte=oct_start)
+            .filter(date_of_visit__lte=oct_end).count()
+        )
+        nov_bookings = (
+            Booking.objects.filter(date_of_visit__gte=nov_start)
+            .filter(date_of_visit__lte=nov_end).count()
+        )
+        dec_bookings = (
+            Booking.objects.filter(date_of_visit__gte=dec_start)
+            .filter(date_of_visit__lte=dec_end).count()
+        )
         context = {
             "jan_guests": jan_guests,
             "feb_guests": feb_guests,
@@ -127,6 +175,18 @@ def staff_dashboard(request):
             "oct_guests": oct_guests,
             "nov_guests": nov_guests,
             "dec_guests": dec_guests,
+            "jan_bookings": jan_bookings,
+            "feb_bookings": feb_bookings,
+            "mar_bookings": mar_bookings,
+            "apr_bookings": apr_bookings,
+            "may_bookings": may_bookings,
+            "jun_bookings": jun_bookings,
+            "jul_bookings": jul_bookings,
+            "aug_bookings": aug_bookings,
+            "sep_bookings": sep_bookings,
+            "oct_bookings": oct_bookings,
+            "nov_bookings": nov_bookings,
+            "dec_bookings": dec_bookings,
         }
         return render(request, "staff/staff-dashboard.html", context)
     return render(request, "index.html")
