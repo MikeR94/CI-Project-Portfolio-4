@@ -1,6 +1,9 @@
 from django.shortcuts import render
 from Booking.models import Booking
 from django.http import HttpResponseRedirect
+from django.core.mail import EmailMessage
+from django.conf import settings
+from django.template.loader import render_to_string
 
 # Create your views here.
 
@@ -26,6 +29,15 @@ def staff_pending_bookings(request):
 def staff_approve_booking(request, booking_id):
     next = request.POST.get("next", "/")
     booking = Booking.objects.filter(id=booking_id)
+    template = render_to_string('approved_email_template.html')
+    email = EmailMessage(
+        'Cafe Manbo - [BOOKING APPROVED]',
+        template,
+        settings.EMAIL_HOST_USER,
+        ['mikeyralph@hotmail.co.uk'],
+    )
+    email.fail_silently = False
+    email.send()
     for object in booking:
         object.booking_approved = True
         object.booking_acknowledged = True
@@ -36,6 +48,15 @@ def staff_approve_booking(request, booking_id):
 def staff_deny_booking(request, booking_id):
     next = request.POST.get("next", "/")
     booking = Booking.objects.filter(id=booking_id)
+    template = render_to_string('denied_email_template.html')
+    email = EmailMessage(
+        'Cafe Manbo - [BOOKING DENIED]',
+        template,
+        settings.EMAIL_HOST_USER,
+        ['mikeyralph@hotmail.co.uk'],
+    )
+    email.fail_silently = False
+    email.send()
     for object in booking:
         object.booking_denied = True
         object.booking_acknowledged = True
