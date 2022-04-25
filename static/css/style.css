@@ -41,6 +41,10 @@ body {
   min-height: calc(53vh - 40px);
 }
 
+.btn {
+  width: 100px !important;
+}
+
 /* Hero Section */
 
 .hero-image {
@@ -223,7 +227,7 @@ body {
   margin-right: 30px;
 }
 
-/* Booking Success Page */
+/* Table Styling */
 
 /* Courtesy of https://codepen.io/AllThingsSmitty/pen/MyqmdM */
 
