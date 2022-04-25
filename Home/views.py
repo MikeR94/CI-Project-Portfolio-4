@@ -42,91 +42,91 @@ def index(request):
 
 def staff_dashboard(request):
     if request.user.is_staff:
-        jan_count = (
+        jan_guests = (
             Booking.objects.filter(guest_attended=True)
             .filter(date_of_visit__gte=jan_start)
             .filter(date_of_visit__lte=jan_end)
             .aggregate(sum=Sum("number_of_guests"))["sum"]
         )
-        feb_count = (
+        feb_guests = (
             Booking.objects.filter(guest_attended=True)
             .filter(date_of_visit__gte=feb_start)
             .filter(date_of_visit__lte=feb_end)
             .aggregate(sum=Sum("number_of_guests"))["sum"]
         )
-        mar_count = (
+        mar_guests = (
             Booking.objects.filter(guest_attended=True)
             .filter(date_of_visit__gte=mar_start)
             .filter(date_of_visit__lte=mar_end)
             .aggregate(sum=Sum("number_of_guests"))["sum"]
         )
-        apr_count = (
+        apr_guests = (
             Booking.objects.filter(guest_attended=True)
             .filter(date_of_visit__gte=apr_start)
             .filter(date_of_visit__lte=apr_end)
             .aggregate(sum=Sum("number_of_guests"))["sum"]
         )
-        may_count = (
+        may_guests = (
             Booking.objects.filter(guest_attended=True)
             .filter(date_of_visit__gte=may_start)
             .filter(date_of_visit__lte=may_end)
             .aggregate(sum=Sum("number_of_guests"))["sum"]
         )
-        jun_count = (
+        jun_guests = (
             Booking.objects.filter(guest_attended=True)
             .filter(date_of_visit__gte=jun_start)
             .filter(date_of_visit__lte=jun_end)
             .aggregate(sum=Sum("number_of_guests"))["sum"]
         )
-        jul_count = (
+        jul_guests = (
             Booking.objects.filter(guest_attended=True)
             .filter(date_of_visit__gte=jul_start)
             .filter(date_of_visit__lte=jul_end)
             .aggregate(sum=Sum("number_of_guests"))["sum"]
         )
-        aug_count = (
+        aug_guests = (
             Booking.objects.filter(guest_attended=True)
             .filter(date_of_visit__gte=aug_start)
             .filter(date_of_visit__lte=aug_end)
             .aggregate(sum=Sum("number_of_guests"))["sum"]
         )
-        sep_count = (
+        sep_guests = (
             Booking.objects.filter(guest_attended=True)
             .filter(date_of_visit__gte=sep_start)
             .filter(date_of_visit__lte=sep_end)
             .aggregate(sum=Sum("number_of_guests"))["sum"]
         )
-        oct_count = (
+        oct_guests = (
             Booking.objects.filter(guest_attended=True)
             .filter(date_of_visit__gte=oct_start)
             .filter(date_of_visit__lte=oct_end)
             .aggregate(sum=Sum("number_of_guests"))["sum"]
         )
-        nov_count = (
+        nov_guests = (
             Booking.objects.filter(guest_attended=True)
             .filter(date_of_visit__gte=nov_start)
             .filter(date_of_visit__lte=nov_end)
             .aggregate(sum=Sum("number_of_guests"))["sum"]
         )
-        dec_count = (
+        dec_guests = (
             Booking.objects.filter(guest_attended=True)
             .filter(date_of_visit__gte=dec_start)
             .filter(date_of_visit__lte=dec_end)
             .aggregate(sum=Sum("number_of_guests"))["sum"]
         )
         context = {
-            "jan_count": jan_count,
-            "feb_count": feb_count,
-            "mar_count": mar_count,
-            "apr_count": apr_count,
-            "may_count": may_count,
-            "jun_count": jun_count,
-            "jul_count": jul_count,
-            "aug_count": aug_count,
-            "sep_count": sep_count,
-            "oct_count": oct_count,
-            "nov_count": nov_count,
-            "dec_count": dec_count,
+            "jan_guests": jan_guests,
+            "feb_guests": feb_guests,
+            "mar_guests": mar_guests,
+            "apr_guests": apr_guests,
+            "may_guests": may_guests,
+            "jun_guests": jun_guests,
+            "jul_guests": jul_guests,
+            "aug_guests": aug_guests,
+            "sep_guests": sep_guests,
+            "oct_guests": oct_guests,
+            "nov_guests": nov_guests,
+            "dec_guests": dec_guests,
         }
         return render(request, "staff/staff-dashboard.html", context)
     return render(request, "index.html")
