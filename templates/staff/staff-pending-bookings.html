@@ -1,0 +1,41 @@
+{% extends "base.html" %} {% block content %} {% include "navbar-2.html" %}
+
+<section class="container page-space pt-5 pb-5">
+  <table class="table table_id pt-5 text-center">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Contact Number</th>
+        <th scope="col">Date</th>
+        <th scope="col">Time</th>
+        <th scope="col">Size</th>
+        <th scope="col">Ref Number</th>
+        <th scope="col">Approve</th>
+        <th scope="col">Deny</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for booking in pending_bookings %}
+      <tr>
+        <td data-label="Name">{{ booking.first_name }} {{ booking.last_name }}</td>
+        <td data-label="Contact Number">{{ booking.contact_number }}</td>
+        <td data-label="Date">{{ booking.date_of_visit }}</td>
+        <td data-label="Time">{{ booking.time_of_visit }}</td>
+        <td data-label="Size">{{ booking.number_of_guests }}</td>
+        <td data-label="Ref Number">{{ booking.ref_number }}</td>
+        <form action="#" method="POST">
+          <input type="hidden" name="next" value="{{request.path}}">
+          <td data-label="Approve"><button type="submit" class="btn btn-success">Approve</button></td>
+          {% csrf_token %}
+        </form>
+        <form action="#" method="GET">
+          {% csrf_token %}
+          <td data-label="Deny"><button type="submit" class="btn btn-danger">Deny</button></td>
+        </form>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</section>
+
+{% include "footer.html" %} {% endblock %}

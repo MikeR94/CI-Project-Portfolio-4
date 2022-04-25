@@ -1,0 +1,58 @@
+{% extends "base.html" %} {% block content %} {% include "navbar-2.html" %}
+
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css">
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
+
+
+<section class="container page-space pt-5 pb-5">
+  <table class="table table_id pt-5 text-center">
+    <thead>
+      <tr>
+        <th scope="col">First Name</th>
+        <th scope="col">Last Name</th>
+        <th scope="col">Contact Number</th>
+        <th scope="col">Date</th>
+        <th scope="col">Time</th>
+        <th scope="col">Size</th>
+        <th scope="col">Ref Number</th>
+        <th scope="col">Check In</th>
+        <th scope="col">Edit Booking</th>
+        <th scope="col">Payment</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for booking in pending_bookings %}
+      <tr>
+        <td data-label="First Name">{{ booking.first_name }}</td>
+        <td data-label="Last Name">{{ booking.last_name }}</td>
+        <td data-label="Contact Number">{{ booking.contact_number }}</td>
+        <td data-label="Date">{{ booking.date_of_visit }}</td>
+        <td data-label="Time">{{ booking.time_of_visit }}</td>
+        <td data-label="Size">{{ booking.number_of_guests }}</td>
+        <td data-label="Ref Number">{{ booking.ref_number }}</td>
+        <form action="#" method="POST">
+          <input type="hidden" name="next" value="{{request.path}}">
+          <td data-label="Check In"><button type="submit" class="btn btn-sm btn-success">Check In</button></td>
+          {% csrf_token %}
+        </form>
+        <form action="#" method="GET">
+          {% csrf_token %}
+          <td data-label="Edit Booking"><button type="submit" class="btn btn-sm btn-warning">Edit</button></td>
+        </form>
+        <form action="#}" method="GET">
+          {% csrf_token %}
+          <td data-label="Payment"><button type="submit" class="btn btn-sm btn-primary">Payment</button></td>
+        </form>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</section>
+
+<script>
+  $(document).ready(function () {
+    $(".table_id").DataTable();
+  });
+</script>
+
+{% include "footer.html" %} {% endblock %}
