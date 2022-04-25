@@ -59,4 +59,66 @@
   </div>
 </section>
 
+<!-- Review Cards Section -->
+
+<section class="p-5 bg-dark">
+  <div class="container">
+    <h2 class="text-center title-text mb-5">A word from our beloved guests</h2>
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-3">
+        <div class="card bg-light">
+          <div class="card-body text-center">
+            <img src="{% static 'images/book-now-image.jpg'%}" class="review-profile-image mb-3" alt="Logo image" />
+            <h3 class="review-title-text mb-3">Mike Ralph</h3>
+            <p class="review-body-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officiis, nobis. Eaque exercitationem harum reprehenderit nihil laboriosam distinctio voluptas consequuntur repellat.</p>
+            <form action="#" method="GET">
+              {% csrf_token %}
+              <button class="golden-button" type="submit">Read More</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <div class="card bg-light">
+          <div class="card-body text-center">
+            <img src="{% static 'images/book-now-image.jpg'%}" class="review-profile-image mb-3" alt="Logo image" />
+            <h3 class="review-title-text mb-3">Jack Ralph</h3>
+            <p class="review-body-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officiis, nobis. Eaque exercitationem harum reprehenderit nihil laboriosam distinctio voluptas consequuntur repellat.</p>
+            <form action="#" method="GET">
+              {% csrf_token %}
+              <button class="golden-button" type="submit">Read More</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <div class="card bg-light">
+          <div class="card-body text-center">
+            <img src="{% static 'images/book-now-image.jpg'%}" class="review-profile-image mb-3" alt="Logo image" />
+            <h3 class="review-title-text mb-3">Lynn Manby</h3>
+            <p class="review-body-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officiis, nobis. Eaque exercitationem harum reprehenderit nihil laboriosam distinctio voluptas consequuntur repellat.</p>
+            <form action="#" method="GET">
+              {% csrf_token %}
+              <button class="golden-button" type="submit">Read More</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <div class="card bg-light">
+          <div class="card-body text-center">
+            <img src="{% static 'images/book-now-image.jpg'%}" class="review-profile-image mb-3" alt="Logo image" />
+            <h3 class="review-title-text mb-3">Craig Manby</h3>
+            <p class="review-body-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officiis, nobis. Eaque exercitationem harum reprehenderit nihil laboriosam distinctio voluptas consequuntur repellat.</p>
+            <form action="#" method="GET">
+              {% csrf_token %}
+              <button class="golden-button" type="submit">Read More</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 {% include "footer.html" %} {% endblock content %}

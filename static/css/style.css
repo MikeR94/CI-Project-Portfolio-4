@@ -181,6 +181,30 @@ body {
   width: 100%;
 }
 
+/* Review Cards Section */
+
+.review-profile-image {
+  height: 50px;
+  width: 50px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.review-title-text {
+  font-family: "Oswald", sans-serif;
+  color: #9c8300;
+  margin-bottom: 50px;
+  font-size: 25px;
+}
+
+.review-body-text {
+  font-family: "Roboto", sans-serif;
+  color: black;
+  font-size: 16px;
+  margin-bottom: 30px;
+}
+
 /* Footer Section */
 
 .footer-links a {
