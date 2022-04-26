@@ -71,7 +71,7 @@
     </div>
   </div>
     <div class="row">
-      <div class="col-xl-3 col-sm-6 col-12 mb-4">
+      <div class="col-xl-3 col-sm-6 col-12">
         <div class="card">
           <div class="card-body text-center">
             <h5 class="card-title">Pending Bookings</h5>
@@ -117,6 +117,128 @@
               <button class="golden-button" type="submit" type="button">Click Here</button>
             </form>
           </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="accordion accordion-flush" id="accordionFlushExample">
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="flush-headingOne">
+        <button
+          class="accordion-button collapsed"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#flush-collapseOne"
+          aria-expanded="false"
+          aria-controls="flush-collapseOne"
+        >
+        <p class="body-text"> Pending Bookings - {% if pending_bookings_count == 0%} No bookings {% else %} {{ pending_bookings_count }} pending booking(s) to be reviewed {% endif %}</p>
+        </button>
+      </h2>
+      <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+        <div class="accordion-body">
+          <table class="table table_id pt-5 text-center">
+            <thead>
+              {% if pending_bookings %}
+              <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Contact Number</th>
+                <th scope="col">Date</th>
+                <th scope="col">Time</th>
+                <th scope="col">Size</th>
+                <th scope="col">Ref Number</th>
+                <th scope="col">Approve</th>
+                <th scope="col">Deny</th>
+              </tr>
+              {% else %}
+              <p class="body-text">No pending bookings found</p>
+              {% endif %}
+            </thead>
+            <tbody>
+              {% for booking in pending_bookings %}
+              <tr>
+                <td data-label="Name">{{ booking.first_name }} {{ booking.last_name }}</td>
+                <td data-label="Contact Number">{{ booking.contact_number }}</td>
+                <td data-label="Date">{{ booking.date_of_visit }}</td>
+                <td data-label="Time">{{ booking.time_of_visit }}</td>
+                <td data-label="Size">{{ booking.number_of_guests }}</td>
+                <td data-label="Ref Number">{{ booking.ref_number }}</td>
+                <form action="approve-booking/{{ booking.id }}" method="POST">
+                  <input type="hidden" name="next" value="{{request.path}}">
+                  <td data-label="Approve"><button type="submit" class="btn btn-success">Approve</button></td>
+                  {% csrf_token %}
+                </form>
+                <form action="deny-booking/{{ booking.id }}" method="POST">
+                    <input type="hidden" name="next" value="{{request.path}}">
+                  {% csrf_token %}
+                  <td data-label="Deny"><button type="submit" class="btn btn-danger">Deny</button></td>
+                </form>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="flush-headingTwo">
+        <button
+          class="accordion-button collapsed"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#flush-collapseTwo"
+          aria-expanded="false"
+          aria-controls="flush-collapseTwo"
+        >
+        <p class="body-text"> Pending Bookings - {% if pending_bookings_count == 0%} No bookings {% else %} {{ pending_bookings_count }} pending booking(s) to be reviewed {% endif %}</p>
+        </button>
+      </h2>
+      <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+        <div class="accordion-body">
+          <table class="table table_id pt-5 text-center">
+            <thead>
+              {% if pending_bookings %}
+              <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Contact Number</th>
+                <th scope="col">Date</th>
+                <th scope="col">Time</th>
+                <th scope="col">Size</th>
+                <th scope="col">Ref Number</th>
+                <th scope="col">Approve</th>
+                <th scope="col">Deny</th>
+              </tr>
+              {% else %}
+              <p class="body-text">No pending bookings found</p>
+              {% endif %}
+            </thead>
+            <tbody>
+              {% for booking in pending_bookings %}
+              <tr>
+                <td data-label="Name">{{ booking.first_name }} {{ booking.last_name }}</td>
+                <td data-label="Contact Number">{{ booking.contact_number }}</td>
+                <td data-label="Date">{{ booking.date_of_visit }}</td>
+                <td data-label="Time">{{ booking.time_of_visit }}</td>
+                <td data-label="Size">{{ booking.number_of_guests }}</td>
+                <td data-label="Ref Number">{{ booking.ref_number }}</td>
+                <form action="approve-booking/{{ booking.id }}" method="POST">
+                  <input type="hidden" name="next" value="{{request.path}}">
+                  <td data-label="Approve"><button type="submit" class="btn btn-success">Approve</button></td>
+                  {% csrf_token %}
+                </form>
+                <form action="deny-booking/{{ booking.id }}" method="POST">
+                    <input type="hidden" name="next" value="{{request.path}}">
+                  {% csrf_token %}
+                  <td data-label="Deny"><button type="submit" class="btn btn-danger">Deny</button></td>
+                </form>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
         </div>
       </div>
     </div>

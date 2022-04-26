@@ -156,6 +156,8 @@ def staff_dashboard(request):
             Booking.objects.filter(date_of_visit__gte=dec_start)
             .filter(date_of_visit__lte=dec_end).count()
         )
+        pending_bookings = Booking.objects.filter(booking_acknowledged=False)
+        pending_bookings_count = Booking.objects.filter(booking_acknowledged=False).count()
         context = {
             "jan_guests": jan_guests,
             "feb_guests": feb_guests,
@@ -181,6 +183,8 @@ def staff_dashboard(request):
             "oct_bookings": oct_bookings,
             "nov_bookings": nov_bookings,
             "dec_bookings": dec_bookings,
+            'pending_bookings': pending_bookings,
+            'pending_bookings_count': pending_bookings_count,
         }
         return render(request, "staff_dashboard.html", context)
     return render(request, "index.html")
