@@ -15,9 +15,9 @@ def book_now(request):
             context = {
             "data": instance,
         }
-        return render(request, "book-success.html", context)
+        return render(request, "book_success.html", context)
     form = forms.BookingForm()
     context = {
         "form": form,
         }
-    return render(request, "book-now.html", context)
+    return render(request, "book_now.html", context)

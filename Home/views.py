@@ -188,7 +188,7 @@ def staff_dashboard(request):
             "nov_bookings": nov_bookings,
             "dec_bookings": dec_bookings,
         }
-        return render(request, "staff/staff-dashboard.html", context)
+        return render(request, "staff/staff_dashboard.html", context)
     return render(request, "index.html")
 
 
@@ -198,7 +198,7 @@ def staff_pending_bookings(request):
         context = {
             "pending_bookings": pending_bookings,
         }
-        return render(request, "staff/staff-pending-bookings.html", context)
+        return render(request, "staff/staff_pending_bookings.html", context)
 
 
 def staff_approve_booking(request, booking_id):

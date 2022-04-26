@@ -29,7 +29,7 @@
             <a class="nav-link pt-2" href="#">Our Menu</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link pt-2" href="{% url 'book-now' %}">Book Now</a>
+            <a class="nav-link pt-2" href="{% url 'book_now' %}">Book Now</a>
           </li>
           <li class="nav-item">
             <a class="nav-link pt-2" href="#">Contact</a>
@@ -47,7 +47,7 @@
             <ul class="dropdown-menu text-center" aria-labelledby="navbarDropdown">
               {% if request.user.is_authenticated %}
                 {% if request.user.is_staff %}
-                <li><a class="dropdown-item" href="{% url 'staff-dashboard' %}">Staff Dashboard</a></li>
+                <li><a class="dropdown-item" href="{% url 'staff_dashboard' %}">Staff Dashboard</a></li>
                 {% endif %}
                 <li><a class="dropdown-item" href="#">My Reservations</a></li>
                 <li><a class="dropdown-item" href="#">Write A Review</a></li>
