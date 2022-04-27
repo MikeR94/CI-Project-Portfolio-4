@@ -1,0 +1,29 @@
+{% extends "base.html" %} {% block content %} {% include "staff_navbar.html" %}
+
+
+<div class="col-9 ps-5 mt-5">
+  <div class="card p-3">
+    <div class="row align-items-center justify-content-center" data-aos="fade-up">
+      {% if pending_reviews %} {% else %}
+      <h5>No reviews to approve or deny</h5>
+      {% endif %} {% for review in pending_reviews %}
+      <h6>
+        {{ review.first_name }} {{ review.last_name }} - <i> ({{ review.user.username }}) </i> -
+        <i style="color: red" class="fas fa-exclamation"> Not Approved</i>
+      </h6>
+      <p>{{ review.body }}</p>
+      <p><i>{{ review.created_on }}</i></p>
+      <form action="approve/{{ review.id }}" method="POST">
+        <button type="submit" class="btn btn-sm btn-success mb-2">Approve</button>
+        {% csrf_token %}
+      </form>
+      <form action="delete/{{ review.id }}" method="POST">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-sm btn-danger mb-2">Deny</button>
+      </form>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% endblock %}

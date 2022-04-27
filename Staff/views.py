@@ -199,9 +199,13 @@ def staff_pending_bookings(request):
     if request.user.is_staff:
         pending_bookings_count = Booking.objects.filter(booking_acknowledged=False).count()
         pending_bookings = Booking.objects.filter(booking_acknowledged=False)
+        pending_reviews_count = Review.objects.filter(approved=False).count()
+        pending_reviews = Review.objects.filter(approved=False)
         context = {
             "pending_bookings": pending_bookings,
-            "pending_bookings_count": pending_bookings_count
+            "pending_bookings_count": pending_bookings_count,
+            "pending_reviews": pending_reviews,
+            "pending_reviews_count": pending_reviews_count,
         }
         return render(request, "staff_pending_bookings.html", context)
 
@@ -242,3 +246,18 @@ def staff_deny_booking(request, booking_id):
         object.booking_acknowledged = True
         object.save()
     return HttpResponseRedirect(next)
+
+
+def staff_pending_reviews(request):
+    if request.user.is_staff:
+        pending_reviews_count = Review.objects.filter(approved=False).count()
+        pending_reviews = Review.objects.filter(approved=False)
+        pending_bookings_count = Booking.objects.filter(booking_acknowledged=False).count()
+        pending_bookings = Booking.objects.filter(booking_acknowledged=False)
+        context = {
+            "pending_reviews": pending_reviews,
+            "pending_reviews_count": pending_reviews_count,
+            "pending_bookings": pending_bookings,
+            "pending_bookings_count": pending_bookings_count,
+        }
+        return render(request, "staff_pending_reviews.html", context)
