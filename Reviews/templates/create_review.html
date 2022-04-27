@@ -1,0 +1,24 @@
+{% extends "base.html" %} {% block content %}
+
+{% include "navbar_2.html" %}
+
+{% load crispy_forms_tags %}
+
+
+<section class="container mt-5 page_space">
+    <div class="row align-items-center justify-content-center" data-aos="fade-up">
+      <form method="POST">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <div>
+            <p>
+                <button type="submit" class="golden-button">Submit</button>
+            </p>
+        </div>
+    </form>
+</section>
+
+{% include "footer.html" %}
+  
+ 
+{% endblock %}
