@@ -314,6 +314,28 @@ table th {
   color: red;
 }
 
+.fixed-sidebar{
+  width: 150px;
+}
+
+.staff-nav-bar-logo {
+  color: #9c8300 !important;
+  font-family: "Oswald", sans-serif;
+  font-size: 30px;
+  font-weight: 400;
+}
+
+.nav-link i, span {
+  color: white;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-size: 18px;
+}
+
+.nav-link span:hover {
+  color: #9c8300 !important;
+}
+
 /* Footer Section */
 
 .footer-links a {
