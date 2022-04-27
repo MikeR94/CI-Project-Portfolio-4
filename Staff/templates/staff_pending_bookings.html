@@ -1,6 +1,7 @@
-{% extends "base.html" %} {% block content %} {% include "navbar_2.html" %}
+{% extends "base.html" %} {% block content %} {% include "staff_navbar.html" %}
 
-<section class="container page-space pt-5 pb-5">
+
+<div class="col-9 ps-5">
   <table class="table table_id pt-5 text-center">
     <thead>
       <tr>
@@ -37,6 +38,7 @@
       {% endfor %}
     </tbody>
   </table>
-</section>
+</div>
 
-{% include "footer.html" %} {% endblock %}
+
+{% endblock %}

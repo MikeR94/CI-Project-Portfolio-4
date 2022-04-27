@@ -197,9 +197,11 @@ def staff_dashboard(request):
 
 def staff_pending_bookings(request):
     if request.user.is_staff:
+        pending_bookings_count = Booking.objects.filter(booking_acknowledged=False).count()
         pending_bookings = Booking.objects.filter(booking_acknowledged=False)
         context = {
             "pending_bookings": pending_bookings,
+            "pending_bookings_count": pending_bookings_count
         }
         return render(request, "staff_pending_bookings.html", context)
 

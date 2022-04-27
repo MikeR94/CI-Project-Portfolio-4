@@ -263,7 +263,7 @@ table th {
   text-transform: uppercase;
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1150px) {
   table {
     border: 0;
   }
@@ -312,6 +312,10 @@ table th {
 
 .red-exclamation {
   color: red;
+}
+
+.disable-hover {
+  pointer-events: none;
 }
 
 .fixed-sidebar{
