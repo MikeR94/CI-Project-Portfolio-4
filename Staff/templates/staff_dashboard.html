@@ -7,6 +7,12 @@
   referrerpolicy="no-referrer"
 ></script>
 
+<link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"
+  />
+
+
 <div class="container">
   <div class="row">
     <div class="col-12 mt-3 mb-1">
@@ -75,249 +81,158 @@
       </div>
     </div>
   </div>
-</div>
-
-<div class="container">
-  <div class="accordion accordion-flush" id="accordionFlushExample">
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="flush-headingOne">
-        <button
-          class="accordion-button collapsed"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#flush-collapseOne"
-          aria-expanded="false"
-          aria-controls="flush-collapseOne"
-        >
-          <p class="body-text">
-            Pending Bookings - {% if pending_bookings_count == 0%} No bookings {% else %} {{ pending_bookings_count }} pending booking(s) to be reviewed {% endif %}
-          </p>
-        </button>
-      </h2>
-      <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-        <div class="accordion-body">
-          <table class="table table_id pt-5 text-center">
-            <thead>
-              {% if pending_bookings %}
-              <tr>
-                <th scope="col">Name</th>
-                <th scope="col">Contact Number</th>
-                <th scope="col">Date</th>
-                <th scope="col">Time</th>
-                <th scope="col">Size</th>
-                <th scope="col">Ref Number</th>
-                <th scope="col">Approve</th>
-                <th scope="col">Deny</th>
-              </tr>
-              {% else %}
-              <p class="body-text">No pending bookings found</p>
-              {% endif %}
-            </thead>
-            <tbody>
-              {% for booking in pending_bookings %}
-              <tr>
-                <td data-label="Name">{{ booking.first_name }} {{ booking.last_name }}</td>
-                <td data-label="Contact Number">{{ booking.contact_number }}</td>
-                <td data-label="Date">{{ booking.date_of_visit }}</td>
-                <td data-label="Time">{{ booking.time_of_visit }}</td>
-                <td data-label="Size">{{ booking.number_of_guests }}</td>
-                <td data-label="Ref Number">{{ booking.ref_number }}</td>
-                <form action="approve-booking/{{ booking.id }}" method="POST">
-                  <input type="hidden" name="next" value="{{request.path}}" />
-                  <td data-label="Approve"><button type="submit" class="btn btn-success">Approve</button></td>
-                  {% csrf_token %}
-                </form>
-                <form action="deny-booking/{{ booking.id }}" method="POST">
-                  <input type="hidden" name="next" value="{{request.path}}" />
-                  {% csrf_token %}
-                  <td data-label="Deny"><button type="submit" class="btn btn-danger">Deny</button></td>
-                </form>
-              </tr>
-              {% endfor %}
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-    <br />
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="flush-headingTwo">
-        <button
-          class="accordion-button collapsed"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#flush-collapseTwo"
-          aria-expanded="false"
-          aria-controls="flush-collapseTwo"
-        >
-          <p class="body-text">
-            Pending Reviews - {% if pending_reviews_count == 0%} No reviews {% else %} {{ pending_reviews_count }} pending review(s) to be reviewed {% endif %}
-          </p>
-        </button>
-      </h2>
-      <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
-        <div class="accordion-body">
-          <div class="row align-items-center justify-content-center" data-aos="fade-up">
-            {% for review in pending_reviews %}
-            <h6>
-              {{ review.first_name }} {{ review.last_name }} - <i> ({{ review.user.username }}) </i> -
-              <i class="fas fa-exclamation red-exclamation"> Not Approved</i>
-            </h6>
-            <p>{{ review.body }}</p>
-            <p><i>{{ review.created_on }}</i></p>
-            <form action="#" method="POST">
-              <button type="submit" class="btn btn-sm btn-success mb-2">Approve</button>
-              {% csrf_token %}
-            </form>
-            <form action="#" method="POST">
-              {% csrf_token %}
-              <button type="submit" class="btn btn-sm btn-danger mb-2">Deny</button>
-            </form>
-            <hr />
-            {% endfor %}
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="container">
   <div class="row">
-    <div class="col-xl-6 col-lg-12">
-      <canvas id="myChart" width="300" height="200"></canvas>
+    <div class="col-md-6 mb-3">
+      <div class="card h-100">
+        <div class="card-header">
+          <span class="me-2"><i class="bi bi-bar-chart-fill"></i></span>
+          Area Chart Example
+        </div>
+        <div class="card-body">
+          <canvas id="myChart" width="400" height="200"></canvas>
+        </div>
+      </div>
     </div>
-    <div class="col-xl-6 col-lg-12">
-      <canvas id="myChart2" width="300" height="200"></canvas>
+    <div class="col-md-6 mb-3">
+      <div class="card h-100">
+        <div class="card-header">
+          <span class="me-2"><i class="bi bi-bar-chart-fill"></i></span>
+          Area Chart Example
+        </div>
+        <div class="card-body">
+          <canvas id="myChart2" width="400" height="200"></canvas>
+        </div>
+      </div>
     </div>
   </div>
 </div>
 
-<script>
-  const ctx = document.getElementById("myChart").getContext("2d");
-  const myChart = new Chart(ctx, {
-    type: "bar",
-    data: {
-      labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
-      datasets: [
-        {
-          label: "Number of guests attended per month for 2022",
-          data: [
-            "{{jan_guests}}",
-            "{{feb_guests}}",
-            "{{mar_guests}}",
-            "{{apr_guests}}",
-            "{{may_guests}}",
-            "{{jun_guests}}",
-            "{{jul_guests}}",
-            "{{aug_guests}}",
-            "{{sep_guests}}",
-            "{{oct_guests}}",
-            "{{nov_guests}}",
-            "{{dec_guests}}",
-          ],
-          backgroundColor: [
-            "rgba(255, 99, 132, 0.2)",
-            "rgba(54, 162, 235, 0.2)",
-            "rgba(255, 206, 86, 0.2)",
-            "rgba(75, 192, 192, 0.2)",
-            "rgba(153, 102, 255, 0.2)",
-            "rgba(255, 159, 64, 0.2)",
-            "rgba(255, 99, 132, 0.2)",
-            "rgba(54, 162, 235, 0.2)",
-            "rgba(255, 206, 86, 0.2)",
-            "rgba(75, 192, 192, 0.2)",
-            "rgba(153, 102, 255, 0.2)",
-            "rgba(255, 159, 64, 0.2)",
-          ],
-          borderColor: [
-            "rgba(255, 99, 132, 1)",
-            "rgba(54, 162, 235, 1)",
-            "rgba(255, 206, 86, 1)",
-            "rgba(75, 192, 192, 1)",
-            "rgba(153, 102, 255, 1)",
-            "rgba(255, 159, 64, 1)",
-            "rgba(255, 99, 132, 1)",
-            "rgba(54, 162, 235, 1)",
-            "rgba(255, 206, 86, 1)",
-            "rgba(75, 192, 192, 1)",
-            "rgba(153, 102, 255, 1)",
-            "rgba(255, 159, 64, 1)",
-          ],
-          borderWidth: 1,
-        },
-      ],
-    },
-    options: {
-      scales: {
-        y: {
-          beginAtZero: true,
+  <script>
+    const ctx = document.getElementById("myChart").getContext("2d");
+    const myChart = new Chart(ctx, {
+      type: "bar",
+      data: {
+        labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+        datasets: [
+          {
+            label: "Number of guests attended per month for 2022",
+            data: [
+              "{{jan_guests}}",
+              "{{feb_guests}}",
+              "{{mar_guests}}",
+              "{{apr_guests}}",
+              "{{may_guests}}",
+              "{{jun_guests}}",
+              "{{jul_guests}}",
+              "{{aug_guests}}",
+              "{{sep_guests}}",
+              "{{oct_guests}}",
+              "{{nov_guests}}",
+              "{{dec_guests}}",
+            ],
+            backgroundColor: [
+              "rgba(255, 99, 132, 0.2)",
+              "rgba(54, 162, 235, 0.2)",
+              "rgba(255, 206, 86, 0.2)",
+              "rgba(75, 192, 192, 0.2)",
+              "rgba(153, 102, 255, 0.2)",
+              "rgba(255, 159, 64, 0.2)",
+              "rgba(255, 99, 132, 0.2)",
+              "rgba(54, 162, 235, 0.2)",
+              "rgba(255, 206, 86, 0.2)",
+              "rgba(75, 192, 192, 0.2)",
+              "rgba(153, 102, 255, 0.2)",
+              "rgba(255, 159, 64, 0.2)",
+            ],
+            borderColor: [
+              "rgba(255, 99, 132, 1)",
+              "rgba(54, 162, 235, 1)",
+              "rgba(255, 206, 86, 1)",
+              "rgba(75, 192, 192, 1)",
+              "rgba(153, 102, 255, 1)",
+              "rgba(255, 159, 64, 1)",
+              "rgba(255, 99, 132, 1)",
+              "rgba(54, 162, 235, 1)",
+              "rgba(255, 206, 86, 1)",
+              "rgba(75, 192, 192, 1)",
+              "rgba(153, 102, 255, 1)",
+              "rgba(255, 159, 64, 1)",
+            ],
+            borderWidth: 1,
+          },
+        ],
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true,
+          },
         },
       },
-    },
-  });
-  const ctx2 = document.getElementById("myChart2").getContext("2d");
-  const myChart2 = new Chart(ctx2, {
-    type: "bar",
-    data: {
-      labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
-      datasets: [
-        {
-          label: "Number of bookings per month for 2022",
-          data: [
-            "{{jan_bookings}}",
-            "{{feb_bookings}}",
-            "{{mar_bookings}}",
-            "{{apr_bookings}}",
-            "{{may_bookings}}",
-            "{{jun_bookings}}",
-            "{{jul_bookings}}",
-            "{{aug_bookings}}",
-            "{{sep_bookings}}",
-            "{{oct_bookings}}",
-            "{{nov_bookings}}",
-            "{{dec_bookings}}",
-          ],
-          backgroundColor: [
-            "rgba(255, 99, 132, 0.2)",
-            "rgba(54, 162, 235, 0.2)",
-            "rgba(255, 206, 86, 0.2)",
-            "rgba(75, 192, 192, 0.2)",
-            "rgba(153, 102, 255, 0.2)",
-            "rgba(255, 159, 64, 0.2)",
-            "rgba(255, 99, 132, 0.2)",
-            "rgba(54, 162, 235, 0.2)",
-            "rgba(255, 206, 86, 0.2)",
-            "rgba(75, 192, 192, 0.2)",
-            "rgba(153, 102, 255, 0.2)",
-            "rgba(255, 159, 64, 0.2)",
-          ],
-          borderColor: [
-            "rgba(255, 99, 132, 1)",
-            "rgba(54, 162, 235, 1)",
-            "rgba(255, 206, 86, 1)",
-            "rgba(75, 192, 192, 1)",
-            "rgba(153, 102, 255, 1)",
-            "rgba(255, 159, 64, 1)",
-            "rgba(255, 99, 132, 1)",
-            "rgba(54, 162, 235, 1)",
-            "rgba(255, 206, 86, 1)",
-            "rgba(75, 192, 192, 1)",
-            "rgba(153, 102, 255, 1)",
-            "rgba(255, 159, 64, 1)",
-          ],
-          borderWidth: 1,
-        },
-      ],
-    },
-    options: {
-      scales: {
-        y: {
-          beginAtZero: true,
+    });
+    const ctx2 = document.getElementById("myChart2").getContext("2d");
+    const myChart2 = new Chart(ctx2, {
+      type: "bar",
+      data: {
+        labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+        datasets: [
+          {
+            label: "Number of bookings per month for 2022",
+            data: [
+              "{{jan_bookings}}",
+              "{{feb_bookings}}",
+              "{{mar_bookings}}",
+              "{{apr_bookings}}",
+              "{{may_bookings}}",
+              "{{jun_bookings}}",
+              "{{jul_bookings}}",
+              "{{aug_bookings}}",
+              "{{sep_bookings}}",
+              "{{oct_bookings}}",
+              "{{nov_bookings}}",
+              "{{dec_bookings}}",
+            ],
+            backgroundColor: [
+              "rgba(255, 99, 132, 0.2)",
+              "rgba(54, 162, 235, 0.2)",
+              "rgba(255, 206, 86, 0.2)",
+              "rgba(75, 192, 192, 0.2)",
+              "rgba(153, 102, 255, 0.2)",
+              "rgba(255, 159, 64, 0.2)",
+              "rgba(255, 99, 132, 0.2)",
+              "rgba(54, 162, 235, 0.2)",
+              "rgba(255, 206, 86, 0.2)",
+              "rgba(75, 192, 192, 0.2)",
+              "rgba(153, 102, 255, 0.2)",
+              "rgba(255, 159, 64, 0.2)",
+            ],
+            borderColor: [
+              "rgba(255, 99, 132, 1)",
+              "rgba(54, 162, 235, 1)",
+              "rgba(255, 206, 86, 1)",
+              "rgba(75, 192, 192, 1)",
+              "rgba(153, 102, 255, 1)",
+              "rgba(255, 159, 64, 1)",
+              "rgba(255, 99, 132, 1)",
+              "rgba(54, 162, 235, 1)",
+              "rgba(255, 206, 86, 1)",
+              "rgba(75, 192, 192, 1)",
+              "rgba(153, 102, 255, 1)",
+              "rgba(255, 159, 64, 1)",
+            ],
+            borderWidth: 1,
+          },
+        ],
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true,
+          },
         },
       },
-    },
-  });
-</script>
+    });
+  </script>
 
-{% include "footer.html" %} {% endblock %}
+  {% include "footer.html" %} {% endblock %}
+</main>
