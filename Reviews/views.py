@@ -15,7 +15,9 @@ def create_review(request):
                 instance.save()
             return HttpResponseRedirect("/")
         form = forms.ReviewForm()
-        context = {"form": form}
+        context = {
+            "form": form,
+            }
         return render(request, "create_review.html", context)
     else:
         return HttpResponseRedirect("/")

@@ -308,6 +308,12 @@ table th {
   }
 }
 
+/* Staff Dashboard */
+
+.red-exclamation {
+  color: red;
+}
+
 /* Footer Section */
 
 .footer-links a {

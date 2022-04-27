@@ -194,51 +194,26 @@
           aria-expanded="false"
           aria-controls="flush-collapseTwo"
         >
-        <p class="body-text"> Pending Bookings - {% if pending_bookings_count == 0%} No bookings {% else %} {{ pending_bookings_count }} pending booking(s) to be reviewed {% endif %}</p>
+        <p class="body-text"> Pending Reviews - {% if pending_reviews_count == 0%} No reviews {% else %} {{ pending_reviews_count }} pending review(s) to be reviewed {% endif %}</p>
         </button>
       </h2>
       <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
         <div class="accordion-body">
-          <table class="table table_id pt-5 text-center">
-            <thead>
-              {% if pending_bookings %}
-              <tr>
-                <th scope="col">Name</th>
-                <th scope="col">Contact Number</th>
-                <th scope="col">Date</th>
-                <th scope="col">Time</th>
-                <th scope="col">Size</th>
-                <th scope="col">Ref Number</th>
-                <th scope="col">Approve</th>
-                <th scope="col">Deny</th>
-              </tr>
-              {% else %}
-              <p class="body-text">No pending bookings found</p>
-              {% endif %}
-            </thead>
-            <tbody>
-              {% for booking in pending_bookings %}
-              <tr>
-                <td data-label="Name">{{ booking.first_name }} {{ booking.last_name }}</td>
-                <td data-label="Contact Number">{{ booking.contact_number }}</td>
-                <td data-label="Date">{{ booking.date_of_visit }}</td>
-                <td data-label="Time">{{ booking.time_of_visit }}</td>
-                <td data-label="Size">{{ booking.number_of_guests }}</td>
-                <td data-label="Ref Number">{{ booking.ref_number }}</td>
-                <form action="approve-booking/{{ booking.id }}" method="POST">
-                  <input type="hidden" name="next" value="{{request.path}}">
-                  <td data-label="Approve"><button type="submit" class="btn btn-success">Approve</button></td>
-                  {% csrf_token %}
-                </form>
-                <form action="deny-booking/{{ booking.id }}" method="POST">
-                    <input type="hidden" name="next" value="{{request.path}}">
-                  {% csrf_token %}
-                  <td data-label="Deny"><button type="submit" class="btn btn-danger">Deny</button></td>
-                </form>
-              </tr>
-              {% endfor %}
-            </tbody>
-          </table>
+          <div class="row align-items-center justify-content-center" data-aos="fade-up">
+            {% for review in pending_reviews %}
+              <h6>{{ review.first_name }} {{ review.last_name }} - <i> ({{ review.user.username }}) </i> - <i class="fas fa-exclamation red-exclamation"> Not Approved</i></h6> 
+              <p> {{ review.body }}</p>
+              <p> <i>{{ review.created_on }}</i></p>
+              <form action="#" method="POST">
+                <button type="submit" class="btn btn-sm btn-success mb-2">Approve</button>
+                {% csrf_token %}
+              </form>
+              <form action="#" method="POST">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-sm btn-danger mb-2">Deny</button>
+              </form>
+              <hr>
+            {% endfor %}
         </div>
       </div>
     </div>

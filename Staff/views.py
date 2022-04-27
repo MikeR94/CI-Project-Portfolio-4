@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from Booking.models import Booking
+from Reviews.models import Review
 from django.http import HttpResponseRedirect
 from django.core.mail import EmailMessage
 from django.conf import settings
@@ -158,6 +159,8 @@ def staff_dashboard(request):
         )
         pending_bookings = Booking.objects.filter(booking_acknowledged=False)
         pending_bookings_count = Booking.objects.filter(booking_acknowledged=False).count()
+        pending_reviews = Review.objects.filter(approved=False)
+        pending_reviews_count = Review.objects.filter(approved=False).count()
         context = {
             "jan_guests": jan_guests,
             "feb_guests": feb_guests,
@@ -185,6 +188,8 @@ def staff_dashboard(request):
             "dec_bookings": dec_bookings,
             'pending_bookings': pending_bookings,
             'pending_bookings_count': pending_bookings_count,
+            'pending_reviews': pending_reviews,
+            'pending_reviews_count': pending_reviews_count,
         }
         return render(request, "staff_dashboard.html", context)
     return render(request, "index.html")
