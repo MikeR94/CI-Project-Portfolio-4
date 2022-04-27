@@ -1,8 +1,13 @@
 {% extends "base.html" %} {% block content %} {% include "navbar_2.html" %}
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js" integrity="sha512-QSkVNOCYLtj73J4hbmVoOV6KVZuMluZlioC+trLpewV8qMjsWqlIQvkn1KGX2StWvPMdWGBqim1xlC8krl1EKQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script
+  src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"
+  integrity="sha512-QSkVNOCYLtj73J4hbmVoOV6KVZuMluZlioC+trLpewV8qMjsWqlIQvkn1KGX2StWvPMdWGBqim1xlC8krl1EKQ=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+></script>
 
-<div class="container page-space">
+<div class="container">
   <div class="row">
     <div class="col-12 mt-3 mb-1">
       <h5 class="text-uppercase text-center mt-5 mb-5">Staff Dashboard</h5>
@@ -70,57 +75,6 @@
       </div>
     </div>
   </div>
-    <div class="row">
-      <div class="col-xl-3 col-sm-6 col-12">
-        <div class="card">
-          <div class="card-body text-center">
-            <h5 class="card-title">Pending Bookings</h5>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-            <form action="pending-bookings" method="GET">
-              {% csrf_token %}
-              <button class="golden-button" type="submit" type="button">Click Here</button>
-            </form>
-          </div>
-        </div>
-      </div>
-      <div class="col-xl-3 col-sm-6 col-12 mb-4">
-        <div class="card">
-          <div class="card-body text-center">
-            <h5 class="card-title">Pending Reviews</h5>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-            <form action="#" method="GET">
-              {% csrf_token %}
-              <button class="golden-button" type="submit" type="button">Click Here</button>
-            </form>
-          </div>
-        </div>
-      </div>
-      <div class="col-xl-3 col-sm-6 col-12 mb-4">
-        <div class="card">
-          <div class="card-body text-center">
-            <h5 class="card-title">All Bookings</h5>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-            <form action="#" method="GET">
-              {% csrf_token %}
-              <button class="golden-button" type="submit" type="button">Click Here</button>
-            </form>
-          </div>
-        </div>
-      </div>
-      <div class="col-xl-3 col-sm-6 col-12 mb-4">
-        <div class="card">
-          <div class="card-body text-center">
-            <h5 class="card-title">All Reviews</h5>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-            <form action="#" method="GET">
-              {% csrf_token %}
-              <button class="golden-button" type="submit" type="button">Click Here</button>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
 </div>
 
 <div class="container">
@@ -135,7 +89,9 @@
           aria-expanded="false"
           aria-controls="flush-collapseOne"
         >
-        <p class="body-text"> Pending Bookings - {% if pending_bookings_count == 0%} No bookings {% else %} {{ pending_bookings_count }} pending booking(s) to be reviewed {% endif %}</p>
+          <p class="body-text">
+            Pending Bookings - {% if pending_bookings_count == 0%} No bookings {% else %} {{ pending_bookings_count }} pending booking(s) to be reviewed {% endif %}
+          </p>
         </button>
       </h2>
       <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
@@ -167,12 +123,12 @@
                 <td data-label="Size">{{ booking.number_of_guests }}</td>
                 <td data-label="Ref Number">{{ booking.ref_number }}</td>
                 <form action="approve-booking/{{ booking.id }}" method="POST">
-                  <input type="hidden" name="next" value="{{request.path}}">
+                  <input type="hidden" name="next" value="{{request.path}}" />
                   <td data-label="Approve"><button type="submit" class="btn btn-success">Approve</button></td>
                   {% csrf_token %}
                 </form>
                 <form action="deny-booking/{{ booking.id }}" method="POST">
-                    <input type="hidden" name="next" value="{{request.path}}">
+                  <input type="hidden" name="next" value="{{request.path}}" />
                   {% csrf_token %}
                   <td data-label="Deny"><button type="submit" class="btn btn-danger">Deny</button></td>
                 </form>
@@ -183,7 +139,7 @@
         </div>
       </div>
     </div>
-    <br>
+    <br />
     <div class="accordion-item">
       <h2 class="accordion-header" id="flush-headingTwo">
         <button
@@ -194,26 +150,32 @@
           aria-expanded="false"
           aria-controls="flush-collapseTwo"
         >
-        <p class="body-text"> Pending Reviews - {% if pending_reviews_count == 0%} No reviews {% else %} {{ pending_reviews_count }} pending review(s) to be reviewed {% endif %}</p>
+          <p class="body-text">
+            Pending Reviews - {% if pending_reviews_count == 0%} No reviews {% else %} {{ pending_reviews_count }} pending review(s) to be reviewed {% endif %}
+          </p>
         </button>
       </h2>
       <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
         <div class="accordion-body">
           <div class="row align-items-center justify-content-center" data-aos="fade-up">
             {% for review in pending_reviews %}
-              <h6>{{ review.first_name }} {{ review.last_name }} - <i> ({{ review.user.username }}) </i> - <i class="fas fa-exclamation red-exclamation"> Not Approved</i></h6> 
-              <p> {{ review.body }}</p>
-              <p> <i>{{ review.created_on }}</i></p>
-              <form action="#" method="POST">
-                <button type="submit" class="btn btn-sm btn-success mb-2">Approve</button>
-                {% csrf_token %}
-              </form>
-              <form action="#" method="POST">
-                {% csrf_token %}
-                <button type="submit" class="btn btn-sm btn-danger mb-2">Deny</button>
-              </form>
-              <hr>
+            <h6>
+              {{ review.first_name }} {{ review.last_name }} - <i> ({{ review.user.username }}) </i> -
+              <i class="fas fa-exclamation red-exclamation"> Not Approved</i>
+            </h6>
+            <p>{{ review.body }}</p>
+            <p><i>{{ review.created_on }}</i></p>
+            <form action="#" method="POST">
+              <button type="submit" class="btn btn-sm btn-success mb-2">Approve</button>
+              {% csrf_token %}
+            </form>
+            <form action="#" method="POST">
+              {% csrf_token %}
+              <button type="submit" class="btn btn-sm btn-danger mb-2">Deny</button>
+            </form>
+            <hr />
             {% endfor %}
+          </div>
         </div>
       </div>
     </div>
@@ -222,122 +184,140 @@
 
 <div class="container">
   <div class="row">
-
     <div class="col-xl-6 col-lg-12">
       <canvas id="myChart" width="300" height="200"></canvas>
     </div>
-    <div class="col-xl-6 col-lg-12" >
+    <div class="col-xl-6 col-lg-12">
       <canvas id="myChart2" width="300" height="200"></canvas>
     </div>
   </div>
 </div>
 
 <script>
-const ctx = document.getElementById('myChart').getContext('2d');
-const myChart = new Chart(ctx, {
-    type: 'bar',
+  const ctx = document.getElementById("myChart").getContext("2d");
+  const myChart = new Chart(ctx, {
+    type: "bar",
     data: {
-        labels: ['January', 'February', 'March', 'April', 
-        'May', 'June', 'July', 'August', 'September', 'October', 
-        'November', 'December'],
-        datasets: [{
-            label: 'Number of guests attended per month for 2022',
-            data: ['{{jan_guests}}',  '{{feb_guests}}',  '{{mar_guests}}', 
-            '{{apr_guests}}', '{{may_guests}}', '{{jun_guests}}', '{{jul_guests}}', 
-            '{{aug_guests}}', '{{sep_guests}}', '{{oct_guests}}', '{{nov_guests}}', 
-            '{{dec_guests}}'],
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)',
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)',
-            ],
-            borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)',
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)',
-            ],
-            borderWidth: 1
-        }]
+      labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+      datasets: [
+        {
+          label: "Number of guests attended per month for 2022",
+          data: [
+            "{{jan_guests}}",
+            "{{feb_guests}}",
+            "{{mar_guests}}",
+            "{{apr_guests}}",
+            "{{may_guests}}",
+            "{{jun_guests}}",
+            "{{jul_guests}}",
+            "{{aug_guests}}",
+            "{{sep_guests}}",
+            "{{oct_guests}}",
+            "{{nov_guests}}",
+            "{{dec_guests}}",
+          ],
+          backgroundColor: [
+            "rgba(255, 99, 132, 0.2)",
+            "rgba(54, 162, 235, 0.2)",
+            "rgba(255, 206, 86, 0.2)",
+            "rgba(75, 192, 192, 0.2)",
+            "rgba(153, 102, 255, 0.2)",
+            "rgba(255, 159, 64, 0.2)",
+            "rgba(255, 99, 132, 0.2)",
+            "rgba(54, 162, 235, 0.2)",
+            "rgba(255, 206, 86, 0.2)",
+            "rgba(75, 192, 192, 0.2)",
+            "rgba(153, 102, 255, 0.2)",
+            "rgba(255, 159, 64, 0.2)",
+          ],
+          borderColor: [
+            "rgba(255, 99, 132, 1)",
+            "rgba(54, 162, 235, 1)",
+            "rgba(255, 206, 86, 1)",
+            "rgba(75, 192, 192, 1)",
+            "rgba(153, 102, 255, 1)",
+            "rgba(255, 159, 64, 1)",
+            "rgba(255, 99, 132, 1)",
+            "rgba(54, 162, 235, 1)",
+            "rgba(255, 206, 86, 1)",
+            "rgba(75, 192, 192, 1)",
+            "rgba(153, 102, 255, 1)",
+            "rgba(255, 159, 64, 1)",
+          ],
+          borderWidth: 1,
+        },
+      ],
     },
     options: {
-        scales: {
-            y: {
-                beginAtZero: true
-            }
-        }
-    }
-});
-const ctx2 = document.getElementById('myChart2').getContext('2d');
-const myChart2 = new Chart(ctx2, {
-    type: 'bar',
+      scales: {
+        y: {
+          beginAtZero: true,
+        },
+      },
+    },
+  });
+  const ctx2 = document.getElementById("myChart2").getContext("2d");
+  const myChart2 = new Chart(ctx2, {
+    type: "bar",
     data: {
-        labels: ['January', 'February', 'March', 'April', 
-        'May', 'June', 'July', 'August', 'September', 'October', 
-        'November', 'December'],
-        datasets: [{
-            label: 'Number of bookings per month for 2022',
-            data: ['{{jan_bookings}}',  '{{feb_bookings}}',  '{{mar_bookings}}', 
-            '{{apr_bookings}}', '{{may_bookings}}', '{{jun_bookings}}', '{{jul_bookings}}', 
-            '{{aug_bookings}}', '{{sep_bookings}}', '{{oct_bookings}}', '{{nov_bookings}}', 
-            '{{dec_bookings}}'],
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)',
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)',
-            ],
-            borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)',
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)',
-            ],
-            borderWidth: 1
-        }]
+      labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+      datasets: [
+        {
+          label: "Number of bookings per month for 2022",
+          data: [
+            "{{jan_bookings}}",
+            "{{feb_bookings}}",
+            "{{mar_bookings}}",
+            "{{apr_bookings}}",
+            "{{may_bookings}}",
+            "{{jun_bookings}}",
+            "{{jul_bookings}}",
+            "{{aug_bookings}}",
+            "{{sep_bookings}}",
+            "{{oct_bookings}}",
+            "{{nov_bookings}}",
+            "{{dec_bookings}}",
+          ],
+          backgroundColor: [
+            "rgba(255, 99, 132, 0.2)",
+            "rgba(54, 162, 235, 0.2)",
+            "rgba(255, 206, 86, 0.2)",
+            "rgba(75, 192, 192, 0.2)",
+            "rgba(153, 102, 255, 0.2)",
+            "rgba(255, 159, 64, 0.2)",
+            "rgba(255, 99, 132, 0.2)",
+            "rgba(54, 162, 235, 0.2)",
+            "rgba(255, 206, 86, 0.2)",
+            "rgba(75, 192, 192, 0.2)",
+            "rgba(153, 102, 255, 0.2)",
+            "rgba(255, 159, 64, 0.2)",
+          ],
+          borderColor: [
+            "rgba(255, 99, 132, 1)",
+            "rgba(54, 162, 235, 1)",
+            "rgba(255, 206, 86, 1)",
+            "rgba(75, 192, 192, 1)",
+            "rgba(153, 102, 255, 1)",
+            "rgba(255, 159, 64, 1)",
+            "rgba(255, 99, 132, 1)",
+            "rgba(54, 162, 235, 1)",
+            "rgba(255, 206, 86, 1)",
+            "rgba(75, 192, 192, 1)",
+            "rgba(153, 102, 255, 1)",
+            "rgba(255, 159, 64, 1)",
+          ],
+          borderWidth: 1,
+        },
+      ],
     },
     options: {
-        scales: {
-            y: {
-                beginAtZero: true
-            }
-        }
-    }
-});
+      scales: {
+        y: {
+          beginAtZero: true,
+        },
+      },
+    },
+  });
 </script>
-
 
 {% include "footer.html" %} {% endblock %}
