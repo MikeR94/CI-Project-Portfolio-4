@@ -250,8 +250,8 @@ def staff_deny_booking(request, booking_id):
 
 def staff_pending_reviews(request):
     if request.user.is_staff:
-        pending_reviews_count = Review.objects.filter(approved=False).count()
-        pending_reviews = Review.objects.filter(approved=False)
+        pending_reviews_count = Review.objects.filter(acknowledged=False).count()
+        pending_reviews = Review.objects.filter(acknowledged=False)
         pending_bookings_count = Booking.objects.filter(booking_acknowledged=False).count()
         pending_bookings = Booking.objects.filter(booking_acknowledged=False)
         context = {
