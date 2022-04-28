@@ -159,8 +159,8 @@ def staff_dashboard(request):
         )
         pending_bookings = Booking.objects.filter(booking_acknowledged=False)
         pending_bookings_count = Booking.objects.filter(booking_acknowledged=False).count()
-        pending_reviews = Review.objects.filter(approved=False)
-        pending_reviews_count = Review.objects.filter(approved=False).count()
+        pending_reviews = Review.objects.filter(acknowledged=False)
+        pending_reviews_count = Review.objects.filter(acknowledged=False).count()
         context = {
             "jan_guests": jan_guests,
             "feb_guests": feb_guests,
@@ -199,8 +199,8 @@ def staff_pending_bookings(request):
     if request.user.is_staff:
         pending_bookings_count = Booking.objects.filter(booking_acknowledged=False).count()
         pending_bookings = Booking.objects.filter(booking_acknowledged=False)
-        pending_reviews_count = Review.objects.filter(approved=False).count()
-        pending_reviews = Review.objects.filter(approved=False)
+        pending_reviews_count = Review.objects.filter(acknowledged=False).count()
+        pending_reviews = Review.objects.filter(acknowledged=False)
         context = {
             "pending_bookings": pending_bookings,
             "pending_bookings_count": pending_bookings_count,
