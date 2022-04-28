@@ -8,5 +8,6 @@ urlpatterns = [
     path("staff/approve-booking/<booking_id>", views.staff_approve_booking, name="approve_booking"),
     path("staff/deny-booking/<booking_id>", views.staff_deny_booking, name="deny_booking"),
     path("staff/pending-reviews", views.staff_pending_reviews, name="staff_pending_reviews"),
-    path("staff/approve/<review_id>", views.approve_review, name="staff_approve_review"),
+    path("staff/approve-review/<review_id>", views.approve_review, name="staff_approve_review"),
+    path("staff/deny-review/<review_id>", views.deny_review, name="staff_deny_review"),
 ]

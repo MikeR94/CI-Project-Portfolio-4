@@ -271,3 +271,13 @@ def approve_review(request, review_id):
         item.acknowledged = True
         item.save()
         return HttpResponseRedirect(next)
+
+
+def deny_review(request, review_id):
+    next = request.POST.get("next", "/")
+    data = Review.objects.filter(id=review_id)
+    for item in data:
+        item.approved = False
+        item.acknowledged = True
+        item.save()
+        return HttpResponseRedirect(next)
