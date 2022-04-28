@@ -14,12 +14,14 @@
       <p>{{ review.body }}</p>
       <p><i>{{ review.created_on }}</i></p>
       <form action="approve/{{ review.id }}" method="POST">
+        <input type="hidden" name="next" value="{{request.path}}">
         <button type="submit" class="btn btn-sm btn-success mb-2">Approve</button>
         {% csrf_token %}
       </form>
       <form action="delete/{{ review.id }}" method="POST">
-        {% csrf_token %}
+        <input type="hidden" name="next" value="{{request.path}}">
         <button type="submit" class="btn btn-sm btn-danger mb-2">Deny</button>
+        {% csrf_token %}
       </form>
       {% endfor %}
     </div>

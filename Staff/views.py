@@ -263,3 +263,11 @@ def staff_pending_reviews(request):
         return render(request, "staff_pending_reviews.html", context)
 
 
+def approve_review(request, review_id):
+    next = request.POST.get("next", "/")
+    data = Review.objects.filter(id=review_id)
+    for item in data:
+        item.approved = True
+        item.acknowledged = True
+        item.save()
+        return HttpResponseRedirect(next)
