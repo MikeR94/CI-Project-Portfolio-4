@@ -263,7 +263,7 @@ table th {
   text-transform: uppercase;
 }
 
-@media screen and (max-width: 2050px) {
+@media screen and (max-width: 1100px) {
   table {
     border: 0;
   }
