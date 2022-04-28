@@ -8,7 +8,7 @@ from Booking.utils import create_new_ref_number
 class Booking(models.Model):
     first_name = models.CharField(max_length=25, null=False, blank=False)
     last_name = models.CharField(max_length=25, null=False, blank=False)
-    email = models.EmailField(null=False, blank=False, default="Not provided")
+    email = models.EmailField(null=False, blank=False)
     ref_number = models.CharField(max_length=10, blank=True, editable=False, unique=True, default=create_new_ref_number)
     date_of_visit = models.DateField(auto_now=False, auto_now_add=False)
     time_of_visit = models.TimeField(choices=(
