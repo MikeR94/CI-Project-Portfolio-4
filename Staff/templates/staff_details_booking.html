@@ -1,0 +1,33 @@
+{% extends "base.html" %} {% block content %} {% include "staff_navbar.html" %}
+
+{% load crispy_forms_tags %}
+
+
+<div class="col-9 ps-5 mt-5">
+    <p class="mb-5">Please see booking details below</p>
+    <ul>
+        <li class="list-group-item"><strong>Ref</strong> - {{ booking.ref_number }}</li>
+        <li class="list-group-item"><strong>Name</strong> - {{ booking.first_name }} {{ booking.last_name }}</li>
+        <li class="list-group-item"><strong>Date</strong> - {{ booking.date_of_visit }}</li>
+        <li class="list-group-item"><strong>Time</strong> - {{ booking.time_of_visit }}</li>
+        <li class="list-group-item"><strong>Guests</strong> - {{ booking.number_of_guests }}</li>
+        <li class="list-group-item"><strong>Status</strong> - {% if booking.approved %} Approved {% elif booking.denied %} Denied {% else %} Not acknowledged {% endif %}</li>
+        <li class="list-group-item"><strong>Email</strong> - {{ booking.email }}</li>
+        <li class="list-group-item"><strong>Contact</strong> - {{ booking.contact_number }}</li>
+        <li class="list-group-item"><strong>Account</strong> - {{ booking.user.username }}</li>
+      </ul>
+      <p class="mt-5 mb-5" style="color: red"><strong>Only update this booking at the request of the guest, doing so without the guests permission is a violation of the </strong> <a href="#"> company policy</a></p>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form|crispy }}
+            <div>
+                <p>
+                    <input type="hidden" name="next" value="{{request.path}}">
+                    <button type="submit" class="golden-button">Update</button>
+                </p>
+            </div>
+        </form>
+  </div>
+</div>
+
+{% endblock %}

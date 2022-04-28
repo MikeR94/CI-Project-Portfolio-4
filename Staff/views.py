@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render
 from Booking.models import Booking
 from Reviews.models import Review
+from Staff.forms import EditBookingForm
 from django.http import HttpResponseRedirect
 from django.core.mail import EmailMessage
 from django.conf import settings
@@ -263,7 +264,7 @@ def staff_pending_reviews(request):
         return render(request, "staff_pending_reviews.html", context)
 
 
-def approve_review(request, review_id):
+def staff_approve_review(request, review_id):
     next = request.POST.get("next", "/")
     data = Review.objects.filter(id=review_id)
     for item in data:
@@ -273,7 +274,7 @@ def approve_review(request, review_id):
         return HttpResponseRedirect(next)
 
 
-def deny_review(request, review_id):
+def staff_deny_review(request, review_id):
     next = request.POST.get("next", "/")
     data = Review.objects.filter(id=review_id)
     for item in data:
@@ -281,3 +282,20 @@ def deny_review(request, review_id):
         item.acknowledged = True
         item.save()
         return HttpResponseRedirect(next)
+
+
+def staff_details_booking(request, booking_id):
+    next = request.POST.get("next", "/")
+    booking_data = get_object_or_404(Booking, id=booking_id)
+    booking = Booking.objects.get(id=booking_id)
+    if request.method == "POST":
+        form = EditBookingForm(request.POST, instance=booking_data)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(next)
+    form = EditBookingForm(instance=booking_data)
+    context = {
+        "booking": booking,
+        "form": form
+    }
+    return render(request, "staff_details_booking.html", context)
