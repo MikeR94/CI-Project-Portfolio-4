@@ -288,6 +288,10 @@ def staff_details_booking(request, booking_id):
     next = request.POST.get("next", "/")
     booking_data = get_object_or_404(Booking, id=booking_id)
     booking = Booking.objects.get(id=booking_id)
+    pending_bookings_count = Booking.objects.filter(booking_acknowledged=False).count()
+    pending_bookings = Booking.objects.filter(booking_acknowledged=False)
+    pending_reviews_count = Review.objects.filter(acknowledged=False).count()
+    pending_reviews = Review.objects.filter(acknowledged=False)
     if request.method == "POST":
         form = EditBookingForm(request.POST, instance=booking_data)
         if form.is_valid():
@@ -296,6 +300,10 @@ def staff_details_booking(request, booking_id):
     form = EditBookingForm(instance=booking_data)
     context = {
         "booking": booking,
-        "form": form
+        "form": form,
+        "pending_bookings": pending_bookings,
+        "pending_bookings_count": pending_bookings_count,
+        "pending_reviews": pending_reviews,
+        "pending_reviews_count": pending_reviews_count,
     }
     return render(request, "staff_details_booking.html", context)
