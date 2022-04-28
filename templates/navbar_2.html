@@ -50,7 +50,7 @@
                 <li><a class="dropdown-item" href="{% url 'staff_dashboard' %}">Staff Dashboard</a></li>
                 {% endif %}
                 <li><a class="dropdown-item" href="{% url 'user_reservations' %}">My Reservations</a></li>
-                <li><a class="dropdown-item" href="#">Write A Review</a></li>
+                <li><a class="dropdown-item" href="{% url 'create_review'%}">Write A Review</a></li>
                 <li><a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a></li>
                 {% else %}
                 <li><a class="dropdown-item" href="{% url 'account_signup' %}">Register</a></li>
