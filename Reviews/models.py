@@ -10,6 +10,7 @@ class Review(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     user = models.ForeignKey(User, null=False, on_delete=models.CASCADE)
     approved = models.BooleanField(default=False)
+    acknowledged = models.BooleanField(default=False)
 
     def __str__(self):
         return self.first_name

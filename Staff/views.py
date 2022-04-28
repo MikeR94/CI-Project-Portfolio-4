@@ -261,3 +261,5 @@ def staff_pending_reviews(request):
             "pending_bookings_count": pending_bookings_count,
         }
         return render(request, "staff_pending_reviews.html", context)
+
+
