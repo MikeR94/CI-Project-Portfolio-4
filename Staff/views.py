@@ -310,6 +310,15 @@ def staff_check_in(request, booking_id):
         return HttpResponseRedirect(next)
 
 
+def staff_no_show(request, booking_id):
+    next = request.POST.get("next", "/")
+    data = Booking.objects.filter(id=booking_id)
+    for item in data:
+        item.guest_no_show = True 
+        item.save()
+        return HttpResponseRedirect(next)
+
+
 def staff_approve_review(request, review_id):
     next = request.POST.get("next", "/")
     data = Review.objects.filter(id=review_id)
