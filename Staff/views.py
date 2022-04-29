@@ -434,6 +434,7 @@ def staff_deny_review(request, review_id):
 
 
 def staff_details_booking(request, booking_id):
+    today = date.today()
     next = request.POST.get("next", "/")
     booking_data = get_object_or_404(Booking, id=booking_id)
     booking = Booking.objects.get(id=booking_id)
@@ -441,6 +442,14 @@ def staff_details_booking(request, booking_id):
     pending_bookings = Booking.objects.filter(booking_acknowledged=False)
     pending_reviews_count = Review.objects.filter(acknowledged=False).count()
     pending_reviews = Review.objects.filter(acknowledged=False)
+    pending_check_in_count = Booking.objects.filter(
+            guest_attended=False,
+            guest_no_show=False,
+            booking_approved=True,
+            date_of_visit__year=today.year,
+            date_of_visit__month=today.month,
+            date_of_visit__day=today.day,
+        ).count()
     if request.method == "POST":
         form = EditBookingForm(request.POST, instance=booking_data)
         if form.is_valid():
@@ -454,19 +463,39 @@ def staff_details_booking(request, booking_id):
         "pending_bookings_count": pending_bookings_count,
         "pending_reviews": pending_reviews,
         "pending_reviews_count": pending_reviews_count,
+        "pending_check_in_count": pending_check_in_count,
     }
     return render(request, "staff_details_booking.html", context)
 
 
 def staff_payment_page(request):
+    today = date.today()
     booking = Booking.objects.filter(guest_attended=True, bill_settled=False)
+    pending_bookings_count = Booking.objects.filter(booking_acknowledged=False).count()
+    pending_bookings = Booking.objects.filter(booking_acknowledged=False)
+    pending_reviews_count = Review.objects.filter(acknowledged=False).count()
+    pending_reviews = Review.objects.filter(acknowledged=False)
+    pending_check_in_count = Booking.objects.filter(
+            guest_attended=False,
+            guest_no_show=False,
+            booking_approved=True,
+            date_of_visit__year=today.year,
+            date_of_visit__month=today.month,
+            date_of_visit__day=today.day,
+        ).count()
     context = {
-        "booking": booking
+        "booking": booking,
+        "pending_bookings": pending_bookings,
+        "pending_bookings_count": pending_bookings_count,
+        "pending_reviews": pending_reviews,
+        "pending_reviews_count": pending_reviews_count,
+        "pending_check_in_count": pending_check_in_count,
     }
     return render(request, "staff_payment_page.html", context)
 
 
 def staff_create_payment(request, booking_id):
+    today = date.today()
     next = request.POST.get("next", "/")
     booking = get_object_or_404(Booking, id=booking_id)
     data = Booking.objects.filter(id=booking_id)
@@ -475,6 +504,14 @@ def staff_create_payment(request, booking_id):
     pending_bookings = Booking.objects.filter(booking_acknowledged=False)
     pending_reviews_count = Review.objects.filter(acknowledged=False).count()
     pending_reviews = Review.objects.filter(acknowledged=False)
+    pending_check_in_count = Booking.objects.filter(
+            guest_attended=False,
+            guest_no_show=False,
+            booking_approved=True,
+            date_of_visit__year=today.year,
+            date_of_visit__month=today.month,
+            date_of_visit__day=today.day,
+        ).count()
     if request.method == "POST":
         form = PaymentForm(request.POST, request.FILES)
         if form.is_valid():
@@ -497,5 +534,6 @@ def staff_create_payment(request, booking_id):
         "pending_bookings_count": pending_bookings_count,
         "pending_reviews": pending_reviews,
         "pending_reviews_count": pending_reviews_count,
+        "pending_check_in_count": pending_check_in_count,
     }
     return render(request, "staff_submit_payment.html", context)
