@@ -512,6 +512,7 @@ def staff_create_payment(request, booking_id):
             date_of_visit__month=today.month,
             date_of_visit__day=today.day,
         ).count()
+    pending_payment_count = Booking.objects.filter(guest_attended=True, bill_settled=False).count()
     if request.method == "POST":
         form = PaymentForm(request.POST, request.FILES)
         if form.is_valid():
@@ -535,5 +536,6 @@ def staff_create_payment(request, booking_id):
         "pending_reviews": pending_reviews,
         "pending_reviews_count": pending_reviews_count,
         "pending_check_in_count": pending_check_in_count,
+        "pending_payment_count": pending_payment_count,
     }
     return render(request, "staff_submit_payment.html", context)
