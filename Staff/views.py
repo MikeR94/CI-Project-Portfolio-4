@@ -201,14 +201,25 @@ def staff_pending_bookings(request):
         pending_bookings_count = Booking.objects.filter(booking_acknowledged=False).count()
         pending_bookings = Booking.objects.filter(booking_acknowledged=False)
         pending_reviews_count = Review.objects.filter(acknowledged=False).count()
-        pending_reviews = Review.objects.filter(acknowledged=False)
         context = {
             "pending_bookings": pending_bookings,
             "pending_bookings_count": pending_bookings_count,
-            "pending_reviews": pending_reviews,
             "pending_reviews_count": pending_reviews_count,
         }
         return render(request, "staff_pending_bookings.html", context)
+
+
+def staff_all_bookings(request):
+    if request.user.is_staff:
+        pending_bookings_count = Booking.objects.filter(booking_acknowledged=False).count()
+        all_bookings = Booking.objects.filter()
+        pending_reviews_count = Review.objects.filter(acknowledged=False).count()
+        context = {
+            "all_bookings": all_bookings,
+            "pending_bookings_count": pending_bookings_count,
+            "pending_reviews_count": pending_reviews_count,
+        }
+        return render(request, "staff_all_bookings.html", context)
 
 
 def staff_approve_booking(request, booking_id):
@@ -262,6 +273,20 @@ def staff_pending_reviews(request):
             "pending_bookings_count": pending_bookings_count,
         }
         return render(request, "staff_pending_reviews.html", context)
+
+
+def staff_all_reviews(request):
+    if request.user.is_staff:
+        pending_reviews_count = Review.objects.filter(acknowledged=False).count()
+        all_reviews = Review.objects.filter()
+        pending_bookings_count = Booking.objects.filter(booking_acknowledged=False).count()
+        context = {
+            "all_reviews": all_reviews,
+            "pending_reviews_count": pending_reviews_count,
+            "pending_bookings_count": pending_bookings_count,
+        }
+        return render(request, "staff_all_reviews.html", context)
+
 
 
 def staff_approve_review(request, review_id):
