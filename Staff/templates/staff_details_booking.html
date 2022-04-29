@@ -4,6 +4,11 @@
 
 
 <div class="col-9 ps-5 mt-5">
+    <div class="row">
+        <div class="col-12 mb-4">
+          <a href="{% url 'staff_all_bookings'%}">Previous Page</a>
+        </div>
+      </div>
     <p class="mb-5">Please see booking details below</p>
     <ul>
         <li class="list-group-item"><strong>Ref</strong> - {{ booking.ref_number }}</li>

@@ -4,7 +4,7 @@
 <div class="col-9 ps-5 mt-5">
   <div class="row">
     <div class="col-12 mb-4">
-      <p>Pending reviews <a href="">View Here</a></p>
+      <p>Pending reviews <a href="{% url 'staff_pending_reviews'%}">View Here</a></p>
     </div>
   </div>
   {% for review in all_reviews %}
