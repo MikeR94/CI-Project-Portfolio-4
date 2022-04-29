@@ -467,8 +467,25 @@ def staff_payment_page(request):
 
 
 def staff_create_payment(request, booking_id):
+    next = request.POST.get("next", "/")
     booking = get_object_or_404(Booking, id=booking_id)
+    data = Booking.objects.filter(id=booking_id)
     form = PaymentForm()
+    if request.method == "POST":
+        form = PaymentForm(request.POST, request.FILES)
+        if form.is_valid():
+            form = form.save(commit=False)
+            form.booking_id = booking_id
+            form.amount_tipped = int(form.amount_paid) - int(form.amount_owed)
+            form.total_income = int(form.amount_paid) + int(form.amount_tipped)
+            if int(form.amount_paid) < int(form.amount_owed):
+                form.amount_tipped = 0
+            for x in data:
+                if int(form.amount_owed) <= int(form.total_income):
+                    x.bill_settled = True
+                    x.save()
+            form.save()
+            return HttpResponseRedirect(next)
     context = {
         "booking": booking,
         "form": form

@@ -21,6 +21,7 @@
     </ul>
     <div>
     <form method="POST">
+      <input type="hidden" name="next" value="{{request.path}}">
       {% csrf_token %}
           {{ form|crispy }}
           <p>
@@ -28,6 +29,5 @@
           </p>
       </div>
   </form>
-
 
 {% endblock %}
