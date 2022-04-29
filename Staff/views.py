@@ -471,6 +471,10 @@ def staff_create_payment(request, booking_id):
     booking = get_object_or_404(Booking, id=booking_id)
     data = Booking.objects.filter(id=booking_id)
     form = PaymentForm()
+    pending_bookings_count = Booking.objects.filter(booking_acknowledged=False).count()
+    pending_bookings = Booking.objects.filter(booking_acknowledged=False)
+    pending_reviews_count = Review.objects.filter(acknowledged=False).count()
+    pending_reviews = Review.objects.filter(acknowledged=False)
     if request.method == "POST":
         form = PaymentForm(request.POST, request.FILES)
         if form.is_valid():
@@ -488,6 +492,10 @@ def staff_create_payment(request, booking_id):
             return HttpResponseRedirect(next)
     context = {
         "booking": booking,
-        "form": form
+        "form": form,
+        "pending_bookings": pending_bookings,
+        "pending_bookings_count": pending_bookings_count,
+        "pending_reviews": pending_reviews,
+        "pending_reviews_count": pending_reviews_count,
     }
     return render(request, "staff_submit_payment.html", context)
