@@ -289,10 +289,12 @@ def staff_all_reviews(request):
         pending_reviews_count = Review.objects.filter(acknowledged=False).count()
         all_reviews = Review.objects.filter()
         pending_bookings_count = Booking.objects.filter(booking_acknowledged=False).count()
+        pending_check_in_count = Booking.objects.filter(guest_attended=False, guest_no_show=False, booking_approved=True).count()
         context = {
             "all_reviews": all_reviews,
             "pending_reviews_count": pending_reviews_count,
             "pending_bookings_count": pending_bookings_count,
+            "pending_check_in_count": pending_check_in_count,
         }
         return render(request, "staff_all_reviews.html", context)
 
