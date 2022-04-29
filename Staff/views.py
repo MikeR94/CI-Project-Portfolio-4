@@ -162,6 +162,7 @@ def staff_dashboard(request):
         pending_bookings_count = Booking.objects.filter(booking_acknowledged=False).count()
         pending_reviews = Review.objects.filter(acknowledged=False)
         pending_reviews_count = Review.objects.filter(acknowledged=False).count()
+        pending_check_in_count = Booking.objects.filter(guest_attended=False, guest_no_show=False, booking_approved=True).count()
         context = {
             "jan_guests": jan_guests,
             "feb_guests": feb_guests,
@@ -191,6 +192,7 @@ def staff_dashboard(request):
             'pending_bookings_count': pending_bookings_count,
             'pending_reviews': pending_reviews,
             'pending_reviews_count': pending_reviews_count,
+            "pending_check_in_count": pending_check_in_count,
         }
         return render(request, "staff_dashboard.html", context)
     return render(request, "index.html")
@@ -201,10 +203,13 @@ def staff_pending_bookings(request):
         pending_bookings_count = Booking.objects.filter(booking_acknowledged=False).count()
         pending_bookings = Booking.objects.filter(booking_acknowledged=False)
         pending_reviews_count = Review.objects.filter(acknowledged=False).count()
+        pending_check_in_count = Booking.objects.filter(guest_attended=False, guest_no_show=False, booking_approved=True).count()
+
         context = {
             "pending_bookings": pending_bookings,
             "pending_bookings_count": pending_bookings_count,
             "pending_reviews_count": pending_reviews_count,
+            "pending_check_in_count": pending_check_in_count,
         }
         return render(request, "staff_pending_bookings.html", context)
 
@@ -214,10 +219,12 @@ def staff_all_bookings(request):
         pending_bookings_count = Booking.objects.filter(booking_acknowledged=False).count()
         all_bookings = Booking.objects.filter()
         pending_reviews_count = Review.objects.filter(acknowledged=False).count()
+        pending_check_in_count = Booking.objects.filter(guest_attended=False, guest_no_show=False, booking_approved=True).count()
         context = {
             "all_bookings": all_bookings,
             "pending_bookings_count": pending_bookings_count,
             "pending_reviews_count": pending_reviews_count,
+            "pending_check_in_count": pending_check_in_count,
         }
         return render(request, "staff_all_bookings.html", context)
 
@@ -266,11 +273,13 @@ def staff_pending_reviews(request):
         pending_reviews = Review.objects.filter(acknowledged=False)
         pending_bookings_count = Booking.objects.filter(booking_acknowledged=False).count()
         pending_bookings = Booking.objects.filter(booking_acknowledged=False)
+        pending_check_in_count = Booking.objects.filter(guest_attended=False, guest_no_show=False, booking_approved=True).count()
         context = {
             "pending_reviews": pending_reviews,
             "pending_reviews_count": pending_reviews_count,
             "pending_bookings": pending_bookings,
             "pending_bookings_count": pending_bookings_count,
+            "pending_check_in_count": pending_check_in_count,
         }
         return render(request, "staff_pending_reviews.html", context)
 
@@ -292,10 +301,12 @@ def staff_check_in_page(request):
     if request.user.is_staff:
         pending_reviews_count = Review.objects.filter(acknowledged=False).count()
         pending_bookings_count = Booking.objects.filter(booking_acknowledged=False).count()
+        pending_check_in_count = Booking.objects.filter(guest_attended=False, guest_no_show=False, booking_approved=True).count()
         guest_attended = Booking.objects.filter(guest_attended=False, guest_no_show=False, booking_approved=True)
         context = {
             "pending_reviews_count": pending_reviews_count,
             "pending_bookings_count": pending_bookings_count,
+            "pending_check_in_count": pending_check_in_count,
             "guest_attended": guest_attended,
         }
         return render(request, "staff_check_in.html", context)
