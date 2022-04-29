@@ -292,7 +292,7 @@ def staff_check_in_page(request):
     if request.user.is_staff:
         pending_reviews_count = Review.objects.filter(acknowledged=False).count()
         pending_bookings_count = Booking.objects.filter(booking_acknowledged=False).count()
-        guest_attended = Booking.objects.filter(guest_attended=False, guest_no_show=False)
+        guest_attended = Booking.objects.filter(guest_attended=False, guest_no_show=False, booking_approved=True)
         context = {
             "pending_reviews_count": pending_reviews_count,
             "pending_bookings_count": pending_bookings_count,
