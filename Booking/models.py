@@ -28,6 +28,7 @@ class Booking(models.Model):
     ))
     number_of_guests = models.IntegerField(blank=False, null=False, default="")
     guest_attended = models.BooleanField(default=False)
+    guest_no_show = models.BooleanField(default=False)
     contact_number = models.CharField(default="", max_length=25)
     bill_settled = models.BooleanField(default=False)
     booking_approved = models.BooleanField(default=False)
