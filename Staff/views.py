@@ -37,6 +37,7 @@ from Staff.utils import (
 
 # Create your views here.
 
+
 def staff_dashboard(request):
     if request.user.is_staff:
         today = date.today()
@@ -114,57 +115,78 @@ def staff_dashboard(request):
         )
         jan_bookings = (
             Booking.objects.filter(date_of_visit__gte=jan_start)
-            .filter(date_of_visit__lte=jan_end).count()
+            .filter(date_of_visit__lte=jan_end)
+            .count()
         )
         feb_bookings = (
             Booking.objects.filter(date_of_visit__gte=feb_start)
-            .filter(date_of_visit__lte=feb_end).count()
+            .filter(date_of_visit__lte=feb_end)
+            .count()
         )
         mar_bookings = (
             Booking.objects.filter(date_of_visit__gte=mar_start)
-            .filter(date_of_visit__lte=mar_end).count()
+            .filter(date_of_visit__lte=mar_end)
+            .count()
         )
         apr_bookings = (
             Booking.objects.filter(date_of_visit__gte=apr_start)
-            .filter(date_of_visit__lte=apr_end).count()
+            .filter(date_of_visit__lte=apr_end)
+            .count()
         )
         may_bookings = (
             Booking.objects.filter(date_of_visit__gte=may_start)
-            .filter(date_of_visit__lte=may_end).count()
+            .filter(date_of_visit__lte=may_end)
+            .count()
         )
         jun_bookings = (
             Booking.objects.filter(date_of_visit__gte=jun_start)
-            .filter(date_of_visit__lte=jun_end).count()
+            .filter(date_of_visit__lte=jun_end)
+            .count()
         )
         jul_bookings = (
             Booking.objects.filter(date_of_visit__gte=jul_start)
-            .filter(date_of_visit__lte=jul_end).count()
+            .filter(date_of_visit__lte=jul_end)
+            .count()
         )
         aug_bookings = (
             Booking.objects.filter(date_of_visit__gte=aug_start)
-            .filter(date_of_visit__lte=aug_end).count()
+            .filter(date_of_visit__lte=aug_end)
+            .count()
         )
         sep_bookings = (
             Booking.objects.filter(date_of_visit__gte=sep_start)
-            .filter(date_of_visit__lte=sep_end).count()
+            .filter(date_of_visit__lte=sep_end)
+            .count()
         )
         oct_bookings = (
             Booking.objects.filter(date_of_visit__gte=oct_start)
-            .filter(date_of_visit__lte=oct_end).count()
+            .filter(date_of_visit__lte=oct_end)
+            .count()
         )
         nov_bookings = (
             Booking.objects.filter(date_of_visit__gte=nov_start)
-            .filter(date_of_visit__lte=nov_end).count()
+            .filter(date_of_visit__lte=nov_end)
+            .count()
         )
         dec_bookings = (
             Booking.objects.filter(date_of_visit__gte=dec_start)
-            .filter(date_of_visit__lte=dec_end).count()
+            .filter(date_of_visit__lte=dec_end)
+            .count()
         )
         pending_bookings = Booking.objects.filter(booking_acknowledged=False)
-        pending_bookings_count = Booking.objects.filter(booking_acknowledged=False).count()
+        pending_bookings_count = Booking.objects.filter(
+            booking_acknowledged=False
+        ).count()
         pending_reviews = Review.objects.filter(acknowledged=False)
         pending_reviews_count = Review.objects.filter(acknowledged=False).count()
-        pending_check_in_count = Booking.objects.filter(guest_attended=False, guest_no_show=False, booking_approved=True, date_of_visit__year=today.year, date_of_visit__month=today.month, date_of_visit__day=today.day).count()
+        pending_check_in_count = Booking.objects.filter(
+            guest_attended=False,
+            guest_no_show=False,
+            booking_approved=True,
+            date_of_visit__year=today.year,
+            date_of_visit__month=today.month,
+            date_of_visit__day=today.day,
+        ).count()
         context = {
             "jan_guests": jan_guests,
             "feb_guests": feb_guests,
@@ -190,10 +212,10 @@ def staff_dashboard(request):
             "oct_bookings": oct_bookings,
             "nov_bookings": nov_bookings,
             "dec_bookings": dec_bookings,
-            'pending_bookings': pending_bookings,
-            'pending_bookings_count': pending_bookings_count,
-            'pending_reviews': pending_reviews,
-            'pending_reviews_count': pending_reviews_count,
+            "pending_bookings": pending_bookings,
+            "pending_bookings_count": pending_bookings_count,
+            "pending_reviews": pending_reviews,
+            "pending_reviews_count": pending_reviews_count,
             "pending_check_in_count": pending_check_in_count,
         }
         return render(request, "staff_dashboard.html", context)
@@ -203,10 +225,19 @@ def staff_dashboard(request):
 def staff_pending_bookings(request):
     if request.user.is_staff:
         today = date.today()
-        pending_bookings_count = Booking.objects.filter(booking_acknowledged=False).count()
+        pending_bookings_count = Booking.objects.filter(
+            booking_acknowledged=False
+        ).count()
         pending_bookings = Booking.objects.filter(booking_acknowledged=False)
         pending_reviews_count = Review.objects.filter(acknowledged=False).count()
-        pending_check_in_count = Booking.objects.filter(guest_attended=False, guest_no_show=False, booking_approved=True, date_of_visit__year=today.year, date_of_visit__month=today.month, date_of_visit__day=today.day).count()
+        pending_check_in_count = Booking.objects.filter(
+            guest_attended=False,
+            guest_no_show=False,
+            booking_approved=True,
+            date_of_visit__year=today.year,
+            date_of_visit__month=today.month,
+            date_of_visit__day=today.day,
+        ).count()
 
         context = {
             "pending_bookings": pending_bookings,
@@ -220,10 +251,19 @@ def staff_pending_bookings(request):
 def staff_all_bookings(request):
     if request.user.is_staff:
         today = date.today()
-        pending_bookings_count = Booking.objects.filter(booking_acknowledged=False).count()
+        pending_bookings_count = Booking.objects.filter(
+            booking_acknowledged=False
+        ).count()
         all_bookings = Booking.objects.filter()
         pending_reviews_count = Review.objects.filter(acknowledged=False).count()
-        pending_check_in_count = Booking.objects.filter(guest_attended=False, guest_no_show=False, booking_approved=True, date_of_visit__year=today.year, date_of_visit__month=today.month, date_of_visit__day=today.day).count()
+        pending_check_in_count = Booking.objects.filter(
+            guest_attended=False,
+            guest_no_show=False,
+            booking_approved=True,
+            date_of_visit__year=today.year,
+            date_of_visit__month=today.month,
+            date_of_visit__day=today.day,
+        ).count()
         context = {
             "all_bookings": all_bookings,
             "pending_bookings_count": pending_bookings_count,
@@ -276,9 +316,18 @@ def staff_pending_reviews(request):
         today = date.today()
         pending_reviews_count = Review.objects.filter(acknowledged=False).count()
         pending_reviews = Review.objects.filter(acknowledged=False)
-        pending_bookings_count = Booking.objects.filter(booking_acknowledged=False).count()
+        pending_bookings_count = Booking.objects.filter(
+            booking_acknowledged=False
+        ).count()
         pending_bookings = Booking.objects.filter(booking_acknowledged=False)
-        pending_check_in_count = Booking.objects.filter(guest_attended=False, guest_no_show=False, booking_approved=True, date_of_visit__year=today.year, date_of_visit__month=today.month, date_of_visit__day=today.day).count()
+        pending_check_in_count = Booking.objects.filter(
+            guest_attended=False,
+            guest_no_show=False,
+            booking_approved=True,
+            date_of_visit__year=today.year,
+            date_of_visit__month=today.month,
+            date_of_visit__day=today.day,
+        ).count()
         context = {
             "pending_reviews": pending_reviews,
             "pending_reviews_count": pending_reviews_count,
@@ -294,8 +343,17 @@ def staff_all_reviews(request):
         today = date.today()
         pending_reviews_count = Review.objects.filter(acknowledged=False).count()
         all_reviews = Review.objects.filter()
-        pending_bookings_count = Booking.objects.filter(booking_acknowledged=False).count()
-        pending_check_in_count = Booking.objects.filter(guest_attended=False, guest_no_show=False, booking_approved=True, date_of_visit__year=today.year, date_of_visit__month=today.month, date_of_visit__day=today.day).count()
+        pending_bookings_count = Booking.objects.filter(
+            booking_acknowledged=False
+        ).count()
+        pending_check_in_count = Booking.objects.filter(
+            guest_attended=False,
+            guest_no_show=False,
+            booking_approved=True,
+            date_of_visit__year=today.year,
+            date_of_visit__month=today.month,
+            date_of_visit__day=today.day,
+        ).count()
         context = {
             "all_reviews": all_reviews,
             "pending_reviews_count": pending_reviews_count,
@@ -309,9 +367,25 @@ def staff_check_in_page(request):
     if request.user.is_staff:
         today = date.today()
         pending_reviews_count = Review.objects.filter(acknowledged=False).count()
-        pending_bookings_count = Booking.objects.filter(booking_acknowledged=False).count()
-        pending_check_in_count = Booking.objects.filter(guest_attended=False, guest_no_show=False, booking_approved=True, date_of_visit__year=today.year, date_of_visit__month=today.month, date_of_visit__day=today.day).count()
-        guest_attended = Booking.objects.filter(guest_attended=False, guest_no_show=False, booking_approved=True, date_of_visit__year=today.year, date_of_visit__month=today.month, date_of_visit__day=today.day)
+        pending_bookings_count = Booking.objects.filter(
+            booking_acknowledged=False
+        ).count()
+        pending_check_in_count = Booking.objects.filter(
+            guest_attended=False,
+            guest_no_show=False,
+            booking_approved=True,
+            date_of_visit__year=today.year,
+            date_of_visit__month=today.month,
+            date_of_visit__day=today.day,
+        ).count()
+        guest_attended = Booking.objects.filter(
+            guest_attended=False,
+            guest_no_show=False,
+            booking_approved=True,
+            date_of_visit__year=today.year,
+            date_of_visit__month=today.month,
+            date_of_visit__day=today.day,
+        )
         context = {
             "pending_reviews_count": pending_reviews_count,
             "pending_bookings_count": pending_bookings_count,
@@ -325,7 +399,7 @@ def staff_check_in(request, booking_id):
     next = request.POST.get("next", "/")
     data = Booking.objects.filter(id=booking_id)
     for item in data:
-        item.guest_attended = True 
+        item.guest_attended = True
         item.save()
         return HttpResponseRedirect(next)
 
@@ -334,7 +408,7 @@ def staff_no_show(request, booking_id):
     next = request.POST.get("next", "/")
     data = Booking.objects.filter(id=booking_id)
     for item in data:
-        item.guest_no_show = True 
+        item.guest_no_show = True
         item.save()
         return HttpResponseRedirect(next)
 
