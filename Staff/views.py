@@ -7,6 +7,7 @@ from django.core.mail import EmailMessage
 from django.conf import settings
 from django.template.loader import render_to_string
 from django.db.models import Sum
+from datetime import date
 from Staff.utils import (
     jan_start,
     jan_end,
@@ -301,10 +302,11 @@ def staff_all_reviews(request):
 
 def staff_check_in_page(request):
     if request.user.is_staff:
+        today = date.today()
         pending_reviews_count = Review.objects.filter(acknowledged=False).count()
         pending_bookings_count = Booking.objects.filter(booking_acknowledged=False).count()
-        pending_check_in_count = Booking.objects.filter(guest_attended=False, guest_no_show=False, booking_approved=True).count()
-        guest_attended = Booking.objects.filter(guest_attended=False, guest_no_show=False, booking_approved=True)
+        pending_check_in_count = Booking.objects.filter(guest_attended=False, guest_no_show=False, booking_approved=True, date_of_visit__year=today.year, date_of_visit__month=today.month, date_of_visit__day=today.day).count()
+        guest_attended = Booking.objects.filter(guest_attended=False, guest_no_show=False, booking_approved=True, date_of_visit__year=today.year, date_of_visit__month=today.month, date_of_visit__day=today.day)
         context = {
             "pending_reviews_count": pending_reviews_count,
             "pending_bookings_count": pending_bookings_count,
