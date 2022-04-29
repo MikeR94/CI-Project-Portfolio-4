@@ -292,7 +292,7 @@ def staff_check_in_page(request):
     if request.user.is_staff:
         pending_reviews_count = Review.objects.filter(acknowledged=False).count()
         pending_bookings_count = Booking.objects.filter(booking_acknowledged=False).count()
-        guest_attended = Booking.objects.filter(guest_attended=False)
+        guest_attended = Booking.objects.filter(guest_attended=False, guest_no_show=False)
         context = {
             "pending_reviews_count": pending_reviews_count,
             "pending_bookings_count": pending_bookings_count,
@@ -300,6 +300,14 @@ def staff_check_in_page(request):
         }
         return render(request, "staff_check_in.html", context)
 
+
+def staff_check_in(request, booking_id):
+    next = request.POST.get("next", "/")
+    data = Booking.objects.filter(id=booking_id)
+    for item in data:
+        item.guest_attended = True 
+        item.save()
+        return HttpResponseRedirect(next)
 
 
 def staff_approve_review(request, review_id):

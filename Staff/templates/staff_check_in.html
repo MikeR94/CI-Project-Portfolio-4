@@ -28,7 +28,7 @@
         <td data-label="Date">{{ booking.date_of_visit }}</td>
         <td data-label="Time">{{ booking.time_of_visit }}</td>
         <td data-label="Size">{{ booking.number_of_guests }}</td>
-        <form action="approve-booking/{{ booking.id }}" method="POST">
+        <form action="check-in/{{ booking.id }}" method="POST">
           <input type="hidden" name="next" value="{{request.path}}">
           <td data-label="Approve"><button type="submit" class="btn btn-success">Check In</button></td>
           {% csrf_token %}
