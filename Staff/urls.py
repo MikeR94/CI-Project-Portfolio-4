@@ -16,4 +16,6 @@ urlpatterns = [
     path("staff/check-in-page", views.staff_check_in_page, name="staff_check_in_page"),
     path("staff/check-in/<booking_id>", views.staff_check_in, name="staff_check_in"),
     path("staff/no-show/<booking_id>", views.staff_no_show, name="staff_no-show"),
+    path("staff/payment-page", views.staff_payment_page, name="staff_payment_page"),
+    path("staff/create-payment/<booking_id>", views.staff_create_payment, name="staff_create_payment"),
 ]

@@ -1,0 +1,49 @@
+{% extends "base.html" %} {% block content %} {% include "staff_navbar.html" %}
+
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css">
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
+
+<div class="col-9 ps-5 mt-5">
+  <div class="row">
+    <div class="col-12 mb-4">
+      <p>Please approve or deny these bookings as soon as possible. Staff members are to check the diary and make their own judgement whether Cafe Manbo has space to accommodate the guests</p>
+    </div>
+  <table class="table table_id pt-5 text-center">
+    <thead>
+      <tr>
+        <th scope="col">Ref</th>
+        <th scope="col">Name</th>
+        <th scope="col">Date</th>
+        <th scope="col">Time</th>
+        <th scope="col">Size</th>
+        <th scope="col">Payment</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for booking in booking %}
+      <tr>
+        <td data-label="Date">{{ booking.ref_number }}</td>
+        <td data-label="Name">{{ booking.first_name }} {{ booking.last_name }}</td>
+        <td data-label="Date">{{ booking.date_of_visit }}</td>
+        <td data-label="Time">{{ booking.time_of_visit }}</td>
+        <td data-label="Size">{{ booking.number_of_guests }}</td>
+        <form action="create-payment/{{ booking.id }}" method="POST">
+          <input type="hidden" name="next" value="{{request.path}}">
+          <td data-label="Approve"><button type="submit" class="btn btn-warning">Payment</button></td>
+          {% csrf_token %}
+        </form>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+<script>
+  $(document).ready(function () {
+    $(".table_id").DataTable( {
+      responsive: true
+    });
+  });
+</script>
+
+{% endblock %}

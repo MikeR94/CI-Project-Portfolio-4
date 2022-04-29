@@ -1,7 +1,7 @@
 from django.shortcuts import get_object_or_404, render
 from Booking.models import Booking
 from Reviews.models import Review
-from Staff.forms import EditBookingForm
+from Staff.forms import EditBookingForm, PaymentForm
 from django.http import HttpResponseRedirect
 from django.core.mail import EmailMessage
 from django.conf import settings
@@ -456,3 +456,21 @@ def staff_details_booking(request, booking_id):
         "pending_reviews_count": pending_reviews_count,
     }
     return render(request, "staff_details_booking.html", context)
+
+
+def staff_payment_page(request):
+    booking = Booking.objects.filter(guest_attended=True, bill_settled=False)
+    context = {
+        "booking": booking
+    }
+    return render(request, "staff_payment_page.html", context)
+
+
+def staff_create_payment(request, booking_id):
+    booking = get_object_or_404(Booking, id=booking_id)
+    form = PaymentForm()
+    context = {
+        "booking": booking,
+        "form": form
+    }
+    return render(request, "staff_submit_payment.html", context)

@@ -19,7 +19,7 @@
                             <i class="fs-4 bi-pen"></i> <span class="ms-1 d-none d-sm-inline">Reviews</span> {% if pending_reviews_count != 0 %} <span class="text-decoration-none disable-hover">-</span> <span class="red-exclamation disable-hover"> {{pending_reviews_count}}</span> {% endif %}</a>
                     </li>
                     <li>
-                        <a href="#" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
+                        <a href="{% url 'staff_payment_page'%}" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
                             <i class="fs-4 bi-cash"></i> <span class="ms-1 d-none d-sm-inline">Payments</span> </a>
                     </li>
                     <li>
