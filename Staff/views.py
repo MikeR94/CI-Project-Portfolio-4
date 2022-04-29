@@ -288,6 +288,19 @@ def staff_all_reviews(request):
         return render(request, "staff_all_reviews.html", context)
 
 
+def staff_check_in_page(request):
+    if request.user.is_staff:
+        pending_reviews_count = Review.objects.filter(acknowledged=False).count()
+        pending_bookings_count = Booking.objects.filter(booking_acknowledged=False).count()
+        guest_attended = Booking.objects.filter(guest_attended=False)
+        context = {
+            "pending_reviews_count": pending_reviews_count,
+            "pending_bookings_count": pending_bookings_count,
+            "guest_attended": guest_attended,
+        }
+        return render(request, "staff_check_in.html", context)
+
+
 
 def staff_approve_review(request, review_id):
     next = request.POST.get("next", "/")
