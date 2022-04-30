@@ -18,6 +18,7 @@
         <li class="list-unstyled mb-2"><strong>Email</strong> - {{ booking.email }}</li>
         <li class="list-unstyled mb-2"><strong>Contact</strong> - {{ booking.contact_number }}</li>
         <li class="list-unstyled mb-2"><strong>Account</strong> - {{ booking.user.username }}</li>
+        <li class="list-unstyled mb-2"><strong>Bill Settled</strong> - {% if booking.bill_settled %} <span class="text-success">True</span> {% else %} <span class="text-danger">False</span> {% endif %}</li>
       </ul>
       <div>
         <p class="mt-3 mb-4" style="color: red"><strong>Only update this booking at the request of the guest, doing so without the guests permission is a violation of the </strong> <a href="#"> company policy</a></p>

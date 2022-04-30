@@ -329,13 +329,6 @@ table th {
   font-weight: 400;
 }
 
-.nav-link i, span {
-  color: white;
-  font-family: "Roboto", sans-serif;
-  font-weight: 300;
-  font-size: 18px;
-}
-
 .nav-link span:hover {
   color: #9c8300 !important;
 }
