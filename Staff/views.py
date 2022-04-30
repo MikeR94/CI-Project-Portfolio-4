@@ -187,7 +187,9 @@ def staff_dashboard(request):
             date_of_visit__month=today.month,
             date_of_visit__day=today.day,
         ).count()
-        pending_payment_count = Booking.objects.filter(guest_attended=True, bill_settled=False).count()
+        pending_payment_count = Booking.objects.filter(
+            guest_attended=True, bill_settled=False
+        ).count()
         context = {
             "jan_guests": jan_guests,
             "feb_guests": feb_guests,
@@ -240,7 +242,9 @@ def staff_pending_bookings(request):
             date_of_visit__month=today.month,
             date_of_visit__day=today.day,
         ).count()
-        pending_payment_count = Booking.objects.filter(guest_attended=True, bill_settled=False).count()
+        pending_payment_count = Booking.objects.filter(
+            guest_attended=True, bill_settled=False
+        ).count()
 
         context = {
             "pending_bookings": pending_bookings,
@@ -268,7 +272,9 @@ def staff_all_bookings(request):
             date_of_visit__month=today.month,
             date_of_visit__day=today.day,
         ).count()
-        pending_payment_count = Booking.objects.filter(guest_attended=True, bill_settled=False).count()
+        pending_payment_count = Booking.objects.filter(
+            guest_attended=True, bill_settled=False
+        ).count()
         context = {
             "all_bookings": all_bookings,
             "pending_bookings_count": pending_bookings_count,
@@ -334,7 +340,9 @@ def staff_pending_reviews(request):
             date_of_visit__month=today.month,
             date_of_visit__day=today.day,
         ).count()
-        pending_payment_count = Booking.objects.filter(guest_attended=True, bill_settled=False).count()
+        pending_payment_count = Booking.objects.filter(
+            guest_attended=True, bill_settled=False
+        ).count()
         context = {
             "pending_reviews": pending_reviews,
             "pending_reviews_count": pending_reviews_count,
@@ -362,7 +370,9 @@ def staff_all_reviews(request):
             date_of_visit__month=today.month,
             date_of_visit__day=today.day,
         ).count()
-        pending_payment_count = Booking.objects.filter(guest_attended=True, bill_settled=False).count()
+        pending_payment_count = Booking.objects.filter(
+            guest_attended=True, bill_settled=False
+        ).count()
         context = {
             "all_reviews": all_reviews,
             "pending_reviews_count": pending_reviews_count,
@@ -396,7 +406,9 @@ def staff_check_in_page(request):
             date_of_visit__month=today.month,
             date_of_visit__day=today.day,
         )
-        pending_payment_count = Booking.objects.filter(guest_attended=True, bill_settled=False).count()
+        pending_payment_count = Booking.objects.filter(
+            guest_attended=True, bill_settled=False
+        ).count()
         context = {
             "pending_reviews_count": pending_reviews_count,
             "pending_bookings_count": pending_bookings_count,
@@ -455,14 +467,16 @@ def staff_details_booking(request, booking_id):
     pending_reviews_count = Review.objects.filter(acknowledged=False).count()
     pending_reviews = Review.objects.filter(acknowledged=False)
     pending_check_in_count = Booking.objects.filter(
-            guest_attended=False,
-            guest_no_show=False,
-            booking_approved=True,
-            date_of_visit__year=today.year,
-            date_of_visit__month=today.month,
-            date_of_visit__day=today.day,
-        ).count()
-    pending_payment_count = Booking.objects.filter(guest_attended=True, bill_settled=False).count()
+        guest_attended=False,
+        guest_no_show=False,
+        booking_approved=True,
+        date_of_visit__year=today.year,
+        date_of_visit__month=today.month,
+        date_of_visit__day=today.day,
+    ).count()
+    pending_payment_count = Booking.objects.filter(
+        guest_attended=True, bill_settled=False
+    ).count()
     if request.method == "POST":
         form = EditBookingForm(request.POST, instance=booking_data)
         if form.is_valid():
@@ -490,14 +504,16 @@ def staff_payment_page(request):
     pending_reviews_count = Review.objects.filter(acknowledged=False).count()
     pending_reviews = Review.objects.filter(acknowledged=False)
     pending_check_in_count = Booking.objects.filter(
-            guest_attended=False,
-            guest_no_show=False,
-            booking_approved=True,
-            date_of_visit__year=today.year,
-            date_of_visit__month=today.month,
-            date_of_visit__day=today.day,
-        ).count()
-    pending_payment_count = Booking.objects.filter(guest_attended=True, bill_settled=False).count()
+        guest_attended=False,
+        guest_no_show=False,
+        booking_approved=True,
+        date_of_visit__year=today.year,
+        date_of_visit__month=today.month,
+        date_of_visit__day=today.day,
+    ).count()
+    pending_payment_count = Booking.objects.filter(
+        guest_attended=True, bill_settled=False
+    ).count()
     context = {
         "booking": booking,
         "pending_bookings": pending_bookings,
@@ -521,14 +537,16 @@ def staff_create_payment(request, booking_id):
     pending_reviews_count = Review.objects.filter(acknowledged=False).count()
     pending_reviews = Review.objects.filter(acknowledged=False)
     pending_check_in_count = Booking.objects.filter(
-            guest_attended=False,
-            guest_no_show=False,
-            booking_approved=True,
-            date_of_visit__year=today.year,
-            date_of_visit__month=today.month,
-            date_of_visit__day=today.day,
-        ).count()
-    pending_payment_count = Booking.objects.filter(guest_attended=True, bill_settled=False).count()
+        guest_attended=False,
+        guest_no_show=False,
+        booking_approved=True,
+        date_of_visit__year=today.year,
+        date_of_visit__month=today.month,
+        date_of_visit__day=today.day,
+    ).count()
+    pending_payment_count = Booking.objects.filter(
+        guest_attended=True, bill_settled=False
+    ).count()
     if request.method == "POST":
         form = PaymentForm(request.POST, request.FILES)
         if form.is_valid():
