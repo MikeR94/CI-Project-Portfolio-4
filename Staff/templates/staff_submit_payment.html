@@ -20,14 +20,18 @@
       <li class="list-unstyled mb-2"><strong>Account</strong> - {{ booking.user.username }}</li>
     </ul>
     <div>
+      {% if booking.bill_settled == False %}
     <form method="POST">
       <input type="hidden" name="next" value="{{request.path}}">
       {% csrf_token %}
-          {{ form|crispy }}
+          {{ form.as_p }}
           <p>
               <button type="submit" class="golden-button">Submit</button>
           </p>
       </div>
   </form>
+  {% else %}
+  <p class="text-success">Payment information for this booking has been submitted</p>
+  {% endif %}
 
 {% endblock %}
