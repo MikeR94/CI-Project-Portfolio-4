@@ -13,6 +13,7 @@
       <p>All bookings <a href="{% url 'staff_all_bookings'%}">View Here</a></p>
     </div>
   </div>
+  {% if pending_bookings %}
   <table class="table table_id pt-5 text-center">
     <thead>
       <tr>
@@ -51,14 +52,17 @@
       {% endfor %}
     </tbody>
   </table>
+  {% else %}
+  <p>No bookings to approve or deny</p>
+  {% endif %} 
 </div>
 
-<script>
+<!-- <script>
   $(document).ready(function () {
     $(".table_id").DataTable( {
       responsive: true
     });
   });
-</script>
+</script> -->
 
 {% endblock %}

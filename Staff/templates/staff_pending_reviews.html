@@ -7,11 +7,10 @@
       <p>All reviews <a href="{% url 'staff_all_reviews' %}">View Here</a></p>
     </div>
   </div>
+  {% if pending_reviews %}
   <div class="card p-3">
     <div class="row align-items-center justify-content-center" data-aos="fade-up">
-      {% if pending_reviews %} {% else %}
-      <h5>No reviews to approve or deny</h5>
-      {% endif %} {% for review in pending_reviews %}
+      {% for review in pending_reviews %}
       <h6>
         {{ review.first_name }} {{ review.last_name }} - <i> ({{ review.user.username }}) </i> -
         <i style="color: red" class="fas fa-exclamation"> Not Approved</i>
@@ -32,5 +31,8 @@
     </div>
   </div>
 </div>
+{% else %}
+<p>No reviews to approve or deny</p>
+{% endif %}
 
 {% endblock %}
