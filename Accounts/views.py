@@ -13,6 +13,14 @@ def show_user_reservations(request):
     return render(request, "user_reservations.html", context)
 
 
+def user_details_booking(request, booking_id):
+    booking = get_object_or_404(Booking, id=booking_id)
+    context = {
+        "booking": booking,
+    }
+    return render(request, "user_details_booking.html", context)
+
+
 def user_edit_booking(request, booking_id):
     booking_data = get_object_or_404(Booking, id=booking_id)
     booking = Booking.objects.get(id=booking_id)

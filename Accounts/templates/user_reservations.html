@@ -15,12 +15,12 @@
       {% endif %}
     </thead>
     <tbody>
-      {% for x in booking %}
+      {% for booking in booking %}
       <tr>
-        <td data-label="Ref">{{ x.ref_number }}</td>
-        <td data-label="Date">{{ x.date_of_visit }}</td>
-        <td data-label="Time">{{ x.time_of_visit }}</td>
-        <form action="user-edit-booking/{{ x.id }}" method="POST">
+        <td data-label="Ref">{{ booking.ref_number }}</td>
+        <td data-label="Date">{{ booking.date_of_visit }}</td>
+        <td data-label="Time">{{ booking.time_of_visit }}</td>
+        <form action="user-details-booking/{{ booking.id }}" method="POST">
           <input type="hidden" name="next" value="{{request.path}}">
           <td data-label="details"><button type="submit" class="btn btn-primary">Details</button></td>
           {% csrf_token %}

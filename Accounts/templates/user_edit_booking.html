@@ -4,32 +4,23 @@
 
 <div class="container page-space">
   <div class="row">
-    <div class="col-12 mb-4">
-      <a href="{% url 'staff_all_bookings'%}">Previous Page</a>
-      <ul>
-        <li class="list-unstyled mb-2"><strong>Ref</strong> - {{ booking.ref_number }}</li>
-        <li class="list-unstyled mb-2"><strong>Name</strong> - {{ booking.first_name }} {{ booking.last_name }}</li>
-        <li class="list-unstyled mb-2"><strong>Date</strong> - {{ booking.date_of_visit }}</li>
-        <li class="list-unstyled mb-2"><strong>Time</strong> - {{ booking.time_of_visit }}</li>
-        <li class="list-unstyled mb-2"><strong>Guests</strong> - {{ booking.number_of_guests }}</li>
-        <li class="list-unstyled mb-2"><strong>Status</strong> - {% if booking.booking_approved %} Approved {% elif booking.booking_denied %} Denied {% else %} No data {% endif %}</li>
-        <li class="list-unstyled mb-2"><strong>Attended</strong> - {% if booking.guest_attended %} Attended {% elif booking.guest_no_show %} Not attended {% else %} No data {% endif %}</li>
-        <li class="list-unstyled mb-2"><strong>Email</strong> - {{ booking.email }}</li>
-        <li class="list-unstyled mb-2"><strong>Contact</strong> - {{ booking.contact_number }}</li>
-        <li class="list-unstyled mb-2"><strong>Account</strong> - {{ booking.user.username }}</li>
-        <li class="list-unstyled mb-2"><strong>Bill Settled</strong> - {% if booking.bill_settled %} <span class="text-success">True</span> {% else %} <span class="text-danger">False</span> {% endif %}</li>
-      </ul>
+    <div class="col-6 mb-4 mt-5">
+      <h3 class="title-text">Edit</h3>
+      <p class="body-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, ex iusto. Nemo eaque non ipsum similique! Iure libero rem nostrum nihil aspernatur minus, voluptatibus facere iusto quis ducimus corporis numquam labore dicta beatae accusantium dignissimos maiores sint nulla alias consequuntur? Suscipit unde perspiciatis error vel veritatis obcaecati! Dolorem, commodi aspernatur?</p>
+      <p class="body-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, ex iusto. Nemo eaque non ipsum similique! Iure libero rem nostrum nihil aspernatur minus, voluptatibus facere iusto quis ducimus corporis numquam labore dicta beatae accusantium dignissimos maiores sint nulla alias consequuntur? Suscipit unde perspiciatis error vel veritatis obcaecati! Dolorem, commodi aspernatur?</p>
+    </div>
+    <div class="col-6 mb-4 mt-5">
+      <form method="POST">
+        <input type="hidden" name="next" value="{{request.path}}">
+        {% csrf_token %}
+            {{ form|crispy }}
+            <p>
+              <button type="submit" class="golden-button">Submit</button>
+            </p>
+        </div>
+    </form>
     </div>
   </div>
-  <form method="POST">
-    <input type="hidden" name="next" value="{{request.path}}">
-    {% csrf_token %}
-        {{ form|crispy }}
-        <p>
-          <button type="submit" class="golden-button">Submit</button>
-        </p>
-    </div>
-</form>
 </div>
 
 
