@@ -343,3 +343,14 @@ table th {
 .footer-links a:hover {
   color: #9c8300 !important;
 }
+
+
+/* Django Forms Styling */
+
+#id_amount_owed {
+  max-width: 300px;
+}
+
+#id_amount_paid {
+  max-width: 300px;
+}
