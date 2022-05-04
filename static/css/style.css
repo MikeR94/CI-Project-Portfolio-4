@@ -354,3 +354,31 @@ table th {
 #id_amount_paid {
   max-width: 300px;
 }
+
+#id_first_name {
+  max-width: 300px;
+}
+
+#id_last_name {
+  max-width: 300px;
+}
+
+#id_contact_number {
+  max-width: 300px;
+}
+
+#id_time_of_visit {
+  max-width: 300px;
+}
+
+#id_date_of_visit {
+  max-width: 300px;
+}
+
+#id_number_of_guests {
+  max-width: 300px;
+}
+
+#id_email {
+  max-width: 300px;
+}
