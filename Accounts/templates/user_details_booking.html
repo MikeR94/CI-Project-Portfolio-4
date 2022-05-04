@@ -18,9 +18,8 @@
         <li class="list-unstyled mb-2"><strong>Email</strong> - {{ booking.email }}</li>
         <li class="list-unstyled mb-2"><strong>Contact</strong> - {{ booking.contact_number }}</li>
         <li class="list-unstyled mb-2"><strong>Account</strong> - {{ booking.user.username }}</li>
-        <li class="list-unstyled mb-2"><strong>Bill Settled</strong> - {% if booking.bill_settled %} <span class="text-success">True</span> {% else %} <span class="text-danger">False</span> {% endif %}</li>
       </ul>
-      {% if booking.bill_settled == False %}
+      {% if booking.guest_attended == False %}
         <td data-label="details"><a href="edit/{{ booking.id }}">Edit Booking</a></td>
       {% else %}
       <p>You can't edit a booking that has been completed</p>
