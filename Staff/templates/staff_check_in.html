@@ -8,6 +8,7 @@
     <div class="col-12 mb-4">
       <p>Please approve or deny these bookings as soon as possible. Staff members are to check the diary and make their own judgement whether Cafe Manbo has space to accommodate the guests</p>
     </div>
+    {% if guest_attended %}
   <table class="table table_id pt-5 text-center">
     <thead>
       <tr>
@@ -42,6 +43,9 @@
       {% endfor %}
     </tbody>
   </table>
+  {% else %}
+  <p>No bookings to check in for today</p>
+  {% endif %}
 </div>
 
 <script>
