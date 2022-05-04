@@ -1,8 +1,5 @@
 {% extends "base.html" %} {% block content %} {% include "staff_navbar.html" %}
 
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css">
-<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
-
 <div class="col-9 ps-5 mt-5">
   <div class="row">
     <div class="col-12 mb-4">
@@ -47,13 +44,5 @@
   <p>No bookings to check in for today</p>
   {% endif %}
 </div>
-
-<script>
-  $(document).ready(function () {
-    $(".table_id").DataTable( {
-      responsive: true
-    });
-  });
-</script>
 
 {% endblock %}
