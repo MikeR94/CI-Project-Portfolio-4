@@ -23,12 +23,16 @@ def user_details_booking(request, booking_id):
 
 def user_edit_booking(request, booking_id):
     booking_data = get_object_or_404(Booking, id=booking_id)
-    booking = Booking.objects.get(id=booking_id)
+    booking = Booking.objects.filter(id=booking_id)
     next = request.POST.get("next", "/")
     if request.method == "POST":
         form = EditBookingForm(request.POST, instance=booking_data)
         if form.is_valid():
             form.save()
+            for item in booking:
+                item.booking_approved = False
+                item.booking_acknowledged = False
+                item.save()
             return HttpResponseRedirect(next)
     form = EditBookingForm(instance=booking_data)
     context = {
