@@ -8,6 +8,7 @@
     <div class="col-12 mb-4">
       <p>Please submit payment details for the below bookings</p>
     </div>
+  {% if booking %}
   <table class="table table_id pt-5 text-center">
     <thead>
       <tr>
@@ -36,6 +37,9 @@
       {% endfor %}
     </tbody>
   </table>
+  {% else %}
+  <p>No payments to submit</p>
+  {% endif %}
 </div>
 
 <script>
