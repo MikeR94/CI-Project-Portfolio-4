@@ -1,5 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from Booking.models import Booking
+from django.http import HttpResponseRedirect
+from Staff.forms import EditBookingForm
 
 # Create your views here.
 
@@ -12,8 +14,17 @@ def show_user_reservations(request):
 
 
 def user_edit_booking(request, booking_id):
-    booking = get_object_or_404(Booking, id=booking_id)
+    booking_data = get_object_or_404(Booking, id=booking_id)
+    booking = Booking.objects.get(id=booking_id)
+    next = request.POST.get("next", "/")
+    if request.method == "POST":
+        form = EditBookingForm(request.POST, instance=booking_data)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(next)
+    form = EditBookingForm(instance=booking_data)
     context = {
         "booking": booking,
+        "form": form
     }
     return render(request, "user_edit_booking.html", context)
