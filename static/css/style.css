@@ -70,9 +70,19 @@ body {
 
 .established-text {
   color: white;
-  font-family: "Roboto", sans-serif;
-  font-size: 40px;
+  font-family: "Oswald", sans-serif;
+  font-size: 35px;
   font-weight: 300;
+}
+
+@media screen and (max-width: 1100px) {
+  .cafe-manbo-text {
+    font-size: 100px;
+  }
+
+  .established-text {
+    font-size: 25px;
+  }
 }
 
 /* Navigation Bar */
