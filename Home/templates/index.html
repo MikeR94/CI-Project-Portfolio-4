@@ -87,7 +87,7 @@
             <img src="{% static 'images/book-now-image.jpg'%}" class="review-profile-image mb-3" alt="Logo image" />
             <h3 class="review-title-text mb-3">{{ review.first_name }} {{ review.last_name }}</h3>
             <p class="review-body-text">{{ review.body|slice:130 }}...</p>
-            <form action="#" method="GET">
+            <form action="review/{{ review.id }}" method="GET">
               {% csrf_token %}
               <button class="golden-button" type="submit">Read More</button>
             </form>
