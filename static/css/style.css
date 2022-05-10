@@ -16,6 +16,7 @@ body {
   color: white;
   font-family: "Roboto", sans-serif;
   font-size: 18px;
+  border-radius: 8px;
 }
 
 .golden-button:hover {
