@@ -15,27 +15,6 @@
         <h5 class="text-uppercase text-center mt-5 mb-5">Staff Dashboard</h5>
       </div>
     </div>
-    <!-- <div class="row">
-      <div class="col-12 mb-2">
-        <div class="card p-2 bg-warning">
-          <div> There are currently 5 pending bookings that need to be reviewed <a href=""> View</a></div>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-12 mb-2">
-        <div class="card p-2 bg-warning">
-          <div> There are currently 3 pending reviews that need to be reviewed <a href=""> View</a></div>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-12 mb-5">
-        <div class="card p-2 bg-warning">
-          <div>There are currently 8 pending payments that need to be submitted <a href=""> View</a></div>
-        </div>
-      </div>
-    </div> -->
     <div class="row">
       <div class="col-xl-3 col-sm-6 col-12 mb-4">
         <div class="card">
@@ -45,7 +24,7 @@
                 <i class="fas fa-pencil-alt text-danger fa-3x"></i>
               </div>
               <div class="text-end">
-                <h3>43</h3>
+                <h3>{{ booking_count }}</h3>
                 <p class="mb-0">Total Bookings</p>
               </div>
             </div>
@@ -60,7 +39,7 @@
                 <i class="fas fa-user text-info fa-3x"></i>
               </div>
               <div class="text-end">
-                <h3>160</h3>
+                <h3>{{ total_guests }}</h3>
                 <p class="mb-0">Total Guests</p>
               </div>
             </div>
@@ -75,7 +54,7 @@
                 <i class="far fa-comment-alt text-warning fa-3x"></i>
               </div>
               <div class="text-end">
-                <h3>50</h3>
+                <h3>{{ review_count }}</h3>
                 <p class="mb-0">Total Reviews</p>
               </div>
             </div>
@@ -90,7 +69,7 @@
                 <i class="fas fa-chart-line text-success fa-3x"></i>
               </div>
               <div class="text-end">
-                <h3>£ 500</h3>
+                <h3>£{{ income_count }}</h3>
                 <p class="mb-0">Total Income</p>
               </div>
             </div>

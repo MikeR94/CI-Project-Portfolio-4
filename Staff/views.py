@@ -1,6 +1,7 @@
 from django.shortcuts import get_object_or_404, render
 from Booking.models import Booking
 from Reviews.models import Review
+from Staff.models import Payment
 from Staff.forms import EditBookingForm, PaymentForm
 from django.http import HttpResponseRedirect
 from django.core.mail import EmailMessage
@@ -190,6 +191,10 @@ def staff_dashboard(request):
         pending_payment_count = Booking.objects.filter(
             guest_attended=True, bill_settled=False
         ).count()
+        booking_count = Booking.objects.all().count()
+        income_count = Payment.objects.all().aggregate(Sum('total_income')).get('total_income__sum', 0.00)
+        total_guests = Booking.objects.all().aggregate(sum=Sum('number_of_guests'))['sum']
+        review_count = Review.objects.all().count()
         context = {
             "jan_guests": jan_guests,
             "feb_guests": feb_guests,
@@ -221,6 +226,11 @@ def staff_dashboard(request):
             "pending_reviews_count": pending_reviews_count,
             "pending_check_in_count": pending_check_in_count,
             "pending_payment_count": pending_payment_count,
+            "booking_count": booking_count,
+            "income_count": income_count,
+            "total_guests": total_guests,
+            "review_count": review_count,
+
         }
         return render(request, "staff_dashboard.html", context)
     return render(request, "index.html")
