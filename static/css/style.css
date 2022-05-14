@@ -85,6 +85,13 @@ body {
   }
 }
 
+/* Feature Icon Section */
+
+.large-feature-icon {
+  font-size: 50px;
+  color: #9c8300;
+}
+
 /* Navigation Bar */
 
 .nav-item a {
@@ -194,9 +201,9 @@ body {
   background-color: white;
 }
 
-/* Our Story Section */
+/* Our Menu Section */
 
-.our-story-image img {
+.our-menu-image img {
   width: 100%;
 }
 
