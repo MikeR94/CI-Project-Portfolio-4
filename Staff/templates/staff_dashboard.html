@@ -109,7 +109,7 @@
             Total Income Chart
           </div>
           <div class="card-body">
-            <canvas id="myChart" width="400" height="200"></canvas>
+            <canvas id="myChart3" width="400" height="200"></canvas>
           </div>
         </div>
       </div>
@@ -117,16 +117,34 @@
         <div class="card h-100">
           <div class="card-header">
             <span class="me-2"><i class="bi bi-bar-chart-fill"></i></span>
-            Number Of Bookings Chart
+            Quick Statistics
           </div>
           <div class="card-body">
-            <canvas id="myChart2" width="400" height="200"></canvas>
+            <h5>Website</h5>
+            <p>Total Accounts - 0</p>
+            <p>Total Guest Accounts - 0</p>
+            <p>Total Staff Accounts - 0</p>
+            <br>
+            <h5>Payments</h5>
+            <p>Total Income (including tips) - 0</p>
+            <p>Total Tips - 0</p>
+            <p>Average Per Guest - 0</p>
+            <br>
+            <h5>Bookings</h5>
+            <p>Total Bookings - 0</p>
+            <p>Total Guests - 0 </p>
+            <br>
+            <h5>Reviews</h5>
+            <p>Total Reviews Submitted - 0</p>
+            <p>Total Reviews Approved - 0</p>
+            <p>Total Reviews Denied - 0</p>
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
+
 
   <script>
     const ctx = document.getElementById("myChart").getContext("2d");
@@ -240,6 +258,38 @@
               "rgba(75, 192, 192, 1)",
               "rgba(153, 102, 255, 1)",
               "rgba(255, 159, 64, 1)",
+            ],
+            borderWidth: 1,
+          },
+        ],
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true,
+          },
+        },
+      },
+    });
+    const ctx3 = document.getElementById("myChart3").getContext("2d");
+    const myChart3 = new Chart(ctx3, {
+      type: "pie",
+      data: {
+        labels: ["standard_income", "amount_tipped"],
+        datasets: [
+          {
+            label: "Total amount paid and tipped",
+            data: [
+              "{{standard_income}}",
+              "{{amount_tipped}}",
+            ],
+            backgroundColor: [
+              "rgba(152, 251, 152, 1)",
+              "rgba(153, 102, 255, 1)",
+            ],
+            borderColor: [
+              "rgba(152, 251, 152, 1)",
+              "rgba(153, 102, 255, 1)",
             ],
             borderWidth: 1,
           },

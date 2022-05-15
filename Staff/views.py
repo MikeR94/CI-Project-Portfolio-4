@@ -174,6 +174,12 @@ def staff_dashboard(request):
             .filter(date_of_visit__lte=dec_end)
             .count()
         )
+        standard_income = (
+            Payment.objects.filter().aggregate(sum=Sum("amount_paid"))["sum"]
+        )
+        amount_tipped = (
+            Payment.objects.filter().aggregate(sum=Sum("amount_tipped"))["sum"]
+        )
         pending_bookings = Booking.objects.filter(booking_acknowledged=False)
         pending_bookings_count = Booking.objects.filter(
             booking_acknowledged=False
@@ -220,6 +226,8 @@ def staff_dashboard(request):
             "oct_bookings": oct_bookings,
             "nov_bookings": nov_bookings,
             "dec_bookings": dec_bookings,
+            "standard_income": standard_income,
+            "amount_tipped": amount_tipped,
             "pending_bookings": pending_bookings,
             "pending_bookings_count": pending_bookings_count,
             "pending_reviews": pending_reviews,
