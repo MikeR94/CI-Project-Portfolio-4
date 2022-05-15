@@ -9,7 +9,6 @@ class TimeInput(forms.TimeInput):
     input_type = 'time'
 
 class BookingForm(forms.ModelForm):
-    first_name = forms.CharField(label='First Name')
 
     class Meta:
         model = Booking
@@ -25,7 +24,9 @@ class BookingForm(forms.ModelForm):
 
         first_name = self.cleaned_data.get('first_name')
 
-        if first_name == "hey":
-            raise forms.ValidationError("This is not a valid title")
-        else:
-            return first_name
+        
+        for instance in Booking.objects.all():
+            if instance.first_name == first_name:
+                raise forms.ValidationError("There is a booking under this name already")
+        
+        return first_name
