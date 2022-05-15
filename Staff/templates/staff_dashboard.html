@@ -121,23 +121,23 @@
           </div>
           <div class="card-body">
             <h5>Website</h5>
-            <p>Total Accounts - 0</p>
-            <p>Total Guest Accounts - 0</p>
-            <p>Total Staff Accounts - 0</p>
+            <p>Total Accounts - {{ all_accounts }}</p>
+            <p>Total Guest Accounts - {{ user_accounts }}</p>
+            <p>Total Staff Accounts - {{ staff_accounts }}</p>
             <br>
             <h5>Payments</h5>
-            <p>Total Income (including tips) - 0</p>
-            <p>Total Tips - 0</p>
+            <p>Total Income (including tips) - £{{ income_count }}</p>
+            <p>Total Tips - £{{ amount_tipped }}</p>
             <p>Average Per Guest - 0</p>
             <br>
             <h5>Bookings</h5>
-            <p>Total Bookings - 0</p>
-            <p>Total Guests - 0 </p>
+            <p>Total Bookings - {{ booking_count }}</p>
+            <p>Total Guests - {{ total_guests }} </p>
             <br>
             <h5>Reviews</h5>
-            <p>Total Reviews Submitted - 0</p>
-            <p>Total Reviews Approved - 0</p>
-            <p>Total Reviews Denied - 0</p>
+            <p>Total Reviews Submitted - {{ review_count }}</p>
+            <p>Total Reviews Approved - {{ reviews_approved }}</p>
+            <p>Total Reviews Denied - {{ reviews_denied }}</p>
           </div>
         </div>
       </div>
