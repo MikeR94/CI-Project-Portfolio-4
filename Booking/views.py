@@ -12,8 +12,14 @@ def book_now(request):
         }
     if request.method == "POST":
         form = forms.BookingForm(request.POST)
+
         if form.is_valid():
             instance = form.save(commit=False)
+            double_context = {
+                "data": instance,
+            }
+            if Booking.objects.filter(first_name=instance.first_name, last_name=instance.last_name, time_of_visit=instance.time_of_visit, date_of_visit=instance.date_of_visit).exists():
+                return render(request, "book_double_error.html", double_context)
             if request.user.is_authenticated:
                 instance.user = request.user
                 instance.save()

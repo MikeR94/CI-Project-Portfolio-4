@@ -19,14 +19,3 @@ class BookingForm(forms.ModelForm):
             'last_name': forms.TextInput(attrs={'class': 'form-control'}),
             'time_of_visit': forms.Select(attrs={'class': 'form-control'}),
         }
-
-    def clean_first_name(self):
-
-        first_name = self.cleaned_data.get('first_name')
-
-        
-        for instance in Booking.objects.all():
-            if instance.first_name == first_name:
-                raise forms.ValidationError("There is a booking under this name already")
-        
-        return first_name

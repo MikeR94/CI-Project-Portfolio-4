@@ -1,0 +1,13 @@
+{% extends "base.html" %} {% block content %} {% include "navbar_2.html" %}
+
+<div class="container page-space">
+  <div class="alert alert-danger text-center mt-5" role="alert">
+    Booking unsuccessful
+  </div>
+  <p class="mt-5">I'm sorry we seem to already have this booking in the database</p>
+  <p>{{ data.first_name }} {{ data.last_name }}</p>
+  <p>{{ data.date_of_visit }}</p>
+  <p>{{ data.time_of_visit }}</p>
+</div>
+
+{% include "footer.html" %} {% endblock %}
