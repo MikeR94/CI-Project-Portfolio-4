@@ -85,6 +85,16 @@ body {
   }
 }
 
+@media screen and (max-height: 1000px) {
+  .cafe-manbo-text {
+    font-size: 100px;
+  }
+
+  .established-text {
+    font-size: 25px;
+  }
+}
+
 /* Feature Icon Section */
 
 .large-feature-icon {
