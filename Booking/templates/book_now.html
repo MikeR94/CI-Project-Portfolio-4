@@ -4,22 +4,30 @@
 
 <div class="container page-space">
   <div class="row">
-    <div class="col-xl-8 order-xs-1 order-xl-2 mb-4 mt-5">
+    <div class="col-xl-8 mb-4 mt-5">
       <h3 class="title-text">Book your stay</h3>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, ex iusto. Nemo eaque non ipsum similique! Iure libero rem nostrum nihil aspernatur minus, voluptatibus facere iusto quis ducimus corporis numquam labore dicta beatae accusantium dignissimos maiores sint nulla alias consequuntur? Suscipit unde perspiciatis error vel veritatis obcaecati! Dolorem, commodi aspernatur?</p>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, ex iusto. Nemo eaque non ipsum similique! Iure libero rem nostrum nihil aspernatur minus, voluptatibus facere iusto quis ducimus corporis numquam labore dicta beatae accusantium dignissimos maiores sint nulla alias consequuntur? Suscipit unde perspiciatis error vel veritatis obcaecati! Dolorem, commodi aspernatur?</p>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, ex iusto. Nemo eaque non ipsum similique! Iure libero rem nostrum nihil aspernatur minus, voluptatibus facere iusto quis ducimus corporis numquam labore dicta beatae accusantium dignissimos maiores sint nulla alias consequuntur? Suscipit unde perspiciatis error vel veritatis obcaecati! Dolorem, commodi aspernatur?</p>
+      <p>Please fill in the booking form if you wish to visit Cafe Manbo</p>
+      <p>Once you have booked, please allow up to 24 hours for a staff member to approve your booking. When your booking has been accepted, you will receive an email confirmation. You are more than welcome to ring the restaurant directly and ask them to speed up this process</p>
+      <br>
+      <strong><p>Monday - 17:00pm to 11:30pm</p></strong>
+      <strong><p>Tuesday- 17:00pm to 11:30pm</p></strong>
+      <strong><p>Wednesday - 17:00pm to 11:30pm</p></strong>
+      <strong><p>Thursday - 17:00pm to 11:30pm</p></strong>
+      <strong><p>Friday - 17:00pm to 11:30pm</p></strong>
+      <strong><p>Saturday - 17:00pm to 11:30pm</p></strong>
+      <strong><p>Sunday - Closed</p></strong>
+      <br>
+      <p>We look forward to seeing you!</p>
     </div>
-    <div class="col-xl-4 col-md-12 order-xs-2 order-xl-1 mb-4 mt-5">
+    <div class="col-xl-4 col-md-12 mb-4 mt-5">
       <form method="POST">
         <input type="hidden" name="next" value="{{request.path}}">
         {% csrf_token %}
-            {{ form|crispy }}
-            <p>
-              <button type="submit" class="golden-button">Submit</button>
-            </p>
-        </div>
-    </form>
+        {{ form|crispy }}
+        <p>
+          <button type="submit" class="golden-button">Submit</button>
+        </p>
+      </form>
     </div>
   </div>
 </div>
