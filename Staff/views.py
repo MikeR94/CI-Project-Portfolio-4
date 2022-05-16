@@ -589,7 +589,7 @@ def staff_create_payment(request, booking_id):
             form = form.save(commit=False)
             form.booking_id = booking_id
             form.amount_tipped = int(form.amount_paid) - int(form.amount_owed)
-            form.total_income = int(form.amount_paid) + int(form.amount_tipped)
+            form.total_income = int(form.amount_paid)
             if int(form.amount_paid) < int(form.amount_owed):
                 form.amount_tipped = 0
             for x in data:
