@@ -12,3 +12,7 @@ def index(request):
     return render(request, "index.html", context)
 
 
+def gallery(request):
+    return render(request, "gallery.html")
+
+
