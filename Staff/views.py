@@ -1,4 +1,4 @@
-from django.shortcuts import get_object_or_404, render
+from django.shortcuts import get_object_or_404, render, redirect
 from Booking.models import Booking
 from Reviews.models import Review
 from Staff.models import Payment
@@ -350,6 +350,13 @@ def staff_deny_booking(request, booking_id):
         object.booking_acknowledged = True
         object.save()
     return HttpResponseRedirect(next)
+
+
+def staff_cancel_booking(request, booking_id):
+    booking = get_object_or_404(Booking, id=booking_id)
+    booking.delete()
+    return redirect("staff_dashboard")
+
 
 
 def staff_pending_reviews(request):

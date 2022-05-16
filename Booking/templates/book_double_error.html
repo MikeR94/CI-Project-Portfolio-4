@@ -4,10 +4,26 @@
   <div class="alert alert-danger text-center mt-5" role="alert">
     Booking unsuccessful
   </div>
-  <p class="mt-5">I'm sorry we seem to already have this booking in the database</p>
-  <p>{{ data.first_name }} {{ data.last_name }}</p>
-  <p>{{ data.date_of_visit }}</p>
-  <p>{{ data.time_of_visit }}</p>
+  <p class="mt-5 mb-5">I'm sorry we seem to already have this booking in the database</p>
+  <table class="mb-5">
+    <thead>
+      <tr>
+        <th scope="col">First Name</th>
+        <th scope="col">Last Name</th>
+        <th scope="col">Date</th>
+        <th scope="col">Time</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td data-label="First Name">{{ data.first_name }}</td>
+        <td data-label="Last Name">{{ data.last_name }}</td>
+        <td data-label="Date">{{ data.date_of_visit }}</td>
+        <td data-label="Time">{{ data.time_of_visit }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>Please check your <a href="user-reservations">reservations</a> and amend that booking or contact the restaurant and a staff member will be happy to help </p>
 </div>
 
 {% include "footer.html" %} {% endblock %}
