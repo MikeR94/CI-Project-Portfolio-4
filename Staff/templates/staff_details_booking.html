@@ -22,9 +22,6 @@
       </ul>
       {% if booking.guest_attended == False %}
         <div><a href="cancel/{{ booking.id }}">Cancel Booking</a></div>
-      {% else %}
-      <p>You can't cancel a booking that has been completed</p>
-      {% endif %}
       <div>
         <p class="mt-3 mb-4" style="color: red"><strong>Only update this booking at the request of the guest, doing so without the guests permission is a violation of the </strong> <a href="#"> company policy</a></p>
       <form method="POST">
@@ -35,6 +32,9 @@
             </p>
         </div>
     </form>
+    {% else %}
+      <p>You can't edit cancel a booking that has been completed</p>
+    {% endif %}
 </div>
 
 {% endblock %}
