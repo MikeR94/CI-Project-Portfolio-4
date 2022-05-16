@@ -20,7 +20,9 @@
         <li class="list-unstyled mb-2"><strong>Account</strong> - {{ booking.user.username }}</li>
       </ul>
       {% if booking.guest_attended == False %}
-        <td data-label="details"><a href="edit/{{ booking.id }}">Edit Booking</a></td>
+        <div><a href="edit/{{ booking.id }}">Edit Booking</a></div>
+        <br><br>
+        <div><a href="cancel/{{ booking.id }}">Cancel Booking</a></div>
       {% else %}
       <p>You can't edit a booking that has been completed</p>
       {% endif %}
