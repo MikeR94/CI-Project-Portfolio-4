@@ -200,7 +200,7 @@ def staff_dashboard(request):
         ).count()
         booking_count = Booking.objects.all().count()
         income_count = Payment.objects.all().aggregate(Sum('total_income')).get('total_income__sum', 0.00)
-        total_guests = Booking.objects.all().aggregate(sum=Sum('number_of_guests'))['sum']
+        total_guests = Booking.objects.filter(guest_attended=True).aggregate(sum=Sum('number_of_guests'))['sum']
         review_count = Review.objects.all().count()
         staff_accounts = User.objects.filter(is_staff=True).count()
         user_accounts = User.objects.filter(is_staff=False).count()
