@@ -4,6 +4,7 @@ from Reviews.models import Review
 from Staff.models import Payment
 from Accounts.models import User
 from Staff.forms import EditBookingForm, PaymentForm
+from . import forms
 from django.http import HttpResponseRedirect
 from django.core.mail import EmailMessage
 from django.conf import settings
@@ -567,7 +568,7 @@ def staff_create_payment(request, booking_id):
     next = request.POST.get("next", "/")
     booking = get_object_or_404(Booking, id=booking_id)
     data = Booking.objects.filter(id=booking_id)
-    form = PaymentForm()
+    form = forms.PaymentForm(request.POST or None)
     pending_bookings_count = Booking.objects.filter(booking_acknowledged=False).count()
     pending_bookings = Booking.objects.filter(booking_acknowledged=False)
     pending_reviews_count = Review.objects.filter(acknowledged=False).count()
@@ -584,7 +585,6 @@ def staff_create_payment(request, booking_id):
         guest_attended=True, bill_settled=False
     ).count()
     if request.method == "POST":
-        form = PaymentForm(request.POST, request.FILES)
         if form.is_valid():
             form = form.save(commit=False)
             form.booking_id = booking_id
