@@ -28,12 +28,16 @@ def user_edit_booking(request, booking_id):
     if request.method == "POST":
         form = EditBookingForm(request.POST, instance=booking_data)
         if form.is_valid():
-            form.save()
+            instance = form.save(commit=False)
             for item in booking:
                 item.booking_approved = False
                 item.booking_acknowledged = False
                 item.save()
-            return HttpResponseRedirect(next)
+            instance.save()
+            success_context = {
+                "data": instance,
+            }
+            return render(request, "user_edit_booking_success.html", success_context)
     form = EditBookingForm(instance=booking_data)
     context = {
         "booking": booking,

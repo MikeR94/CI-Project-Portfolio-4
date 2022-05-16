@@ -2,24 +2,24 @@
 
 {% load crispy_forms_tags %}
 
-<div class="container page-space pt-5 pb-5">
+<div class="container page-space">
   <div class="row">
-    <div class="col-lg-5 mt-5 mb-5">  
-      <form method="POST">
-          {% csrf_token %}
-          {{ form|crispy }}
-          <div>
-              <p>
-                  <button class="golden-button" type="submit">Book Now</button>
-              </p>
-          </div>
-      </form>
+    <div class="col-xl-8 order-xs-1 order-xl-2 mb-4 mt-5">
+      <h3 class="title-text">Book your stay</h3>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, ex iusto. Nemo eaque non ipsum similique! Iure libero rem nostrum nihil aspernatur minus, voluptatibus facere iusto quis ducimus corporis numquam labore dicta beatae accusantium dignissimos maiores sint nulla alias consequuntur? Suscipit unde perspiciatis error vel veritatis obcaecati! Dolorem, commodi aspernatur?</p>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, ex iusto. Nemo eaque non ipsum similique! Iure libero rem nostrum nihil aspernatur minus, voluptatibus facere iusto quis ducimus corporis numquam labore dicta beatae accusantium dignissimos maiores sint nulla alias consequuntur? Suscipit unde perspiciatis error vel veritatis obcaecati! Dolorem, commodi aspernatur?</p>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, ex iusto. Nemo eaque non ipsum similique! Iure libero rem nostrum nihil aspernatur minus, voluptatibus facere iusto quis ducimus corporis numquam labore dicta beatae accusantium dignissimos maiores sint nulla alias consequuntur? Suscipit unde perspiciatis error vel veritatis obcaecati! Dolorem, commodi aspernatur?</p>
     </div>
-    <div class="col-lg-7">
-      <h3 class="mt-5 mb-2 title-text">Book your stay</h3>
-      <p class="pt-5 pe-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique molestiae, aliquam dolorum vel commodi officiis culpa dolores nihil, aperiam adipisci illo dignissimos odit quidem excepturi?</p>
-      <p class="pt-5 pe-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique molestiae, aliquam dolorum vel commodi officiis culpa dolores nihil, aperiam adipisci illo dignissimos odit quidem excepturi?</p>
-      <p class="pt-5 pe-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique molestiae, aliquam dolorum vel commodi officiis culpa dolores nihil, aperiam adipisci illo dignissimos odit quidem excepturi?</p>
+    <div class="col-xl-4 col-md-12 order-xs-2 order-xl-1 mb-4 mt-5">
+      <form method="POST">
+        <input type="hidden" name="next" value="{{request.path}}">
+        {% csrf_token %}
+            {{ form|crispy }}
+            <p>
+              <button type="submit" class="golden-button">Submit</button>
+            </p>
+        </div>
+    </form>
     </div>
   </div>
 </div>
