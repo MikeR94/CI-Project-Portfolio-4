@@ -318,15 +318,15 @@ def staff_all_bookings(request):
 def staff_approve_booking(request, booking_id):
     next = request.POST.get("next", "/")
     booking = Booking.objects.filter(id=booking_id)
-    template = render_to_string("approved_email_template.html")
-    email = EmailMessage(
-        "Cafe Manbo - [BOOKING APPROVED]",
-        template,
-        settings.EMAIL_HOST_USER,
-        ["mikeyralph@hotmail.co.uk"],
-    )
-    email.fail_silently = False
-    email.send()
+    # template = render_to_string("approved_email_template.html")
+    # email = EmailMessage(
+    #     "Cafe Manbo - [BOOKING APPROVED]",
+    #     template,
+    #     settings.EMAIL_HOST_USER,
+    #     ["mikeyralph@hotmail.co.uk"],
+    # )
+    # email.fail_silently = False
+    # email.send()
     for object in booking:
         object.booking_approved = True
         object.booking_acknowledged = True
@@ -337,15 +337,15 @@ def staff_approve_booking(request, booking_id):
 def staff_deny_booking(request, booking_id):
     next = request.POST.get("next", "/")
     booking = Booking.objects.filter(id=booking_id)
-    template = render_to_string("denied_email_template.html")
-    email = EmailMessage(
-        "Cafe Manbo - [BOOKING DENIED]",
-        template,
-        settings.EMAIL_HOST_USER,
-        ["mikeyralph@hotmail.co.uk"],
-    )
-    email.fail_silently = False
-    email.send()
+    # template = render_to_string("denied_email_template.html")
+    # email = EmailMessage(
+    #     "Cafe Manbo - [BOOKING DENIED]",
+    #     template,
+    #     settings.EMAIL_HOST_USER,
+    #     ["mikeyralph@hotmail.co.uk"],
+    # )
+    # email.fail_silently = False
+    # email.send()
     for object in booking:
         object.booking_denied = True
         object.booking_acknowledged = True
