@@ -10,7 +10,9 @@
       <p class="established-text">
         <strong>Established 2002</strong>
       </p>
-      <button class="golden-button mt-3">Book Now</button> <button class="golden-button mt-3 ms-5">Contact Us</button>
+      <form action="{% url 'book_now'%}">
+        <button class="golden-button mt-3" type="submit">Book Now</button>
+      </form>
     </div>
   </div>
 </div>
@@ -54,7 +56,6 @@
         dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." "Lorem
         ipsum dolor sit amet, consectetur adipiscing elit..
       </p>
-      <button class="golden-button">Read More</button>
     </div>
     <div class="col-xl-6">
       <div class="our-menu-image p-3 img-fluid d-none d-xl-block">
@@ -112,7 +113,9 @@
           <p>cafemanbo@hotmail.co.uk</p>
           <p>01924 206050</p>
           <br />
-          <button class="golden-button">Visit Us</button>
+          <form action="{% url 'book_now'%}">
+            <button class="golden-button mt-3" type="submit">Visit Us</button>
+          </form>
         </div>
       </div>
     </div>
