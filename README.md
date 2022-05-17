@@ -1,108 +1,347 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# **_Cafe Manbo - Project Portfolio 4 - Full Stack_**
 
-Welcome USER_NAME,
+Descriptive text
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+You can view the live site here - <a href="https://cafe-manbo.herokuapp.com/" target="_blank" rel="noopener">Cafe Manbo</a>
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **September 1, 2021**
+![Cafe Manbo responsive design]()
 
-## Gitpod Reminders
+# Contents
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+* [**Objective**](<#objective>)
+* [**User Experience UX**](<#user-experience-ux>)
+    * [Design Prototype](<#design-prototype>)
+    * [Site Structure](<#site-structure>)
+    * [Design Choices](<#design-choices>)
+    *  [Typography](<#typography>)
+    *  [Colour Scheme](<#colour-scheme>)
+    * [Project Management](<#project-management>)
+* [**Features**](<#features>)
+    * [Feature 1](<#feature-1>)
+    * [Feature 2](<#feature-2>)
+* [**Future Features**](<#future-features>)
+    * [Future Feature 1](<#future-feature-1>)
+    * [Future Feature 2](<#future-feature-2>)
+* [**Technologies Used**](<#technologies-used>)
+* [**Python Packages**](<#python-packages>)
+* [**Testing**](<#testing>)
+* [**Deployment To Heroku**](<#deployment-to-heroku>)
+* [**Credits**](<#credits>)
+    * [**Content**](<#content>)
+    * [**Media**](<#media>)
+*  [**Acknowledgments**](<#acknowledgements>)
+*  [**Personal Development**](<#personal-development>)
 
-`python3 -m http.server`
 
-A blue button should appear to click: _Make Public_,
+# Objective
 
-Another blue button should appear to click: _Open Browser_.
+Descriptive text
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+[Back to top](<#contents>)
 
-A blue button should appear to click: _Make Public_,
+# User Experience (UX)
 
-Another blue button should appear to click: _Open Browser_.
+## Design Prototype
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+The very first design prototype was created using [Balsamiq](https://balsamiq.com/). Descriptive text<br /><br />
 
-To log into the Heroku toolbelt CLI:
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+![Balsamiq Start Prototype]()
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
 
-------
+[Back to top](<#contents>)
 
-## Release History
+## Site Structure
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+Descriptive text
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
+## Design Choices
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
+ * ### Typography
+      Text
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+ * ### Colour Scheme
+      Text<br /><br />
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
+## Project Management
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
+ * ### Trello
+      I used an excellent application called [Trello](https://trello.com/en-GB) which greatly improved organisation and productivity. This tool allows the individual to properly plan and create a systematic work flow so you are always aware of what needs to be done next.
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+      I would first create a very basic overview of what I wanted to achieve and then break it down into smaller more manageable steps. Before finishing for the day, I would spend at least 15 minutes planning for the next day so that when I came back to developing I could open my Trello board and instantly get back developing since I would know immediately what I need to be working on. I highly recommend this tool to any developer or development team. <br /><br />
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+![Trello Image]()
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+## Existing Features
+  * ### Feature 1
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+      * Text 1
+      * Text 2<br /><br />
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+<details><summary><b>Feature 1 Image</b></summary>
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+![Startup Display Image]()
+</details><br />
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+[Back to top](<#contents>)
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+  * ### Feature 2
 
-------
+      * Text 1
+      * Text 2<br /><br />
 
-## FAQ about the uptime script
+<details><summary><b>Feature 2 Image</b></summary>
 
-**Why have you added this script?**
+![Main Menu Image]()
+</details><br />
 
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
+[Back to top](<#contents>)
 
-**How will this affect me?**
 
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
+* ## Future Features 
 
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
+* ### Future Feature 1
 
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
+    * Text.
 
-**So….?**
+* ### Future Feature 2
 
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
+    * Text.
 
-**Can I opt out?**
+# Technologies Used
+* [HTML5](https://en.wikipedia.org/wiki/HTML) - Provides the content and structure for the website.
+* [CSS3](https://en.wikipedia.org/wiki/CSS) - Provides the styling for the website.
+* [Python](https://en.wikipedia.org/wiki/Python_(programming_language)) - Provides the functionality of the website.
+* [a11y](https://color.a11y.com/Contrast/) - Used to test the contrast and accessibility.
+* [Favicon](https://favicon.io/) - Used to create the favicon.
+* [Compressor](https://compressor.io/) - Used to compress the images.
+* [VSCode](https://code.visualstudio.com/) - Used to create and edit the website.
+* [GitHub](https://github.com/) - Used to host and deploy the website.
+* [GitBash](https://en.wikipedia.org/wiki/Bash_(Unix_shell)) - Terminal used to push changes to the GitHub repository.
+* [removebg](https://www.remove.bg/) - Used to remove background images.
+* [Google Chrome DevTools](https://developer.chrome.com/docs/devtools/) - Used to test responsiveness and debug.
+* [Responsive Design Checker](https://www.responsivedesignchecker.com/) - Used to test responsiveness.
+* [Balsamiq](https://balsamiq.com/) - Used to create the wire-frame.
+* [Draw.io](https://marketplace.visualstudio.com/items?itemName=hediet.vscode-drawio) - Used to create the logic flow chart.
+* [Trello](https://trello.com/en-GB) - Used as a project management tool to organise my work flow.
 
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
+# Python Packages
 
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
+* [Random](https://docs.python.org/3/library/random.html) - Used to implement pseudo-random number generators.
+* [Datetime](https://docs.python.org/3/library/datetime.html) - Used to manipulate dates and times.
+* [OS](https://docs.python.org/3/library/os.html) - Used to provide a way of using operating system dependent functionality.
+* [Time](https://docs.python.org/3/library/time.html) - Used to provide various time-related functions.
 
-**Anything more?**
 
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
+[Back to top](<#contents>)
 
----
+# Testing
 
-Happy coding!
+* ## Code Validation
+
+    * Cafe Manbo has been validated by using online validation tools [W3C HTML Validator](https://validator.w3.org/), [W3C CSS Validator](https://jigsaw.w3.org/css-validator/) and the [PEP8 Online Validator](http://pep8online.com/). I encountered many PEP8 errors and warnings however these have now been fixed and documented below. 
+
+* ### HTML Validation Image
+
+    ![HTML Validation]()
+
+* ### CSS Validation Image
+
+    ![CSS Validation]()
+
+* ### PEP8 Validation Image (run.py)
+
+    ![PEP8 Validation (run.py)]()
+
+* ### PEP8 Validation Image (print.py)
+
+    ![PEP8 Validation (print.py)]()
+
+* ### PEP8 Validation Image (questions.py)
+
+    ![PEP8 Validation (questions.py)]()
+
+* ## Lighthouse Testing 
+
+    * Furthermore the website has been through the [Chrome Dev Tools](https://developer.chrome.com/docs/devtools/) and [Microsoft Edge Dev Tools](https://docs.microsoft.com/en-us/microsoft-edge/devtools-guide-chromium/open/?tabs=cmd-Windows) Lighthouse Testing which tests the website for the following:
+        * Performance - How the page performs whilst loading.
+        * Accessibility - Is the site accessible for all players and how can it be improved.
+        * Best Practices - Site conforms to industry best practices.
+        * SEO - Search Engine Optimisation. Is the site optimised for search engine result rankings.
+
+    * The lighthouse tests were conducted in incognito/private windows due to extensions interfering with the results.<br /><br />
+
+* ### Edge Desktop Lighthouse Result
+
+    ![Edge Desktop Lighthouse]()
+
+* ### Edge Mobile Lighthouse Result
+
+    ![Edge Mobile Lighthouse]()
+
+* ### Chrome Desktop Lighthouse Result
+
+    ![Chrome Desktop Lighthouse]()
+
+* ### Chrome Mobile Lighthouse Result
+
+    ![Chrome Mobile Lighthouse]()
+
+* ## Accessibility Testing
+    * I also put the website through [a11y](https://color.a11y.com/Contrast/) to further test the contrast and found no issues. <br /><br />
+
+    ![a11y Test]()
+
+* ## Responsiveness Testing
+    * I conducted responsive tests manually with [Google Chrome DevTools](https://developer.chrome.com/docs/devtools/) and [Responsive Design Checker](https://www.responsivedesignchecker.com/).<br /><br />
+
+    ![Responsive Test Sheet]()
+
+
+* ## Compressing Images
+    * All images that are displayed within the website have been compressed with [Compressor](https://compressor.io/) and I managed to save a total of XXX KB.<br /><br />
+
+    ![Compressed Image 1])
+
+* ## Manual Testing
+    * In addition to the other tests, I have conducted a manual check list for myself to carry out to make sure that everything is working as intended.
+
+   * ### Manual Tests Conducted
+      * **Manual Test 1**
+        * Verification step
+        * Verification step
+        * Verification step
+      * **Manual Test 2**
+        * Verification step
+        * Verification step
+        * Verification step
+        <br /><br />
+
+* ## Browser Compatibility
+    * The website has had manual and responsive tests conducted on the below browsers with additional Lighthouse testing on Google Chrome and Microsoft Edge and I was presented with no issues.
+        * Google Chrome
+        * Microsoft Edge
+        * Safari
+        <br /><br />
+
+[Back to top](<#contents>)
+
+* ## Bugs Fixed 
+
+    ### Bug Fixed 1
+        
+    * Text <br /><br />
+
+    ![Leaderboards Fixed]()
+
+
+* ## Bugs Unresolved
+
+    ### Bugs Unresolved 1
+
+    * Text <br /><br />
+
+    ### navigator.userAgent/appVersion and platform
+    
+    * When inspecting the website with [Google Chrome DevTools](https://developer.chrome.com/docs/devtools/), the website is showing one issue which is the same issue I had on my Project Portfolio 1 and Project Portfolio 2 so I'm familiar with it.<br /><br />
+
+    ![Site Issue](assets/images/readme-images/navigator-agent-issue-image.png)
+    
+    * I've done some research and apparently this is a Google Chrome issue as per this [source](https://forum.codewithmosh.com/t/the-ultimate-javascript-console-issue-at-beginning-of-course/6535) and has been reported [here](https://githubmemory.com/repo/zalmoxisus/redux-devtools-extension/issues/808). Additionally, I have tested this website with Microsoft Edge and the issue doesn't show.
+
+
+
+[Back to top](<#contents>)
+
+# Deployment To Heroku
+  
+The project was deployed to [Heroku](https://www.heroku.com). The deployment process is as follows: 
+  
+1. Log in to Heroku or create an account if required.
+
+<details><summary><b>Heroku Step 1</b></summary>
+
+![Heroku Step 1]()
+</details><br />
+
+2. Click the button labeled New from the dashboard in the top right corner, just below the header and then select "Create new app".
+
+<details><summary><b>Heroku Step 2</b></summary>
+
+![Heroku Step 2]()
+</details><br />
+
+3. Enter a unique application name and then select your region. Once you are ready, click "Create app".
+
+<details><summary><b>Heroku Step 3</b></summary>
+
+![Heroku Step 3]()
+</details><br />
+
+4. This will bring you to the project "Deploy" tab. From here, click the "Settings" tab and scroll down to the "Config Vars" section and click on "Reveal Config Vars". In the KEY input field, enter "PORT" and in the VALUE input field, enter "8000". After that, click the "Add" button to the right.
+
+<details><summary><b>Heroku Step 4</b></summary>
+
+![Heroku Step 4]()
+</details><br />
+
+5. Scroll down to the buildpacks section of the settings page and click the button "Add buildpack".
+
+<details><summary><b>Heroku Step 5</b></summary>
+
+![Heroku Step 5]()
+</details><br />
+
+6. Add both "Python" and "node.js" and make sure that Python is above node.js. If it isn't you can just drag it above.
+
+<details><summary><b>Heroku Step 6</b></summary>
+
+![Heroku Step 6]()
+</details><br />
+
+7. Scroll back to the top of the settings page, and navigate to the "Deploy" tab. Select Github as the deployment method.
+
+<details><summary><b>Heroku Step 7</b></summary>
+
+![Heroku Step 7]()
+</details><br />
+
+8. Search for the repository name and click the connect button next to the intended repository.
+
+<details><summary><b>Heroku Step 8</b></summary>
+
+![Heroku Step 8]()
+</details><br />
+
+9. From the bottom of the deploy page select your preferred deployment type. I personally enabled automatic deployments. After that, click "Deploy Branch".
+
+<details><summary><b>Heroku Step 9</b></summary>
+
+![Heroku Step 9]()
+</details><br />
+
+The live link to the Github repository can be found here - https://github.com/MikeR94/CI-Project-Portfolio-4
+
+[Back to top](<#contents>)
+
+# Credits
+### Content
+
+* Text
+
+### Media
+* The photos were compressed using [Compressor](https://compressor.io/).
+* The favicon image came from [encrypted-tbn0](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjtOmemr76GOUK79y3itlIDr5bYfWiS-F2xixdV1qg4e9WI8POOvZ0TV06TKCmL7zE3Ko&usqp=CAU) and then turned into a favicon by [Favicon](https://favicon.io/).
+
+[Back to top](<#contents>)
+
+# Acknowledgments
+The site was completed as a part of a Full Stack Software Developer Diploma at the [Code Institute](https://codeinstitute.net/) and is my Portfolio Project 4. I would like to thank my mentor [Precious Ijege](https://www.linkedin.com/in/precious-ijege-908a00168/), my educator [Luke Walters](https://www.linkedin.com/in/luke-walters-leatherbarrow-531107101/), and my brother [Jack Ralph](https://www.linkedin.com/in/jackthomasralph/), the Slack community, and all at the Code Institute for their help and support.
+
+# Personal Development
+Text
+
+Mike Ralph 2022.
+
+[Back to top](<#contents>)
