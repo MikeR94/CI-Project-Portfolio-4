@@ -3,7 +3,6 @@ from django.test import TestCase
 from Accounts.models import User
 from Booking.models import Booking
 from Reviews.models import Review
-from Staff.models import Payment
 from Staff.views import staff_all_bookings, staff_all_reviews, staff_approve_booking, staff_approve_review, staff_cancel_booking, staff_check_in, staff_check_in_page, staff_create_payment, staff_dashboard, staff_deny_booking, staff_deny_review, staff_details_booking, staff_no_show, staff_payment_page, staff_pending_bookings, staff_pending_reviews
 
 class TestUrls(TestCase):
