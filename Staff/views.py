@@ -338,6 +338,8 @@ def staff_approve_booking(request, booking_id):
             object.booking_acknowledged = True
             object.save()
         return HttpResponseRedirect(next)
+    else:
+        return HttpResponseRedirect("/")
 
 
 def staff_deny_booking(request, booking_id):
@@ -358,6 +360,8 @@ def staff_deny_booking(request, booking_id):
             object.booking_acknowledged = True
             object.save()
         return HttpResponseRedirect(next)
+    else:
+        return HttpResponseRedirect("/")
 
 
 def staff_cancel_booking(request, booking_id):
