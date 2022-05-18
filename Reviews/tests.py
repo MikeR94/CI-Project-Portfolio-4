@@ -42,3 +42,38 @@ class TestUrls(TestCase):
 
         url = reverse('single_review', kwargs={'review_id': '50'})
         self.assertEquals(resolve(url).func, show_single_review)
+
+
+class TestModels(TestCase):
+
+    def test_review_model(self):
+        """
+        Testing review model is accepting correct values
+        """
+        user = User.objects.create(
+            first_name = "Mike",
+            last_name = "Ralph",
+            id = 1,
+            username = "Mike",
+            email = "mikeyralph@hotmail.co.uk",
+            is_active = True,
+            is_staff = False,
+        )
+        
+        review = Review.objects.create(
+            first_name = "Mike",
+            last_name = "Ralph",
+            id = 1,
+            body = "Hello",
+            approved = True,
+            user_id = user.id,
+            acknowledged = True,
+        )
+
+        self.assertEquals(review.first_name, 'Mike')
+        self.assertEquals(review.last_name, 'Ralph')
+        self.assertEquals(review.id, 1)
+        self.assertEquals(review.body, "Hello")
+        self.assertEquals(review.approved, True)
+        self.assertEquals(review.user_id, user.id)
+        self.assertEquals(review.acknowledged, True)

@@ -3,6 +3,7 @@ from django.test import TestCase
 from Accounts.models import User
 from Booking.models import Booking
 from Reviews.models import Review
+from Staff.models import Payment
 from Staff.views import staff_all_bookings, staff_all_reviews, staff_approve_booking, staff_approve_review, staff_cancel_booking, staff_check_in, staff_check_in_page, staff_create_payment, staff_dashboard, staff_deny_booking, staff_deny_review, staff_details_booking, staff_no_show, staff_payment_page, staff_pending_bookings, staff_pending_reviews
 
 class TestUrls(TestCase):
@@ -323,7 +324,26 @@ class TestUrls(TestCase):
         self.assertEquals(resolve(url).func, staff_cancel_booking)
 
 
+class TestModels(TestCase):
 
+    def test_payment_model(self):
+        """
+        Testing payment model is accepting correct values
+        """
+        
+        payment = Payment.objects.create(
+            id = 1,
+            amount_owed = 200,
+            amount_paid = 220,
+            amount_tipped = 20,
+            total_income = 220,
+        )
+
+        self.assertEquals(payment.id, 1)
+        self.assertEquals(payment.amount_owed, 200)
+        self.assertEquals(payment.amount_paid, 220)
+        self.assertEquals(payment.amount_tipped, 20)
+        self.assertEquals(payment.total_income, 220)
 
 
 
