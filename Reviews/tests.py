@@ -20,7 +20,7 @@ class TestUrls(TestCase):
         url = reverse('create_review')
         self.assertEquals(resolve(url).func, create_review)
 
-    def test_review_id_url_is_resolve(self):
+    def test_review_id_url_is_resolved(self):
         response = self.client.get('/review/50')
         self.assertEqual(response.status_code, 404)
         self.user = User.objects.create_user(
