@@ -7,7 +7,7 @@ from django.test import Client
 class TestUrls(TestCase):
 
     def test_user_reservations_url_is_resolved(self):
-        self.user = User.objects.create_superuser(
+        self.user = User.objects.create_user(
             username="admin",
             password="adminadmin",
             email="admin@example.com")
