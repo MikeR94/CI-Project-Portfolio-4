@@ -20,6 +20,7 @@ class TestUrls(TestCase):
 
         url = reverse('user_reservations')
         self.assertEquals(resolve(url).func, show_user_reservations)
+        self.assertTemplateUsed(response, 'user_reservations.html')
 
 
     def test_user_details_booking_url_is_resolved(self):
@@ -46,6 +47,7 @@ class TestUrls(TestCase):
 
         url = reverse('user_details_booking', kwargs={'booking_id': '50'})
         self.assertEquals(resolve(url).func, user_details_booking)
+        self.assertTemplateUsed(response, 'user_details_booking.html')
 
 
     def test_user_details_booking_edit_url_is_resolved(self):
@@ -127,3 +129,5 @@ class TestModels(TestCase):
         self.assertEquals(admin.email, "mikeyralph@hotmail.co.uk")
         self.assertEquals(admin.is_active, True)
         self.assertEquals(admin.is_staff, True)
+
+
