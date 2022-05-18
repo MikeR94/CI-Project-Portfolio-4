@@ -28,7 +28,12 @@ class TestModels(TestCase):
             date_of_visit = "2022-05-16",
             time_of_visit = "20:00:00",
             number_of_guests = "4",
-            contact_number = "07946472421"
+            contact_number = "07946472421",
+            guest_attended = False,
+            guest_no_show = False,
+            booking_approved = False,
+            booking_denied = False,
+            booking_acknowledged = False,
         )
 
         self.assertEquals(order.id, 50)
@@ -40,3 +45,8 @@ class TestModels(TestCase):
         self.assertEquals(order.time_of_visit, '20:00:00')
         self.assertEquals(order.number_of_guests, '4')
         self.assertEquals(order.contact_number, '07946472421')
+        self.assertEquals(order.guest_attended, False)
+        self.assertEquals(order.guest_no_show, False)
+        self.assertEquals(order.booking_approved, False)
+        self.assertEquals(order.booking_denied, False)
+        self.assertEquals(order.booking_acknowledged, False)
