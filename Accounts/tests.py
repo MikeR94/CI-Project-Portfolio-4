@@ -81,3 +81,49 @@ class TestUrls(TestCase):
         url = reverse('cancel', kwargs={'booking_id': '50'})
         self.assertEquals(resolve(url).func, user_cancel_booking)
 
+
+class TestModels(TestCase):
+    def test_user_account(self):
+        """
+        Testing user account is accepting correct values
+        """
+        user = User.objects.create(
+            first_name = "Mike",
+            last_name = "Ralph",
+            id = 1,
+            username = "Mike",
+            email = "mikeyralph@hotmail.co.uk",
+            is_active = True,
+            is_staff = False,
+        )
+
+        self.assertEquals(user.first_name, 'Mike')
+        self.assertEquals(user.last_name, 'Ralph')
+        self.assertEquals(user.id, 1)
+        self.assertEquals(user.username, "Mike")
+        self.assertEquals(user.email, "mikeyralph@hotmail.co.uk")
+        self.assertEquals(user.is_active, True)
+        self.assertEquals(user.is_staff, False)
+
+
+    def test_staff_account(self):
+        """
+        Testing staff account is accepting correct values
+        """
+        admin = User.objects.create(
+            first_name = "Mike",
+            last_name = "Ralph",
+            id = 1,
+            username = "Mike",
+            email = "mikeyralph@hotmail.co.uk",
+            is_active = True,
+            is_staff = True,
+        )
+
+        self.assertEquals(admin.first_name, 'Mike')
+        self.assertEquals(admin.last_name, 'Ralph')
+        self.assertEquals(admin.id, 1)
+        self.assertEquals(admin.username, "Mike")
+        self.assertEquals(admin.email, "mikeyralph@hotmail.co.uk")
+        self.assertEquals(admin.is_active, True)
+        self.assertEquals(admin.is_staff, True)
