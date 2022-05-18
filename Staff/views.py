@@ -253,7 +253,8 @@ def staff_dashboard(request):
 
         }
         return render(request, "staff_dashboard.html", context)
-    return render(request, "index.html")
+    else:
+        return HttpResponseRedirect("/")
 
 
 def staff_pending_bookings(request):
