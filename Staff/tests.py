@@ -3,7 +3,8 @@ from django.test import TestCase
 from Accounts.models import User
 from Booking.models import Booking
 from Reviews.models import Review
-from Staff.views import staff_all_bookings, staff_all_reviews, staff_approve_booking, staff_approve_review, staff_check_in_page, staff_dashboard, staff_deny_booking, staff_deny_review, staff_details_booking, staff_pending_bookings, staff_pending_reviews
+from Staff.models import Payment
+from Staff.views import staff_all_bookings, staff_all_reviews, staff_approve_booking, staff_approve_review, staff_cancel_booking, staff_check_in, staff_check_in_page, staff_create_payment, staff_dashboard, staff_deny_booking, staff_deny_review, staff_details_booking, staff_no_show, staff_payment_page, staff_pending_bookings, staff_pending_reviews
 
 class TestUrls(TestCase):
 
@@ -228,6 +229,99 @@ class TestUrls(TestCase):
 
         response = self.client.get('/staff/check-in/50')
         self.assertEqual(response.status_code, 302)
+
+        url = reverse('staff_check_in', kwargs={'booking_id': '50'})
+        self.assertEquals(resolve(url).func, staff_check_in)
+
+
+    def test_staff_no_show_booking_id_url_is_resolved(self):
+
+        Booking.objects.create(
+            id = "50",
+            first_name = "Mike",
+            last_name = "Ralph",
+            email = "mikeyralph@hotmail.co.uk",
+            ref_number = "1234567890",
+            date_of_visit = "2022-05-16",
+            time_of_visit = "20:00:00",
+            number_of_guests = "4",
+            contact_number = "07946472421"
+        )
+
+        self.user = User.objects.create_user(username='admin', is_staff=True)
+        self.client.force_login(self.user)
+
+        response = self.client.get('/staff/no-show/50')
+        self.assertEqual(response.status_code, 302)
+
+        url = reverse('staff_no_show', kwargs={'booking_id': '50'})
+        self.assertEquals(resolve(url).func, staff_no_show)
+
+
+    def test_staff_payment_page_url_is_resolved(self):
+
+        response = self.client.get('/staff/payment-page')
+        self.assertEqual(response.status_code, 302)
+
+        self.user = User.objects.create_user(username='admin', is_staff=True)
+        self.client.force_login(self.user)
+
+        response = self.client.get('/staff/payment-page')
+        self.assertEqual(response.status_code, 200)
+
+        url = reverse('staff_payment_page')
+        self.assertEquals(resolve(url).func, staff_payment_page)
+
+
+    def test_staff_create_payment_url_is_resolved(self):
+
+        Booking.objects.create(
+            id = "50",
+            first_name = "Mike",
+            last_name = "Ralph",
+            email = "mikeyralph@hotmail.co.uk",
+            ref_number = "1234567890",
+            date_of_visit = "2022-05-16",
+            time_of_visit = "20:00:00",
+            number_of_guests = "4",
+            contact_number = "07946472421"
+        )
+
+        response = self.client.get('/staff/create-payment/50')
+        self.assertEqual(response.status_code, 302)
+
+        self.user = User.objects.create_user(username='admin', is_staff=True)
+        self.client.force_login(self.user)
+
+        response = self.client.get('/staff/create-payment/50')
+        self.assertEqual(response.status_code, 200)
+
+        url = reverse('staff_create_payment', kwargs={'booking_id': '50'})
+        self.assertEquals(resolve(url).func, staff_create_payment)
+
+
+    def test_staff_details_booking_cancel_booking_url_is_resolved(self):
+
+        Booking.objects.create(
+            id = "50",
+            first_name = "Mike",
+            last_name = "Ralph",
+            email = "mikeyralph@hotmail.co.uk",
+            ref_number = "1234567890",
+            date_of_visit = "2022-05-16",
+            time_of_visit = "20:00:00",
+            number_of_guests = "4",
+            contact_number = "07946472421"
+        )
+
+        self.user = User.objects.create_user(username='admin', is_staff=True)
+        self.client.force_login(self.user)
+
+        response = self.client.get('/staff/details-booking/cancel/50')
+        self.assertEqual(response.status_code, 302)
+
+        url = reverse('staff_cancel_booking', kwargs={'booking_id': '50'})
+        self.assertEquals(resolve(url).func, staff_cancel_booking)
 
 
 
