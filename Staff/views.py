@@ -285,6 +285,8 @@ def staff_pending_bookings(request):
             "pending_payment_count": pending_payment_count,
         }
         return render(request, "staff_pending_bookings.html", context)
+    else:
+        return HttpResponseRedirect("/")
 
 
 def staff_all_bookings(request):
@@ -314,50 +316,57 @@ def staff_all_bookings(request):
             "pending_payment_count": pending_payment_count,
         }
         return render(request, "staff_all_bookings.html", context)
+    else:
+        return HttpResponseRedirect("/")
 
 
 def staff_approve_booking(request, booking_id):
-    next = request.POST.get("next", "/")
-    booking = Booking.objects.filter(id=booking_id)
-    template = render_to_string("approved_email_template.html")
-    email = EmailMessage(
-        "Cafe Manbo - [BOOKING APPROVED]",
-        template,
-        settings.EMAIL_HOST_USER,
-        ["mikeyralph@hotmail.co.uk"],
-    )
-    email.fail_silently = False
-    email.send()
-    for object in booking:
-        object.booking_approved = True
-        object.booking_acknowledged = True
-        object.save()
-    return HttpResponseRedirect(next)
+    if request.user.is_staff:
+        next = request.POST.get("next", "/")
+        booking = Booking.objects.filter(id=booking_id)
+        template = render_to_string("approved_email_template.html")
+        email = EmailMessage(
+            "Cafe Manbo - [BOOKING APPROVED]",
+            template,
+            settings.EMAIL_HOST_USER,
+            ["mikeyralph@hotmail.co.uk"],
+        )
+        email.fail_silently = False
+        email.send()
+        for object in booking:
+            object.booking_approved = True
+            object.booking_acknowledged = True
+            object.save()
+        return HttpResponseRedirect(next)
 
 
 def staff_deny_booking(request, booking_id):
-    next = request.POST.get("next", "/")
-    booking = Booking.objects.filter(id=booking_id)
-    template = render_to_string("denied_email_template.html")
-    email = EmailMessage(
-        "Cafe Manbo - [BOOKING DENIED]",
-        template,
-        settings.EMAIL_HOST_USER,
-        ["mikeyralph@hotmail.co.uk"],
-    )
-    email.fail_silently = False
-    email.send()
-    for object in booking:
-        object.booking_denied = True
-        object.booking_acknowledged = True
-        object.save()
-    return HttpResponseRedirect(next)
+    if request.user.is_staff:
+        next = request.POST.get("next", "/")
+        booking = Booking.objects.filter(id=booking_id)
+        template = render_to_string("denied_email_template.html")
+        email = EmailMessage(
+            "Cafe Manbo - [BOOKING DENIED]",
+            template,
+            settings.EMAIL_HOST_USER,
+            ["mikeyralph@hotmail.co.uk"],
+        )
+        email.fail_silently = False
+        email.send()
+        for object in booking:
+            object.booking_denied = True
+            object.booking_acknowledged = True
+            object.save()
+        return HttpResponseRedirect(next)
 
 
 def staff_cancel_booking(request, booking_id):
-    booking = get_object_or_404(Booking, id=booking_id)
-    booking.delete()
-    return redirect("staff_dashboard")
+    if request.user.is_staff:
+        booking = get_object_or_404(Booking, id=booking_id)
+        booking.delete()
+        return redirect("staff_dashboard")
+    else:
+        return HttpResponseRedirect("/")
 
 
 
@@ -390,6 +399,8 @@ def staff_pending_reviews(request):
             "pending_payment_count": pending_payment_count,
         }
         return render(request, "staff_pending_reviews.html", context)
+    else:
+        return HttpResponseRedirect("/")
 
 
 def staff_all_reviews(request):
@@ -419,6 +430,8 @@ def staff_all_reviews(request):
             "pending_payment_count": pending_payment_count,
         }
         return render(request, "staff_all_reviews.html", context)
+    else:
+        return HttpResponseRedirect("/")
 
 
 def staff_check_in_page(request):
@@ -455,158 +468,181 @@ def staff_check_in_page(request):
             "pending_payment_count": pending_payment_count,
         }
         return render(request, "staff_check_in.html", context)
+    else:
+        return HttpResponseRedirect("/")
 
 
 def staff_check_in(request, booking_id):
-    next = request.POST.get("next", "/")
-    data = Booking.objects.filter(id=booking_id)
-    for item in data:
-        item.guest_attended = True
-        item.save()
-        return HttpResponseRedirect(next)
+    if request.user.is_staff:
+        next = request.POST.get("next", "/")
+        data = Booking.objects.filter(id=booking_id)
+        for item in data:
+            item.guest_attended = True
+            item.save()
+            return HttpResponseRedirect(next)
+    else:
+        return HttpResponseRedirect("/")
 
 
 def staff_no_show(request, booking_id):
-    next = request.POST.get("next", "/")
-    data = Booking.objects.filter(id=booking_id)
-    for item in data:
-        item.guest_no_show = True
-        item.save()
-        return HttpResponseRedirect(next)
+    if request.user.is_staff:
+        next = request.POST.get("next", "/")
+        data = Booking.objects.filter(id=booking_id)
+        for item in data:
+            item.guest_no_show = True
+            item.save()
+            return HttpResponseRedirect(next)
+    else:
+        return HttpResponseRedirect("/")
 
 
 def staff_approve_review(request, review_id):
-    next = request.POST.get("next", "/")
-    data = Review.objects.filter(id=review_id)
-    for item in data:
-        item.approved = True
-        item.acknowledged = True
-        item.save()
-        return HttpResponseRedirect(next)
+    if request.user.is_staff:
+        next = request.POST.get("next", "/")
+        data = Review.objects.filter(id=review_id)
+        for item in data:
+            item.approved = True
+            item.acknowledged = True
+            item.save()
+            return HttpResponseRedirect(next)
+    else:
+        return HttpResponseRedirect("/")
 
 
 def staff_deny_review(request, review_id):
-    next = request.POST.get("next", "/")
-    data = Review.objects.filter(id=review_id)
-    for item in data:
-        item.approved = False
-        item.acknowledged = True
-        item.save()
-        return HttpResponseRedirect(next)
+    if request.user.is_staff:
+        next = request.POST.get("next", "/")
+        data = Review.objects.filter(id=review_id)
+        for item in data:
+            item.approved = False
+            item.acknowledged = True
+            item.save()
+            return HttpResponseRedirect(next)
+    else:
+        return HttpResponseRedirect("/")
 
 
 def staff_details_booking(request, booking_id):
-    today = date.today()
-    next = request.POST.get("next", "/")
-    booking_data = get_object_or_404(Booking, id=booking_id)
-    booking = Booking.objects.get(id=booking_id)
-    pending_bookings_count = Booking.objects.filter(booking_acknowledged=False).count()
-    pending_bookings = Booking.objects.filter(booking_acknowledged=False)
-    pending_reviews_count = Review.objects.filter(acknowledged=False).count()
-    pending_reviews = Review.objects.filter(acknowledged=False)
-    pending_check_in_count = Booking.objects.filter(
-        guest_attended=False,
-        guest_no_show=False,
-        booking_approved=True,
-        date_of_visit__year=today.year,
-        date_of_visit__month=today.month,
-        date_of_visit__day=today.day,
-    ).count()
-    pending_payment_count = Booking.objects.filter(
-        guest_attended=True, bill_settled=False
-    ).count()
-    if request.method == "POST":
-        form = EditBookingForm(request.POST, instance=booking_data)
-        if form.is_valid():
-            form.save()
-            return HttpResponseRedirect(next)
-    form = EditBookingForm(instance=booking_data)
-    context = {
-        "booking": booking,
-        "form": form,
-        "pending_bookings": pending_bookings,
-        "pending_bookings_count": pending_bookings_count,
-        "pending_reviews": pending_reviews,
-        "pending_reviews_count": pending_reviews_count,
-        "pending_check_in_count": pending_check_in_count,
-        "pending_payment_count": pending_payment_count,
-    }
-    return render(request, "staff_details_booking.html", context)
+    if request.user.is_staff:
+        today = date.today()
+        next = request.POST.get("next", "/")
+        booking_data = get_object_or_404(Booking, id=booking_id)
+        booking = Booking.objects.get(id=booking_id)
+        pending_bookings_count = Booking.objects.filter(booking_acknowledged=False).count()
+        pending_bookings = Booking.objects.filter(booking_acknowledged=False)
+        pending_reviews_count = Review.objects.filter(acknowledged=False).count()
+        pending_reviews = Review.objects.filter(acknowledged=False)
+        pending_check_in_count = Booking.objects.filter(
+            guest_attended=False,
+            guest_no_show=False,
+            booking_approved=True,
+            date_of_visit__year=today.year,
+            date_of_visit__month=today.month,
+            date_of_visit__day=today.day,
+        ).count()
+        pending_payment_count = Booking.objects.filter(
+            guest_attended=True, bill_settled=False
+        ).count()
+        if request.method == "POST":
+            form = EditBookingForm(request.POST, instance=booking_data)
+            if form.is_valid():
+                form.save()
+                return HttpResponseRedirect(next)
+        form = EditBookingForm(instance=booking_data)
+        context = {
+            "booking": booking,
+            "form": form,
+            "pending_bookings": pending_bookings,
+            "pending_bookings_count": pending_bookings_count,
+            "pending_reviews": pending_reviews,
+            "pending_reviews_count": pending_reviews_count,
+            "pending_check_in_count": pending_check_in_count,
+            "pending_payment_count": pending_payment_count,
+        }
+        return render(request, "staff_details_booking.html", context)
+    else:
+        return HttpResponseRedirect("/")
 
 
 def staff_payment_page(request):
-    today = date.today()
-    booking = Booking.objects.filter(guest_attended=True, bill_settled=False)
-    pending_bookings_count = Booking.objects.filter(booking_acknowledged=False).count()
-    pending_bookings = Booking.objects.filter(booking_acknowledged=False)
-    pending_reviews_count = Review.objects.filter(acknowledged=False).count()
-    pending_reviews = Review.objects.filter(acknowledged=False)
-    pending_check_in_count = Booking.objects.filter(
-        guest_attended=False,
-        guest_no_show=False,
-        booking_approved=True,
-        date_of_visit__year=today.year,
-        date_of_visit__month=today.month,
-        date_of_visit__day=today.day,
-    ).count()
-    pending_payment_count = Booking.objects.filter(
-        guest_attended=True, bill_settled=False
-    ).count()
-    context = {
-        "booking": booking,
-        "pending_bookings": pending_bookings,
-        "pending_bookings_count": pending_bookings_count,
-        "pending_reviews": pending_reviews,
-        "pending_reviews_count": pending_reviews_count,
-        "pending_check_in_count": pending_check_in_count,
-        "pending_payment_count": pending_payment_count,
-    }
-    return render(request, "staff_payment_page.html", context)
+    if request.user.is_staff:
+        today = date.today()
+        booking = Booking.objects.filter(guest_attended=True, bill_settled=False)
+        pending_bookings_count = Booking.objects.filter(booking_acknowledged=False).count()
+        pending_bookings = Booking.objects.filter(booking_acknowledged=False)
+        pending_reviews_count = Review.objects.filter(acknowledged=False).count()
+        pending_reviews = Review.objects.filter(acknowledged=False)
+        pending_check_in_count = Booking.objects.filter(
+            guest_attended=False,
+            guest_no_show=False,
+            booking_approved=True,
+            date_of_visit__year=today.year,
+            date_of_visit__month=today.month,
+            date_of_visit__day=today.day,
+        ).count()
+        pending_payment_count = Booking.objects.filter(
+            guest_attended=True, bill_settled=False
+        ).count()
+        context = {
+            "booking": booking,
+            "pending_bookings": pending_bookings,
+            "pending_bookings_count": pending_bookings_count,
+            "pending_reviews": pending_reviews,
+            "pending_reviews_count": pending_reviews_count,
+            "pending_check_in_count": pending_check_in_count,
+            "pending_payment_count": pending_payment_count,
+        }
+        return render(request, "staff_payment_page.html", context)
+    else:
+        return HttpResponseRedirect("/")
 
 
 def staff_create_payment(request, booking_id):
-    today = date.today()
-    next = request.POST.get("next", "/")
-    booking = get_object_or_404(Booking, id=booking_id)
-    data = Booking.objects.filter(id=booking_id)
-    form = forms.PaymentForm(request.POST or None)
-    pending_bookings_count = Booking.objects.filter(booking_acknowledged=False).count()
-    pending_bookings = Booking.objects.filter(booking_acknowledged=False)
-    pending_reviews_count = Review.objects.filter(acknowledged=False).count()
-    pending_reviews = Review.objects.filter(acknowledged=False)
-    pending_check_in_count = Booking.objects.filter(
-        guest_attended=False,
-        guest_no_show=False,
-        booking_approved=True,
-        date_of_visit__year=today.year,
-        date_of_visit__month=today.month,
-        date_of_visit__day=today.day,
-    ).count()
-    pending_payment_count = Booking.objects.filter(
-        guest_attended=True, bill_settled=False
-    ).count()
-    if request.method == "POST":
-        if form.is_valid():
-            form = form.save(commit=False)
-            form.booking_id = booking_id
-            form.amount_tipped = int(form.amount_paid) - int(form.amount_owed)
-            form.total_income = int(form.amount_paid)
-            if int(form.amount_paid) < int(form.amount_owed):
-                form.amount_tipped = 0
-            for x in data:
-                if int(form.amount_owed) <= int(form.total_income):
-                    x.bill_settled = True
-                    x.save()
-            form.save()
-            return HttpResponseRedirect(next)
-    context = {
-        "booking": booking,
-        "form": form,
-        "pending_bookings": pending_bookings,
-        "pending_bookings_count": pending_bookings_count,
-        "pending_reviews": pending_reviews,
-        "pending_reviews_count": pending_reviews_count,
-        "pending_check_in_count": pending_check_in_count,
-        "pending_payment_count": pending_payment_count,
-    }
-    return render(request, "staff_submit_payment.html", context)
+    if request.user.is_staff:
+        today = date.today()
+        next = request.POST.get("next", "/")
+        booking = get_object_or_404(Booking, id=booking_id)
+        data = Booking.objects.filter(id=booking_id)
+        form = forms.PaymentForm(request.POST or None)
+        pending_bookings_count = Booking.objects.filter(booking_acknowledged=False).count()
+        pending_bookings = Booking.objects.filter(booking_acknowledged=False)
+        pending_reviews_count = Review.objects.filter(acknowledged=False).count()
+        pending_reviews = Review.objects.filter(acknowledged=False)
+        pending_check_in_count = Booking.objects.filter(
+            guest_attended=False,
+            guest_no_show=False,
+            booking_approved=True,
+            date_of_visit__year=today.year,
+            date_of_visit__month=today.month,
+            date_of_visit__day=today.day,
+        ).count()
+        pending_payment_count = Booking.objects.filter(
+            guest_attended=True, bill_settled=False
+        ).count()
+        if request.method == "POST":
+            if form.is_valid():
+                form = form.save(commit=False)
+                form.booking_id = booking_id
+                form.amount_tipped = int(form.amount_paid) - int(form.amount_owed)
+                form.total_income = int(form.amount_paid)
+                if int(form.amount_paid) < int(form.amount_owed):
+                    form.amount_tipped = 0
+                for x in data:
+                    if int(form.amount_owed) <= int(form.total_income):
+                        x.bill_settled = True
+                        x.save()
+                form.save()
+                return HttpResponseRedirect(next)
+        context = {
+            "booking": booking,
+            "form": form,
+            "pending_bookings": pending_bookings,
+            "pending_bookings_count": pending_bookings_count,
+            "pending_reviews": pending_reviews,
+            "pending_reviews_count": pending_reviews_count,
+            "pending_check_in_count": pending_check_in_count,
+            "pending_payment_count": pending_payment_count,
+        }
+        return render(request, "staff_submit_payment.html", context)
+    else:
+        return HttpResponseRedirect("/")
