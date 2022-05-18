@@ -8,6 +8,8 @@ from Booking.models import Booking
 class TestUrls(TestCase):
 
     def test_user_reservations_url_is_resolved(self):
+        response = self.client.get('/user-reservations')
+        self.assertEqual(response.status_code, 302)
         self.user = User.objects.create_user(
             username="admin",
             password="adminadmin",
@@ -21,6 +23,8 @@ class TestUrls(TestCase):
 
 
     def test_user_details_booking_url_is_resolved(self):
+        response = self.client.get('/user-details-booking/50')
+        self.assertEqual(response.status_code, 302)
         self.user = User.objects.create_user(
             username="admin",
             password="adminadmin",
@@ -45,6 +49,8 @@ class TestUrls(TestCase):
 
 
     def test_user_details_booking_edit_url_is_resolved(self):
+        response = self.client.get('/user-details-booking/edit/50')
+        self.assertEqual(response.status_code, 302)
         self.user = User.objects.create_user(
             username="admin",
             password="adminadmin",

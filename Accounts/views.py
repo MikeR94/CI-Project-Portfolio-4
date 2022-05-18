@@ -16,11 +16,14 @@ def show_user_reservations(request):
 
 
 def user_details_booking(request, booking_id):
-    booking = get_object_or_404(Booking, id=booking_id)
-    context = {
-        "booking": booking,
-    }
-    return render(request, "user_details_booking.html", context)
+    if request.user.is_authenticated:
+        booking = get_object_or_404(Booking, id=booking_id)
+        context = {
+            "booking": booking,
+        }
+        return render(request, "user_details_booking.html", context)
+    else:
+        return HttpResponseRedirect("/")
 
 
 def user_edit_booking(request, booking_id):
