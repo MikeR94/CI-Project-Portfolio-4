@@ -1,7 +1,8 @@
 from django.test import TestCase
 from django.urls import reverse, resolve
 from Accounts.models import User
-from Reviews.views import create_review
+from Reviews.models import Review
+from Reviews.views import create_review, show_single_review
 
 class TestUrls(TestCase):
 
@@ -18,3 +19,26 @@ class TestUrls(TestCase):
 
         url = reverse('create_review')
         self.assertEquals(resolve(url).func, create_review)
+
+    def test_review_id_url_is_resolve(self):
+        response = self.client.get('/review/50')
+        self.assertEqual(response.status_code, 404)
+        self.user = User.objects.create_user(
+            username="admin",
+            password="adminadmin",
+            email="admin@example.com",
+            id = "50",
+            )
+        self.client.force_login(self.user)
+        Review.objects.create(
+            id = "50",
+            user_id = "50",
+            first_name = "Mike",
+            last_name = "Ralph",
+            body = "hello",
+        )
+        response = self.client.get('/review/50')
+        self.assertEqual(response.status_code, 200)
+
+        url = reverse('single_review', kwargs={'review_id': '50'})
+        self.assertEquals(resolve(url).func, show_single_review)
