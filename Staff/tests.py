@@ -223,7 +223,7 @@ class TestUrls(TestCase):
             contact_number = "07946472421"
         )
 
-        self.user = User.objects.create_user(username='admin', is_staff=False)
+        self.user = User.objects.create_user(username='admin', is_staff=True)
         self.client.force_login(self.user)
 
         response = self.client.get('/staff/check-in/50')
