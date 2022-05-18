@@ -69,22 +69,6 @@ class TestUrls(TestCase):
 
 
     def test_user_details_booking_cancel_url_is_resolved(self):
-        self.user = User.objects.create_user(
-            username="admin",
-            password="adminadmin",
-            email="admin@example.com")
-        self.client.force_login(self.user)
-        Booking.objects.create(
-            id = "50",
-            first_name = "Mike",
-            last_name = "Ralph",
-            email = "mikeyralph@hotmail.co.uk",
-            ref_number = "1234567890",
-            date_of_visit = "2022-05-16",
-            time_of_visit = "20:00:00",
-            number_of_guests = "4",
-            contact_number = "07946472421"
-        )
         response = self.client.get('/user-details-booking/cancel/50')
         self.assertEqual(response.status_code, 302)
 
