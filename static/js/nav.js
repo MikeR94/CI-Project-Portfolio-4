@@ -1,6 +1,11 @@
 let nav = document.querySelector('nav');
 let bgColor = document.getElementsByClassName('dropdown-menu')
 
+window.onload = function() {
+  for (let i = 0; i < bgColor.length; i++) {
+  bgColor[i].style.backgroundColor = '#21252900';
+}};
+
 window.addEventListener('scroll', function () {
   if (window.pageYOffset > 350) {
     nav.classList.add('bg-dark', 'shadow');
