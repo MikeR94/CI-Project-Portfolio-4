@@ -39,7 +39,7 @@ body {
 }
 
 .page-space {
-  min-height: calc(53vh - 40px);
+  min-height: calc(60vh - 1px);
 }
 
 .btn {
