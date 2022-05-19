@@ -47,12 +47,12 @@ class TestUrls(TestCase):
             id = "50",
             first_name = "Mike",
             last_name = "Ralph",
-            email = "mikeyralph@hotmail.co.uk",
+            email = "testemail@hotmail.co.uk",
             ref_number = "1234567890",
             date_of_visit = "2022-05-16",
             time_of_visit = "20:00:00",
             number_of_guests = "4",
-            contact_number = "07946472421"
+            contact_number = "07436123635"
         )
 
         response = self.client.get('/staff/approve-booking/50')
@@ -71,12 +71,12 @@ class TestUrls(TestCase):
             id = "50",
             first_name = "Mike",
             last_name = "Ralph",
-            email = "mikeyralph@hotmail.co.uk",
+            email = "testemail@hotmail.co.uk",
             ref_number = "1234567890",
             date_of_visit = "2022-05-16",
             time_of_visit = "20:00:00",
             number_of_guests = "4",
-            contact_number = "07946472421"
+            contact_number = "07436123635"
         )
 
         response = self.client.get('/staff/deny-booking/50')
@@ -154,12 +154,12 @@ class TestUrls(TestCase):
             id = "50",
             first_name = "Mike",
             last_name = "Ralph",
-            email = "mikeyralph@hotmail.co.uk",
+            email = "testemail@hotmail.co.uk",
             ref_number = "1234567890",
             date_of_visit = "2022-05-16",
             time_of_visit = "20:00:00",
             number_of_guests = "4",
-            contact_number = "07946472421"
+            contact_number = "07436123635"
         )
 
         response = self.client.get('/staff/details-booking/50')
@@ -223,12 +223,12 @@ class TestUrls(TestCase):
             id = "50",
             first_name = "Mike",
             last_name = "Ralph",
-            email = "mikeyralph@hotmail.co.uk",
+            email = "testemail@hotmail.co.uk",
             ref_number = "1234567890",
             date_of_visit = "2022-05-16",
             time_of_visit = "20:00:00",
             number_of_guests = "4",
-            contact_number = "07946472421"
+            contact_number = "07436123635"
         )
 
         self.user = User.objects.create_user(username='admin', is_staff=True)
@@ -247,12 +247,12 @@ class TestUrls(TestCase):
             id = "50",
             first_name = "Mike",
             last_name = "Ralph",
-            email = "mikeyralph@hotmail.co.uk",
+            email = "testemail@hotmail.co.uk",
             ref_number = "1234567890",
             date_of_visit = "2022-05-16",
             time_of_visit = "20:00:00",
             number_of_guests = "4",
-            contact_number = "07946472421"
+            contact_number = "07436123635"
         )
 
         self.user = User.objects.create_user(username='admin', is_staff=True)
@@ -287,12 +287,12 @@ class TestUrls(TestCase):
             id = "50",
             first_name = "Mike",
             last_name = "Ralph",
-            email = "mikeyralph@hotmail.co.uk",
+            email = "testemail@hotmail.co.uk",
             ref_number = "1234567890",
             date_of_visit = "2022-05-16",
             time_of_visit = "20:00:00",
             number_of_guests = "4",
-            contact_number = "07946472421"
+            contact_number = "07436123635"
         )
 
         response = self.client.get('/staff/create-payment/50')
@@ -315,12 +315,12 @@ class TestUrls(TestCase):
             id = "50",
             first_name = "Mike",
             last_name = "Ralph",
-            email = "mikeyralph@hotmail.co.uk",
+            email = "testemail@hotmail.co.uk",
             ref_number = "1234567890",
             date_of_visit = "2022-05-16",
             time_of_visit = "20:00:00",
             number_of_guests = "4",
-            contact_number = "07946472421"
+            contact_number = "07436123635"
         )
 
         self.user = User.objects.create_user(username='admin', is_staff=True)

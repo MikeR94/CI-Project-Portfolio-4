@@ -24,12 +24,12 @@ class TestModels(TestCase):
             id = 50,
             first_name = "Mike",
             last_name = "Ralph",
-            email = "mikeyralph@hotmail.co.uk",
+            email = "testemail@hotmail.co.uk",
             ref_number = "1234567890",
             date_of_visit = "2022-05-16",
             time_of_visit = "20:00:00",
             number_of_guests = "4",
-            contact_number = "07946472421",
+            contact_number = "07436123635",
             guest_attended = False,
             guest_no_show = False,
             booking_approved = False,
@@ -40,12 +40,12 @@ class TestModels(TestCase):
         self.assertEquals(order.id, 50)
         self.assertEquals(order.first_name, 'Mike')
         self.assertEquals(order.last_name, 'Ralph')
-        self.assertEquals(order.email, 'mikeyralph@hotmail.co.uk')
+        self.assertEquals(order.email, 'testemail@hotmail.co.uk')
         self.assertEquals(order.ref_number, '1234567890')
         self.assertEquals(order.date_of_visit, '2022-05-16')
         self.assertEquals(order.time_of_visit, '20:00:00')
         self.assertEquals(order.number_of_guests, '4')
-        self.assertEquals(order.contact_number, '07946472421')
+        self.assertEquals(order.contact_number, '07436123635')
         self.assertEquals(order.guest_attended, False)
         self.assertEquals(order.guest_no_show, False)
         self.assertEquals(order.booking_approved, False)

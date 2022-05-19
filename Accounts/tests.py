@@ -35,12 +35,12 @@ class TestUrls(TestCase):
             id = "50",
             first_name = "Mike",
             last_name = "Ralph",
-            email = "mikeyralph@hotmail.co.uk",
+            email = "testemail@hotmail.co.uk",
             ref_number = "1234567890",
             date_of_visit = "2022-05-16",
             time_of_visit = "20:00:00",
             number_of_guests = "4",
-            contact_number = "07946472421"
+            contact_number = "07436123635"
         )
         response = self.client.get('/user-details-booking/50')
         self.assertEqual(response.status_code, 200)
@@ -62,12 +62,12 @@ class TestUrls(TestCase):
             id = "50",
             first_name = "Mike",
             last_name = "Ralph",
-            email = "mikeyralph@hotmail.co.uk",
+            email = "testemail@hotmail.co.uk",
             ref_number = "1234567890",
             date_of_visit = "2022-05-16",
             time_of_visit = "20:00:00",
             number_of_guests = "4",
-            contact_number = "07946472421"
+            contact_number = "07436123635"
         )
         response = self.client.get('/user-details-booking/edit/50')
         self.assertEqual(response.status_code, 200)
@@ -96,7 +96,7 @@ class TestModels(TestCase):
             last_name = "Ralph",
             id = 1,
             username = "Mike",
-            email = "mikeyralph@hotmail.co.uk",
+            email = "testemail@hotmail.co.uk",
             is_active = True,
             is_staff = False,
         )
@@ -105,7 +105,7 @@ class TestModels(TestCase):
         self.assertEquals(user.last_name, 'Ralph')
         self.assertEquals(user.id, 1)
         self.assertEquals(user.username, "Mike")
-        self.assertEquals(user.email, "mikeyralph@hotmail.co.uk")
+        self.assertEquals(user.email, "testemail@hotmail.co.uk")
         self.assertEquals(user.is_active, True)
         self.assertEquals(user.is_staff, False)
 
@@ -119,7 +119,7 @@ class TestModels(TestCase):
             last_name = "Ralph",
             id = 1,
             username = "Mike",
-            email = "mikeyralph@hotmail.co.uk",
+            email = "testemail@hotmail.co.uk",
             is_active = True,
             is_staff = True,
         )
@@ -128,7 +128,7 @@ class TestModels(TestCase):
         self.assertEquals(admin.last_name, 'Ralph')
         self.assertEquals(admin.id, 1)
         self.assertEquals(admin.username, "Mike")
-        self.assertEquals(admin.email, "mikeyralph@hotmail.co.uk")
+        self.assertEquals(admin.email, "testemail@hotmail.co.uk")
         self.assertEquals(admin.is_active, True)
         self.assertEquals(admin.is_staff, True)
 

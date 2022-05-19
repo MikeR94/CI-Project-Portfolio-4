@@ -57,7 +57,7 @@ class TestModels(TestCase):
             last_name = "Ralph",
             id = 1,
             username = "Mike",
-            email = "mikeyralph@hotmail.co.uk",
+            email = "testemail@hotmail.co.uk",
             is_active = True,
             is_staff = False,
         )
