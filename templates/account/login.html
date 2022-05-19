@@ -2,10 +2,12 @@
 
 {% include "navbar_2.html" %}
 
+{% load crispy_forms_tags %}
+
 <div class="container page-space d-flex align-items-center justify-content-center">
   <div class="row">
     <div class="col-12">
-      <h1>{% trans "Sign In" %}</h1>
+      <h1 class="title-text">{% trans "Sign In" %}</h1>
 
       {% get_providers as socialaccount_providers %} {% if socialaccount_providers %}
       <p>
@@ -26,7 +28,7 @@
       {% endif %}
 
       <form class="login" method="POST" action="{% url 'account_login' %}">
-        {% csrf_token %} {{ form.as_p }} {% if redirect_field_value %}
+        {% csrf_token %} {{ form|crispy }} {% if redirect_field_value %}
         <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
         {% endif %}
         <button class="primaryAction golden-button" type="submit">{% trans "Sign In" %}</button>
