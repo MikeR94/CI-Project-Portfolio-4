@@ -12,6 +12,7 @@ class TestUrls(TestCase):
 
         url = reverse('book_now')
         self.assertEquals(resolve(url).func, book_now)
+        self.assertTemplateUsed(response, 'book_now.html')
 
 
 class TestModels(TestCase):

@@ -10,6 +10,7 @@ class TestUrls(TestCase):
 
         url = reverse('home')
         self.assertEquals(resolve(url).func, index)
+        self.assertTemplateUsed(response, 'index.html')
 
 
     def test_gallery_url_is_resolved(self):
@@ -18,3 +19,4 @@ class TestUrls(TestCase):
 
         url = reverse('gallery')
         self.assertEquals(resolve(url).func, gallery)
+        self.assertTemplateUsed(response, 'gallery.html')

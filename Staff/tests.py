@@ -20,6 +20,7 @@ class TestUrls(TestCase):
 
         url = reverse('staff_dashboard')
         self.assertEquals(resolve(url).func, staff_dashboard)
+        self.assertTemplateUsed(response, 'staff_dashboard.html')
 
 
     def test_staff_pending_bookings_url_is_resolved(self):
@@ -34,6 +35,7 @@ class TestUrls(TestCase):
 
         url = reverse('staff_pending_bookings')
         self.assertEquals(resolve(url).func, staff_pending_bookings)
+        self.assertTemplateUsed(response, 'staff_pending_bookings.html')
 
 
     def test_staff_approve_bookings_url_is_resolved(self):
@@ -58,7 +60,7 @@ class TestUrls(TestCase):
 
         url = reverse('staff_approve_booking', kwargs={'booking_id': '50'})
         self.assertEquals(resolve(url).func, staff_approve_booking)
-
+        
 
     def test_staff_deny_bookings_url_is_resolved(self):
 
@@ -96,6 +98,8 @@ class TestUrls(TestCase):
 
         url = reverse('staff_pending_reviews')
         self.assertEquals(resolve(url).func, staff_pending_reviews)
+        self.assertTemplateUsed(response, 'staff_pending_reviews.html')
+
     
 
     def test_staff_approve_review_url_is_resolved(self):
@@ -163,6 +167,7 @@ class TestUrls(TestCase):
 
         url = reverse('staff_details_booking', kwargs={'booking_id': '50'})
         self.assertEquals(resolve(url).func, staff_details_booking)
+        self.assertTemplateUsed(response, 'staff_details_booking.html')
 
 
     def test_staff_all_bookings_url_is_resolved(self):
@@ -193,6 +198,7 @@ class TestUrls(TestCase):
 
         url = reverse('staff_all_reviews')
         self.assertEquals(resolve(url).func, staff_all_reviews)
+        self.assertTemplateUsed(response, 'staff_all_reviews.html')
 
 
     def test_staff_check_in_page_url_is_resolved(self):
@@ -208,6 +214,7 @@ class TestUrls(TestCase):
 
         url = reverse('staff_check_in_page')
         self.assertEquals(resolve(url).func, staff_check_in_page)
+        self.assertTemplateUsed(response, 'staff_check_in.html')
 
 
     def test_staff_check_in_booking_id_url_is_resolved(self):
@@ -271,6 +278,7 @@ class TestUrls(TestCase):
 
         url = reverse('staff_payment_page')
         self.assertEquals(resolve(url).func, staff_payment_page)
+        self.assertTemplateUsed(response, 'staff_payment_page.html')
 
 
     def test_staff_create_payment_url_is_resolved(self):
@@ -298,6 +306,7 @@ class TestUrls(TestCase):
 
         url = reverse('staff_create_payment', kwargs={'booking_id': '50'})
         self.assertEquals(resolve(url).func, staff_create_payment)
+        self.assertTemplateUsed(response, 'staff_submit_payment.html')
 
 
     def test_staff_details_booking_cancel_booking_url_is_resolved(self):

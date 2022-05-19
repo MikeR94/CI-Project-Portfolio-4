@@ -74,6 +74,8 @@ class TestUrls(TestCase):
 
         url = reverse('edit', kwargs={'booking_id': '50'})
         self.assertEquals(resolve(url).func, user_edit_booking)
+        self.assertTemplateUsed(response, 'user_edit_booking.html')
+        
 
 
     def test_user_details_booking_cancel_url_is_resolved(self):

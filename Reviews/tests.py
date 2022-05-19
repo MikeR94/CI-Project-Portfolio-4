@@ -19,6 +19,7 @@ class TestUrls(TestCase):
 
         url = reverse('create_review')
         self.assertEquals(resolve(url).func, create_review)
+        self.assertTemplateUsed(response, 'create_review.html')
 
     def test_review_id_url_is_resolved(self):
         response = self.client.get('/review/50')
@@ -42,6 +43,7 @@ class TestUrls(TestCase):
 
         url = reverse('single_review', kwargs={'review_id': '50'})
         self.assertEquals(resolve(url).func, show_single_review)
+        self.assertTemplateUsed(response, 'single_review.html')
 
 
 class TestModels(TestCase):
