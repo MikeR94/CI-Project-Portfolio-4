@@ -434,6 +434,18 @@ table th {
   max-width: 300px;
 }
 
+#id_username {
+  max-width: 300px;
+}
+
+#id_password1 {
+  max-width: 300px;
+}
+
+#id_password2 {
+  max-width: 300px;
+}
+
 /* Galaxy Fold Media Query */
 
 @media screen and (max-width: 290px) {
