@@ -9,3 +9,4 @@ node_modules/
 cloudinary_python.txt
 env
 db.sqlite3
+.coverage
