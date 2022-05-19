@@ -15,22 +15,22 @@
         <div class=" col-lg-2 col-xl-2 mx-auto mb-4 mt-4">
           <!-- Links -->
           <p class="footer-links">
-            <a href="#!">Home</a>
+            <a href="{% url 'home' %}">Home</a>
           </p>
           <p class="footer-links">
-            <a href="#!">Our Menu</a>
+            <a href="https://emerald-kittie-90.tiiny.site/" target="_blank">Our Menu</a>
           </p>
           <p class="footer-links">
-            <a href="#!">Book Now</a>
+            <a href="{% url 'book_now' %}">Book Now</a>
           </p>
           <p class="footer-links">
-            <a href="#!">Reservations</a>
+            <a href="{% url 'user_reservations' %}">Reservations</a>
           </p>
           <p class="footer-links">
-            <a href="#!">Register</a>
+            <a href="{% url 'account_signup' %}">Register</a>
           </p>
           <p class="footer-links">
-            <a href="#!">Login</a>
+            <a href="{% url 'account_login' %}">Login</a>
           </p>
         </div>
         <!-- Grid column -->
