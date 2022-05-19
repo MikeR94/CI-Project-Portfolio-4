@@ -1,5 +1,6 @@
 from django.test import TestCase
 from django.urls import reverse, resolve
+from django.shortcuts import get_object_or_404
 from Accounts.views import show_user_reservations, user_cancel_booking, user_details_booking, user_edit_booking
 from Accounts.models import User
 
@@ -81,6 +82,23 @@ class TestUrls(TestCase):
     def test_user_details_booking_cancel_url_is_resolved(self):
         response = self.client.get('/user-details-booking/cancel/50')
         self.assertEqual(response.status_code, 302)
+
+        booking = Booking.objects.create(
+            id = "50",
+            first_name = "Mike",
+            last_name = "Ralph",
+            email = "testemail@hotmail.co.uk",
+            ref_number = "1234567890",
+            date_of_visit = "2022-05-16",
+            time_of_visit = "20:00:00",
+            number_of_guests = "4",
+            contact_number = "07436123635"
+        )
+        pk = booking.id
+        retrieve_booking = Booking.objects.get(pk=booking.pk)
+        self.assertTrue(Booking.objects.filter(pk=pk).exists())
+        retrieve_booking.delete()
+        self.assertFalse(Booking.objects.filter(pk=pk).exists())
 
         url = reverse('cancel', kwargs={'booking_id': '50'})
         self.assertEquals(resolve(url).func, user_cancel_booking)
