@@ -382,7 +382,6 @@ def staff_pending_reviews(request):
         pending_bookings_count = Booking.objects.filter(
             booking_acknowledged=False
         ).count()
-        pending_bookings = Booking.objects.filter(booking_acknowledged=False)
         pending_check_in_count = Booking.objects.filter(
             guest_attended=False,
             guest_no_show=False,
@@ -397,7 +396,6 @@ def staff_pending_reviews(request):
         context = {
             "pending_reviews": pending_reviews,
             "pending_reviews_count": pending_reviews_count,
-            "pending_bookings": pending_bookings,
             "pending_bookings_count": pending_bookings_count,
             "pending_check_in_count": pending_check_in_count,
             "pending_payment_count": pending_payment_count,
