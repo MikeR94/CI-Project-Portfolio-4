@@ -10,6 +10,7 @@
       <p>Pending bookings <a href="{% url 'staff_pending_bookings'%}">View Here</a></p>
     </div>
   </div>
+  {% if all_bookings %}
   <table class="table table_id pt-5 text-center">
     <thead>
       <tr>
@@ -38,6 +39,9 @@
       {% endfor %}
     </tbody>
   </table>
+  {% else %}
+  <p>No bookings found</p>
+  {% endif %} 
 </div>
 
 <!-- <script>
