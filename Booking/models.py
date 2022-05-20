@@ -29,7 +29,7 @@ class Booking(models.Model):
     number_of_guests = models.PositiveIntegerField(blank=False, null=False)
     guest_attended = models.BooleanField(default=False)
     guest_no_show = models.BooleanField(default=False)
-    contact_number = models.CharField(default="", max_length=25)
+    contact_number = models.IntegerField(default="")
     bill_settled = models.BooleanField(default=False)
     booking_approved = models.BooleanField(default=False)
     booking_denied = models.BooleanField(default=False)
