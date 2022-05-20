@@ -290,34 +290,31 @@ def staff_pending_bookings(request):
 
 
 def staff_all_bookings(request):
-    if request.user.is_staff:
-        today = date.today()
-        pending_bookings_count = Booking.objects.filter(
-            booking_acknowledged=False
-        ).count()
-        all_bookings = Booking.objects.filter()
-        pending_reviews_count = Review.objects.filter(acknowledged=False).count()
-        pending_check_in_count = Booking.objects.filter(
-            guest_attended=False,
-            guest_no_show=False,
-            booking_approved=True,
-            date_of_visit__year=today.year,
-            date_of_visit__month=today.month,
-            date_of_visit__day=today.day,
-        ).count()
-        pending_payment_count = Booking.objects.filter(
-            guest_attended=True, bill_settled=False
-        ).count()
-        context = {
-            "all_bookings": all_bookings,
-            "pending_bookings_count": pending_bookings_count,
-            "pending_reviews_count": pending_reviews_count,
-            "pending_check_in_count": pending_check_in_count,
-            "pending_payment_count": pending_payment_count,
-        }
-        return render(request, "staff_all_bookings.html", context)
-    else:
-        return HttpResponseRedirect("/")
+    today = date.today()
+    pending_bookings_count = Booking.objects.filter(
+        booking_acknowledged=False
+    ).count()
+    all_bookings = Booking.objects.filter()
+    pending_reviews_count = Review.objects.filter(acknowledged=False).count()
+    pending_check_in_count = Booking.objects.filter(
+        guest_attended=False,
+        guest_no_show=False,
+        booking_approved=True,
+        date_of_visit__year=today.year,
+        date_of_visit__month=today.month,
+        date_of_visit__day=today.day,
+    ).count()
+    pending_payment_count = Booking.objects.filter(
+        guest_attended=True, bill_settled=False
+    ).count()
+    context = {
+        "all_bookings": all_bookings,
+        "pending_bookings_count": pending_bookings_count,
+        "pending_reviews_count": pending_reviews_count,
+        "pending_check_in_count": pending_check_in_count,
+        "pending_payment_count": pending_payment_count,
+    }
+    return render(request, "staff_all_bookings.html", context)
 
 
 def staff_approve_booking(request, booking_id):
