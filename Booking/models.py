@@ -26,7 +26,7 @@ class Booking(models.Model):
         (datetime.strptime('10:30 pm', "%I:%M %p").time(), '22:30'),
 
     ))
-    number_of_guests = models.IntegerField(blank=False, null=False, default="")
+    number_of_guests = models.PositiveIntegerField(blank=False, null=False)
     guest_attended = models.BooleanField(default=False)
     guest_no_show = models.BooleanField(default=False)
     contact_number = models.CharField(default="", max_length=25)
