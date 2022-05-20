@@ -1,6 +1,5 @@
 from django import forms
 from Booking.models import Booking
-from django.core.exceptions import ValidationError
 
 class DateInput(forms.DateInput):
     input_type = 'date'
@@ -15,7 +14,8 @@ class BookingForm(forms.ModelForm):
         fields = ["first_name", "last_name", "email", "time_of_visit", "date_of_visit", "number_of_guests", "contact_number"]
         widgets = {
             'date_of_visit': DateInput(),
-            'first_name': forms.TextInput(attrs={'class': 'form-control'}),
-            'last_name': forms.TextInput(attrs={'class': 'form-control'}),
+            'first_name': forms.TextInput(attrs={'class': 'form-control', 'pattern':'[A-Za-z ]+', 'title':'Please enter characters only'}),
+            'last_name': forms.TextInput(attrs={'class': 'form-control', 'pattern':'[A-Za-z ]+', 'title':'Please enter characters only'}),
             'time_of_visit': forms.Select(attrs={'class': 'form-control'}),
         }
+    
