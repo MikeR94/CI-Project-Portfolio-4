@@ -9,18 +9,18 @@ body {
 }
 
 .golden-button {
-  width: 141px;
-  height: 41px;
-  background-color: #9c8300;
+  width: 130px;
+  height: 35px;
+  background-color: #212529;
   border: none;
   color: white;
   font-family: "Roboto", sans-serif;
-  font-size: 18px;
+  font-size: 16px;
   border-radius: 8px;
 }
 
 .golden-button:hover {
-  background-color: #212529;
+  background-color: #9c8300;
   transition: 300ms;
 }
 
