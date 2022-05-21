@@ -3,8 +3,10 @@ from Booking.models import Booking
 from Staff.models import Payment
 
 
+
 class DateInput(forms.DateInput):
     input_type = 'date'
+
 
 class EditBookingForm(forms.ModelForm):
     class Meta:
