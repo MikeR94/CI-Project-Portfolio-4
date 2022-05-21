@@ -8,20 +8,19 @@ from Reviews.models import Review
 
 def create_review(request):
     if request.user.is_authenticated:
-        if request.method == "POST":
-            form = forms.ReviewForm(request.POST, request.FILES)
-            if form.is_valid():
-                instance = form.save(commit=False)
-                instance.user = request.user
-                instance.save()
-            return render(request, "review_submitted.html")
-        form = forms.ReviewForm()
+        form = forms.ReviewForm(request.POST or None)
         context = {
             "form": form,
             }
-        return render(request, "create_review.html", context)
     else:
         return HttpResponseRedirect("/")
+    if request.method == "POST":
+        if form.is_valid():
+            instance = form.save(commit=False)
+            instance.user = request.user
+            instance.save()
+        return render(request, "review_submitted.html")
+    return render(request, "create_review.html", context)
 
 
 def show_single_review(request, review_id):

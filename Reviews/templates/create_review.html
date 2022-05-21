@@ -1,27 +1,16 @@
-{% extends "base.html" %} {% block content %}
-
-{% include "navbar_2.html" %}
-
-{% load crispy_forms_tags %}
-
+{% extends "base.html" %} {% block content %} {% include "navbar_2.html" %} {% load crispy_forms_tags %}
 
 <section class="container mt-5 page-space">
-    <div class="row">
-        <p>Please fill in the fields below and click to submit to leave your review</p>
-    </div>
-    <div class="row align-items-center justify-content-center" data-aos="fade-up">
-      <form method="POST">
-        {% csrf_token %}
-        {{ form|crispy }}
-        <div>
-            <p>
-                <button type="submit" class="golden-button">Submit</button>
-            </p>
-        </div>
+  <div class="row">
+    <p>Please fill in the fields below and click to submit to leave your review</p>
+  </div>
+  <div class="row align-items-center justify-content-center" data-aos="fade-up">
+    <form method="POST">
+      {% csrf_token %} {{ form|crispy }}
+      <input type="hidden" name="next" value="{{request.path}}">
+      <button type="submit" class="golden-button">Submit</button>
     </form>
+  </div>
 </section>
 
-{% include "footer.html" %}
-  
- 
-{% endblock %}
+{% include "footer.html" %} {% endblock %}
