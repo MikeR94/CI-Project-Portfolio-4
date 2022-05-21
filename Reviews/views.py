@@ -3,8 +3,6 @@ from . import forms
 from django.http import HttpResponseRedirect
 from Reviews.models import Review
 
-# Create your views here.
-
 
 def create_review(request):
     if request.user.is_authenticated:
@@ -15,11 +13,13 @@ def create_review(request):
     else:
         return HttpResponseRedirect("/")
     if request.method == "POST":
+        
+
         if form.is_valid():
             instance = form.save(commit=False)
             instance.user = request.user
             instance.save()
-        return render(request, "review_submitted.html")
+            return render(request, "review_submitted.html")
     return render(request, "create_review.html", context)
 
 
