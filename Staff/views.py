@@ -602,10 +602,10 @@ def staff_payment_page(request):
 def staff_create_payment(request, booking_id):
     if request.user.is_staff:
         today = date.today()
+        form = forms.PaymentForm(request.POST or None)
         next = request.POST.get("next", "/")
         booking = get_object_or_404(Booking, id=booking_id)
         data = Booking.objects.filter(id=booking_id)
-        form = forms.PaymentForm(request.POST or None)
         pending_bookings_count = Booking.objects.filter(booking_acknowledged=False).count()
         pending_bookings = Booking.objects.filter(booking_acknowledged=False)
         pending_reviews_count = Review.objects.filter(acknowledged=False).count()
@@ -621,20 +621,6 @@ def staff_create_payment(request, booking_id):
         pending_payment_count = Booking.objects.filter(
             guest_attended=True, bill_settled=False
         ).count()
-        if request.method == "POST":
-            if form.is_valid():
-                form = form.save(commit=False)
-                form.booking_id = booking_id
-                form.amount_tipped = int(form.amount_paid) - int(form.amount_owed)
-                form.total_income = int(form.amount_paid)
-                if int(form.amount_paid) < int(form.amount_owed):
-                    form.amount_tipped = 0
-                for x in data:
-                    if int(form.amount_owed) <= int(form.total_income):
-                        x.bill_settled = True
-                        x.save()
-                form.save()
-                return HttpResponseRedirect(next)
         context = {
             "booking": booking,
             "form": form,
@@ -645,6 +631,21 @@ def staff_create_payment(request, booking_id):
             "pending_check_in_count": pending_check_in_count,
             "pending_payment_count": pending_payment_count,
         }
-        return render(request, "staff_submit_payment.html", context)
     else:
         return HttpResponseRedirect("/")
+    if request.method == "POST":
+        if form.is_valid():
+            form = form.save(commit=False)
+            form.booking_id = booking_id
+            form.amount_tipped = int(form.amount_paid) - int(form.amount_owed)
+            form.total_income = int(form.amount_paid)
+            if int(form.amount_paid) < int(form.amount_owed):
+                form.amount_tipped = 0
+            for x in data:
+                if int(form.amount_owed) <= int(form.total_income):
+                    x.bill_settled = True
+                    x.save()
+            form.save()
+            return HttpResponseRedirect(next)
+
+    return render(request, "staff_submit_payment.html", context)
