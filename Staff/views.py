@@ -3,7 +3,8 @@ from Booking.models import Booking
 from Reviews.models import Review
 from Staff.models import Payment
 from Accounts.models import User
-from Staff.forms import EditBookingForm, PaymentForm
+from django.utils import timezone
+from Staff.forms import EditBookingForm
 from . import forms
 from django.http import HttpResponseRedirect
 from django.core.mail import EmailMessage
@@ -462,6 +463,20 @@ def staff_check_in_page(request):
         pending_payment_count = Booking.objects.filter(
             guest_attended=True, bill_settled=False
         ).count()
+        for booking in Booking.objects.filter(no_show_email_sent=False):
+            if booking.date_of_visit < timezone.now().date():
+                booking.no_show_email_sent = True
+                template = render_to_string("no_show_email_template.html")
+                email = EmailMessage(
+                    "Cafe Manbo - [NO SHOW]",
+                    template,
+                    settings.EMAIL_HOST_USER,
+                    ["mikeyralph@hotmail.co.uk"],
+                )
+                email.fail_silently = False
+                email.send()
+                booking.save()
+
         context = {
             "pending_reviews_count": pending_reviews_count,
             "pending_bookings_count": pending_bookings_count,
