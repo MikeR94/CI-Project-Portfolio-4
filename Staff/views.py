@@ -478,6 +478,15 @@ def staff_check_in(request, booking_id):
     if request.user.is_staff:
         next = request.POST.get("next", "/")
         data = Booking.objects.filter(id=booking_id)
+        template = render_to_string("checked_in_email_template.html")
+        email = EmailMessage(
+            "Cafe Manbo - [CHECKED IN]",
+            template,
+            settings.EMAIL_HOST_USER,
+            ["mikeyralph@hotmail.co.uk"],
+        )
+        email.fail_silently = False
+        email.send()
         for item in data:
             item.guest_attended = True
             item.save()
