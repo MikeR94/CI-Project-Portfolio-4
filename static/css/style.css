@@ -447,6 +447,12 @@ table th {
   max-width: 300px;
 }
 
+#id_additional_info {
+  max-width: 300px;
+  height: 100px;
+  resize: none;
+}
+
 /* Galaxy Fold Media Query */
 
 @media screen and (max-width: 290px) {
