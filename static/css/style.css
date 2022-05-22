@@ -453,6 +453,11 @@ table th {
   resize: none;
 }
 
+#id_body {
+  max-width: 500px;
+  resize: none;
+}
+
 /* Galaxy Fold Media Query */
 
 @media screen and (max-width: 290px) {
