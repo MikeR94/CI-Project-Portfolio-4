@@ -44,6 +44,7 @@ class Booking(models.Model):
     booking_approved = models.BooleanField(default=False)
     booking_denied = models.BooleanField(default=False)
     booking_acknowledged = models.BooleanField(default=False)
+    disabled_access = models.BooleanField(default=False)
     user = models.ForeignKey(User, null=True, on_delete=models.SET_NULL)
 
     def __str__(self):
