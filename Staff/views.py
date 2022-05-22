@@ -4,8 +4,8 @@ from Reviews.models import Review
 from Staff.models import Payment
 from Accounts.models import User
 from django.utils import timezone
-from Staff.forms import EditBookingForm
 from . import forms
+from Booking.forms import BookingForm
 from django.http import HttpResponseRedirect
 from django.core.mail import EmailMessage
 from django.conf import settings
@@ -570,11 +570,11 @@ def staff_details_booking(request, booking_id):
             guest_attended=True, bill_settled=False
         ).count()
         if request.method == "POST":
-            form = EditBookingForm(request.POST, instance=booking_data)
+            form = BookingForm(request.POST, instance=booking_data)
             if form.is_valid():
                 form.save()
                 return HttpResponseRedirect(next)
-        form = EditBookingForm(instance=booking_data)
+        form = BookingForm(instance=booking_data)
         context = {
             "booking": booking,
             "form": form,

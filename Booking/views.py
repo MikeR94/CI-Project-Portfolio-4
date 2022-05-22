@@ -1,18 +1,15 @@
-from django.http import HttpResponseRedirect
 from django.shortcuts import render
-from . import forms
 from Booking.models import Booking
+from Booking.forms import BookingForm
 
 # Create your views here.
 
 def book_now(request):
-    form = forms.BookingForm(request.POST or None)
+    form = BookingForm(request.POST or None)
     context = {
         "form": form,
         }
     if request.method == "POST":
-        form = forms.BookingForm(request.POST)
-
         if form.is_valid():
             instance = form.save(commit=False)
             double_context = {
