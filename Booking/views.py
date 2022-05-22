@@ -1,3 +1,4 @@
+from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from Booking.models import Booking
 from Booking.forms import BookingForm
@@ -5,10 +6,13 @@ from Booking.forms import BookingForm
 # Create your views here.
 
 def book_now(request):
-    form = BookingForm(request.POST or None)
-    context = {
-        "form": form,
-        }
+    if request.user.is_authenticated:
+        form = BookingForm(request.POST or None)
+        context = {
+            "form": form,
+            }
+    else:
+        return HttpResponseRedirect("accounts/login")
     if request.method == "POST":
         if form.is_valid():
             instance = form.save(commit=False)
@@ -26,4 +30,5 @@ def book_now(request):
             }
             return render(request, "book_success.html", success_context)
     return render(request, "book_now.html", context)
+    
 
