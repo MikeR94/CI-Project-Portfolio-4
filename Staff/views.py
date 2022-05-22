@@ -570,11 +570,11 @@ def staff_details_booking(request, booking_id):
             guest_attended=True, bill_settled=False
         ).count()
         if request.method == "POST":
-            form = BookingForm(request.POST, instance=booking_data)
+            form = BookingForm(request.POST or None, instance=booking_data)
             if form.is_valid():
                 form.save()
                 return HttpResponseRedirect(next)
-        form = BookingForm(instance=booking_data)
+        form = BookingForm(request.POST or None, instance=booking_data)
         context = {
             "booking": booking,
             "form": form,
