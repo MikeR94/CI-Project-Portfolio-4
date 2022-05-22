@@ -1,9 +1,18 @@
 from django.db import models
 from datetime import datetime
 from Accounts.models import User
+from django.core.validators import BaseValidator
 from Booking.utils import create_new_ref_number, validate_date
+from decimal import Decimal
 
 # Create your models here.
+
+class MinValueValidator(BaseValidator):
+    message = ("Ensure this value is greater than 0.")
+    code = "min_value"
+
+    def compare(self, a, b):
+        return a < b
 
 class Booking(models.Model):
     first_name = models.CharField(max_length=25, null=False, blank=False)
@@ -26,7 +35,7 @@ class Booking(models.Model):
         (datetime.strptime('10:30 pm', "%I:%M %p").time(), '22:30'),
 
     ))
-    number_of_guests = models.PositiveIntegerField(blank=False, null=False)
+    number_of_guests = models.PositiveIntegerField(blank=False, null=False, validators=[MinValueValidator(Decimal('0.01'))])
     guest_attended = models.BooleanField(default=False)
     guest_no_show = models.BooleanField(default=False)
     no_show_email_sent = models.BooleanField(default=False)
