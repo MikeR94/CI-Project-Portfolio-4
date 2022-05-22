@@ -22,7 +22,7 @@
       {% if booking.guest_attended == False %}
         <div><a href="edit/{{ booking.id }}">Edit Booking</a></div>
         <br><br>
-        <div><a href="cancel/{{ booking.id }}">Cancel Booking</a></div>
+        <div><a href="cancel/{{ booking.id }}" onclick="return confirm('Are you sure?');">Cancel Booking</a></div>
       {% else %}
       <p>You can't edit or cancel a booking that has been completed</p>
       {% endif %}
