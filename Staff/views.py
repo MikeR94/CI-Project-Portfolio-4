@@ -209,6 +209,7 @@ def staff_dashboard(request):
         all_accounts = User.objects.all().count()
         reviews_approved = Review.objects.filter(approved=True, acknowledged=True).count()
         reviews_denied = Review.objects.filter(approved=False, acknowledged=False).count()
+        average_per_guest = income_count / total_guests
         context = {
             "jan_guests": jan_guests,
             "feb_guests": feb_guests,
@@ -251,6 +252,7 @@ def staff_dashboard(request):
             "all_accounts": all_accounts,
             "reviews_approved": reviews_approved,
             "reviews_denied": reviews_denied,
+            "average_per_guest": average_per_guest
 
         }
         return render(request, "staff_dashboard.html", context)
