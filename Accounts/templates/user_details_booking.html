@@ -1,34 +1,56 @@
 {% extends "base.html" %} {% block content %} {% include "navbar_2.html" %}
 
-<!-- {% load crispy_forms_tags %} -->
+{% load static %}
 
-<div class="container mt-5 pb-5 page-space">
-  <div class="row">
-    <div class="col-12 mb-4">
-      <a href="{% url 'user_reservations'%}">Previous Page</a>
-      </div>
-      <ul>
-        <li class="list-unstyled mb-2"><strong>Ref</strong> - {{ booking.ref_number }}</li>
-        <li class="list-unstyled mb-2"><strong>Name</strong> - {{ booking.first_name }} {{ booking.last_name }}</li>
-        <li class="list-unstyled mb-2"><strong>Date</strong> - {{ booking.date_of_visit }}</li>
-        <li class="list-unstyled mb-2"><strong>Time</strong> - {{ booking.time_of_visit }}</li>
-        <li class="list-unstyled mb-2"><strong>Guests</strong> - {{ booking.number_of_guests }}</li>
-        <li class="list-unstyled mb-2"><strong>Status</strong> - {% if booking.booking_approved %} Approved {% elif booking.booking_denied %} Denied {% else %} No data {% endif %}</li>
-        <li class="list-unstyled mb-2"><strong>Attended</strong> - {% if booking.guest_attended %} Attended {% elif booking.guest_no_show %} Not attended {% else %} No data {% endif %}</li>
-        <li class="list-unstyled mb-2"><strong>Email</strong> - {{ booking.email }}</li>
-        <li class="list-unstyled mb-2"><strong>Contact</strong> - {{ booking.contact_number }}</li>
-        <li class="list-unstyled mb-2"><strong>Account</strong> - {{ booking.user.username }}</li>
-      </ul>
-      {% if booking.guest_attended == False %}
-        <div><a href="edit/{{ booking.id }}">Edit Booking</a></div>
-        <br><br>
-        <div><a href="cancel/{{ booking.id }}" onclick="return confirm('Are you sure?');">Cancel Booking</a></div>
+<link rel="stylesheet" href="{% static 'css/user_reservations.css' %}">
+
+<section class="container page-space pt-5 pb-5">
+  <table class="table table_id pt-5 text-center">
+     <a href="{% url 'user_reservations'%}">Previous Page</a>
+    <thead>
+      <tr>
+        <th scope="col">Ref</th>
+        <th scope="col">Name</th>
+        <th scope="col">Date Of Visit</th>
+        <th scope="col">Time Of Visit</th>
+        <th scope="col">Party Size</th>
+        <th scope="col">Status</th>
+        <th scope="col">Email</th>
+        <th scope="col">Contact Number</th>
+        <th scope="col">Account</th>
+        <th scope="col">Disabled Access</th>
+        <th scope="col">Additional Info</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td data-label="Ref">{{ booking.ref_number }}</td>
+        <td data-label="Name">{{ booking.first_name }} {{ booking.last_name }}</td>
+        <td data-label="Date">{{ booking.date_of_visit }}</td>
+        <td data-label="Time">{{ booking.time_of_visit }}</td>
+        <td data-label="Guests">{{ booking.number_of_guests }}</td>
+        <td data-label="Booking Status">{% if booking.booking_approved %} <span class="green-text">Booking Approved</span> <i class="fas fa-check green-text"></i> {% elif booking.booking_denied %} <span class="red-text">Booking Denied</span> <i class="fas fa-exclamation red-text"></i>  {% else %} Awaiting approval {% endif %}</td>
+        <td data-label="Email">{{ booking.email }}</td>
+        <td data-label="Contact">{{ booking.contact_number }}</td>
+        <td data-label="Account">{{ booking.user.username }}</td>
+        <td data-label="Disabled Access">{% if booking.disabled_access == True %} Required {% else %} Not Required {% endif %}</td>
+        <td data-label="Additional Info">{% if booking.additional_info %} {{ booking.additional_info }} {% else %} No additional information {% endif %} </td>
+      </tr>
+    </tbody>
+  </table>
+  {% if booking.guest_attended == False %}
+  <form action="edit/{{ booking.id }}">
+    <button class="btn btn-warning" type="submit">Edit</button>
+  </form>
+  <br>
+  <form action="cancel/{{ booking.id }}">
+    <button class="btn btn-danger" onclick="return confirm('Are you sure?');" type="submit">Cancel</button>
+  </form>
+
       {% else %}
-      <p>You can't edit or cancel a booking that has been completed</p>
+      <p>You can't edit or cancel this booking since you have attended</p>
       {% endif %}
-    </div>
-  </div>
-</div>
+</section>
 
 
   {% include "footer.html" %}

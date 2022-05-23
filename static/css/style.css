@@ -14,7 +14,26 @@ body {
   background-color: #212529;
   border: none;
   color: white;
-  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  border-radius: 8px;
+}
+
+.edit-button {
+  width: 130px;
+  height: 35px;
+  background-color: #ffc416;
+  border: none;
+  color: white;
+  font-size: 16px;
+  border-radius: 8px;
+}
+
+.cancel-button {
+  width: 130px;
+  height: 35px;
+  background-color: #e05a6d;
+  border: none;
+  color: white;
   font-size: 16px;
   border-radius: 8px;
 }
@@ -31,12 +50,6 @@ body {
   font-size: 40px;
 }
 
-.body-text {
-  font-family: "Roboto", sans-serif;
-  color: black;
-  font-size: 16px;
-  margin-bottom: 30px;
-}
 
 .page-space {
   min-height: calc(60vh - 1px);
@@ -268,12 +281,6 @@ body {
   font-size: 22px;
 }
 
-.review-body-text {
-  font-family: "Roboto", sans-serif;
-  color: black;
-  font-size: 15px;
-  margin-bottom: 30px;
-}
 
 /* JS Data Chart */
 
