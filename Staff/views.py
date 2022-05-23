@@ -1,4 +1,5 @@
 from django.shortcuts import get_object_or_404, render, redirect
+from numpy import average
 from Booking.models import Booking
 from Reviews.models import Review
 from Staff.models import Payment
@@ -209,7 +210,10 @@ def staff_dashboard(request):
         all_accounts = User.objects.all().count()
         reviews_approved = Review.objects.filter(approved=True, acknowledged=True).count()
         reviews_denied = Review.objects.filter(approved=False, acknowledged=True).count()
-        average_per_guest = income_count / total_guests
+        try:
+            average_per_guest =  int(0 if income_count is None else income_count) / int(0 if total_guests is None else total_guests)
+        except ZeroDivisionError:
+            average_per_guest = 50
         context = {
             "jan_guests": jan_guests,
             "feb_guests": feb_guests,
@@ -663,12 +667,12 @@ def staff_create_payment(request, booking_id):
         if form.is_valid():
             form = form.save(commit=False)
             form.booking_id = booking_id
-            form.amount_tipped = int(form.amount_paid) - int(form.amount_owed)
-            form.total_income = int(form.amount_paid)
-            if int(form.amount_paid) < int(form.amount_owed):
+            form.amount_tipped = float(form.amount_paid) - float(form.amount_owed)
+            form.total_income = float(form.amount_paid)
+            if float(form.amount_paid) < float(form.amount_owed):
                 form.amount_tipped = 0
             for x in data:
-                if int(form.amount_owed) <= int(form.total_income):
+                if float(form.amount_owed) <= float(form.total_income):
                     x.bill_settled = True
                     x.save()
             form.save()
