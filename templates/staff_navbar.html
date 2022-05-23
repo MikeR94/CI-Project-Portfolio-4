@@ -19,16 +19,16 @@
                             <i class="fs-4 bi-book text-white"></i> <span class="ms-1 d-none d-sm-inline text-white">Bookings </span> {% if pending_bookings_count != 0 %} <span class="text-decoration-none disable-hover text-white">-</span> <span class="red-exclamation disable-hover"> {{pending_bookings_count}}</span> {% endif %}</a>
                     </li>
                     <li>
-                        <a href="{% url 'staff_pending_reviews' %}" data-bs-toggle="collapse" class="nav-link px-0 align-middle ">
-                            <i class="fs-4 bi-pen text-white"></i> <span class="ms-1 d-none d-sm-inline text-white">Reviews</span> {% if pending_reviews_count != 0 %} <span class="text-decoration-none disable-hover text-white">-</span> <span class="red-exclamation disable-hover"> {{pending_reviews_count}}</span> {% endif %}</a>
+                        <a href="{% url 'staff_check_in_page' %}" class="nav-link px-0 align-middle">
+                            <i class="fs-4 bi-people text-white"></i> <span class="ms-1 d-none d-sm-inline text-white">Check In</span> {% if pending_check_in_count != 0 %} <span class="text-decoration-none disable-hover text-white">-</span> <span class="red-exclamation disable-hover"> {{pending_check_in_count}}</span> {% endif %}</a>
                     </li>
                     <li>
                         <a href="{% url 'staff_payment_page'%}" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
                             <i class="fs-4 bi-cash text-white"></i> <span class="ms-1 d-none d-sm-inline text-white">Payments</span> {% if pending_payment_count != 0 %} <span class="text-decoration-none disable-hover text-white">-</span> <span class="red-exclamation disable-hover"> {{pending_payment_count}}</span> {% endif %}</a>
                     </li>
                     <li>
-                        <a href="{% url 'staff_check_in_page' %}" class="nav-link px-0 align-middle">
-                            <i class="fs-4 bi-people text-white"></i> <span class="ms-1 d-none d-sm-inline text-white">Check In</span> {% if pending_check_in_count != 0 %} <span class="text-decoration-none disable-hover text-white">-</span> <span class="red-exclamation disable-hover"> {{pending_check_in_count}}</span> {% endif %}</a>
+                        <a href="{% url 'staff_pending_reviews' %}" data-bs-toggle="collapse" class="nav-link px-0 align-middle ">
+                            <i class="fs-4 bi-pen text-white"></i> <span class="ms-1 d-none d-sm-inline text-white">Reviews</span> {% if pending_reviews_count != 0 %} <span class="text-decoration-none disable-hover text-white">-</span> <span class="red-exclamation disable-hover"> {{pending_reviews_count}}</span> {% endif %}</a>
                     </li>
                 </ul>
             </div>
