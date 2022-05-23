@@ -4,7 +4,7 @@
 
 <section class="container d-flex align-items-center justify-content-center page-space">
     <div class="row" data-aos="fade-up">
-        <h6>{{ review.first_name }} {{ review.last_name }} - <i> ({{ user.username }}) </i></h6> 
+        <h6>{{ review.first_name }} {{ review.last_name }} - <i> ({{ review.user.username }}) </i></h6> 
         <p> {{ review.body }}</p>
         <p> <i>{{ review.created_on }}</i></p>
   </section>
