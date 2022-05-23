@@ -4,7 +4,6 @@ from Accounts.models import User
 from django.core.validators import BaseValidator
 from Booking.utils import create_new_ref_number, validate_date
 from decimal import Decimal
-from phone_field import PhoneField
 
 # Create your models here.
 
@@ -40,7 +39,7 @@ class Booking(models.Model):
     guest_attended = models.BooleanField(default=False)
     guest_no_show = models.BooleanField(default=False)
     no_show_email_sent = models.BooleanField(default=False)
-    contact_number = PhoneField(blank=True, help_text='Contact phone number')
+    contact_number = models.IntegerField(default="")
     bill_settled = models.BooleanField(default=False)
     booking_approved = models.BooleanField(default=False)
     booking_denied = models.BooleanField(default=False)
