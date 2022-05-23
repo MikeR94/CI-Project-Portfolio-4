@@ -43,7 +43,7 @@
                 Account
               </a>
             {% endif %}
-            <ul class="dropdown-menu text-center" aria-labelledby="navbarDropdown">
+            <ul class="dropdown-menu dropdown-menu-2 text-center" aria-labelledby="navbarDropdown">
               {% if request.user.is_authenticated %}
                 {% if request.user.is_staff %}
                 <li><a class="dropdown-item" href="{% url 'staff_dashboard' %}">Staff Dashboard</a></li>

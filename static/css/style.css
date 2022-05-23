@@ -173,6 +173,12 @@ body {
   color: white !important;
 }
 
+.dropdown-menu-2 {
+  border: none;
+  background-color: #212529;
+  color: white !important;
+}
+
 @media screen and (max-width: 1200px) {
   .navbar {
     background-color: #212529;
