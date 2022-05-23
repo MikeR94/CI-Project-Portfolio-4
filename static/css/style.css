@@ -173,6 +173,12 @@ body {
   color: white !important;
 }
 
+@media screen and (max-width: 1200px) {
+  .navbar {
+    background-color: #212529;
+  }
+}
+
 /* Navbar Toggler Animation */
 
 /* Courtesy of https://www.youtube.com/watch?v=vJ85fm4m7lw&ab_channel=uknowhat */
