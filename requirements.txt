@@ -16,7 +16,6 @@ dj3-cloudinary-storage==0.0.6
 Django==3.2
 django-allauth==0.50.0
 django-crispy-forms==1.14.0
-django-phone-field==1.8.1
 gunicorn==20.1.0
 idna==3.3
 mypy-extensions==0.4.3
