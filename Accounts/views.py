@@ -22,8 +22,7 @@ def user_details_booking(request, booking_id):
             "booking": booking,
         }
         return render(request, "user_details_booking.html", context)
-    else:
-        return HttpResponseRedirect("/")
+    return HttpResponseRedirect("accounts/login")
 
 
 def user_edit_booking(request, booking_id):

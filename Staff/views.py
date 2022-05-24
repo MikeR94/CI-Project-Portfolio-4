@@ -574,7 +574,7 @@ def staff_details_booking(request, booking_id):
         pending_payment_count = Booking.objects.filter(
             guest_attended=True, bill_settled=False
         ).count()
-        form = BookingForm(instance=booking_data)
+        form = BookingForm(request.POST or None, instance=booking_data)
         if request.method == "POST":
                 if form.is_valid():
                     form.save()
@@ -590,6 +590,7 @@ def staff_details_booking(request, booking_id):
             "pending_payment_count": pending_payment_count,
         }
         return render(request, "staff_details_booking.html", context)
+
     else:
         return HttpResponseRedirect("/")
 
