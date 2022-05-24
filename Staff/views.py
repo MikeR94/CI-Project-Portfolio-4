@@ -12,6 +12,7 @@ from django.conf import settings
 from django.template.loader import render_to_string
 from django.db.models import Sum
 from datetime import date
+from annoying.functions import get_object_or_None
 from Staff.utils import (
     jan_start,
     jan_end,
@@ -635,6 +636,12 @@ def staff_create_payment(request, booking_id):
         next = request.POST.get("next", "/")
         booking = get_object_or_404(Booking, id=booking_id)
         data = Booking.objects.filter(id=booking_id)
+        check_payment = 0
+        try:
+            check_payment = Payment.objects.get(booking_id=booking_id)
+        except Payment.DoesNotExist:
+            check_payment = None
+        payment = check_payment
         pending_bookings_count = Booking.objects.filter(booking_acknowledged=False).count()
         pending_bookings = Booking.objects.filter(booking_acknowledged=False)
         pending_reviews_count = Review.objects.filter(acknowledged=False).count()
@@ -653,6 +660,7 @@ def staff_create_payment(request, booking_id):
         context = {
             "booking": booking,
             "form": form,
+            "payment": payment,
             "pending_bookings": pending_bookings,
             "pending_bookings_count": pending_bookings_count,
             "pending_reviews": pending_reviews,
