@@ -12,7 +12,6 @@ from django.conf import settings
 from django.template.loader import render_to_string
 from django.db.models import Sum
 from datetime import date
-from annoying.functions import get_object_or_None
 from Staff.utils import (
     jan_start,
     jan_end,
