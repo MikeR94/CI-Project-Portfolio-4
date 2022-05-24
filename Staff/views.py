@@ -1,5 +1,4 @@
 from django.shortcuts import get_object_or_404, render, redirect
-from numpy import average
 from Booking.models import Booking
 from Reviews.models import Review
 from Staff.models import Payment
@@ -575,12 +574,11 @@ def staff_details_booking(request, booking_id):
         pending_payment_count = Booking.objects.filter(
             guest_attended=True, bill_settled=False
         ).count()
+        form = BookingForm(instance=booking_data)
         if request.method == "POST":
-            form = BookingForm(request.POST or None, instance=booking_data)
-            if form.is_valid():
-                form.save()
-                return HttpResponseRedirect(next)
-        form = BookingForm(request.POST or None, instance=booking_data)
+                if form.is_valid():
+                    form.save()
+                    return HttpResponseRedirect(next)
         context = {
             "booking": booking,
             "form": form,
