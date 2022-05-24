@@ -2,7 +2,7 @@ from django.db import models
 from datetime import datetime
 from Accounts.models import User
 from django.core.validators import BaseValidator
-from Booking.utils import create_new_ref_number, validate_date
+from Booking.utils import create_new_ref_number, validate_date, validate_time
 from decimal import Decimal
 
 # Create your models here.
@@ -21,6 +21,8 @@ class Booking(models.Model):
     ref_number = models.CharField(max_length=10, blank=True, editable=False, unique=True, default=create_new_ref_number)
     date_of_visit = models.DateField(auto_now=False, auto_now_add=False, validators=[validate_date])
     time_of_visit = models.TimeField(choices=(
+        (datetime.strptime('10:00 am', "%I:%M %p").time(), '10:00'),
+        (datetime.strptime('10:30 am', "%I:%M %p").time(), '10:30'),
         (datetime.strptime('5:00 pm', "%I:%M %p").time(), '17:00'),
         (datetime.strptime('5:30 pm', "%I:%M %p").time(), '17:30'),
         (datetime.strptime('6:00 pm', "%I:%M %p").time(), '18:00'),
@@ -34,7 +36,7 @@ class Booking(models.Model):
         (datetime.strptime('10:00 pm', "%I:%M %p").time(), '22:00'),
         (datetime.strptime('10:30 pm', "%I:%M %p").time(), '22:30'),
 
-    ))
+    ), validators=[validate_time])
     number_of_guests = models.PositiveIntegerField(blank=False, null=False, validators=[MinValueValidator(Decimal('0.01'))])
     guest_attended = models.BooleanField(default=False)
     guest_no_show = models.BooleanField(default=False)
