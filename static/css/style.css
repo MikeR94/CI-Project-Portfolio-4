@@ -89,46 +89,6 @@ body {
   font-weight: 300;
 }
 
-@media screen and (max-width: 1100px) {
-  .cafe-manbo-text {
-    font-size: 100px;
-  }
-
-  .established-text {
-    font-size: 25px;
-  }
-}
-
-@media screen and (max-height: 1000px) {
-  .cafe-manbo-text {
-    font-size: 100px;
-  }
-
-  .established-text {
-    font-size: 25px;
-  }
-}
-
-@media screen and (max-width: 400px) {
-  .cafe-manbo-text {
-    font-size: 50px;
-  }
-
-  .established-text {
-    font-size: 18px;
-    margin-bottom: 0px;
-  }
-
-  .golden-button {
-    font-size: 15px;
-    height: 35px;
-  }
-
-  .about-text {
-    padding: 10px;
-  }
-}
-
 /* Feature Icon Section */
 
 .large-feature-icon {
@@ -502,5 +462,49 @@ table th {
 
   .title-text {
     font-size: 25px;
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .cafe-manbo-text {
+    font-size: 100px;
+  }
+
+  .established-text {
+    font-size: 25px;
+  }
+}
+
+@media screen and (max-height: 1000px) {
+  .cafe-manbo-text {
+    font-size: 100px;
+  }
+
+  .established-text {
+    font-size: 25px;
+  }
+}
+
+@media screen and (max-width: 440px) {
+  .cafe-manbo-text {
+    font-size: 50px;
+  }
+
+  .established-text {
+    font-size: 18px;
+    margin-bottom: 0px;
+  }
+
+  .golden-button {
+    font-size: 15px;
+    height: 35px;
+  }
+
+  .about-text {
+    padding: 10px;
+  }
+
+  .nav-bar-logo {
+    font-size: 30px;
   }
 }
