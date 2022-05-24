@@ -49,12 +49,9 @@
       <form method="POST">
         <input type="hidden" name="next" value="{{request.path}}">
         {% csrf_token %}
-            {{ form|crispy }}
-            <p>
-                <button type="submit" class="golden-button">Submit</button>
-            </p>
-        </div>
-    </form>
+        {{ form|crispy }}
+          <button type="submit" class="golden-button mb-5">Submit</button>
+     </form>
     {% else %}
       <p>You can't edit cancel a booking that has been completed</p>
     {% endif %}

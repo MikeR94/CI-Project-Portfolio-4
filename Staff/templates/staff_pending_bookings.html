@@ -40,7 +40,7 @@
           {% csrf_token %}
           <td data-label="Deny"><button type="submit" class="btn btn-danger">Deny</button></td>
         </form>
-        <form action="details-booking/{{ booking.id }}" method="POST">
+        <form action="details-booking/{{ booking.id }}">
           <input type="hidden" name="next" value="{{request.path}}">
           <td data-label="details"><button type="submit" class="btn btn-primary">Details</button></td>
           {% csrf_token %}

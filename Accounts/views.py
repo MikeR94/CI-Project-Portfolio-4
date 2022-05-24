@@ -50,6 +50,7 @@ def user_edit_booking(request, booking_id):
             return render(request, "user_edit_booking_success.html", success_context)
     return render(request, "user_edit_booking.html", context)
 
+
 def user_cancel_booking(request, booking_id):
     if request.user.is_authenticated:
         booking = get_object_or_404(Booking, id=booking_id)

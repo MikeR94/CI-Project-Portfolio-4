@@ -558,6 +558,8 @@ def staff_details_booking(request, booking_id):
         today = date.today()
         next = request.POST.get("next", "/")
         booking_data = get_object_or_404(Booking, id=booking_id)
+        form = BookingForm(request.POST or None, instance=booking_data)
+        print(form)
         booking = Booking.objects.get(id=booking_id)
         pending_bookings_count = Booking.objects.filter(booking_acknowledged=False).count()
         pending_bookings = Booking.objects.filter(booking_acknowledged=False)
@@ -574,11 +576,6 @@ def staff_details_booking(request, booking_id):
         pending_payment_count = Booking.objects.filter(
             guest_attended=True, bill_settled=False
         ).count()
-        form = BookingForm(request.POST or None, instance=booking_data)
-        if request.method == "POST":
-                if form.is_valid():
-                    form.save()
-                    return HttpResponseRedirect(next)
         context = {
             "booking": booking,
             "form": form,
@@ -589,10 +586,13 @@ def staff_details_booking(request, booking_id):
             "pending_check_in_count": pending_check_in_count,
             "pending_payment_count": pending_payment_count,
         }
-        return render(request, "staff_details_booking.html", context)
-
     else:
-        return HttpResponseRedirect("/")
+        return HttpResponseRedirect("accounts_login")
+    if request.method == "POST":
+            if form.is_valid():
+                form.save()
+                return HttpResponseRedirect(next)
+    return render(request, "staff_details_booking.html", context)
 
 
 def staff_payment_page(request):
