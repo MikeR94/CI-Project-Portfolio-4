@@ -5,7 +5,7 @@
   <div class="row">
     <div class="col-xl-6 col-sm-12 d-flex align-items-center justify-content-center">
       <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
-        <h1 class="title-text">{% trans "Sign Up" %}</h1>
+        <h3 class="title-text">{% trans "Sign Up" %}</h3>
         <p>{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
         {% csrf_token %} {{ form|crispy }} {% if redirect_field_value %}
         <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
