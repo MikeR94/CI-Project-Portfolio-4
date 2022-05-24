@@ -4,7 +4,7 @@
   <div class="row">
     <p>Please fill in the fields below and click to submit to leave your review</p>
   </div>
-  <div class="row align-items-center justify-content-center" data-aos="fade-up">
+  <div class="row align-items-center justify-content-center">
     <form method="POST">
       {% csrf_token %} {{ form|crispy }}
       <input type="hidden" name="next" value="{{request.path}}">
