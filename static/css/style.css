@@ -8,6 +8,21 @@ body {
   background-color: #f8f9fa;
 }
 
+.hero-button {
+  width: 210px;
+  height: 55px;
+  background-color: #212529;
+  border: none;
+  color: white;
+  font-size: 18px;
+  border-radius: 8px;
+}
+
+.hero-button:hover {
+  background-color: #9c8300;
+  transition: 300ms;
+}
+
 .black-button {
   width: 130px;
   height: 35px;
