@@ -395,6 +395,15 @@ table th {
   color: #9c8300 !important;
 }
 
+.footer-mail {
+  text-decoration: none;
+  color: white;
+}
+
+.footer-mail:hover {
+  color: #9c8300;
+}
+
 
 /* Django Forms Styling */
 
