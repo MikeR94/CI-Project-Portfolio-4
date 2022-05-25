@@ -527,4 +527,10 @@ table th {
   .nav-bar-logo {
     font-size: 30px;
   }
+
+  .hero-button {
+    width: 130px;
+    height: 35px;
+    font-size: 16px;
+  }
 }
