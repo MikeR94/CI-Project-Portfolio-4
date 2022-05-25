@@ -8,7 +8,7 @@
     <form method="POST">
       {% csrf_token %} {{ form|crispy }}
       <input type="hidden" name="next" value="{{request.path}}">
-      <button type="submit" class="golden-button">Submit</button>
+      <button type="submit" class="black-button">Submit</button>
     </form>
   </div>
 </section>

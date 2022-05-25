@@ -8,7 +8,7 @@ body {
   background-color: #f8f9fa;
 }
 
-.golden-button {
+.black-button {
   width: 130px;
   height: 35px;
   background-color: #212529;
@@ -38,7 +38,7 @@ body {
   border-radius: 8px;
 }
 
-.golden-button:hover {
+.black-button:hover {
   background-color: #9c8300;
   transition: 300ms;
 }
@@ -500,7 +500,7 @@ table th {
     margin-bottom: 0px;
   }
 
-  .golden-button {
+  .black-button {
     font-size: 15px;
     height: 35px;
   }

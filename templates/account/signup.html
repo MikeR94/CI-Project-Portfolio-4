@@ -10,7 +10,7 @@
         {% csrf_token %} {{ form|crispy }} {% if redirect_field_value %}
         <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
         {% endif %}
-        <button type="submit" class="golden-button">{% trans "Sign Up" %}</button>
+        <button type="submit" class="black-button">{% trans "Sign Up" %}</button>
       </form>
     </div>
     <div class="col-xl-6 d-none d-xl-flex align-items-center"><p>Create an account with us and you will be able to easily manage your bookings, create reviews and more. You could also receive a 10% discount on your next visit!</p></div>

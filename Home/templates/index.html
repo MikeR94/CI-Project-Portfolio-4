@@ -13,7 +13,7 @@
         <strong>Established 2002</strong>
       </p>
       <form action="{% url 'book_now'%}">
-        <button class="golden-button mt-3" type="submit">Book Now</button>
+        <button class="black-button mt-3" type="submit">Book Now</button>
       </form>
     </div>
   </div>
@@ -81,7 +81,7 @@
             <p>{{ review.body|slice:130 }}...</p>
             <form action="review/{{ review.id }}" method="GET">
               {% csrf_token %}
-              <button class="golden-button" type="submit">Read More</button>
+              <button class="black-button" type="submit">Read More</button>
             </form>
           </div>
         </div>
@@ -116,7 +116,7 @@
           <p>01924 206050</p>
           <br />
           <form action="{% url 'book_now'%}">
-            <button class="golden-button mt-3" type="submit">Visit Us</button>
+            <button class="black-button mt-3" type="submit">Visit Us</button>
           </form>
         </div>
       </div>
