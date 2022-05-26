@@ -4,13 +4,13 @@
   {% if messages %}
     {% for msg in messages %}
      {% if msg.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
-      <div class="alert alert-danger alert-dismissable d-flex justify-content-between align-items-center">
-        <p class="m-0">{{ booking.ref_number}} {{msg.message}}</p> 
+      <div class="alert alert-danger alert-dismissable d-flex justify-content-between align-items-center mb-3">
+        <p class="m-0">{{msg.message}}</p> 
         <button class="btn-close" data-bs-dismiss="alert" aria-hidden="true"></button>
       </div>
       {% else %}
-      <div class="alert alert-success alert-dismissable d-flex justify-content-between align-items-center">
-        <p class="m-0">{{ booking.ref_number}} {{msg.message}}</p> 
+      <div class="alert alert-success alert-dismissable d-flex justify-content-between align-items-center mb-3">
+        <p class="m-0">{{msg.message}}</p> 
         <button class="btn-close" data-bs-dismiss="alert" aria-hidden="true"></button>
       </div>
       {% endif %}

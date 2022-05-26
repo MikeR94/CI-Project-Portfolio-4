@@ -513,7 +513,8 @@ def staff_check_in(request, booking_id):
         for item in data:
             item.guest_attended = True
             item.save()
-            return HttpResponseRedirect(next)
+        messages.add_message(request, messages.SUCCESS, f'Booking ref {item.ref_number} has been checked in and an email has been sent.')
+        return HttpResponseRedirect(next)
     else:
         return HttpResponseRedirect("/")
 
@@ -525,7 +526,8 @@ def staff_no_show(request, booking_id):
         for item in data:
             item.guest_no_show = True
             item.save()
-            return HttpResponseRedirect(next)
+        messages.add_message(request, messages.ERROR, f'Booking ref {item.ref_number} has been marked as not attending and an email has been sent.')
+        return HttpResponseRedirect(next)
     else:
         return HttpResponseRedirect("/")
 
