@@ -564,8 +564,8 @@ def staff_details_booking(request, booking_id):
         next = request.POST.get("next", "/")
         booking_data = get_object_or_404(Booking, id=booking_id)
         form = BookingForm(request.POST or None, instance=booking_data)
-        print(form)
         booking = Booking.objects.get(id=booking_id)
+        data = Booking.objects.filter(id=booking_id)
         pending_bookings_count = Booking.objects.filter(booking_acknowledged=False).count()
         pending_bookings = Booking.objects.filter(booking_acknowledged=False)
         pending_reviews_count = Review.objects.filter(acknowledged=False).count()
@@ -607,6 +607,12 @@ def staff_details_booking(request, booking_id):
                     messages.add_message(request, messages.ERROR, 'Duplicate booking.')
                     return render(request, "staff_details_booking.html", context)
                 instance.save()
+                for item in data:
+                    item.booking_approved = False
+                    item.booking_acknowledged = False
+                    item.booking_denied = False
+                    item.save()
+                messages.add_message(request, messages.SUCCESS, 'Booking updated successfully.')
                 return HttpResponseRedirect(next)
     return render(request, "staff_details_booking.html", context)
 
