@@ -47,6 +47,11 @@ def user_edit_booking(request, booking_id):
     if request.method == "POST":
         if form.is_valid():
             instance = form.save(commit=False)
+            double_context = {
+                "data": instance,
+            }
+            if Booking.objects.filter(first_name=instance.first_name, last_name=instance.last_name, time_of_visit=instance.time_of_visit, date_of_visit=instance.date_of_visit).exists():
+                return render(request, "book_double_error.html", double_context)
             instance.save()
             for item in booking:
                 item.booking_approved = False
