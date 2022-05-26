@@ -12,6 +12,7 @@ from django.conf import settings
 from django.template.loader import render_to_string
 from django.db.models import Sum
 from datetime import date
+from django.contrib import messages
 from Staff.utils import (
     jan_start,
     jan_end,
@@ -597,7 +598,11 @@ def staff_details_booking(request, booking_id):
         return HttpResponseRedirect("accounts_login")
     if request.method == "POST":
             if form.is_valid():
-                form.save()
+                instance = form.save(commit=False)
+                if Booking.objects.filter(first_name=instance.first_name, last_name=instance.last_name, time_of_visit=instance.time_of_visit, date_of_visit=instance.date_of_visit).exists():
+                    messages.add_message(request, messages.ERROR, 'Duplicate booking.')
+                    return render(request, "staff_details_booking.html", context)
+                instance.save()
                 return HttpResponseRedirect(next)
     return render(request, "staff_details_booking.html", context)
 
