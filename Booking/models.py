@@ -43,6 +43,7 @@ class Booking(models.Model):
     no_show_email_sent = models.BooleanField(default=False)
     contact_number = models.CharField(default="", max_length=15)
     bill_settled = models.BooleanField(default=False)
+    bill_submitted = models.BooleanField(default=False)
     booking_approved = models.BooleanField(default=False)
     booking_denied = models.BooleanField(default=False)
     booking_acknowledged = models.BooleanField(default=False)

@@ -42,12 +42,25 @@
          <td data-label="Account">{{ booking.user.username }}</td>
          <td data-label="Disabled Access">{% if booking.disabled_access == True %} Required {% else %} Not Required {% endif %}</td>
          <td data-label="Additional Info">{% if booking.additional_info %} {{ booking.additional_info }} {% else %} No additional information {% endif %} </td>
-         <td data-label="Total Income">{% if payment %} £{{ payment.total_income }} {% else %} No payment information {% endif %}</td>
+         <td data-label="Bill Amount">{% if payment %} £{{ payment.amount_owed }} {% else %} No payment information {% endif %}</td>
+         <td data-label="Amount Paid">{% if payment %} £{{ payment.amount_paid }} {% else %} No payment information {% endif %}</td>
+         <td data-label="Payment Status">{% if payment.amount_paid >= payment.amount_owed %} <span class="green-text">Bill Settled</span> <i class="fas fa-check green-text"> {% elif payment.amount_paid < payment.amount_owed %} <span class="red-text">Bill not settled</span> <i class="fas fa-exclamation red-text"></i> {% else %} No payment information {% endif %}</td>
        </tr>
      </tbody>
    </table>
     <div>
-      {% if booking.bill_settled == False %}
+    {% if booking.bill_settled == False and booking.bill_submitted == False %}
+    <form method="POST">
+      <input type="hidden" name="next" value="{{request.path}}">
+      {% csrf_token %}
+          {{ form|crispy }}
+          <p>
+              <button type="submit" class="black-button">Submit</button>
+          </p>
+      </div>
+    </form>
+    {% elif booking.bill_settled == False and booking.bill_submitted == True %}
+    <p class="text-danger">Payment information for this booking has been submitted and the bill has not been settled</p>
     <form method="POST">
       <input type="hidden" name="next" value="{{request.path}}">
       {% csrf_token %}
@@ -58,7 +71,7 @@
       </div>
     </form>
   {% else %}
-  <p class="text-success">Payment information for this booking has been submitted</p>
+  <p class="text-success">Payment information for this booking has been submitted and the bill has been settled</p>
   {% endif %}
 
 {% endblock %}

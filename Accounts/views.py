@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from Booking.forms import BookingForm
 from Booking.models import Booking
 from django.http import HttpResponseRedirect
+from Staff.models import Payment
 
 # Create your views here.
 
@@ -18,8 +19,15 @@ def show_user_reservations(request):
 def user_details_booking(request, booking_id):
     if request.user.is_authenticated:
         booking = get_object_or_404(Booking, id=booking_id)
+        check_payment = 0
+        try:
+            check_payment = Payment.objects.get(booking_id=booking_id)
+        except Payment.DoesNotExist:
+            check_payment = None
+        payment = check_payment
         context = {
             "booking": booking,
+            "payment": payment,
         }
         return render(request, "user_details_booking.html", context)
     return HttpResponseRedirect("accounts/login")

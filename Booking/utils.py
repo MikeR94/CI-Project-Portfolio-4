@@ -9,7 +9,7 @@ def validate_date(date):
     if date < timezone.now().date():
         raise forms.ValidationError("Date cannot be in the past")
 
-def validate_time(date):
-    if date < timezone.now().time():
+def validate_time(time):
+    if time < timezone.now().time():
         raise forms.ValidationError("Time cannot be in the past")
 

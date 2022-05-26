@@ -680,6 +680,11 @@ def staff_create_payment(request, booking_id):
             for x in data:
                 if float(form.amount_owed) <= float(form.total_income):
                     x.bill_settled = True
+                    x.bill_submitted = True
+                    x.save()
+                elif float(form.amount_owed) > float(form.total_income):
+                    x.bill_settled = False
+                    x.bill_submitted = True
                     x.save()
             form.save()
             return HttpResponseRedirect(next)

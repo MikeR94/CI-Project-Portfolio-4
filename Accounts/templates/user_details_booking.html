@@ -20,6 +20,9 @@
         <th scope="col">Account</th>
         <th scope="col">Disabled Access</th>
         <th scope="col">Additional Info</th>
+        <th scope="col">Bill Amount</th>
+        <th scope="col">Amount Paid</th>
+        <th scope="col">Payment Status</th>
       </tr>
     </thead>
     <tbody>
@@ -35,6 +38,9 @@
         <td data-label="Account">{{ booking.user.username }}</td>
         <td data-label="Disabled Access">{% if booking.disabled_access == True %} Required {% else %} Not Required {% endif %}</td>
         <td data-label="Additional Info">{% if booking.additional_info %} {{ booking.additional_info }} {% else %} No additional information {% endif %} </td>
+        <td data-label="Bill Amount">{% if payment %} £{{ payment.amount_owed }} {% else %} No payment information {% endif %}</td>
+        <td data-label="Amount Paid">{% if payment %} £{{ payment.amount_paid }} {% else %} No payment information {% endif %}</td>
+        <td data-label="Payment Status">{% if payment.amount_paid >= payment.amount_owed %} Bill Settled {% elif payment.amount_paid < payment.amount_owed %} Bill not settled {% else %} No payment information {% endif %}</td>
       </tr>
     </tbody>
   </table>
