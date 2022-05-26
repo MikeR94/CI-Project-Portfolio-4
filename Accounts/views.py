@@ -47,11 +47,12 @@ def user_edit_booking(request, booking_id):
     if request.method == "POST":
         if form.is_valid():
             instance = form.save(commit=False)
+            instance.save()
             for item in booking:
                 item.booking_approved = False
                 item.booking_acknowledged = False
+                item.booking_denied = False
                 item.save()
-            instance.save()
             success_context = {
                 "data": instance,
             }

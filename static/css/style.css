@@ -65,6 +65,13 @@ body {
   font-size: 40px;
 }
 
+.green-text {
+  color: green;
+}
+
+.red-text {
+  color: red;
+}
 
 .page-space {
   min-height: calc(60vh - 1px);

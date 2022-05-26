@@ -30,7 +30,7 @@
         <td data-label="Date">{{ booking.date_of_visit }}</td>
         <td data-label="Time">{{ booking.time_of_visit }}</td>
         <td data-label="Guests">{{ booking.number_of_guests }}</td>
-        <td data-label="Booking Status">{% if booking.booking_approved %} <span class="green-text">Booking Approved</span> <i class="fas fa-check green-text"></i> {% elif booking.booking_denied %} <span class="red-text">Booking Denied</span> <i class="fas fa-exclamation red-text"></i>  {% else %} <span class="text-warning">Awaiting Approval</span> <i class="fas fa-exclamation text-warning"></i> {% endif %}</td>
+        <td data-label="Booking Status">{% if booking.guest_attended == True %} <span class="green-text">Booking Attended</span> <i class="fas fa-check green-text"></i> {% elif booking.booking_denied %} <span class="red-text">Booking Denied</span> <i class="fas fa-exclamation red-text"></i> {% elif booking.booking_approved == True %} <span class="green-text">Booking Approved</span> <i class="fas fa-check green-text"></i> {% else %} <span class="text-warning">Awaiting Approval</span> <i class="fas fa-exclamation text-warning"></i> {% endif %}</td>
         <td data-label="Email">{{ booking.email }}</td>
         <td data-label="Contact">{{ booking.contact_number }}</td>
         <td data-label="Account">{{ booking.user.username }}</td>

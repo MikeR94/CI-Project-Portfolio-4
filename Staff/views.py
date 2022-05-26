@@ -576,8 +576,15 @@ def staff_details_booking(request, booking_id):
         pending_payment_count = Booking.objects.filter(
             guest_attended=True, bill_settled=False
         ).count()
+        check_payment = 0
+        try:
+            check_payment = Payment.objects.get(booking_id=booking_id)
+        except Payment.DoesNotExist:
+            check_payment = None
+        payment = check_payment
         context = {
             "booking": booking,
+            "payment": payment,
             "form": form,
             "pending_bookings": pending_bookings,
             "pending_bookings_count": pending_bookings_count,
