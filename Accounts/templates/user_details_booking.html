@@ -7,7 +7,7 @@
 <section class="container page-space pt-5 pb-5">
   <table class="table table_id pt-5 text-center">
      <a href="{% url 'user_reservations'%}">Previous Page</a>
-    <thead>
+     <thead>
       <tr>
         <th scope="col">Ref</th>
         <th scope="col">Name</th>
@@ -20,9 +20,7 @@
         <th scope="col">Account</th>
         <th scope="col">Disabled Access</th>
         <th scope="col">Additional Info</th>
-        <th scope="col">Bill Amount</th>
-        <th scope="col">Amount Paid</th>
-        <th scope="col">Payment Status</th>
+        <th scope="col">Total Income</th>
       </tr>
     </thead>
     <tbody>
@@ -32,7 +30,7 @@
         <td data-label="Date">{{ booking.date_of_visit }}</td>
         <td data-label="Time">{{ booking.time_of_visit }}</td>
         <td data-label="Guests">{{ booking.number_of_guests }}</td>
-        <td data-label="Booking Status">{% if booking.booking_approved %} <span class="green-text">Booking Approved</span> <i class="fas fa-check green-text"></i> {% elif booking.booking_denied %} <span class="red-text">Booking Denied</span> <i class="fas fa-exclamation red-text"></i>  {% else %} Awaiting approval {% endif %}</td>
+        <td data-label="Booking Status">{% if booking.booking_approved %} <span class="green-text">Booking Approved</span> <i class="fas fa-check green-text"></i> {% elif booking.booking_denied %} <span class="red-text">Booking Denied</span> <i class="fas fa-exclamation red-text"></i>  {% else %} <span class="text-warning">Awaiting Approval</span> <i class="fas fa-exclamation text-warning"></i> {% endif %}</td>
         <td data-label="Email">{{ booking.email }}</td>
         <td data-label="Contact">{{ booking.contact_number }}</td>
         <td data-label="Account">{{ booking.user.username }}</td>
@@ -40,7 +38,7 @@
         <td data-label="Additional Info">{% if booking.additional_info %} {{ booking.additional_info }} {% else %} No additional information {% endif %} </td>
         <td data-label="Bill Amount">{% if payment %} £{{ payment.amount_owed }} {% else %} No payment information {% endif %}</td>
         <td data-label="Amount Paid">{% if payment %} £{{ payment.amount_paid }} {% else %} No payment information {% endif %}</td>
-        <td data-label="Payment Status">{% if payment.amount_paid >= payment.amount_owed %} Bill Settled {% elif payment.amount_paid < payment.amount_owed %} Bill not settled {% else %} No payment information {% endif %}</td>
+        <td data-label="Payment Status">{% if payment.amount_paid >= payment.amount_owed %} <span class="green-text">Bill Settled</span> <i class="fas fa-check green-text"> {% elif payment.amount_paid < payment.amount_owed %} <span class="red-text">Bill not settled</span> <i class="fas fa-exclamation red-text"></i> {% else %} No payment information {% endif %}</td>
       </tr>
     </tbody>
   </table>
