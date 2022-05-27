@@ -6,7 +6,9 @@
 
 <section class="container page-space pt-5 pb-5">
   <table class="table table_id pt-5 text-center">
-     <a href="{% url 'user_reservations'%}">Previous Page</a>
+    <div class="col-12 mb-4">
+      <a href="{% url 'user_reservations'%}">Previous Page</a>
+    </div>
      <thead>
       <tr>
         <th scope="col">Ref</th>
@@ -43,13 +45,15 @@
     </tbody>
   </table>
   {% if booking.guest_attended == False %}
-  <form action="edit/{{ booking.id }}">
-    <button class="btn btn-warning" type="submit">Edit</button>
-  </form>
-  <br>
-  <form action="cancel/{{ booking.id }}">
-    <button class="btn btn-danger" onclick="return confirm('Are you sure?');" type="submit">Cancel</button>
-  </form>
+  <div class="d-sm-flex d-block">
+    <form action="edit/{{ booking.id }}">
+      <button class="btn btn-warning" type="submit">Edit</button>
+    </form>
+    <br>
+    <form action="cancel/{{ booking.id }}">
+      <button class="btn btn-danger ms-sm-4" onclick="return confirm('Are you sure?');" type="submit">Cancel</button>
+    </form>
+  </div> 
 
       {% else %}
       <p>You can't edit or cancel this booking since you have attended</p>
