@@ -1,6 +1,7 @@
 from django import forms
 from Booking.models import Booking
 from datetime import date
+import calendar
 from django.utils import timezone
 
 class DateInput(forms.DateInput):
@@ -28,6 +29,22 @@ class BookingForm(forms.ModelForm):
         date_of_visit = cleaned_data.get('date_of_visit')
         today = date.today()
         time = timezone.now().time()
+
+        year = 2022
+        A=calendar.TextCalendar(calendar.SUNDAY)
+        for b in range(1,13):
+            for k in A.itermonthdays(year,b):
+                if k!=0:
+                    day=date(year, b,k)
+                    if day.weekday()==6:
+                        sunday1 = (f'{year}-0{b}-{k}')
+                        sunday2 = (f'{year}-{b}-{k}')
+                        if str(date_of_visit) == str(sunday1):
+                            self._errors['date_of_visit'] = self.error_class(['Sorry we are closed on sundays'])
+                            del self.cleaned_data['date_of_visit']
+                        if str(date_of_visit) == str(sunday2):
+                            self._errors['date_of_visit'] = self.error_class(['Sorry we are closed on sundays'])
+                            del self.cleaned_data['date_of_visit']
 
         if date_of_visit == today and time_of_visit < time:
             self._errors['time_of_visit'] = self.error_class(['You cant book in the past'])
