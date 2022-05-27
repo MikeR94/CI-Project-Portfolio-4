@@ -105,6 +105,8 @@ TEMPLATES = [
 WSGI_APPLICATION = 'Cafe_Manbo.wsgi.application'
 
 
+USE_TZ = True
+
 MESSAGE_TAGS = {
     messages.SUCCESS: 'alert alert-success',
     messages.ERROR: 'alert alert-danger',
