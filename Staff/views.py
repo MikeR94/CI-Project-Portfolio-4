@@ -558,6 +558,19 @@ def staff_deny_review(request, review_id):
         return HttpResponseRedirect("/")
 
 
+def staff_reset_review(request, review_id):
+    if request.user.is_staff:
+        next = request.POST.get("next", "/")
+        data = Review.objects.filter(id=review_id)
+        for item in data:
+            item.approved = False
+            item.acknowledged = False
+            item.save()
+            return HttpResponseRedirect(next)
+    else:
+        return HttpResponseRedirect("/")
+
+
 def staff_details_booking(request, booking_id):
     if request.user.is_staff:
         today = date.today()

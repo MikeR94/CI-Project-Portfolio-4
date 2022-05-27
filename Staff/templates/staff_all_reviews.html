@@ -10,17 +10,12 @@
   {% for review in all_reviews %}
   <div class="card p-3 mb-2">
     <div class="row align-items-center justify-content-center">
-        <h6>{{ review.first_name }} {{ review.last_name }} - <i> ({{ review.user.username }}) </i> - {% if review.approved == True %} <i style="color: green;" class="fas fa-check"> Approved</i> {% else %} <i style="color: red;" class="fas fa-exclamation"> Review denied</i> {% endif %} </h6> 
+        <h6>{{ review.first_name }} {{ review.last_name }} - <i> ({{ review.user.username }}) </i> - {% if review.approved == True %} <i class="fas fa-check green-text"> Approved</i> {% elif review.approved == False and review.acknowledged == False %} <i class="fas fa-exclamation red-text"> Not approved</i> {% else %} <i class="fas fa-exclamation red-text"> Review denied</i> {% endif %} </h6> 
         <p> {{ review.body }}</p>
         <p> <i>{{ review.created_on }}</i></p>
-        <form action="approve-review/{{ review.id }}" method="POST">
+        <form action="reset-review/{{ review.id }}" method="POST">
           <input type="hidden" name="next" value="{{request.path}}">
-          <button type="submit" class="btn btn-sm btn-success mb-2">Approve</button>
-          {% csrf_token %}
-        </form>
-        <form action="deny-review/{{ review.id }}" method="POST">
-          <input type="hidden" name="next" value="{{request.path}}">
-          <button type="submit" class="btn btn-sm btn-danger mb-2">Deny</button>
+          <div><button type="submit" class="btn btn-warning mb-2">Reset</button> Click here to move this review back to pending</div>
           {% csrf_token %}
         </form>
       </div>
