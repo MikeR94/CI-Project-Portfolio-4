@@ -21,6 +21,7 @@ class Booking(models.Model):
     ref_number = models.CharField(max_length=10, blank=True, editable=False, unique=True, default=create_new_ref_number)
     date_of_visit = models.DateField(auto_now=False, auto_now_add=False, validators=[validate_date])
     time_of_visit = models.TimeField(choices=(
+        (datetime.strptime('07:00 am', "%I:%M %p").time(), '07:00'),
         (datetime.strptime('10:00 am', "%I:%M %p").time(), '10:00'),
         (datetime.strptime('10:30 am', "%I:%M %p").time(), '10:30'),
         (datetime.strptime('5:00 pm', "%I:%M %p").time(), '17:00'),
