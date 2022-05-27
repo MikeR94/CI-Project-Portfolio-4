@@ -1,5 +1,7 @@
 from django import forms
 from Booking.models import Booking
+from datetime import date
+from django.utils import timezone
 
 class DateInput(forms.DateInput):
     input_type = 'date'
@@ -19,4 +21,17 @@ class BookingForm(forms.ModelForm):
             'time_of_visit': forms.Select(attrs={'class': 'form-control'}),
             'contact_number': forms.TextInput(attrs={'class': 'form-control', 'type':'number'})
         }
+
+    def clean(self):
+        cleaned_data = super(BookingForm, self).clean()
+        time_of_visit = cleaned_data.get('time_of_visit')
+        date_of_visit = cleaned_data.get('date_of_visit')
+        today = date.today()
+        time = timezone.now().time()
+
+        if date_of_visit == today and time_of_visit < time:
+            self._errors['time_of_visit'] = self.error_class(['You cant book in the past'])
+            del self.cleaned_data['time_of_visit']
+        return cleaned_data
+        
     
