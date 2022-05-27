@@ -32,13 +32,13 @@ class BookingForm(forms.ModelForm):
 
         year = 2022
         A=calendar.TextCalendar(calendar.SUNDAY)
-        for b in range(1,13):
-            for k in A.itermonthdays(year,b):
-                if k!=0:
-                    day=date(year, b,k)
-                    if day.weekday()==6:
-                        sunday1 = (f'{year}-0{b}-{k}')
-                        sunday2 = (f'{year}-{b}-{k}')
+        for month in range(1,13):
+            for day in A.itermonthdays(year, month):
+                if day != 0:
+                    days = date(year, month ,day)
+                    if days.weekday()==6:
+                        sunday1 = (f'{year}-0{month}-{day}')
+                        sunday2 = (f'{year}-{month}-{day}')
                         if str(date_of_visit) == str(sunday1):
                             self._errors['date_of_visit'] = self.error_class(['Sorry we are closed on sundays'])
                             del self.cleaned_data['date_of_visit']
