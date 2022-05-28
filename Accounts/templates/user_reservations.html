@@ -1,7 +1,9 @@
 {% extends "base.html" %} {% block content %} {% include "navbar_2.html" %}
 
-<section class="container page-space pt-5 pb-5">
-  <table class="table table_id pt-5 text-center">
+{% load static %}
+
+<section class="container page-space mt-5 pb-5">
+  <table class="table table_id text-center">
     <thead>
       {% if booking %}
       <tr>
@@ -12,7 +14,19 @@
         <th scope="col">Details</th>
       </tr>
       {% else %}
-      <h4>You don't have any bookings yet</h4>
+      <div class="row d-flex align-items-center justify-content-between p-5">
+        <div class="col-lg-6 col-12 text-center text-lg-start mt-5">
+          <p>It appears you don't have any bookings with us as of yet.</p>
+          <p>We would be absolutely delighted to have you come down to visit us!</p>
+          <p>Please click the button below and complete the booking form and we will look forward to seeing you.</p>
+          <form action="{% url 'book_now'%}">
+            <button class="black-button mt-4" type="submit">Book Now</button>
+          </form>
+        </div>
+        <div class="col-lg-6 col-12 text-center text-lg-end">
+          <img class="img-fluid" src="{% static 'images/sad-duck-image.png'%}" alt="Sad duck image" />
+        </div>
+      </div>
       {% endif %}
     </thead>
     <tbody>
