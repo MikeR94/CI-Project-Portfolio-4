@@ -10,9 +10,11 @@ def show_user_reservations(request):
     if request.user.is_authenticated:
         booking = Booking.objects.filter(user=request.user, guest_attended=False)
         completed_booking = Booking.objects.filter(user=request.user, guest_attended=True)
+        completed_booking_count = Booking.objects.filter(user=request.user, guest_attended=True).count()
         context = {
             "booking": booking,
             "completed_booking": completed_booking,
+            "completed_booking_count": completed_booking_count,
         }
         return render(request, "user_reservations.html", context)
     return HttpResponseRedirect("/")
