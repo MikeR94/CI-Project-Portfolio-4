@@ -5,6 +5,9 @@
 <section class="container page-space mt-5 pb-5">
   <table class="table table_id text-center">
     <thead>
+      {% if booking or completed_booking %}
+      <p class="mb-5">Please see below a list of all your bookings with us. Click details if you wish to see further information about that particular booking</p>
+      {% endif %}
       {% if booking %}
       <tr>
         <th scope="col">Status</th>
@@ -13,24 +16,12 @@
         <th scope="col">Time Of Visit</th>
         <th scope="col">Details</th>
       </tr>
-      {% else %}
-      <div class="row d-flex align-items-center justify-content-between p-5">
-        <div class="col-lg-6 col-12 text-center text-lg-start mt-5">
-          <p>It appears you don't have any bookings with us as of yet.</p>
-          <p>We would be absolutely delighted to have you come down to visit us!</p>
-          <p>Please click the button below and complete the booking form and we will look forward to seeing you.</p>
-          <form action="{% url 'book_now'%}">
-            <button class="black-button mt-4" type="submit">Book Now</button>
-          </form>
-        </div>
-        <div class="col-lg-6 col-12 text-center text-lg-end">
-          <img class="img-fluid" src="{% static 'images/sad-duck-image.png'%}" alt="Sad duck image" />
-        </div>
-      </div>
+      {% elif not booking and completed_booking %}
+      <p class="ms-3">No pending bookings</p>
       {% endif %}
     </thead>
     <tbody>
-      {% for booking in booking %}
+      {% for booking in booking %} 
       <tr>
         <td data-label="Booking Status">{% if booking.guest_attended == True %} <span class="green-text">Booking Attended</span> <i class="fas fa-check green-text"></i> {% elif booking.booking_denied %} <span class="red-text">Booking Denied</span> <i class="fas fa-exclamation red-text"></i> {% elif booking.booking_approved == True %} <span class="green-text">Booking Approved</span> <i class="fas fa-check green-text"></i> {% else %} <span class="text-warning">Awaiting Approval</span> <i class="fas fa-exclamation text-warning"></i> {% endif %}</td>
         <td data-label="Ref">{{ booking.ref_number }}</td>
@@ -45,7 +36,75 @@
       {% endfor %}
     </tbody>
   </table>
+  <br>
+  {% if booking or completed_booking %}
+
+  <div class="accordion accordion-flush" id="accordionFlushExample">
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="flush-headingOne">
+        <button class="accordion-button text-white collapsed bg-success" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+          Completed Bookings
+        </button>
+      </h2>
+      <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+        <div class="accordion-body">
+          <table class="table table_id text-center">
+            <thead>
+              
+              {% if completed_booking %}
+              
+              <tr>
+                <th scope="col">Status</th>
+                <th scope="col">Reference Number</th>
+                <th scope="col">Date Of Visit</th>
+                <th scope="col">Time Of Visit</th>
+                <th scope="col">Details</th>
+              </tr>
+              {% else %}
+                <p>No completed bookings</p>
+              {% endif %}
+            </thead>
+            <tbody> 
+              {% for booking in completed_booking %}
+              <tr>
+                <td data-label="Booking Status"><span class="green-text">Booking Attended</span> <i class="fas fa-check green-text"></i> </td>
+                <td data-label="Ref">{{ booking.ref_number }}</td>
+                <td data-label="Date">{{ booking.date_of_visit }}</td>
+                <td data-label="Time">{{ booking.time_of_visit }}</td>
+                <form action="user-details-booking/{{ booking.id }}" method="POST">
+                  <input type="hidden" name="next" value="{{request.path}}">
+                  <td data-label="details"><button type="submit" class="btn btn-primary">Details</button></td>
+                  {% csrf_token %}
+                </form>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endif %}
+  {% if not booking and not completed_booking %}
+  <div class="row d-flex align-items-center justify-content-between p-5">
+    <div class="col-lg-6 col-12 text-center text-lg-start mt-5">
+      <p>It appears you don't have any bookings with us as of yet.</p>
+      <p>We would be absolutely delighted to have you come down to visit us!</p>
+      <p>Please click the button below and complete the booking form and we will look forward to seeing you.</p>
+      <form action="{% url 'book_now'%}">
+        <button class="black-button mt-4" type="submit">Book Now</button>
+      </form>
+    </div>
+    <div class="col-lg-6 col-12 text-center text-lg-end">
+      <img class="img-fluid" src="{% static 'images/sad-duck-image.png'%}" alt="Sad duck image" />
+    </div>
+  </div>
+  {% endif %}
 </section>
+
+
+
 
 
 {% include "footer.html" %} {% endblock %}

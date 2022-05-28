@@ -8,9 +8,11 @@ from Staff.models import Payment
 
 def show_user_reservations(request):
     if request.user.is_authenticated:
-        booking = Booking.objects.filter(user=request.user)
+        booking = Booking.objects.filter(user=request.user, guest_attended=False)
+        completed_booking = Booking.objects.filter(user=request.user, guest_attended=True)
         context = {
-            "booking": booking
+            "booking": booking,
+            "completed_booking": completed_booking,
         }
         return render(request, "user_reservations.html", context)
     return HttpResponseRedirect("/")
