@@ -76,6 +76,17 @@
         <div class="card bg-light">
           <div class="card-body text-center">
             <h3 class="review-title-text mb-3">{{ review.first_name }} {{ review.last_name }}</h3>
+            {% if review.stars == "5 Star" %}
+            <div class="golden-text"><i class="fas fa-star mb-3"></i><i class="fas fa-star mb-3"></i><i class="fas fa-star mb-3"></i><i class="fas fa-star mb-3"></i><i class="fas fa-star mb-3"></i></div>
+            {% elif review.stars == "4 Star" %}
+            <div class="golden-text"><i class="fas fa-star mb-3"></i><i class="fas fa-star mb-3"></i><i class="fas fa-star mb-3"></i><i class="fas fa-star mb-3"></i></div>
+            {% elif review.stars == "3 Star" %}
+            <div class="golden-text"><i class="fas fa-star mb-3"></i><i class="fas fa-star mb-3"></i><i class="fas fa-star mb-3"></i></div>
+            {% elif review.stars == "2 Star" %}
+            <div class="golden-text"><i class="fas fa-star mb-3"></i><i class="fas fa-star mb-3"></i></div>
+            {% elif review.stars == "1 Star" %}
+            <div class="golden-text"><i class="fas fa-star mb-3"></i></div>
+            {% endif %} 
             <p>{{ review.body|slice:130 }}...</p>
             <form action="review/{{ review.id }}" method="GET">
               {% csrf_token %}

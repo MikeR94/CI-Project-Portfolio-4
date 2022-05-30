@@ -423,6 +423,10 @@ table th {
   resize: none;
 }
 
+#id_stars {
+  max-width: 300px;
+}
+
 /* Media Queries */
 
 @media screen and (max-width: 1200px) {

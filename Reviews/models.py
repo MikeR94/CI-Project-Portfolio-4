@@ -25,6 +25,13 @@ class Review(models.Model):
     user = models.ForeignKey(User, null=False, on_delete=models.CASCADE)
     approved = models.BooleanField(default=False)
     acknowledged = models.BooleanField(default=False)
+    stars = models.CharField(max_length=6, default="5 Star", choices=(
+            ("1 Star", "1 star"),
+            ("2 Star", "2 star"),
+            ("3 Star", "3 star"),
+            ("4 Star", "4 star"),
+            ("5 Star", "5 star"),
+        ))
 
     def __str__(self):
         return self.first_name

@@ -5,7 +5,7 @@ from Reviews.models import Review
 class ReviewForm(forms.ModelForm):
     class Meta:
         model = Review
-        fields = ["first_name", "last_name", "body"]
+        fields = ["first_name", "last_name", "stars", "body"]
         widgets = {
             "first_name": forms.TextInput(
                 attrs={
@@ -21,4 +21,7 @@ class ReviewForm(forms.ModelForm):
                     "title": "Please enter characters only",
                 }
             ),
+            "stars": forms.Select(attrs={
+                    "class": "form-control",
+                })
         }

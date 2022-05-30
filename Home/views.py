@@ -6,7 +6,12 @@ from Reviews.models import Review
 
 def index(request):
     reviews = Review.objects.filter(approved=True).order_by("?")[:4]
-    context = {"reviews": reviews}
+    stars = 3
+    context = {
+        "reviews": reviews,
+        "stars": stars
+        }
+
     return render(request, "index.html", context)
 
 
