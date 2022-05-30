@@ -5,12 +5,13 @@ from Booking.forms import BookingForm
 
 # Create your views here.
 
+
 def book_now(request):
     if request.user.is_authenticated:
         form = BookingForm(request.POST or None)
         context = {
             "form": form,
-            }
+        }
     else:
         return HttpResponseRedirect("accounts/login")
     if request.method == "POST":
@@ -19,8 +20,15 @@ def book_now(request):
             double_context = {
                 "data": instance,
             }
-            if Booking.objects.filter(first_name=instance.first_name, last_name=instance.last_name, time_of_visit=instance.time_of_visit, date_of_visit=instance.date_of_visit).exists():
-                return render(request, "book_double_error.html", double_context)
+            if Booking.objects.filter(
+                first_name=instance.first_name,
+                last_name=instance.last_name,
+                time_of_visit=instance.time_of_visit,
+                date_of_visit=instance.date_of_visit,
+            ).exists():
+                return render(
+                    request, "book_double_error.html", double_context
+                )
             if request.user.is_authenticated:
                 instance.user = request.user
                 instance.save()
@@ -30,5 +38,3 @@ def book_now(request):
             }
             return render(request, "book_success.html", success_context)
     return render(request, "book_now.html", context)
-    
-
