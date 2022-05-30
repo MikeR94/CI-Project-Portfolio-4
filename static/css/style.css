@@ -85,6 +85,11 @@ body {
   color: #9c8300;
 }
 
+.error-title {
+  color: #9c8300;
+  font-size: 120px;
+}
+
 /* Hero Section */
 
 .hero-image {
