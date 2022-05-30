@@ -59,7 +59,7 @@ class BookingForm(forms.ModelForm):
         for x in sunday:
             if x == str(date_of_visit):
                 self._errors["date_of_visit"] = self.error_class(
-                    ["Sorry we are only taking bookings for this year"]
+                    ["Sorry we are closed on Sundays"]
                 )
                 del self.cleaned_data["date_of_visit"]
 
