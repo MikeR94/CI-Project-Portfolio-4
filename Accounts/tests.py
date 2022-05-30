@@ -1,98 +1,95 @@
 from django.test import TestCase
 from django.urls import reverse, resolve
-from django.shortcuts import get_object_or_404
-from Accounts.views import show_user_reservations, user_cancel_booking, user_details_booking, user_edit_booking
+from Accounts.views import (
+    show_user_reservations,
+    user_cancel_booking,
+    user_details_booking,
+    user_edit_booking,
+)
 from Accounts.models import User
 
 from Booking.models import Booking
 
-class TestUrls(TestCase):
 
+class TestUrls(TestCase):
     def test_user_reservations_url_is_resolved(self):
-        response = self.client.get('/user-reservations')
+        response = self.client.get("/user-reservations")
         self.assertEqual(response.status_code, 302)
         self.user = User.objects.create_user(
-            username="admin",
-            password="adminadmin",
-            email="admin@example.com")
+            username="admin", password="adminadmin", email="admin@example.com"
+        )
         self.client.force_login(self.user)
-        response = self.client.get('/user-reservations')
+        response = self.client.get("/user-reservations")
         self.assertEqual(response.status_code, 200)
 
-        url = reverse('user_reservations')
+        url = reverse("user_reservations")
         self.assertEquals(resolve(url).func, show_user_reservations)
-        self.assertTemplateUsed(response, 'user_reservations.html')
-
+        self.assertTemplateUsed(response, "user_reservations.html")
 
     def test_user_details_booking_url_is_resolved(self):
-        response = self.client.get('/user-details-booking/50')
+        response = self.client.get("/user-details-booking/50")
         self.assertEqual(response.status_code, 302)
         self.user = User.objects.create_user(
-            username="admin",
-            password="adminadmin",
-            email="admin@example.com")
+            username="admin", password="adminadmin", email="admin@example.com"
+        )
         self.client.force_login(self.user)
         Booking.objects.create(
-            id = "50",
-            first_name = "Mike",
-            last_name = "Ralph",
-            email = "testemail@hotmail.co.uk",
-            ref_number = "1234567890",
-            date_of_visit = "2022-05-16",
-            time_of_visit = "20:00:00",
-            number_of_guests = "4",
-            contact_number = "07436123635"
+            id="50",
+            first_name="Mike",
+            last_name="Ralph",
+            email="testemail@hotmail.co.uk",
+            ref_number="1234567890",
+            date_of_visit="2022-05-16",
+            time_of_visit="20:00:00",
+            number_of_guests="4",
+            contact_number="07436123635",
         )
-        response = self.client.get('/user-details-booking/50')
+        response = self.client.get("/user-details-booking/50")
         self.assertEqual(response.status_code, 200)
 
-        url = reverse('user_details_booking', kwargs={'booking_id': '50'})
+        url = reverse("user_details_booking", kwargs={"booking_id": "50"})
         self.assertEquals(resolve(url).func, user_details_booking)
-        self.assertTemplateUsed(response, 'user_details_booking.html')
-
+        self.assertTemplateUsed(response, "user_details_booking.html")
 
     def test_user_details_booking_edit_url_is_resolved(self):
-        response = self.client.get('/user-details-booking/edit/50')
+        response = self.client.get("/user-details-booking/edit/50")
         self.assertEqual(response.status_code, 302)
         self.user = User.objects.create_user(
-            username="admin",
-            password="adminadmin",
-            email="admin@example.com")
+            username="admin", password="adminadmin", email="admin@example.com"
+        )
         self.client.force_login(self.user)
         Booking.objects.create(
-            id = "50",
-            first_name = "Mike",
-            last_name = "Ralph",
-            email = "testemail@hotmail.co.uk",
-            ref_number = "1234567890",
-            date_of_visit = "2022-05-16",
-            time_of_visit = "20:00:00",
-            number_of_guests = "4",
-            contact_number = "07436123635"
+            id="50",
+            first_name="Mike",
+            last_name="Ralph",
+            email="testemail@hotmail.co.uk",
+            ref_number="1234567890",
+            date_of_visit="2022-05-16",
+            time_of_visit="20:00:00",
+            number_of_guests="4",
+            contact_number="07436123635",
         )
-        response = self.client.get('/user-details-booking/edit/50')
+        response = self.client.get("/user-details-booking/edit/50")
         self.assertEqual(response.status_code, 200)
 
-        url = reverse('edit', kwargs={'booking_id': '50'})
+        url = reverse("edit", kwargs={"booking_id": "50"})
         self.assertEquals(resolve(url).func, user_edit_booking)
-        self.assertTemplateUsed(response, 'user_edit_booking.html')
-        
-
+        self.assertTemplateUsed(response, "user_edit_booking.html")
 
     def test_user_details_booking_cancel_url_is_resolved(self):
-        response = self.client.get('/user-details-booking/cancel/50')
+        response = self.client.get("/user-details-booking/cancel/50")
         self.assertEqual(response.status_code, 302)
 
         booking = Booking.objects.create(
-            id = "50",
-            first_name = "Mike",
-            last_name = "Ralph",
-            email = "testemail@hotmail.co.uk",
-            ref_number = "1234567890",
-            date_of_visit = "2022-05-16",
-            time_of_visit = "20:00:00",
-            number_of_guests = "4",
-            contact_number = "07436123635"
+            id="50",
+            first_name="Mike",
+            last_name="Ralph",
+            email="testemail@hotmail.co.uk",
+            ref_number="1234567890",
+            date_of_visit="2022-05-16",
+            time_of_visit="20:00:00",
+            number_of_guests="4",
+            contact_number="07436123635",
         )
         pk = booking.id
         retrieve_booking = Booking.objects.get(pk=booking.pk)
@@ -100,7 +97,7 @@ class TestUrls(TestCase):
         retrieve_booking.delete()
         self.assertFalse(Booking.objects.filter(pk=pk).exists())
 
-        url = reverse('cancel', kwargs={'booking_id': '50'})
+        url = reverse("cancel", kwargs={"booking_id": "50"})
         self.assertEquals(resolve(url).func, user_cancel_booking)
 
 
@@ -110,44 +107,41 @@ class TestModels(TestCase):
         Testing user account is accepting correct values
         """
         user = User.objects.create(
-            first_name = "Mike",
-            last_name = "Ralph",
-            id = 1,
-            username = "Mike",
-            email = "testemail@hotmail.co.uk",
-            is_active = True,
-            is_staff = False,
+            first_name="Mike",
+            last_name="Ralph",
+            id=1,
+            username="Mike",
+            email="testemail@hotmail.co.uk",
+            is_active=True,
+            is_staff=False,
         )
 
-        self.assertEquals(user.first_name, 'Mike')
-        self.assertEquals(user.last_name, 'Ralph')
+        self.assertEquals(user.first_name, "Mike")
+        self.assertEquals(user.last_name, "Ralph")
         self.assertEquals(user.id, 1)
         self.assertEquals(user.username, "Mike")
         self.assertEquals(user.email, "testemail@hotmail.co.uk")
         self.assertEquals(user.is_active, True)
         self.assertEquals(user.is_staff, False)
 
-
     def test_staff_account(self):
         """
         Testing staff account is accepting correct values
         """
         admin = User.objects.create(
-            first_name = "Mike",
-            last_name = "Ralph",
-            id = 1,
-            username = "Mike",
-            email = "testemail@hotmail.co.uk",
-            is_active = True,
-            is_staff = True,
+            first_name="Mike",
+            last_name="Ralph",
+            id=1,
+            username="Mike",
+            email="testemail@hotmail.co.uk",
+            is_active=True,
+            is_staff=True,
         )
 
-        self.assertEquals(admin.first_name, 'Mike')
-        self.assertEquals(admin.last_name, 'Ralph')
+        self.assertEquals(admin.first_name, "Mike")
+        self.assertEquals(admin.last_name, "Ralph")
         self.assertEquals(admin.id, 1)
         self.assertEquals(admin.username, "Mike")
         self.assertEquals(admin.email, "testemail@hotmail.co.uk")
         self.assertEquals(admin.is_active, True)
         self.assertEquals(admin.is_staff, True)
-
-
