@@ -1,14 +1,12 @@
 {% extends "base.html" %} {% block content %} {% include "staff_navbar.html" %}
 
-
 <div class="col-9 ps-5 mt-5">
   <div class="row">
     <div class="col-12 mb-4">
       <p>All reviews <a href="{% url 'staff_all_reviews' %}">View Here</a></p>
     </div>
   </div>
-  {% if pending_reviews %}
-  {% for review in pending_reviews %}
+  {% if pending_reviews %} {% for review in pending_reviews %}
   <div class="card p-3 mb-2">
     <div class="row align-items-center justify-content-center">
       <h6>
@@ -18,12 +16,12 @@
       <p>{{ review.body }}</p>
       <p><i>{{ review.created_on }}</i></p>
       <form action="approve-review/{{ review.id }}" method="POST">
-        <input type="hidden" name="next" value="{{request.path}}">
+        <input type="hidden" name="next" value="{{request.path}}" />
         <button type="submit" class="btn btn-sm btn-success mb-2">Approve</button>
         {% csrf_token %}
       </form>
       <form action="deny-review/{{ review.id }}" method="POST">
-        <input type="hidden" name="next" value="{{request.path}}">
+        <input type="hidden" name="next" value="{{request.path}}" />
         <button type="submit" class="btn btn-sm btn-danger mb-2">Deny</button>
         {% csrf_token %}
       </form>
@@ -33,6 +31,4 @@
 </div>
 {% else %}
 <p>No reviews to approve or deny</p>
-{% endif %}
-
-{% endblock %}
+{% endif %} {% endblock %}

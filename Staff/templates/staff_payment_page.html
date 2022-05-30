@@ -5,38 +5,39 @@
     <div class="col-12 mb-4">
       <p>Please submit payment details for the below bookings</p>
     </div>
-  {% if booking %}
-  <table class="table table_id pt-5 text-center">
-    <thead>
-      <tr>
-        <th scope="col">Ref</th>
-        <th scope="col">Name</th>
-        <th scope="col">Date</th>
-        <th scope="col">Time</th>
-        <th scope="col">Size</th>
-        <th scope="col">Payment</th>
-      </tr>
-    </thead>
-    <tbody>
-      {% for booking in booking %}
-      <tr>
-        <td data-label="Date">{{ booking.ref_number }}</td>
-        <td data-label="Name">{{ booking.first_name }} {{ booking.last_name }}</td>
-        <td data-label="Date">{{ booking.date_of_visit }}</td>
-        <td data-label="Time">{{ booking.time_of_visit }}</td>
-        <td data-label="Size">{{ booking.number_of_guests }}</td>
-        <form action="create-payment/{{ booking.id }}">
-          <input type="hidden" name="next" value="{{request.path}}">
-          <td data-label="Approve"><button type="submit" class="btn btn-warning">Payment</button></td>
-          {% csrf_token %}
-        </form>
-      </tr>
-      {% endfor %}
-    </tbody>
-  </table>
-  {% else %}
-  <p>No payments to submit</p>
-  {% endif %}
-</div>
+    {% if booking %}
+    <table class="table table_id pt-5 text-center">
+      <thead>
+        <tr>
+          <th scope="col">Ref</th>
+          <th scope="col">Name</th>
+          <th scope="col">Date</th>
+          <th scope="col">Time</th>
+          <th scope="col">Size</th>
+          <th scope="col">Payment</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for booking in booking %}
+        <tr>
+          <td data-label="Date">{{ booking.ref_number }}</td>
+          <td data-label="Name">{{ booking.first_name }} {{ booking.last_name }}</td>
+          <td data-label="Date">{{ booking.date_of_visit }}</td>
+          <td data-label="Time">{{ booking.time_of_visit }}</td>
+          <td data-label="Size">{{ booking.number_of_guests }}</td>
+          <form action="create-payment/{{ booking.id }}">
+            <input type="hidden" name="next" value="{{request.path}}" />
+            <td data-label="Approve"><button type="submit" class="btn btn-warning">Payment</button></td>
+            {% csrf_token %}
+          </form>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% else %}
+    <p>No payments to submit</p>
+    {% endif %}
+  </div>
 
-{% endblock %}
+  {% endblock %}
+</div>

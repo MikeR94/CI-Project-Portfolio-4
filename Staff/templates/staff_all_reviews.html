@@ -1,6 +1,5 @@
 {% extends "base.html" %} {% block content %} {% include "staff_navbar.html" %}
 
-
 <div class="col-9 ps-5 mt-5">
   <div class="row">
     <div class="col-12 mb-4">
@@ -10,19 +9,19 @@
   {% for review in all_reviews %}
   <div class="card p-3 mb-2">
     <div class="row align-items-center justify-content-center">
-        <h6>{{ review.first_name }} {{ review.last_name }} - <i> ({{ review.user.username }}) </i> - {% if review.approved == True %} <i class="fas fa-check green-text"> Approved</i> {% elif review.approved == False and review.acknowledged == False %} <i class="fas fa-exclamation red-text"> Not approved</i> {% else %} <i class="fas fa-exclamation red-text"> Review denied</i> {% endif %} </h6> 
-        <p> {{ review.body }}</p>
-        <p> <i>{{ review.created_on }}</i></p>
-        <form action="reset-review/{{ review.id }}" method="POST">
-          <input type="hidden" name="next" value="{{request.path}}">
-          <div><button type="submit" class="btn btn-warning mb-2">Reset</button> Click here to move this review back to pending</div>
-          {% csrf_token %}
-        </form>
-      </div>
+      <h6>
+        {{ review.first_name }} {{ review.last_name }} - <i> ({{ review.user.username }}) </i> - {% if review.approved == True %}
+        <i class="fas fa-check green-text"> Approved</i> {% elif review.approved == False and review.acknowledged == False %}
+        <i class="fas fa-exclamation red-text"> Not approved</i> {% else %} <i class="fas fa-exclamation red-text"> Review denied</i> {% endif %}
+      </h6>
+      <p>{{ review.body }}</p>
+      <p><i>{{ review.created_on }}</i></p>
+      <form action="reset-review/{{ review.id }}" method="POST">
+        <input type="hidden" name="next" value="{{request.path}}" />
+        <div><button type="submit" class="btn btn-warning mb-2">Reset</button> Click here to move this review back to pending</div>
+        {% csrf_token %}
+      </form>
+    </div>
   </div>
-  {% endfor %}
-
-
-
-
-{% endblock %}
+  {% endfor %} {% endblock %}
+</div>

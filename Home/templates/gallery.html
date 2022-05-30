@@ -1,103 +1,50 @@
-{% extends "base.html" %} {% block content %} {% include "navbar_2.html" %}
-
-{% load crispy_forms_tags %}
-
-{% load static %}
+{% extends "base.html" %} {% block content %} {% include "navbar_2.html" %} {% load crispy_forms_tags %} {% load static %}
 
 <div class="container-fluid">
   <div class="row mt-5">
     <div class="col-12">
       <p class="title-text text-center">Gallery</p>
     </div>
-    
   </div>
 
   <!-- Gallery -->
   <div class="row">
     <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
-      <img
-        src="{% static 'images/food-1.jpg'%}"
-        class="w-100 shadow-1-strong rounded mb-4"
-        alt="Boat on Calm Water"
-      />
+      <img src="{% static 'images/food-1.jpg'%}" class="w-100 shadow-1-strong rounded mb-4" alt="Boat on Calm Water" />
 
-      <img
-        src="{% static 'images/food-2.jpg'%}"
-        class="w-100 shadow-1-strong rounded mb-4"
-        alt="Wintry Mountain Landscape"
-      />
+      <img src="{% static 'images/food-2.jpg'%}" class="w-100 shadow-1-strong rounded mb-4" alt="Wintry Mountain Landscape" />
     </div>
 
     <div class="col-lg-4 mb-4 mb-lg-0">
-      <img
-        src="{% static 'images/food-3.jpg'%}"
-        class="w-100 shadow-1-strong rounded mb-4"
-        alt="Mountains in the Clouds"
-      />
+      <img src="{% static 'images/food-3.jpg'%}" class="w-100 shadow-1-strong rounded mb-4" alt="Mountains in the Clouds" />
 
-      <img
-        src="{% static 'images/food-4.jpg'%}"
-        class="w-100 shadow-1-strong rounded mb-4"
-        alt="Boat on Calm Water"
-      />
+      <img src="{% static 'images/food-4.jpg'%}" class="w-100 shadow-1-strong rounded mb-4" alt="Boat on Calm Water" />
     </div>
 
     <div class="col-lg-4 mb-4 mb-lg-0">
-      <img
-        src="{% static 'images/food-13.jpg'%}"
-        class="w-100 shadow-1-strong rounded mb-4"
-        alt="Waves at Sea"
-      />
+      <img src="{% static 'images/food-13.jpg'%}" class="w-100 shadow-1-strong rounded mb-4" alt="Waves at Sea" />
 
-      <img
-        src="{% static 'images/food-8.jpg'%}"
-        class="w-100 shadow-1-strong rounded mb-4"
-        alt="Yosemite National Park"
-      />
+      <img src="{% static 'images/food-8.jpg'%}" class="w-100 shadow-1-strong rounded mb-4" alt="Yosemite National Park" />
     </div>
     <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
-      <img
-        src="{% static 'images/food-9.jpg'%}"
-        class="w-100 shadow-1-strong rounded mb-4"
-        alt="Boat on Calm Water"
-      />
+      <img src="{% static 'images/food-9.jpg'%}" class="w-100 shadow-1-strong rounded mb-4" alt="Boat on Calm Water" />
 
-      <img
-        src="{% static 'images/food-12.jpg'%}"
-        class="w-100 shadow-1-strong rounded mb-4"
-        alt="Wintry Mountain Landscape"
-      />
+      <img src="{% static 'images/food-12.jpg'%}" class="w-100 shadow-1-strong rounded mb-4" alt="Wintry Mountain Landscape" />
     </div>
 
     <div class="col-lg-4 mb-4 mb-lg-0">
-      <img
-        src="{% static 'images/food-11.jpg'%}"
-        class="w-100 shadow-1-strong rounded mb-4"
-        alt="Mountains in the Clouds"
-      />
+      <img src="{% static 'images/food-11.jpg'%}" class="w-100 shadow-1-strong rounded mb-4" alt="Mountains in the Clouds" />
 
-      <img
-        src="{% static 'images/food-10.jpg'%}"
-        class="w-100 shadow-1-strong rounded mb-4"
-        alt="Boat on Calm Water"
-      />
+      <img src="{% static 'images/food-10.jpg'%}" class="w-100 shadow-1-strong rounded mb-4" alt="Boat on Calm Water" />
     </div>
 
     <div class="col-lg-4 mb-4 mb-lg-0">
-      <img
-        src="{% static 'images/food-6.jpg'%}"
-        class="w-100 shadow-1-strong rounded mb-4"
-        alt="Waves at Sea"
-      />
+      <img src="{% static 'images/food-6.jpg'%}" class="w-100 shadow-1-strong rounded mb-4" alt="Waves at Sea" />
 
-      <img
-        src="{% static 'images/food-5.jpg'%}"
-        class="w-100 shadow-1-strong rounded mb-4"
-        alt="Yosemite National Park"
-      />
+      <img src="{% static 'images/food-5.jpg'%}" class="w-100 shadow-1-strong rounded mb-4" alt="Yosemite National Park" />
     </div>
   </div>
-</div> 
+</div>
 <!-- Gallery -->
 
 {% include "footer.html" %} {% endblock %}

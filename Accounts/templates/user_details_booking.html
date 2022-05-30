@@ -54,14 +54,11 @@
       <button class="btn btn-danger ms-sm-4" onclick="return confirm('Are you sure?');" type="submit">Cancel</button>
     </form>
   </div> 
-
       {% else %}
       <p>You can't edit or cancel this booking since you have attended</p>
       {% endif %}
 </section>
 
-
-  {% include "footer.html" %}
-
+{% include "footer.html" %}
 
 {% endblock %}

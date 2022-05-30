@@ -1,7 +1,7 @@
 {% extends "base.html" %} {% block content %} {% include "staff_navbar.html" %}
 
 <!-- Data Tables CSS CDN -->
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css" />
 
 <div class="col-9 ps-5 mt-5">
   <div class="row">
@@ -30,7 +30,7 @@
         <td data-label="Time">{{ booking.time_of_visit }}</td>
         <td data-label="Size">{{ booking.number_of_guests }}</td>
         <form action="details-booking/{{ booking.id }}">
-          <input type="hidden" name="next" value="{{request.path}}">
+          <input type="hidden" name="next" value="{{request.path}}" />
           <td data-label="details"><button type="submit" class="btn btn-primary">Details</button></td>
           {% csrf_token %}
         </form>
@@ -40,9 +40,8 @@
   </table>
   {% else %}
   <p>No bookings found</p>
-  {% endif %} 
+  {% endif %}
 </div>
-
 
 <!-- JQuery CDN -->
 <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>

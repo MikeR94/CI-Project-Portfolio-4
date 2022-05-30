@@ -1,14 +1,15 @@
-{% extends "base.html" %} {% block content %} {% include "navbar_2.html" %}
-
-{% load crispy_forms_tags %}
+{% extends "base.html" %} {% block content %} {% include "navbar_2.html" %} {% load crispy_forms_tags %}
 
 <div class="container page-space">
   <div class="row">
     <div class="col-xl-8 mb-4 mt-5 d-none d-md-block">
       <h3 class="title-text">Book your stay</h3>
       <p>Please fill in the booking form if you wish to visit Cafe Manbo</p>
-      <p class="pe-5">Once you have booked, please allow up to 24 hours for a staff member to approve your booking. When your booking has been accepted, you will receive an email confirmation. You are more than welcome to ring the restaurant directly and ask them to speed up this process</p>
-      <br>
+      <p class="pe-5">
+        Once you have booked, please allow up to 24 hours for a staff member to approve your booking. When your booking has been accepted, you will receive an
+        email confirmation. You are more than welcome to ring the restaurant directly and ask them to speed up this process
+      </p>
+      <br />
       <strong><p>Monday - 17:00pm to 11:30pm</p></strong>
       <strong><p>Tuesday- 17:00pm to 11:30pm</p></strong>
       <strong><p>Wednesday - 17:00pm to 11:30pm</p></strong>
@@ -16,15 +17,14 @@
       <strong><p>Friday - 17:00pm to 11:30pm</p></strong>
       <strong><p>Saturday - 17:00pm to 11:30pm</p></strong>
       <strong><p>Sunday - Closed</p></strong>
-      <br>
+      <br />
       <p>We look forward to seeing you!</p>
     </div>
     <div class="col-xl-4 mb-4 mt-5 d-flex d-md-block align-items-center justify-content-center">
       <form method="POST">
         <h3 class="title-text d-md-none">Book your stay</h3>
-        <input type="hidden" name="next" value="{{request.path}}">
-        {% csrf_token %}
-        {{ form|crispy }}
+        <input type="hidden" name="next" value="{{request.path}}" />
+        {% csrf_token %} {{ form|crispy }}
         <p>
           <button type="submit" class="black-button">Submit</button>
         </p>
