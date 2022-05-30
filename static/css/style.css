@@ -127,7 +127,6 @@ body {
   color: #9c8300;
 }
 
-
 /* Navigation Bar */
 
 .nav-item a {
@@ -181,12 +180,6 @@ body {
   border: none;
   background-color: #212529;
   color: white !important;
-}
-
-@media screen and (max-width: 1200px) {
-  .navbar {
-    background-color: #212529;
-  }
 }
 
 /* Navbar Toggler Animation */
@@ -272,16 +265,6 @@ body {
   font-size: 22px;
 }
 
-
-/* JS Data Chart */
-
-@media screen and (max-width: 500px) {
-  .js-data-chart {
-    display: none;
-  }
-}
-
-
 #map {
   height: 500px;
   width: 100%;
@@ -304,70 +287,25 @@ table {
 
 table caption {
   font-size: 1.5em;
-  margin: .5em 0 .75em;
+  margin: 0.5em 0 0.75em;
 }
 
 table tr {
   background-color: #f8f8f8;
   border: 1px solid #f8f8f8;
-  padding: .35em;
+  padding: 0.35em;
 }
 
 table th,
 table td {
-  padding: .625em;
+  padding: 0.625em;
   text-align: center;
 }
 
 table th {
-  font-size: .85em;
-  letter-spacing: .1em;
+  font-size: 0.85em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-}
-
-@media screen and (max-width: 1100px) {
-  table {
-    border: 0;
-  }
-
-  table caption {
-    font-size: 1.3em;
-  }
-  
-  table thead {
-    border: none;
-    clip: rect(0 0 0 0);
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
-    padding: 0;
-    position: absolute;
-    width: 1px;
-  }
-  
-  table tr {
-    border-bottom: 3px solid #ddd;
-    display: block;
-    margin-bottom: .625em;
-  }
-  
-  table td {
-    border-bottom: 1px solid #ddd;
-    display: block;
-    font-size: .8em;
-    text-align: right;
-  }
-  
-  table td::before {
-    content: attr(data-label);
-    float: left;
-    font-weight: bold;
-    text-transform: uppercase;
-  }
-  
-  table td:last-child {
-    border-bottom: 0;
-  }
 }
 
 /* Staff Dashboard */
@@ -380,7 +318,7 @@ table th {
   pointer-events: none;
 }
 
-.fixed-sidebar{
+.fixed-sidebar {
   width: 150px;
 }
 
@@ -423,7 +361,6 @@ table th {
 .golden-icon {
   color: #9c8300;
 }
-
 
 /* Django Forms Styling */
 
@@ -486,31 +423,11 @@ table th {
   resize: none;
 }
 
-/* Galaxy Fold Media Query */
+/* Media Queries */
 
-@media screen and (max-width: 290px) {
-  .fa-3x {
-    font-size: 25px !important;
-  }
-
-  .galaxy-fold {
-    display: none;
-  }
-
-  p {
-    font-size: 13px;
-  }
-
-  h5 {
-    font-size: 18px;
-  }
-
-  .nav-bar-logo {
-    font-size: 20px;
-  }
-
-  .title-text {
-    font-size: 25px;
+@media screen and (max-width: 1200px) {
+  .navbar {
+    background-color: #212529;
   }
 }
 
@@ -521,6 +438,49 @@ table th {
 
   .established-text {
     font-size: 25px;
+  }
+
+  table {
+    border: 0;
+  }
+
+  table caption {
+    font-size: 1.3em;
+  }
+
+  table thead {
+    border: none;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+
+  table tr {
+    border-bottom: 3px solid #ddd;
+    display: block;
+    margin-bottom: 0.625em;
+  }
+
+  table td {
+    border-bottom: 1px solid #ddd;
+    display: block;
+    font-size: 0.8em;
+    text-align: right;
+  }
+
+  table td::before {
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  table td:last-child {
+    border-bottom: 0;
   }
 }
 
@@ -540,8 +500,10 @@ table th {
     font-size: 70px;
   }
 
+  .js-data-chart {
+    display: none;
+  }
 }
-
 
 @media screen and (max-width: 440px) {
   .cafe-manbo-text {
@@ -570,5 +532,31 @@ table th {
     width: 130px;
     height: 35px;
     font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 290px) {
+  .fa-3x {
+    font-size: 25px !important;
+  }
+
+  .galaxy-fold {
+    display: none;
+  }
+
+  p {
+    font-size: 13px;
+  }
+
+  h5 {
+    font-size: 18px;
+  }
+
+  .nav-bar-logo {
+    font-size: 20px;
+  }
+
+  .title-text {
+    font-size: 25px;
   }
 }
