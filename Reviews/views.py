@@ -9,11 +9,10 @@ def create_review(request):
         form = forms.ReviewForm(request.POST or None)
         context = {
             "form": form,
-            }
+        }
     else:
         return HttpResponseRedirect("/")
     if request.method == "POST":
-        
 
         if form.is_valid():
             instance = form.save(commit=False)
@@ -25,7 +24,5 @@ def create_review(request):
 
 def show_single_review(request, review_id):
     review = get_object_or_404(Review, id=review_id)
-    context = {
-        "review": review
-    }
+    context = {"review": review}
     return render(request, "single_review.html", context)
