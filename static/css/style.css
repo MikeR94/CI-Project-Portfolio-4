@@ -534,6 +534,15 @@ table th {
   }
 }
 
+@media screen and (max-width: 500px) {
+  .error-title {
+    color: #9c8300;
+    font-size: 70px;
+  }
+
+}
+
+
 @media screen and (max-width: 440px) {
   .cafe-manbo-text {
     font-size: 50px;
