@@ -178,18 +178,20 @@ def staff_dashboard(request):
             .filter(date_of_visit__lte=dec_end)
             .count()
         )
-        standard_income = (
-            Payment.objects.filter().aggregate(sum=Sum("amount_paid"))["sum"]
-        )
-        amount_tipped = (
-            Payment.objects.filter().aggregate(sum=Sum("amount_tipped"))["sum"]
-        )
+        standard_income = Payment.objects.filter().aggregate(
+            sum=Sum("amount_paid")
+        )["sum"]
+        amount_tipped = Payment.objects.filter().aggregate(
+            sum=Sum("amount_tipped")
+        )["sum"]
         pending_bookings = Booking.objects.filter(booking_acknowledged=False)
         pending_bookings_count = Booking.objects.filter(
             booking_acknowledged=False
         ).count()
         pending_reviews = Review.objects.filter(acknowledged=False)
-        pending_reviews_count = Review.objects.filter(acknowledged=False).count()
+        pending_reviews_count = Review.objects.filter(
+            acknowledged=False
+        ).count()
         pending_check_in_count = Booking.objects.filter(
             guest_attended=False,
             guest_no_show=False,
@@ -202,16 +204,28 @@ def staff_dashboard(request):
             guest_attended=True, bill_settled=False
         ).count()
         booking_count = Booking.objects.all().count()
-        income_count = Payment.objects.all().aggregate(Sum('total_income')).get('total_income__sum', 0.00)
-        total_guests = Booking.objects.filter(guest_attended=True).aggregate(sum=Sum('number_of_guests'))['sum']
+        income_count = (
+            Payment.objects.all()
+            .aggregate(Sum("total_income"))
+            .get("total_income__sum", 0.00)
+        )
+        total_guests = Booking.objects.filter(guest_attended=True).aggregate(
+            sum=Sum("number_of_guests")
+        )["sum"]
         review_count = Review.objects.all().count()
         staff_accounts = User.objects.filter(is_staff=True).count()
         user_accounts = User.objects.filter(is_staff=False).count()
         all_accounts = User.objects.all().count()
-        reviews_approved = Review.objects.filter(approved=True, acknowledged=True).count()
-        reviews_denied = Review.objects.filter(approved=False, acknowledged=True).count()
+        reviews_approved = Review.objects.filter(
+            approved=True, acknowledged=True
+        ).count()
+        reviews_denied = Review.objects.filter(
+            approved=False, acknowledged=True
+        ).count()
         try:
-            average_per_guest =  int(0 if income_count is None else income_count) / int(0 if total_guests is None else total_guests)
+            average_per_guest = int(
+                0 if income_count is None else income_count
+            ) / int(0 if total_guests is None else total_guests)
         except ZeroDivisionError:
             average_per_guest = 50
         context = {
@@ -256,8 +270,7 @@ def staff_dashboard(request):
             "all_accounts": all_accounts,
             "reviews_approved": reviews_approved,
             "reviews_denied": reviews_denied,
-            "average_per_guest": average_per_guest
-
+            "average_per_guest": average_per_guest,
         }
         return render(request, "staff_dashboard.html", context)
     else:
@@ -271,7 +284,9 @@ def staff_pending_bookings(request):
             booking_acknowledged=False
         ).count()
         pending_bookings = Booking.objects.filter(booking_acknowledged=False)
-        pending_reviews_count = Review.objects.filter(acknowledged=False).count()
+        pending_reviews_count = Review.objects.filter(
+            acknowledged=False
+        ).count()
         pending_check_in_count = Booking.objects.filter(
             guest_attended=False,
             guest_no_show=False,
@@ -303,7 +318,9 @@ def staff_all_bookings(request):
             booking_acknowledged=False
         ).count()
         all_bookings = Booking.objects.filter()
-        pending_reviews_count = Review.objects.filter(acknowledged=False).count()
+        pending_reviews_count = Review.objects.filter(
+            acknowledged=False
+        ).count()
         pending_check_in_count = Booking.objects.filter(
             guest_attended=False,
             guest_no_show=False,
@@ -344,7 +361,11 @@ def staff_approve_booking(request, booking_id):
             object.booking_approved = True
             object.booking_acknowledged = True
             object.save()
-        messages.add_message(request, messages.SUCCESS, f'Booking ref {object.ref_number} has been approved and an email has been sent.')
+        messages.add_message(
+            request,
+            messages.SUCCESS,
+            f"Booking ref {object.ref_number} has been approved and an email has been sent.",
+        )
         return HttpResponseRedirect(next)
     else:
         return HttpResponseRedirect("/")
@@ -367,7 +388,11 @@ def staff_deny_booking(request, booking_id):
             object.booking_denied = True
             object.booking_acknowledged = True
             object.save()
-        messages.add_message(request, messages.ERROR, f'Booking ref {object.ref_number} has been declined and an email has been sent.')
+        messages.add_message(
+            request,
+            messages.ERROR,
+            f"Booking ref {object.ref_number} has been declined and an email has been sent.",
+        )
         return HttpResponseRedirect(next)
     else:
         return HttpResponseRedirect("/")
@@ -382,11 +407,12 @@ def staff_cancel_booking(request, booking_id):
         return HttpResponseRedirect("/")
 
 
-
 def staff_pending_reviews(request):
     if request.user.is_staff:
         today = date.today()
-        pending_reviews_count = Review.objects.filter(acknowledged=False).count()
+        pending_reviews_count = Review.objects.filter(
+            acknowledged=False
+        ).count()
         pending_reviews = Review.objects.filter(acknowledged=False)
         pending_bookings_count = Booking.objects.filter(
             booking_acknowledged=False
@@ -417,7 +443,9 @@ def staff_pending_reviews(request):
 def staff_all_reviews(request):
     if request.user.is_staff:
         today = date.today()
-        pending_reviews_count = Review.objects.filter(acknowledged=False).count()
+        pending_reviews_count = Review.objects.filter(
+            acknowledged=False
+        ).count()
         all_reviews = Review.objects.filter()
         pending_bookings_count = Booking.objects.filter(
             booking_acknowledged=False
@@ -448,7 +476,9 @@ def staff_all_reviews(request):
 def staff_check_in_page(request):
     if request.user.is_staff:
         today = date.today()
-        pending_reviews_count = Review.objects.filter(acknowledged=False).count()
+        pending_reviews_count = Review.objects.filter(
+            acknowledged=False
+        ).count()
         pending_bookings_count = Booking.objects.filter(
             booking_acknowledged=False
         ).count()
@@ -513,7 +543,11 @@ def staff_check_in(request, booking_id):
         for item in data:
             item.guest_attended = True
             item.save()
-        messages.add_message(request, messages.SUCCESS, f'Booking ref {item.ref_number} has been checked in and an email has been sent.')
+        messages.add_message(
+            request,
+            messages.SUCCESS,
+            f"Booking ref {item.ref_number} has been checked in and an email has been sent.",
+        )
         return HttpResponseRedirect(next)
     else:
         return HttpResponseRedirect("/")
@@ -526,7 +560,11 @@ def staff_no_show(request, booking_id):
         for item in data:
             item.guest_no_show = True
             item.save()
-        messages.add_message(request, messages.ERROR, f'Booking ref {item.ref_number} has been marked as not attending and an email has been sent.')
+        messages.add_message(
+            request,
+            messages.ERROR,
+            f"Booking ref {item.ref_number} has been marked as not attending and an email has been sent.",
+        )
         return HttpResponseRedirect(next)
     else:
         return HttpResponseRedirect("/")
@@ -579,9 +617,13 @@ def staff_details_booking(request, booking_id):
         form = BookingForm(request.POST or None, instance=booking_data)
         booking = Booking.objects.get(id=booking_id)
         data = Booking.objects.filter(id=booking_id)
-        pending_bookings_count = Booking.objects.filter(booking_acknowledged=False).count()
+        pending_bookings_count = Booking.objects.filter(
+            booking_acknowledged=False
+        ).count()
         pending_bookings = Booking.objects.filter(booking_acknowledged=False)
-        pending_reviews_count = Review.objects.filter(acknowledged=False).count()
+        pending_reviews_count = Review.objects.filter(
+            acknowledged=False
+        ).count()
         pending_reviews = Review.objects.filter(acknowledged=False)
         pending_check_in_count = Booking.objects.filter(
             guest_attended=False,
@@ -614,29 +656,44 @@ def staff_details_booking(request, booking_id):
     else:
         return HttpResponseRedirect("accounts_login")
     if request.method == "POST":
-            if form.is_valid():
-                instance = form.save(commit=False)
-                if Booking.objects.filter(first_name=instance.first_name, last_name=instance.last_name, time_of_visit=instance.time_of_visit, date_of_visit=instance.date_of_visit).exists():
-                    messages.add_message(request, messages.ERROR, 'Duplicate booking.')
-                    return render(request, "staff_details_booking.html", context)
-                instance.save()
-                for item in data:
-                    item.booking_approved = False
-                    item.booking_acknowledged = False
-                    item.booking_denied = False
-                    item.save()
-                messages.add_message(request, messages.SUCCESS, 'Booking updated successfully.')
-                return HttpResponseRedirect(next)
+        if form.is_valid():
+            instance = form.save(commit=False)
+            if Booking.objects.filter(
+                first_name=instance.first_name,
+                last_name=instance.last_name,
+                time_of_visit=instance.time_of_visit,
+                date_of_visit=instance.date_of_visit,
+            ).exists():
+                messages.add_message(
+                    request, messages.ERROR, "Duplicate booking."
+                )
+                return render(request, "staff_details_booking.html", context)
+            instance.save()
+            for item in data:
+                item.booking_approved = False
+                item.booking_acknowledged = False
+                item.booking_denied = False
+                item.save()
+            messages.add_message(
+                request, messages.SUCCESS, "Booking updated successfully."
+            )
+            return HttpResponseRedirect(next)
     return render(request, "staff_details_booking.html", context)
 
 
 def staff_payment_page(request):
     if request.user.is_staff:
         today = date.today()
-        booking = Booking.objects.filter(guest_attended=True, bill_settled=False)
-        pending_bookings_count = Booking.objects.filter(booking_acknowledged=False).count()
+        booking = Booking.objects.filter(
+            guest_attended=True, bill_settled=False
+        )
+        pending_bookings_count = Booking.objects.filter(
+            booking_acknowledged=False
+        ).count()
         pending_bookings = Booking.objects.filter(booking_acknowledged=False)
-        pending_reviews_count = Review.objects.filter(acknowledged=False).count()
+        pending_reviews_count = Review.objects.filter(
+            acknowledged=False
+        ).count()
         pending_reviews = Review.objects.filter(acknowledged=False)
         pending_check_in_count = Booking.objects.filter(
             guest_attended=False,
@@ -676,9 +733,13 @@ def staff_create_payment(request, booking_id):
         except Payment.DoesNotExist:
             check_payment = None
         payment = check_payment
-        pending_bookings_count = Booking.objects.filter(booking_acknowledged=False).count()
+        pending_bookings_count = Booking.objects.filter(
+            booking_acknowledged=False
+        ).count()
         pending_bookings = Booking.objects.filter(booking_acknowledged=False)
-        pending_reviews_count = Review.objects.filter(acknowledged=False).count()
+        pending_reviews_count = Review.objects.filter(
+            acknowledged=False
+        ).count()
         pending_reviews = Review.objects.filter(acknowledged=False)
         pending_check_in_count = Booking.objects.filter(
             guest_attended=False,
@@ -708,7 +769,9 @@ def staff_create_payment(request, booking_id):
         if form.is_valid():
             form = form.save(commit=False)
             form.booking_id = booking_id
-            form.amount_tipped = float(form.amount_paid) - float(form.amount_owed)
+            form.amount_tipped = float(form.amount_paid) - float(
+                form.amount_owed
+            )
             form.total_income = float(form.amount_paid)
             if float(form.amount_paid) < float(form.amount_owed):
                 form.amount_tipped = 0
