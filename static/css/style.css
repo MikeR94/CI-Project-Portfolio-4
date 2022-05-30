@@ -81,6 +81,10 @@ body {
   width: 100px !important;
 }
 
+.golden-text {
+  color: #9c8300;
+}
+
 /* Hero Section */
 
 .hero-image {
