@@ -1,7 +1,6 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render
 from . import forms
 from django.http import HttpResponseRedirect
-from Reviews.models import Review
 
 
 def create_review(request):
@@ -23,9 +22,3 @@ def create_review(request):
             }
             return render(request, "review_submitted.html", double_context)
     return render(request, "create_review.html", context)
-
-
-def show_single_review(request, review_id):
-    review = get_object_or_404(Review, id=review_id)
-    context = {"review": review}
-    return render(request, "single_review.html", context)
