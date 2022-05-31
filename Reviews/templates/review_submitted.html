@@ -12,19 +12,67 @@
         <div class="card-body text-center">
           <h3 class="review-title-text mb-3">{{ review.first_name }} {{ review.last_name }}</h3>
           {% if review.stars == "5 Star" %}
-          <div class="golden-text"><i class="fas fa-star mb-3"></i><i class="fas fa-star mb-3"></i><i class="fas fa-star mb-3"></i><i class="fas fa-star mb-3"></i><i class="fas fa-star mb-3"></i></div>
+          <div class="golden-text">
+            <i class="fas fa-star mb-3"></i><i class="fas fa-star mb-3"></i><i class="fas fa-star mb-3"></i><i class="fas fa-star mb-3"></i
+            ><i class="fas fa-star mb-3"></i>
+          </div>
           {% elif review.stars == "4 Star" %}
-          <div class="golden-text"><i class="fas fa-star mb-3"></i><i class="fas fa-star mb-3"></i><i class="fas fa-star mb-3"></i><i class="fas fa-star mb-3"></i></div>
+          <div class="golden-text">
+            <i class="fas fa-star mb-3"></i><i class="fas fa-star mb-3"></i><i class="fas fa-star mb-3"></i><i class="fas fa-star mb-3"></i>
+          </div>
           {% elif review.stars == "3 Star" %}
           <div class="golden-text"><i class="fas fa-star mb-3"></i><i class="fas fa-star mb-3"></i><i class="fas fa-star mb-3"></i></div>
           {% elif review.stars == "2 Star" %}
           <div class="golden-text"><i class="fas fa-star mb-3"></i><i class="fas fa-star mb-3"></i></div>
           {% elif review.stars == "1 Star" %}
           <div class="golden-text"><i class="fas fa-star mb-3"></i></div>
-          {% endif %} 
+          {% endif %}
           <p>{{ review.body|slice:130 }}...</p>
-          <button class="black-button" type="disabled">Read More</button>
+          <button type="button" class="black-button" data-bs-toggle="modal" data-bs-target="#staticBackdrop_{{ review.id }}">Read More</button>
         </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Review Modal -->
+<div
+  class="modal fade"
+  id="staticBackdrop_{{ review.id }}"
+  data-bs-backdrop="static"
+  data-bs-keyboard="false"
+  tabindex="-1"
+  aria-labelledby="staticBackdropLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <p><i>{{ review.created_on }}</i></p>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <h6>{{ review.first_name }} {{ review.last_name }} - <i> ({{ review.user.username }}) </i></h6>
+        <p>{{ review.body }}</p>
+        {% if review.stars == "5 Star" %}
+        <div class="golden-text">
+          <i class="fas fa-star mb-3"></i><i class="fas fa-star mb-3"></i><i class="fas fa-star mb-3"></i><i class="fas fa-star mb-3"></i
+          ><i class="fas fa-star mb-3"></i>
+        </div>
+        {% elif review.stars == "4 Star" %}
+        <div class="golden-text">
+          <i class="fas fa-star mb-3"></i><i class="fas fa-star mb-3"></i><i class="fas fa-star mb-3"></i><i class="fas fa-star mb-3"></i>
+        </div>
+        {% elif review.stars == "3 Star" %}
+        <div class="golden-text"><i class="fas fa-star mb-3"></i><i class="fas fa-star mb-3"></i><i class="fas fa-star mb-3"></i></div>
+        {% elif review.stars == "2 Star" %}
+        <div class="golden-text"><i class="fas fa-star mb-3"></i><i class="fas fa-star mb-3"></i></div>
+        {% elif review.stars == "1 Star" %}
+        <div class="golden-text"><i class="fas fa-star mb-3"></i></div>
+        {% endif %}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="black-button" data-bs-dismiss="modal">Close</button>
       </div>
     </div>
   </div>
