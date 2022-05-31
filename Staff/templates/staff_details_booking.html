@@ -62,7 +62,7 @@
         </tbody>
      </table>
       {% if booking.guest_attended == False %}
-        <div class="mt-2 mb-3"><a href="cancel/{{ booking.id }}" onclick="return confirm('Are you sure?');">Cancel Booking</a></div>
+      <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop_{{ booking.id }}">Cancel</button>
       <div>
         <p class="mt-3 mb-5 red-text"><strong>Only update this booking at the request of the guest, doing so without the guests permission is a violation of the </strong> <a href="#"> company policy</a></p>
       <form method="POST">
@@ -74,6 +74,34 @@
     {% else %}
       <p>You can't edit cancel a booking that has been completed</p>
     {% endif %}
+</div>
+
+<!-- Review Modal -->
+<div
+  class="modal fade"
+  id="staticBackdrop_{{ booking.id }}"
+  data-bs-backdrop="static"
+  data-bs-keyboard="false"
+  tabindex="-1"
+  aria-labelledby="staticBackdropLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <p>Booking Reference - {{ booking.ref_number }}</p>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Are you sure you wish to cancel this booking?</p>
+        <p><small>If you don't want to cancel this booking, close the window by clicking the cross on the top right</small></p>
+      <div class="modal-footer justify-content-center">
+        <form action="cancel/{{ booking.id }}">
+          <button class="btn btn-danger" type="submit">Cancel</button>
+        </form>
+      </div>
+    </div>
+  </div>
 </div>
 
 {% endblock %}

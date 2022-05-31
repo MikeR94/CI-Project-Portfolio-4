@@ -402,7 +402,7 @@ def staff_cancel_booking(request, booking_id):
     if request.user.is_staff:
         booking = get_object_or_404(Booking, id=booking_id)
         booking.delete()
-        return redirect("staff_dashboard")
+        return redirect("staff_pending_bookings")
     else:
         return HttpResponseRedirect("/")
 
