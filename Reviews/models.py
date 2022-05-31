@@ -1,6 +1,7 @@
 from django.db import models
 from Accounts.models import User
 from Reviews.utils import validate_not_spaces
+from django.core.validators import MinLengthValidator
 
 # Create your models here.
 
@@ -19,7 +20,7 @@ class Review(models.Model):
         validators=[validate_not_spaces],
     )
     body = models.TextField(
-        editable=True, blank=False, validators=[validate_not_spaces]
+        editable=True, blank=False, validators=[validate_not_spaces, MinLengthValidator(80, 'The field must contain at least 80 characters')]
     )
     created_on = models.DateTimeField(auto_now_add=True)
     user = models.ForeignKey(User, null=False, on_delete=models.CASCADE)

@@ -87,7 +87,7 @@
             {% elif review.stars == "1 Star" %}
             <div class="golden-text"><i class="fas fa-star mb-3"></i></div>
             {% endif %} 
-            <p>{{ review.body|slice:130 }}...</p>
+            <p>{{ review.body|slice:80 }}...</p>
             <form action="review/{{ review.id }}" method="GET">
               {% csrf_token %}
               <button class="black-button" type="submit">Read More</button>
