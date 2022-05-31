@@ -2,10 +2,32 @@
 
 <div class="container page-space">
   <div class="alert alert-success text-center mt-5" role="alert">Review Successfully Submitted</div>
-  <p class="mt-5">
+  <p class="mt-5 text-center">
     Thank you for your review, we really appreciate it. <br /><br />
-    If your review gets approved then you will be eligible for a 10% discount on your next visit!
+    Below is a preview of what your review card will look like on the main website if it gets approved by a member of staff!
   </p>
+  <div class="row justify-content-center g-4 mt-4">
+    <div class="col-8 col-sm-6 col-md-4 col-lg-3">
+      <div class="card bg-light">
+        <div class="card-body text-center">
+          <h3 class="review-title-text mb-3">{{ review.first_name }} {{ review.last_name }}</h3>
+          {% if review.stars == "5 Star" %}
+          <div class="golden-text"><i class="fas fa-star mb-3"></i><i class="fas fa-star mb-3"></i><i class="fas fa-star mb-3"></i><i class="fas fa-star mb-3"></i><i class="fas fa-star mb-3"></i></div>
+          {% elif review.stars == "4 Star" %}
+          <div class="golden-text"><i class="fas fa-star mb-3"></i><i class="fas fa-star mb-3"></i><i class="fas fa-star mb-3"></i><i class="fas fa-star mb-3"></i></div>
+          {% elif review.stars == "3 Star" %}
+          <div class="golden-text"><i class="fas fa-star mb-3"></i><i class="fas fa-star mb-3"></i><i class="fas fa-star mb-3"></i></div>
+          {% elif review.stars == "2 Star" %}
+          <div class="golden-text"><i class="fas fa-star mb-3"></i><i class="fas fa-star mb-3"></i></div>
+          {% elif review.stars == "1 Star" %}
+          <div class="golden-text"><i class="fas fa-star mb-3"></i></div>
+          {% endif %} 
+          <p>{{ review.body|slice:130 }}...</p>
+          <button class="black-button" type="disabled">Read More</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 {% include "footer.html" %} {% endblock %}
