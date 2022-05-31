@@ -30,6 +30,8 @@ def show_user_reservations(request):
 def user_details_booking(request, booking_id):
     if request.user.is_authenticated:
         booking = get_object_or_404(Booking, id=booking_id)
+        booking_data = get_object_or_404(Booking, id=booking_id)
+        form = BookingForm(request.POST or None)
         check_payment = 0
         try:
             check_payment = Payment.objects.get(booking_id=booking_id)
@@ -39,8 +41,36 @@ def user_details_booking(request, booking_id):
         context = {
             "booking": booking,
             "payment": payment,
+            "form": form,
         }
         return render(request, "user_details_booking.html", context)
+        
+    if request.method == "POST":
+        if form.is_valid():
+            instance = form.save(commit=False)
+            double_context = {
+                "data": instance,
+            }
+            if Booking.objects.filter(
+                first_name=instance.first_name,
+                last_name=instance.last_name,
+                time_of_visit=instance.time_of_visit,
+                date_of_visit=instance.date_of_visit,
+            ).exists():
+                return render(
+                    request, "book_double_error.html", double_context
+                )
+            instance.save()
+            for item in booking:
+                item.booking_approved = False
+                item.booking_acknowledged = False
+                item.booking_denied = False
+                item.save()
+            success_context = {
+                "data": instance,
+            }
+            return render(
+                request, "user_edit_booking_success.html", success_context)
     return HttpResponseRedirect("accounts/login")
 
 

@@ -33,4 +33,38 @@
   </div>
 </div>
 
+      <!-- Cancel Booking Modal -->
+      <div
+        class="modal fade"
+        id="staticBackdrop_{{ booking.id }}"
+        data-bs-backdrop="static"
+        data-bs-keyboard="false"
+        tabindex="-1"
+        aria-labelledby="staticBackdropLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <p>Booking Reference - {{ booking.ref_number }}</p>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form method="POST">
+                <h3 class="title-text d-md-none">Edit Booking</h3>
+                <input type="hidden" name="next" value="{{request.path}}" />
+                {% csrf_token %} {{ form|crispy }}
+                <p>
+                  <button type="submit" class="black-button">Submit</button>
+                </p>
+              </form>
+            <div class="modal-footer justify-content-center">
+              <form action="cancel/{{ booking.id }}">
+                <button class="btn btn-danger" type="submit">Cancel</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
 {% include "footer.html" %} {% endblock %}
