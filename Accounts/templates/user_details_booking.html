@@ -2,9 +2,29 @@
 
 {% load static %}
 
+{% load crispy_forms_tags %}
+
 <link rel="stylesheet" href="{% static 'css/user_reservations.css' %}">
 
+<!-- JQuery CDN -->
+<script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+
 <section class="container page-space pt-5 pb-5">
+  {% if messages %}
+                {% for msg in messages %}
+                {% if msg.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+                  <div class="alert alert-danger alert-dismissable d-flex justify-content-between align-items-center mb-3">
+                    <p class="m-0">{{msg.message}}</p> 
+                    <button class="btn-close" data-bs-dismiss="alert" aria-hidden="true"></button>
+                  </div>
+                  {% else %}
+                  <div class="alert alert-success alert-dismissable d-flex justify-content-between align-items-center mb-3">
+                    <p class="m-0">{{msg.message}}</p> 
+                    <button class="btn-close" data-bs-dismiss="alert" aria-hidden="true"></button>
+                  </div>
+                  {% endif %}
+                {% endfor %}
+              {% endif %}
   <table class="table table_id pt-5 text-center">
     <div class="col-12 mb-4">
       <a href="{% url 'user_reservations'%}">Previous Page</a>
@@ -51,6 +71,7 @@
     </form>
     <br>
     <button type="button" class="btn btn-danger ms-3" data-bs-toggle="modal" data-bs-target="#staticBackdrop_{{ booking.id }}">Cancel</button>
+    <button id="click-this-button" type="button" class="btn btn-primary ms-3" data-bs-toggle="modal" data-bs-target="#staticBackdrop2">Edit</button>
   </div> 
       {% else %}
       <p>You can't edit or cancel this booking since you have attended</p>
@@ -82,6 +103,36 @@
           </div>
         </div>
       </div>
+    </div>
+      <div
+        class="modal fade"
+        id="staticBackdrop2"
+        data-bs-backdrop="static"
+        data-bs-keyboard="false"
+        tabindex="-1"
+        aria-labelledby="staticBackdropLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <p>Booking Reference - {{ booking.ref_number }}</p>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form method="POST" action="edit/{{booking.id}}">
+                <h3 class="title-text d-md-none">Edit Booking</h3>
+                <input type="hidden" name="next" value="{{request.path}}" />
+                {% csrf_token %} {{ form|crispy }}
+                <p>
+                  <button type="submit" class="black-button">Submit</button>
+                </p>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 </section>
 
 

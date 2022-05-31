@@ -71,7 +71,7 @@ class BookingForm(forms.ModelForm):
 
         if date_of_visit == today and time_of_visit < time:
             self._errors["time_of_visit"] = self.error_class(
-                ["You cant book in the past"]
+                ["You can't book in the past"]
             )
             del self.cleaned_data["time_of_visit"]
         return cleaned_data
