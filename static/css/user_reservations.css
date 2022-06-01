@@ -13,7 +13,10 @@
 .button-text {
     color: white;
     text-decoration: none;
-    
+}
+
+.accordion-body {
+  background-color: #f8f9fa !important;
 }
 
 table {
@@ -31,8 +34,8 @@ table {
   }
   
   table tr {
-    background-color: #f8f8f8;
-    border: 1px solid #f8f8f8;
+    background-color: #f8f9fa;
+    border: 1px solid #f8f9fa;
     padding: .35em;
   }
   
