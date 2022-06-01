@@ -45,15 +45,58 @@
             >
           </li>
           <li>
-            <a href="{% url 'staff_pending_reviews' %}" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
-              <i class="fs-4 bi-pen text-white"></i> <span class="ms-1 d-none d-sm-inline text-white">Reviews</span> {% if pending_reviews_count != 0 %}
-              <span class="text-decoration-none disable-hover text-white">-</span>
-              <span class="red-exclamation disable-hover"> {{pending_reviews_count}}</span> {% endif %}</a
-            >
+            <a data-bs-toggle="modal" data-bs-target="#staff_help" class="nav-link px-0 align-middle">
+              <i class="fs-4 bi-info-circle text-white"></i> <span class="ms-1 d-none d-sm-inline text-white">Staff Help</span> 
+            </a>
           </li>
         </ul>
       </div>
     </div>
+
+    <div
+           class="modal fade"
+           id="staff_help"
+           data-bs-backdrop="static"
+           data-bs-keyboard="false"
+           tabindex="-1"
+           aria-labelledby="staticBackdropLabel"
+           aria-hidden="true"
+         >
+           <div class="modal-dialog modal-dialog-centered">
+             <div class="modal-content">
+               <div class="modal-header text-center">
+                 <h3>Staff Help</h3>
+                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+               </div>
+               <div class="modal-body">
+                <h5>Bookings</h5>
+                <p>When a customer creates a booking, the booking will be shown on the Bookings page until it has been approved or denied by a staff member</p>
+                <a href="#" role="button" class="btn btn-success popover-test">Approve</a> This will approve the booking and send a confirmation email to the user. <br><br>
+                <a href="#" role="button" class="btn btn-danger popover-test">Deny</a> This will deny the booking and send an email to the user saying their booking has been denied <br><br>
+                <a href="#" role="button" class="btn btn-primary popover-test">Details</a> This will load additional information about that specific booking <br><br>
+                <hr>
+                <h5>Check In</h5>
+                <p>If a booking has been approved by a member of staff, the booking will then be shown on the Check In page if that booking is for today</p>
+                <a href="#" role="button" class="btn btn-success popover-test">Check In</a> This will check the guests in and send a confirmation email to the user <br><br>
+                <a href="#" role="button" class="btn btn-danger popover-test">No Show</a> This will mark the guests as not turning up to the restaurant and will send an email informing them that they did not attend<br><br>
+                <p>If a guest does not show up and a staff member forgets to click No Show, then an automatic no show email will be sent to the user if the booking is in the past</p>
+                <hr>
+                <h5>Payments</h5>
+                <p>If a booking has been approved and checked in by a member of staff, the booking will then be displayed on the Payments page. This is the last step of the life cycle of a booking.</p>
+                <a href="#" role="button" class="btn btn-warning popover-test">Payment</a> This will load a new page where a staff member can submit the payment information for that booking <br><br>
+                <hr>
+                <h5>Reviews</h5>
+                <p>If a customer leaves a review, the review will be rendered on the Reviews page for a staff member to either approve or deny the review.</p>
+                <a href="#" role="button" class="btn btn-success popover-test">Approve</a> This will approve the review and it will then be eligible to be rendered on the home page of the website <br><br>
+                <a href="#" role="button" class="btn btn-danger popover-test">Deny</a> This will deny the review and it will not be eligible to be rendered on the home page <br><br>
+                <a href="#" role="button" class="btn btn-warning popover-test">Reset</a> This will reset the state of the review and the review will then need to be re-approved or denied <br><br>
+                <div class="modal-footer justify-content-center">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal" aria-label="Close">Close</button>
+               </div>
+             </div>
+           </div>
+         </div>
+       </div>
 
     <!-- 2 </div> gap left on purpose for staff dashboard styling purposes -->
 
