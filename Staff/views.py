@@ -663,11 +663,19 @@ def staff_details_booking(request, booking_id):
                 last_name=instance.last_name,
                 time_of_visit=instance.time_of_visit,
                 date_of_visit=instance.date_of_visit,
+                number_of_guests=instance.number_of_guests,
+                email=instance.email,
+                contact_number = instance.contact_number,
+                additional_info=instance.additional_info,
+                disabled_access=instance.disabled_access
             ).exists():
                 messages.add_message(
-                    request, messages.ERROR, "Duplicate booking."
+                    request,
+                    messages.ERROR,
+                    f"Duplicate Booking - There seems to be this booking already in the calendar.",
                 )
-                return render(request, "staff_details_booking.html", context)
+                
+                return HttpResponseRedirect(next)
             instance.save()
             for item in data:
                 item.booking_approved = False
@@ -675,9 +683,17 @@ def staff_details_booking(request, booking_id):
                 item.booking_denied = False
                 item.save()
             messages.add_message(
-                request, messages.SUCCESS, "Booking updated successfully."
+                request,
+                messages.SUCCESS,
+                f"Your booking has been updated successfully!.",
             )
+
             return HttpResponseRedirect(next)
+        messages.add_message(
+            request,
+            messages.ERROR,
+            f"There seems to be an error updating the booking, please try again.",
+        )
     return render(request, "staff_details_booking.html", context)
 
 
