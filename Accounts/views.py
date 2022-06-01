@@ -30,6 +30,7 @@ def show_user_reservations(request):
 
 def user_details_booking(request, booking_id):
     if request.user.is_authenticated:
+        next = request.POST.get("next", "/")
         booking = Booking.objects.filter(id=booking_id)
         booking_data = get_object_or_404(Booking, id=booking_id)
         form = BookingForm(request.POST or None, instance=booking_data)
@@ -54,13 +55,19 @@ def user_details_booking(request, booking_id):
                 last_name=instance.last_name,
                 time_of_visit=instance.time_of_visit,
                 date_of_visit=instance.date_of_visit,
+                number_of_guests=instance.number_of_guests,
+                email=instance.email,
+                contact_number = instance.contact_number,
+                additional_info=instance.additional_info,
+                disabled_access=instance.disabled_access
             ).exists():
                 messages.add_message(
                     request,
                     messages.ERROR,
                     f"Duplicate Booking - There seems to be this booking already in the calendar.",
                 )
-                return render(request, "user_details_booking.html", context)
+                
+                return HttpResponseRedirect(next)
             instance.save()
             for item in booking:
                 item.booking_approved = False
@@ -72,73 +79,13 @@ def user_details_booking(request, booking_id):
                 messages.SUCCESS,
                 f"Your booking has been updated successfully!.",
             )
-            double_context = {
-                "booking": instance,
-                "form": form,
-            }
-            return render(request, "user_details_booking.html", double_context)
+
+            return HttpResponseRedirect(next)
         messages.add_message(
             request,
             messages.ERROR,
             f"There seems to be an error updating the booking, please try again.",
         )
-    return render(request, "user_details_booking.html", context)
-
-
-def user_edit_booking(request, booking_id):
-    if request.user.is_authenticated:
-        booking = Booking.objects.filter(id=booking_id)
-        booking_data = get_object_or_404(Booking, id=booking_id)
-        form = BookingForm(request.POST or None)
-        check_payment = 0
-        try:
-            check_payment = Payment.objects.get(booking_id=booking_id)
-        except Payment.DoesNotExist:
-            check_payment = None
-        payment = check_payment
-        context = {
-                "booking": booking_data,
-                "form": form,
-                "payment": payment,
-            }
-    else:
-        return HttpResponseRedirect("/")
-    if request.method == "POST":
-        if form.is_valid():
-            instance = form.save(commit=False)
-            if Booking.objects.filter(
-                first_name=instance.first_name,
-                last_name=instance.last_name,
-                time_of_visit=instance.time_of_visit,
-                date_of_visit=instance.date_of_visit,
-            ).exists():
-                messages.add_message(
-                    request,
-                    messages.ERROR,
-                    f"Jack is double booking now.",
-                )
-                return render(request, "user_details_booking.html", context)
-            instance.save()
-            for item in booking:
-                item.booking_approved = False
-                item.booking_acknowledged = False
-                item.booking_denied = False
-                item.save()
-            messages.add_message(
-                request,
-                messages.SUCCESS,
-                f"Jack is the really the greatest.",
-            )
-            double_context = {
-                "booking": instance,
-                "form": form,
-            }
-            return render(request, "user_details_booking.html", double_context)
-    messages.add_message(
-        request,
-        messages.ERROR,
-        f"Jack is the greatest.",
-    )
     return render(request, "user_details_booking.html", context)
 
 

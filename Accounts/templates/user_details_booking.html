@@ -52,7 +52,7 @@
         <td data-label="Date">{{ booking.date_of_visit }}</td>
         <td data-label="Time">{{ booking.time_of_visit }}</td>
         <td data-label="Guests">{{ booking.number_of_guests }}</td>
-        <td data-label="Booking Status">{% if booking.guest_attended == True %} <span class="green-text">Booking Attended</span> <i class="fas fa-check green-text"></i> {% elif booking.booking_denied %} <span class="red-text">Booking Denied</span> <i class="fas fa-exclamation red-text"></i> {% elif booking.booking_approved == True %} <span class="green-text">Booking Approved</span> <i class="fas fa-check green-text"></i> {% else %} <span class="text-warning">Awaiting Approval</span> <i class="fas fa-exclamation text-warning"></i> {% endif %}</td>
+        <td data-label="Booking Status">{% if booking.guest_attended == True %} <span class="green-text">Booking Attended</span> <i class="fas fa-check green-text"></i> {% elif booking.booking_denied == True %} <span class="red-text">Booking Denied</span> <i class="fas fa-exclamation red-text"></i> {% elif booking.booking_approved == True %} <span class="green-text">Booking Approved</span> <i class="fas fa-check green-text"></i> {% else %} <span class="text-warning">Awaiting Approval</span> <i class="fas fa-exclamation text-warning"></i> {% endif %}</td>
         <td data-label="Email">{{ booking.email }}</td>
         <td data-label="Contact">{{ booking.contact_number }}</td>
         <td data-label="Account">{{ booking.user.username }}</td>
@@ -66,12 +66,9 @@
   </table>
   {% if booking.guest_attended == False %}
   <div class="d-sm-flex d-block">
-    <form action="edit/{{ booking.id }}">
-      <button class="btn btn-warning" type="submit">Edit</button>
-    </form>
     <br>
+    <button type="button" class="btn btn-primary ms-3" data-bs-toggle="modal" data-bs-target="#staticBackdrop2">Edit</button>
     <button type="button" class="btn btn-danger ms-3" data-bs-toggle="modal" data-bs-target="#staticBackdrop_{{ booking.id }}">Cancel</button>
-    <button id="click-this-button" type="button" class="btn btn-primary ms-3" data-bs-toggle="modal" data-bs-target="#staticBackdrop2">Edit</button>
   </div> 
       {% else %}
       <p>You can't edit or cancel this booking since you have attended</p>
@@ -116,16 +113,17 @@
         <div class="modal-dialog modal-dialog-centered">
           <div class="modal-content">
             <div class="modal-header">
-              <p>Booking Reference - {{ booking.ref_number }}</p>
+              <p class="red-text">Booking Reference - {{ booking.ref_number }}</p>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body d-flex justify-content-center align-items-center">
               <form method="POST">
                 <h3 class="title-text d-md-none">Edit Booking</h3>
                 <input type="hidden" name="next" value="{{request.path}}" />
                 {% csrf_token %} {{ form|crispy }}
-                <p>
-                  <button type="submit" class="black-button">Submit</button>
+                <p class="text-center mt-2">
+                  <button type="submit" class="btn btn-success">Submit</button>
+                  <button type="button" class="btn btn-danger" data-bs-dismiss="modal" aria-label="Close">Close</button>
                 </p>
               </form>
             </div>

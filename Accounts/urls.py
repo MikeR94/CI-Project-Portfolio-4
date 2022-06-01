@@ -14,11 +14,6 @@ urlpatterns = [
         name="user_details_booking",
     ),
     path(
-        "user-details-booking/edit/<booking_id>",
-        views.user_edit_booking,
-        name="edit",
-    ),
-    path(
         "user-details-booking/cancel/<booking_id>",
         views.user_cancel_booking,
         name="cancel",
