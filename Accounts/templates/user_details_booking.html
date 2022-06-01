@@ -120,7 +120,7 @@
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-              <form method="POST" action="edit/{{booking.id}}">
+              <form method="POST">
                 <h3 class="title-text d-md-none">Edit Booking</h3>
                 <input type="hidden" name="next" value="{{request.path}}" />
                 {% csrf_token %} {{ form|crispy }}

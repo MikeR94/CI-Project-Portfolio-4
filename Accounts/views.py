@@ -1,5 +1,4 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from requests import get
 from Booking.forms import BookingForm
 from Booking.models import Booking
 from django.http import HttpResponseRedirect
@@ -31,9 +30,8 @@ def show_user_reservations(request):
 
 def user_details_booking(request, booking_id):
     if request.user.is_authenticated:
-        booking = get_object_or_404(Booking, id=booking_id)
+        booking = Booking.objects.filter(id=booking_id)
         booking_data = get_object_or_404(Booking, id=booking_id)
-        next = request.POST.get("next", "/")
         form = BookingForm(request.POST or None, instance=booking_data)
         check_payment = 0
         try:
@@ -42,46 +40,66 @@ def user_details_booking(request, booking_id):
             check_payment = None
         payment = check_payment
         context = {
-            "booking": booking,
-            "payment": payment,
-            "form": form,
-        }
-        return render(request, "user_details_booking.html", context)
-
+                "booking": booking_data,
+                "form": form,
+                "payment": payment,
+            }
+    else:
+        return HttpResponseRedirect("/")
     if request.method == "POST":
         if form.is_valid():
             instance = form.save(commit=False)
-            double_context = {
-                "data": instance,
-            }
             if Booking.objects.filter(
                 first_name=instance.first_name,
                 last_name=instance.last_name,
                 time_of_visit=instance.time_of_visit,
                 date_of_visit=instance.date_of_visit,
             ).exists():
-                return render(
-                    request, "book_double_error.html", double_context
+                messages.add_message(
+                    request,
+                    messages.ERROR,
+                    f"Duplicate Booking - There seems to be this booking already in the calendar.",
                 )
+                return render(request, "user_details_booking.html", context)
             instance.save()
             for item in booking:
                 item.booking_approved = False
                 item.booking_acknowledged = False
                 item.booking_denied = False
                 item.save()
-            return HttpResponseRedirect(next)
-    return HttpResponseRedirect("accounts/login")
+            messages.add_message(
+                request,
+                messages.SUCCESS,
+                f"Your booking has been updated successfully!.",
+            )
+            double_context = {
+                "booking": instance,
+                "form": form,
+            }
+            return render(request, "user_details_booking.html", double_context)
+        messages.add_message(
+            request,
+            messages.ERROR,
+            f"There seems to be an error updating the booking, please try again.",
+        )
+    return render(request, "user_details_booking.html", context)
 
 
 def user_edit_booking(request, booking_id):
     if request.user.is_authenticated:
-        next = request.POST.get("next", "/")
         booking = Booking.objects.filter(id=booking_id)
         booking_data = get_object_or_404(Booking, id=booking_id)
         form = BookingForm(request.POST or None)
+        check_payment = 0
+        try:
+            check_payment = Payment.objects.get(booking_id=booking_id)
+        except Payment.DoesNotExist:
+            check_payment = None
+        payment = check_payment
         context = {
                 "booking": booking_data,
                 "form": form,
+                "payment": payment,
             }
     else:
         return HttpResponseRedirect("/")
@@ -99,7 +117,7 @@ def user_edit_booking(request, booking_id):
                     messages.ERROR,
                     f"Jack is double booking now.",
                 )
-                return HttpResponseRedirect(next)
+                return render(request, "user_details_booking.html", context)
             instance.save()
             for item in booking:
                 item.booking_approved = False
