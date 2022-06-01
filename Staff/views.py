@@ -222,6 +222,18 @@ def staff_dashboard(request):
         reviews_denied = Review.objects.filter(
             approved=False, acknowledged=True
         ).count()
+        total_review_count = Review.objects.filter().count()
+        star5count = Review.objects.filter(stars="5 Star").count()
+        star4count = Review.objects.filter(stars="4 Star").count()
+        star3count = Review.objects.filter(stars="3 Star").count()
+        star2count = Review.objects.filter(stars="2 Star").count()
+        star1count = Review.objects.filter(stars="1 Star").count()
+        star5 = star5count * 5
+        star4 = star4count * 4
+        star3 = star3count * 3
+        star2 = star2count * 2
+        star1 = star1count * 1
+        average_star_rating = (star5 + star4 + star3 + star2 + star1) / total_review_count
         try:
             average_per_guest = int(
                 0 if income_count is None else income_count
@@ -271,6 +283,7 @@ def staff_dashboard(request):
             "reviews_approved": reviews_approved,
             "reviews_denied": reviews_denied,
             "average_per_guest": average_per_guest,
+            "stars": average_star_rating,
         }
         return render(request, "staff_dashboard.html", context)
     else:
