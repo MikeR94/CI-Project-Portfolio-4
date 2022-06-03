@@ -125,10 +125,11 @@ class TestUrls(TestCase):
             user_id="50",
             first_name="Mike",
             last_name="Ralph",
-            body="hello",
+            body="Do yourself a favour and visit this lovely restaurant in Wakefield. The service is unmatched. The staff truly cares about your experience. The food is absolutely amazing – everything we tasted melted in other mouths. Absolutely the best meal we had while in Wakefield. Highly recommend!",
+            stars="5 Star",
         )
 
-        response = self.client.get("/staff/approve-booking/50")
+        response = self.client.get("/staff/approve-review/50")
         self.assertEqual(response.status_code, 302)
 
         url = reverse("staff_approve_review", kwargs={"review_id": "50"})

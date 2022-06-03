@@ -233,7 +233,10 @@ def staff_dashboard(request):
         star3 = star3count * 3
         star2 = star2count * 2
         star1 = star1count * 1
-        average_star_rating = (star5 + star4 + star3 + star2 + star1) / total_review_count
+        try:
+            average_star_rating = (star5 + star4 + star3 + star2 + star1) / total_review_count
+        except ZeroDivisionError:
+            average_star_rating = 50
         try:
             average_per_guest = int(
                 0 if income_count is None else income_count
@@ -374,11 +377,11 @@ def staff_approve_booking(request, booking_id):
             object.booking_approved = True
             object.booking_acknowledged = True
             object.save()
-        messages.add_message(
-            request,
-            messages.SUCCESS,
-            f"Booking ref {object.ref_number} has been approved and an email has been sent.",
-        )
+            messages.add_message(
+                request,
+                messages.SUCCESS,
+                f"Booking ref {object.ref_number} has been approved and an email has been sent.",
+            )
         return HttpResponseRedirect(next)
     else:
         return HttpResponseRedirect("/")
@@ -401,11 +404,11 @@ def staff_deny_booking(request, booking_id):
             object.booking_denied = True
             object.booking_acknowledged = True
             object.save()
-        messages.add_message(
-            request,
-            messages.ERROR,
-            f"Booking ref {object.ref_number} has been declined and an email has been sent.",
-        )
+            messages.add_message(
+                request,
+                messages.ERROR,
+                f"Booking ref {object.ref_number} has been declined and an email has been sent.",
+            )
         return HttpResponseRedirect(next)
     else:
         return HttpResponseRedirect("/")
