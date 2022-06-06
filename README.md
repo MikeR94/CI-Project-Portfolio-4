@@ -35,7 +35,7 @@ You can view the live site here - <a href="https://cafe-manbo.herokuapp.com/" ta
 
 # Objective
 
-For my forth project, I intend to create an authentic, practical and useful restaurant website which could potentially be used in a real world environment. The main objective is to demonstrate a strong level of competency in HTML, CSS, JavaScript, Python and the Django Framework alongside showcasing high attention to detail and the importance of robust testing throughout.
+For my fourth project, I intend to create an authentic, practical and useful restaurant website which could potentially be used in a real world environment. The main objective is to demonstrate a strong level of competency in HTML, CSS, JavaScript, Python and the Django Framework alongside showcasing high attention to detail and the importance of robust testing throughout.
 
 [Back to top](<#contents>)
 
@@ -53,7 +53,20 @@ The very first design prototype was created using [Balsamiq](https://balsamiq.co
 
 ## Site Structure
 
-Descriptive text
+As mentioned above, the website for Cafe Manbo has been designed to be a fully encompassing website that acts as a central hub for both users and staff members.
+
+* Main Website
+    * Home, Our Menu, Gallery, Book Now, My Reservations and Write A Review.
+    * Visually appealing, minimalistic and welcoming design.
+    * Simple, easy and fast booking with strong form validation.
+    * All bookings are easily manageable for the user in the 'My Reservations' page.
+
+* Staff Dashboard
+    * Home, Dashboard, Bookings, Check In, Payments, Reviews, Staff Help.
+    * A separate, detached part of the website theme for staff members to manage everything at Cafe Manbo.
+    * Informative dashboard panel which showcases a vast range of statistical data about Cafe Manbo.
+    * A simple and logical booking flow system.
+    * A staff help modal to aid staff members.
 
 ## Design Choices
 
