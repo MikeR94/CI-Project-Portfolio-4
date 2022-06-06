@@ -1,6 +1,8 @@
+from django.http import HttpRequest
 from django.test import TestCase
 from django.urls import reverse, resolve
 from Accounts.models import User
+from Reviews.forms import ReviewForm
 from Reviews.models import Review
 from Reviews.views import create_review
 
@@ -53,3 +55,36 @@ class TestModels(TestCase):
         self.assertEquals(review.approved, True)
         self.assertEquals(review.user_id, user.id)
         self.assertEquals(review.acknowledged, True)
+
+
+class TestForms(TestCase):
+    def test_review_form(self):
+        """
+        Testing review form is accepting correct values
+        """
+        self.user = User.objects.create_user(
+            username="admin", password="adminadmin", email="admin@example.com"
+        )
+        self.client.force_login(self.user)
+        
+        form = ReviewForm(data={
+            'first_name': 'Mike',
+            'last_name': 'Ralph',
+            'stars': '5 Star',
+            'body': 'When we think about celebrations, Cafe Manbo is always our first option, and it never disappoints. From the starter to the dessert the quality and tastes of everything was outstanding, my meal might have been the best meal I have ever been served. Service was delightful and very professional. 10/10.'
+            })
+        self.assertIn("first_name", form.fields)
+        self.assertIn("last_name", form.fields)
+        self.assertIn("stars", form.fields)
+        self.assertIn("body", form.fields)
+
+        request = HttpRequest()
+        request.POST = {
+            'first_name': 'Mike',
+            'last_name': 'Ralph',
+            'stars': '5 Star',
+            'body': 'When we think about celebrations, Cafe Manbo is always our first option, and it never disappoints. From the starter to the dessert the quality and tastes of everything was outstanding, my meal might have been the best meal I have ever been served. Service was delightful and very professional. 10/10. When we think about celebrations, Cafe Manbo is always our first option, and it never disappoints. From the starter to the dessert the quality and tastes of everything was outstanding, my meal might have been the best mealWhen we think about celebrations, Cafe Manbo is always our first option, and it never disappoints. From the starter to the dessert the quality and tastes of everything was outstanding, my meal might have been the best meal '
+            }
+        test_form = ReviewForm(request.POST)
+        self.assertTrue(test_form.is_valid())
+
