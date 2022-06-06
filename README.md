@@ -74,7 +74,7 @@ Descriptive text
 
       I would first create a very basic overview of what I wanted to achieve and then break it down into smaller more manageable steps. Before finishing for the day, I would spend at least 15 minutes planning for the next day so that when I came back to developing I could open my Trello board and instantly get back developing since I would know immediately what I need to be working on. I highly recommend this tool to any developer or development team. <br /><br />
 
-![Trello Image]()
+![Trello Image](static/images/readme-images/trello-image.png)
 
 
 ## Existing Features
