@@ -4,7 +4,7 @@ Cafe Manbo is a family restaurant located in England, Wakefield. Guests are able
 
 You can view the live site here - <a href="https://cafe-manbo.herokuapp.com/" target="_blank" rel="noopener">Cafe Manbo</a>
 
-![Cafe Manbo responsive design](static/images/readme-images/responsive-design-preview.png)
+![Cafe Manbo responsive design](static/images/readme-images/responsive-design-preview-image.png)
 
 # Contents
 
@@ -58,10 +58,14 @@ Descriptive text
 ## Design Choices
 
  * ### Typography
-      Text
+      The fonts chosen were 'Oswald' for the golden headings and I decided to use the standard 'sans-serif' for the body text however different font-weights and font-sizes were used to give further clarity. All fonts fall back to sans-serif respectively if the 'Oswald' font can't be loaded.
+
+    * 'Oswald' was chosen primarily to give a touch of style and elegance to the website. The font-style is very     modern, stylish, clean and gives a professional and inviting feeling to the website.
 
  * ### Colour Scheme
-      Text<br /><br />
+      The colour scheme chosen is one based on a rich gold, eerie-black and off-white. This colour scheme gives off a warm, clean, minimalistic and positive feeling to the website.<br /><br />
+
+![Colour Palette image](static/images/readme-images/colour-palette-image.png)
 
 ## Project Management
 
