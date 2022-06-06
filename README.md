@@ -10,6 +10,7 @@ You can view the live site here - <a href="https://cafe-manbo.herokuapp.com/" ta
 
 * [**Objective**](<#objective>)
 * [**User Experience UX**](<#user-experience-ux>)
+    * [User Stories](<#user-stories>)
     * [Design Prototype](<#design-prototype>)
     * [Site Structure](<#site-structure>)
     * [Design Choices](<#design-choices>)
@@ -40,6 +41,27 @@ For my fourth project, I intend to create an authentic, practical and useful res
 [Back to top](<#contents>)
 
 # User Experience (UX)
+
+## User Stories
+
+### Site User
+
+* As a Site User I can book online to come visit the restaurant
+* As a Site User I can view all my bookings in one place
+* As a Site User I can amend and cancel my booking
+* As a Site User I can create a review about my visit to Cafe Manbo
+* As a Site User I can view the menu
+* As a Site User I can view images relating to Cafe Manbo
+* As a Site User I can see reviews from other guests
+
+### Site Staff Member
+
+* As a Site Staff Member I can approve, deny and amend bookings
+* As a Site Staff Member I can approve and deny submitted reviews
+* As a Site Staff Member I can check guests in or not check guests
+* As a Site Staff Member I can submit payment information about a completed booking
+* As a Site Staff Member I can view a Staff Dashboard to view statistical data about Cafe Manbo
+
 
 ## Design Prototype
 
