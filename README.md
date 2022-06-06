@@ -112,27 +112,188 @@ As mentioned above, the website for Cafe Manbo has been designed to be a fully e
 ![Trello Image](static/images/readme-images/trello-image.png)
 
 
-## Existing Features
-  * ### Feature 1
+## Existing Features For Site User
+  * ### Home Page
 
       * Text 1
       * Text 2<br /><br />
 
-<details><summary><b>Feature 1 Image</b></summary>
+<details><summary><b>Feature Image</b></summary>
 
-![Startup Display Image]()
+![Image]()
 </details><br />
 
-[Back to top](<#contents>)
-
-  * ### Feature 2
+  * ### Responsive Navigation Bar
 
       * Text 1
       * Text 2<br /><br />
 
-<details><summary><b>Feature 2 Image</b></summary>
+<details><summary><b>Feature Image</b></summary>
 
-![Main Menu Image]()
+![Image]()
+</details><br />
+
+  * ### Dynamic Reviews 
+
+      * Text 1
+      * Text 2<br /><br />
+
+<details><summary><b>Feature Image</b></summary>
+
+![Image]()
+</details><br />
+
+  * ### Hours & Location
+
+      * Text 1
+      * Text 2<br /><br />
+
+<details><summary><b>Feature Image</b></summary>
+
+![Image]()
+</details><br />
+
+  * ### Footer
+
+      * Text 1
+      * Text 2<br /><br />
+
+<details><summary><b>Feature Image</b></summary>
+
+![Image]()
+</details><br />
+
+  * ### Our Menu
+
+      * Text 1
+      * Text 2<br /><br />
+
+<details><summary><b>Feature Image</b></summary>
+
+![Image]()
+</details><br />
+
+  * ### Gallery
+
+      * Text 1
+      * Text 2<br /><br />
+
+<details><summary><b>Feature Image</b></summary>
+
+![Image]()
+</details><br />
+
+  * ### Book Now
+
+      * Text 1
+      * Text 2<br /><br />
+
+<details><summary><b>Feature Image</b></summary>
+
+![Image]()
+</details><br />
+
+  * ### My Reservations
+
+      * Text 1
+      * Text 2<br /><br />
+
+<details><summary><b>Feature Image</b></summary>
+
+![Image]()
+</details><br />
+
+  * ### Account Creation
+
+      * Text 1
+      * Text 2<br /><br />
+
+<details><summary><b>Feature Image</b></summary>
+
+![Image]()
+</details><br />
+
+  * ### Write A Review
+
+      * Text 1
+      * Text 2<br /><br />
+
+<details><summary><b>Feature Image</b></summary>
+
+![Image]()
+</details><br />
+
+
+## Existing Features For Site Staff Member
+
+  * ### Staff Dashboard
+
+      * Text 1
+      * Text 2<br /><br />
+
+<details><summary><b>Feature Image</b></summary>
+
+![Image]()
+</details><br />
+
+  * ### Responsive Navigation Bar
+
+      * Text 1
+      * Text 2<br /><br />
+
+<details><summary><b>Feature Image</b></summary>
+
+![Image]()
+</details><br />
+
+  * ### Bookings
+
+      * Text 1
+      * Text 2<br /><br />
+
+<details><summary><b>Feature Image</b></summary>
+
+![Image]()
+</details><br />
+
+  * ### Check In
+
+      * Text 1
+      * Text 2<br /><br />
+
+<details><summary><b>Feature Image</b></summary>
+
+![Image]()
+</details><br />
+
+  * ### Payments
+
+      * Text 1
+      * Text 2<br /><br />
+
+<details><summary><b>Feature Image</b></summary>
+
+![Image]()
+</details><br />
+
+  * ### Reviews
+
+      * Text 1
+      * Text 2<br /><br />
+
+<details><summary><b>Feature Image</b></summary>
+
+![Image]()
+</details><br />
+
+  * ### Staff Help
+
+      * Text 1
+      * Text 2<br /><br />
+
+<details><summary><b>Feature Image</b></summary>
+
+![Image]()
 </details><br />
 
 [Back to top](<#contents>)
