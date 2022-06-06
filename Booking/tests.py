@@ -1,9 +1,10 @@
+from django.http import HttpRequest
 from django.test import TestCase
 from django.urls import reverse, resolve
 from Accounts.models import User
 from Booking.models import Booking
 from Booking.views import book_now
-
+from Booking.forms import BookingForm
 
 
 class TestUrls(TestCase):
@@ -59,3 +60,79 @@ class TestModels(TestCase):
         self.assertEquals(order.booking_approved, False)
         self.assertEquals(order.booking_denied, False)
         self.assertEquals(order.booking_acknowledged, False)
+
+
+class TestForms(TestCase):
+    def test_booking_form(self):
+        """
+        Testing booking form is accepting correct values
+        """
+        self.user = User.objects.create_user(
+            username="admin", password="adminadmin", email="admin@example.com"
+        )
+        self.client.force_login(self.user)
+
+        form = BookingForm(
+            data={
+                "first_name": "Mike",
+                "last_name": "Ralph",
+                "email": "testemail@hotmail.com",
+                "time_of_visit": "18:00:00",
+                "date_of_visit": "2022-12-01",
+                "number_of_guests": "4",
+                "contact_number": "07456 789 342",
+                "additional_info": "N/A",
+                "disabled_access": False,
+            }
+        )
+        self.assertIn("first_name", form.fields)
+        self.assertIn("last_name", form.fields)
+        self.assertIn("email", form.fields)
+        self.assertIn("time_of_visit", form.fields)
+        self.assertIn("date_of_visit", form.fields)
+        self.assertIn("number_of_guests", form.fields)
+        self.assertIn("contact_number", form.fields)
+        self.assertIn("additional_info", form.fields)
+        self.assertIn("disabled_access", form.fields)
+
+        request = HttpRequest()
+        request.POST = {
+            "first_name": "Mike",
+            "last_name": "Ralph",
+            "email": "testemail@hotmail.com",
+            "time_of_visit": "18:00:00",
+            "date_of_visit": "2022-12-01",
+            "number_of_guests": "4",
+            "contact_number": "07456 789 342",
+            "additional_info": "N/A",
+            "disabled_access": False,
+        }
+        test_form = BookingForm(request.POST)
+        self.assertTrue(test_form.is_valid())
+
+    def test_booking_form_date_of_visit_errors(self):
+        """
+        Testing booking form is throwing errors for incorrect correct values
+        """
+        self.user = User.objects.create_user(
+            username="admin", password="adminadmin", email="admin@example.com"
+        )
+        self.client.force_login(self.user)
+
+        request = HttpRequest()
+        request.POST = {
+            "first_name": "Mike",
+            "last_name": "Ralph",
+            "email": "testemail@hotmail.com",
+            "time_of_visit": "07:00:00",
+            "date_of_visit": "2021-12-01",
+            "number_of_guests": "4",
+            "contact_number": "07456 789 342",
+            "additional_info": "N/A",
+            "disabled_access": False,
+        }
+        test_form = BookingForm(request.POST)
+        self.assertFalse(test_form.is_valid())
+        self.assertEqual(
+            test_form.errors["date_of_visit"][0], "Date cannot be in the past"
+        )
