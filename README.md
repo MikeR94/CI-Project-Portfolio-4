@@ -1,10 +1,10 @@
 # **_Cafe Manbo - Project Portfolio 4 - Full Stack_**
 
-Descriptive text
+Cafe Manbo is a family restaurant located in England, Wakefield. Guests are able to visit restaurant after they have placed a booking via the website. The website itself has been designed with a "real world application" in mind, therefore the website has been designed in two parts. First, users will see a visually appealing front-end website which shows users information about the restaurant, allows users to create an account, make a booking, write a review, contact the restaurant and more. The other half of the website acts as a management system for staff members that work at Cafe Manbo. If an account has the correct permissions, the staff member will be able to see a staff dashboard which will allow them to manage everything related to Cafe Manbo such as bookings, reviews, payments and also see informative statistical data about the restaurant.
 
 You can view the live site here - <a href="https://cafe-manbo.herokuapp.com/" target="_blank" rel="noopener">Cafe Manbo</a>
 
-![Cafe Manbo responsive design]()
+![Cafe Manbo responsive design](static/images/readme-images/responsive-design-preview.png)
 
 # Contents
 
@@ -35,7 +35,7 @@ You can view the live site here - <a href="https://cafe-manbo.herokuapp.com/" ta
 
 # Objective
 
-Descriptive text
+For my forth project, I intend to create an authentic, practical and useful restaurant website which could potentially be used in a real world environment. The main objective is to demonstrate a strong level of competency in HTML, CSS, JavaScript, Python and the Django Framework alongside showcasing high attention to detail and the importance of robust testing throughout.
 
 [Back to top](<#contents>)
 
