@@ -189,3 +189,5 @@ EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_PASSWORD")
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'Accounts.User'
+
+DEFAULT_FROM_EMAIL = "cafemanbo@outlook.com"
