@@ -120,7 +120,7 @@ As mentioned above, the website for Cafe Manbo has been designed to be a fully e
 
 <details><summary><b>Feature Image</b></summary>
 
-![Image]()
+![Image](static/images/readme-videos/home-preview.mp4)
 </details><br />
 
   * ### Responsive Navigation Bar
