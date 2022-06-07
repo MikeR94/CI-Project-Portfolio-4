@@ -193,12 +193,22 @@ As mentioned above, the website for Cafe Manbo has been designed to be a fully e
 
   * ### Our Menu
 
-      * Text 1
-      * Text 2<br /><br />
+      * I decided that it was a lot more practical and also I think professional to design the menu on an external PDF and then host that for the user to view. 
+      * The menu was designed using [Canva](https://www.canva.com/) and then hosted on [Cloudinary](https://cloudinary.com/) <br /><br />
 
-<details><summary><b>Feature Image</b></summary>
+<details><summary><b>Menu Image 1</b></summary>
 
-![Image]()
+![Menu Image 1](static/images/readme-images/menu-image-1.png)
+</details><br />
+
+<details><summary><b>Menu Image 2</b></summary>
+
+![Menu Image 2](static/images/readme-images/menu-image-2.png)
+</details><br />
+
+<details><summary><b>Menu Image 3</b></summary>
+
+![Menu Image 3](static/images/readme-images/menu-image-3.png)
 </details><br />
 
   * ### Gallery
