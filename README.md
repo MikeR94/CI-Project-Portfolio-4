@@ -213,22 +213,48 @@ As mentioned above, the website for Cafe Manbo has been designed to be a fully e
 
   * ### Gallery
 
-      * Text 1
-      * Text 2<br /><br />
+      * The gallery page is used as way to showcase images of the restaurant to users. As the saying goes, a picture paints a thousand words and being able to show appealing images will greatly increase the chances of guests visiting Cafe Manbo. <br /><br />
 
-<details><summary><b>Feature Image</b></summary>
+<details><summary><b>Gallery Image</b></summary>
 
-![Image]()
+![Gallery Image](static/images/readme-images/gallery-image.jpg)
 </details><br />
 
   * ### Book Now
 
-      * Text 1
-      * Text 2<br /><br />
+      * The book now page will only be accessible if the user has logged in with an account. If they have not logged in and they click the Book Now link, they will be redirected to the log in page
+      * I have spent a lot of development time working on form validation since Cafe Manbo is a restaurant website, each booking needs to be unique and fully validated before a staff member needs to spend time processing it.
+      * Alongside the standard input field validation, I have also added some additional validation which checks if the user is booking in the past. For example, if the time is 19:00 and they are trying to book for 17:00, then it will throw an error informing the user that they can't book in the past. The same goes for the date, if they try book for a date that isn't either today or in the year 2022, it will inform the user accordingly.
+      * Additionally I have accounted for double bookings. When the user submits the form, I then collect all that data, check if the database holds a booking with very similar data and if so, inform the user that the booking was unsuccessful because we appear to already have this booking in the database. <br /><br />
 
-<details><summary><b>Feature Image</b></summary>
+<details><summary><b>Book Now Image</b></summary>
 
-![Image]()
+![Book Now Image](static/images/readme-images/book-now-image.png)
+</details><br />
+
+<details><summary><b>Book Now Responsive Image</b></summary>
+
+![Book Now Responsive Image](static/images/readme-images/book-now-responsive-image.png)
+</details><br />
+
+<details><summary><b>Book Now Success Image</b></summary>
+
+![Book Now Success Image](static/images/readme-images/book-now-success-image.png)
+</details><br />
+
+<details><summary><b>Book Now Duplicate Image</b></summary>
+
+![Book Now Duplicate Image](static/images/readme-images/book-now-duplicate-image.png)
+</details><br />
+
+<details><summary><b>Date Of Visit Custom Validation</b></summary>
+
+![Date Of Visit Custom Validation](static/images/readme-images/date-of-visit-validation-image.png)
+</details><br />
+
+<details><summary><b>Time Of Visit Custom Validation</b></summary>
+
+![Time Of Visit Custom Validation](static/images/readme-images/time-of-visit-validation-image.png)
 </details><br />
 
   * ### My Reservations
