@@ -259,12 +259,43 @@ As mentioned above, the website for Cafe Manbo has been designed to be a fully e
 
   * ### My Reservations
 
-      * Text 1
-      * Text 2<br /><br />
+      * The My Reservations page was created so that a user can manage all of their bookings in one distinct place.
+      * If a user does not have any bookings stored in the database, then they will be prompted with a "no bookings found" page.
+      * Each booking is displayed individually for the user with some informative data about that booking and also a blue Details button which will load even further information about that users booking.
+      * I decided that a user would have only a few pending bookings, however if a customer really enjoys Cafe Manbo then they could potentially have multiple completed bookings and therefore I decided to place all completed bookings within a collapsible bootstrap accordion to help with the page space and presentation
+      * There are currently 5 different states that a users booking can be in. They are the following: <br /><br />
+        * <strong>Awaiting Approval</strong> - <i>Booking has been submitted, awaiting staff members approval</i>
+        * <strong>Booking Approved</strong> - <i>Staff member has approved the booking but the guest has not yet attended</i>
+        * <strong>Booking Attended</strong>- <i>Booking has been approved and the guest has attended</i>
+        * <strong>Booking Denied</strong> - <i>Booking has been submitted but a staff member denied the booking</i>
+        * <strong>Booking Not Attended</strong> - <i> Staff member has approved the booking but the guest did not attend </i> <br /><br />
+      * If a user clicks the blue details booking to load the additional information about their booking, if the booking has not been completed then they will have the option to Edit or Cancel the booking. Clicking the edit booking will launch a modal that will allow the user to submit new information for that booking. If it passes the form validation requirements then the booking state will be set back to "Awaiting Approval" and a staff member will need to approve this booking.
+      * Alternatively if they click cancel booking, a separate modal will pop up and prompt the user asking them if they wish to cancel this booking. Doing so will completely delete this booking from the database.<br /><br />
+    
 
-<details><summary><b>Feature Image</b></summary>
+<details><summary><b>No Bookings Found Image</b></summary>
 
-![Image]()
+![No Bookings Found Image](static/images/readme-images/my-reservations-empty-image.png)
+</details><br />
+
+<details><summary><b>My Reservations All States Image</b></summary>
+
+![My Reservations All States Image](static/images/readme-images/my-reservations-all-states-image.png)
+</details><br />
+
+<details><summary><b>My Reservations Details Image</b></summary>
+
+![My Reservations Details Image](static/images/readme-images/my-reservations-details-image.png)
+</details><br />
+
+<details><summary><b>My Reservations Edit Booking Image</b></summary>
+
+![My Reservations Edit Booking Image](static/images/readme-images/my-reservations-edit-modal-image.png)
+</details><br />
+
+<details><summary><b>My Reservations Cancel Booking Image</b></summary>
+
+![My Reservations Cancel Booking Image](static/images/readme-images/my-reservations-cancel-image.png)
 </details><br />
 
   * ### Account Creation
