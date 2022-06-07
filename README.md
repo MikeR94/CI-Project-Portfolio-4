@@ -157,22 +157,24 @@ As mentioned above, the website for Cafe Manbo has been designed to be a fully e
 
 <details><summary><b>Review Cards Image</b></summary>
 
-![Image](static/images/readme-images/review-image.png)
+![Review Cards Image](static/images/readme-images/review-image.png)
 </details><br />
 
 <details><summary><b>Review Modal Image</b></summary>
 
-![Image](static/images/readme-images/review-modal-image.png)
+![Review Modal Image](static/images/readme-images/review-modal-image.png)
 </details><br />
 
   * ### Hours & Location
 
-      * Text 1
-      * Text 2<br /><br />
+      * Informing the user where the restaurant is located is extremely important, therefore I decided to have clean, decisive information regarding the whereabouts of Cafe Manbo.
+      * Integrated Google Maps so the user can visually see the location.
+      * The address, location and phone number used are completely made up for security purposes.
+      <br /><br />
 
-<details><summary><b>Feature Image</b></summary>
+<details><summary><b>Hours & Location Image</b></summary>
 
-![Image]()
+![Hours & Location Image](static/images/readme-images/hours-location-image.png)
 </details><br />
 
   * ### Footer
