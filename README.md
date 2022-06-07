@@ -150,12 +150,19 @@ As mentioned above, the website for Cafe Manbo has been designed to be a fully e
 
   * ### Dynamic Reviews 
 
-      * Text 1
-      * Text 2<br /><br />
+      * Reviews from other guests can be the deciding factor when it comes to new guests deciding whether to dine at the restaurant, therefore I had decided that being able to display dynamic reviews to the user was important and worth the development time.
+      * 4 Reviews will be displayed at random given that they have been approved and verified by a member of staff.
+      * Each review is housed in it's own card, showing the guests name, the star rating the guest selected, the first 80 characters (including spaces) of their review and then a Read More button.
+      * Clicking the Read More button will trigger a modal that will show the user the full review <br /><br />
 
-<details><summary><b>Feature Image</b></summary>
+<details><summary><b>Review Cards Image</b></summary>
 
-![Image]()
+![Image](static/images/readme-images/review-image.png)
+</details><br />
+
+<details><summary><b>Review Modal Image</b></summary>
+
+![Image](static/images/readme-images/review-modal-image.png)
 </details><br />
 
   * ### Hours & Location
