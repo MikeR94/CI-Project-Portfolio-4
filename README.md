@@ -179,12 +179,16 @@ As mentioned above, the website for Cafe Manbo has been designed to be a fully e
 
   * ### Footer
 
-      * Text 1
-      * Text 2<br /><br />
+      * A simplistic yet elegant design, used to naturally end the page and provide the user with some quick links so they can navigate the website faster if they wish to. <br /><br />
 
-<details><summary><b>Feature Image</b></summary>
+<details><summary><b>Footer Image</b></summary>
 
-![Image]()
+![Footer Image](static/images/readme-images/footer-image.png)
+</details><br />
+
+<details><summary><b>Footer Responsive Image</b></summary>
+
+![Footer Responsive Image](static/images/readme-images/footer-responsive-image.png)
 </details><br />
 
   * ### Our Menu
