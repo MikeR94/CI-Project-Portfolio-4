@@ -113,24 +113,39 @@ As mentioned above, the website for Cafe Manbo has been designed to be a fully e
 
 
 ## Existing Features For Site User
-  * ### Home Page
-
-      * Text 1
-      * Text 2<br /><br />
-
-<details><summary><b>Feature Image</b></summary>
-
-![Image](static/images/readme-videos/home-preview.mp4)
-</details><br />
 
   * ### Responsive Navigation Bar
 
-      * Text 1
-      * Text 2<br /><br />
+      * The navigation bar is an extremely important and integral part of any website so I decided to spend a lot of time trying to make one that is very user friendly that would promote a positive emotional response for the user.
+      * Using a mixture of both CSS, JavaScript and Bootstrap, I've created a dynamic, responsive and animated navigation bar.
+      * Upon initial visit, the entire navigation bar will be transparent but upon scrolling 350px, the navigation bar will then apply a dark background. The dark background will also be applied when the navigation bar becomes responsive.
+      * I decided to create 2 navigation bars for the main website. navbar.html is the home page navbar which is transparent at first then transitions to dark after 350px and navbar_2.html is a non-transparent navbar which is used for all subsequent pages
+      * If a user has not logged in then the navigation bar will show the 'Account' option. After they have signed in, it will then display their username. To mitigate any responsive design issues, I have decided to slice the first 10 characters of their name and display that to the user.
+      * When the navigation bar hits the breakpoint, it will then collapse into a hamburger which I have made animate into a red cross when clicked.  <br /><br />
 
-<details><summary><b>Feature Image</b></summary>
+<details><summary><b>Transparent Navigation Bar</b></summary>
 
-![Image]()
+![Transparent Navigation Bar](static/images/readme-images/navbar-transparent-image.png)
+</details><br />
+
+<details><summary><b>Navigation Bar Transition 350px</b></summary>
+
+![Navigation Bar Transition 350px](static/images/readme-images/navbar-transition-image.png)
+</details><br />
+
+<details><summary><b>Navigation Bar Transition Code</b></summary>
+
+![Navigation Bar Transition Code](static/images/readme-images/navbar-transition-code-image.png)
+</details><br />
+
+<details><summary><b>Navigation Bar Responsive Image</b></summary>
+
+![Navigation Bar Responsive Image](static/images/readme-images/navbar-responsive-image.png)
+</details><br />
+
+<details><summary><b>Navigation Bar Responsive Dropdown Image</b></summary>
+
+![Navigation Bar Responsive Dropdown Image](static/images/readme-images/navbar-responsive-dropdown-image.png)
 </details><br />
 
   * ### Dynamic Reviews 
