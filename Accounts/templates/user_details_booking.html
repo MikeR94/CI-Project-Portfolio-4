@@ -52,7 +52,7 @@
         <td data-label="Date">{{ booking.date_of_visit }}</td>
         <td data-label="Time">{{ booking.time_of_visit }}</td>
         <td data-label="Guests">{{ booking.number_of_guests }}</td>
-        <td data-label="Booking Status">{% if booking.guest_attended == True %} <span class="green-text">Booking Attended</span> <i class="fas fa-check green-text"></i> {% elif booking.booking_denied == True %} <span class="red-text">Booking Denied</span> <i class="fas fa-exclamation red-text"></i> {% elif booking.booking_approved == True %} <span class="green-text">Booking Approved</span> <i class="fas fa-check green-text"></i> {% else %} <span class="text-warning">Awaiting Approval</span> <i class="fas fa-exclamation text-warning"></i> {% endif %}</td>
+        <td data-label="Booking Status">{% if booking.guest_attended == True %} <span class="green-text">Booking Attended</span> <i class="fas fa-check green-text"></i> {% elif booking.booking_denied == True %} <span class="red-text">Booking Denied</span> <i class="fas fa-exclamation red-text"></i>  {% elif booking.guest_no_show == True %} <span class="red-text">Booking Not Attended</span> <i class="fas fa-exclamation red-text"></i> {% elif booking.booking_approved == True %} <span class="green-text">Booking Approved</span> <i class="fas fa-check green-text"></i> {% else %} <span class="text-warning">Awaiting Approval</span> <i class="fas fa-exclamation text-warning"></i> {% endif %}</td>
         <td data-label="Email">{{ booking.email }}</td>
         <td data-label="Contact">{{ booking.contact_number }}</td>
         <td data-label="Account">{{ booking.user.username }}</td>
@@ -64,14 +64,14 @@
       </tr>
     </tbody>
   </table>
-  {% if booking.guest_attended == False %}
+  {% if booking.guest_attended == False and booking.guest_no_show == False %}
   <div class="d-sm-flex d-block">
     <br>
     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop2">Edit</button>
     <button type="button" class="btn btn-danger ms-3" data-bs-toggle="modal" data-bs-target="#staticBackdrop_{{ booking.id }}">Cancel</button>
   </div> 
       {% else %}
-      <p>You can't edit or cancel this booking since you have attended</p>
+      <p>You can't edit or cancel this booking since this booking has been completed</p>
       {% endif %}
       <!-- Cancel Booking Modal -->
       <div

@@ -11,18 +11,26 @@ from django.contrib import messages
 def show_user_reservations(request):
     if request.user.is_authenticated:
         booking = Booking.objects.filter(
-            user=request.user, guest_attended=False
+            user=request.user, guest_attended=False, guest_no_show=False
         )
         completed_booking = Booking.objects.filter(
-            user=request.user, guest_attended=True
+            user=request.user, guest_attended=True, guest_no_show=False,
         )
+        no_show_booking = Booking.objects.filter(
+            user=request.user, guest_no_show=True, guest_attended=False
+        )
+        no_show_booking_count = Booking.objects.filter(
+            user=request.user, guest_no_show=True
+        ).count()
         completed_booking_count = Booking.objects.filter(
             user=request.user, guest_attended=True
         ).count()
+        total_completed_booking_count = int(no_show_booking_count) + int(completed_booking_count)
         context = {
             "booking": booking,
+            "no_show_booking": no_show_booking,
             "completed_booking": completed_booking,
-            "completed_booking_count": completed_booking_count,
+            "completed_booking_count": total_completed_booking_count,
         }
         return render(request, "user_reservations.html", context)
     return HttpResponseRedirect("/")
