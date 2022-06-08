@@ -588,6 +588,9 @@ table th {
   .btn {
     font-size: 10px;
     width: 80px !important;
+  }
 
+  .nav-item a {
+    font-size: 13px;
   }
 }
