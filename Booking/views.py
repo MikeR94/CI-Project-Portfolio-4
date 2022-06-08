@@ -1,7 +1,7 @@
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
-from Booking.models import Booking
-from Booking.forms import BookingForm
+from booking.models import Booking
+from booking.forms import BookingForm
 
 # Create your views here.
 

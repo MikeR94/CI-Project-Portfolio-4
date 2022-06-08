@@ -1,8 +1,8 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from Booking.forms import BookingForm
-from Booking.models import Booking
+from booking.forms import BookingForm
+from booking.models import Booking
 from django.http import HttpResponseRedirect
-from Staff.models import Payment
+from staff.models import Payment
 from django.contrib import messages
 
 # Create your views here.

@@ -1,8 +1,8 @@
 from django.db import models
 from datetime import datetime
-from Accounts.models import User
+from accounts.models import User
 from django.core.validators import BaseValidator
-from Booking.utils import create_new_ref_number, validate_date
+from booking.utils import create_new_ref_number, validate_date
 from decimal import Decimal
 
 # Create your models here.
@@ -32,6 +32,7 @@ class Booking(models.Model):
     )
     time_of_visit = models.TimeField(
         choices=(
+            (datetime.strptime("09:00 am", "%I:%M %p").time(), "09:00"),
             (datetime.strptime("07:00 am", "%I:%M %p").time(), "07:00"),
             (datetime.strptime("10:00 am", "%I:%M %p").time(), "10:00"),
             (datetime.strptime("10:30 am", "%I:%M %p").time(), "10:30"),

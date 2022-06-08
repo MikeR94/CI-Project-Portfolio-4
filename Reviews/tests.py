@@ -1,10 +1,10 @@
 from django.http import HttpRequest
 from django.test import TestCase
 from django.urls import reverse, resolve
-from Accounts.models import User
-from Reviews.forms import ReviewForm
-from Reviews.models import Review
-from Reviews.views import create_review
+from accounts.models import User
+from reviews.forms import ReviewForm
+from reviews.models import Review
+from reviews.views import create_review
 
 
 class TestUrls(TestCase):

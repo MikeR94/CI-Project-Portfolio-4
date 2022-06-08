@@ -1,12 +1,12 @@
 from django.test import TestCase
 from django.urls import reverse, resolve
-from Accounts.views import (
+from accounts.views import (
     show_user_reservations,
     user_cancel_booking,
     user_details_booking,
 )
-from Accounts.models import User
-from Booking.models import Booking
+from accounts.models import User
+from booking.models import Booking
 
 
 class TestUrls(TestCase):

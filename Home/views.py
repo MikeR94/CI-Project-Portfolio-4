@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from Reviews.models import Review
+from reviews.models import Review
 
 # Create your views here.
 

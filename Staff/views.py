@@ -1,11 +1,11 @@
 from django.shortcuts import get_object_or_404, render, redirect
-from Booking.models import Booking
-from Reviews.models import Review
-from Staff.models import Payment
-from Accounts.models import User
+from booking.models import Booking
+from reviews.models import Review
+from staff.models import Payment
+from accounts.models import User
 from django.utils import timezone
 from . import forms
-from Booking.forms import BookingForm
+from booking.forms import BookingForm
 from django.http import HttpResponseRedirect
 from django.core.mail import EmailMessage
 from django.conf import settings
@@ -13,7 +13,7 @@ from django.template.loader import render_to_string
 from django.db.models import Sum
 from datetime import date
 from django.contrib import messages
-from Staff.utils import (
+from staff.utils import (
     jan_start,
     jan_end,
     feb_start,

@@ -1,6 +1,6 @@
 from django.db import models
-from Accounts.models import User
-from Reviews.utils import validate_not_spaces
+from accounts.models import User
+from reviews.utils import validate_not_spaces
 from django.core.validators import MinLengthValidator
 
 # Create your models here.

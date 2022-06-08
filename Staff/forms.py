@@ -1,5 +1,5 @@
 from django import forms
-from Staff.models import Payment
+from staff.models import Payment
 
 
 class PaymentForm(forms.ModelForm):

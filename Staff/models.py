@@ -1,5 +1,5 @@
 from django.db import models
-from Booking.models import Booking
+from booking.models import Booking
 from django.core.validators import BaseValidator
 from decimal import Decimal
 

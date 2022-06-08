@@ -1,8 +1,8 @@
 from django import forms
-from Booking.models import Booking
+from booking.models import Booking
 from datetime import date
 from django.utils import timezone
-from Booking.utils import sunday
+from booking.utils import sunday
 
 
 class DateInput(forms.DateInput):

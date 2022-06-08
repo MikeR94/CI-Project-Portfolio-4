@@ -1,6 +1,6 @@
 from django.test import TestCase
 from django.urls import reverse, resolve
-from Home.views import gallery, index
+from home.views import gallery, index
 
 
 class TestUrls(TestCase):

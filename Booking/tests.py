@@ -1,10 +1,10 @@
 from django.http import HttpRequest
 from django.test import TestCase
 from django.urls import reverse, resolve
-from Accounts.models import User
-from Booking.models import Booking
-from Booking.views import book_now
-from Booking.forms import BookingForm
+from accounts.models import User
+from booking.models import Booking
+from booking.views import book_now
+from booking.forms import BookingForm
 
 
 class TestUrls(TestCase):

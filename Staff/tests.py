@@ -1,10 +1,10 @@
 from django.urls import reverse, resolve
 from django.test import TestCase
-from Accounts.models import User
-from Booking.models import Booking
-from Reviews.models import Review
-from Staff.models import Payment
-from Staff.views import (
+from accounts.models import User
+from booking.models import Booking
+from reviews.models import Review
+from staff.models import Payment
+from staff.views import (
     staff_all_bookings,
     staff_all_reviews,
     staff_approve_booking,
