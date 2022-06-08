@@ -1,1 +1,1 @@
-web: gunicorn cafe_manbo.wsgi
+web: gunicorn Cafe_Manbo.wsgi
