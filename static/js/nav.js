@@ -3,7 +3,7 @@ let bgColor = document.getElementsByClassName('dropdown-menu')
 
 
 window.addEventListener('scroll', function () {
-  if (window.pageYOffset > 350) {
+  if (window.pageYOffset > 50) {
     nav.classList.add('bg-dark', 'shadow');
     for (let i = 0; i < bgColor.length; i++) {
       bgColor[i].style.backgroundColor = '#212529';
