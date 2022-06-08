@@ -33,7 +33,7 @@ def show_user_reservations(request):
             "completed_booking_count": total_completed_booking_count,
         }
         return render(request, "user_reservations.html", context)
-    return HttpResponseRedirect("/")
+    return HttpResponseRedirect("accounts/login")
 
 
 def user_details_booking(request, booking_id):
