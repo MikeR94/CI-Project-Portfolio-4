@@ -81,6 +81,7 @@ body {
 
 .btn {
   width: 100px !important;
+  font-size: 14px !important;
 }
 
 .golden-text {
@@ -582,5 +583,11 @@ table th {
 
   .title-text {
     font-size: 25px;
+  }
+
+  .btn {
+    font-size: 10px;
+    width: 80px !important;
+
   }
 }
