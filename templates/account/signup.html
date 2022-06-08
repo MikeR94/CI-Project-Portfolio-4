@@ -2,21 +2,15 @@
 {% load crispy_forms_tags %}
 <div class="container p-5 page-space">
   <div class="row">
-    <div class="col-xl-6 col-sm-12 d-flex align-items-center justify-content-center">
+    <div class="col-sm-12 d-flex align-items-center justify-content-center">
       <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
         <h3 class="title-text">{% trans "Sign Up" %}</h3>
-        <p>{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
         {% csrf_token %} {{ form|crispy }} {% if redirect_field_value %}
         <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
         {% endif %}
-        <button type="submit" class="black-button">{% trans "Sign Up" %}</button>
+        <p class="mt-4">{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
+        <button type="submit" class="black-button mt-3">{% trans "Sign Up" %}</button>
       </form>
-    </div>
-    <div class="col-xl-6 d-none d-xl-flex align-items-center">
-      <p>
-        Create an account with us and you will be able to easily manage your bookings, create reviews and more. You could also receive a 10% discount on your
-        next visit!
-      </p>
     </div>
   </div>
 </div>
