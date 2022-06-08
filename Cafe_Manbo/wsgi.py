@@ -1,5 +1,5 @@
 """
-WSGI config for Cafe_Manbo project.
+WSGI config for cafe_manbo project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'Cafe_Manbo.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'cafe_manbo.settings')
 
 application = get_wsgi_application()
