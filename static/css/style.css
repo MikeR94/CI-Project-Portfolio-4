@@ -11,16 +11,18 @@ body {
 .hero-button {
   width: 210px;
   height: 55px;
-  background-color: #212529;
+  background-color: white;
   border: none;
-  color: white;
-  font-size: 18px;
+  color: black;
+  font-size: 22px;
+  font-weight: bold;
   border-radius: 8px;
 }
 
 .hero-button:hover {
   background-color: #9c8300;
   transition: 300ms;
+  color: white;
 }
 
 .black-button {
