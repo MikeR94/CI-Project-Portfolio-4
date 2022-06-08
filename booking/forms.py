@@ -56,8 +56,6 @@ class BookingForm(forms.ModelForm):
         today = date.today()
         time = datetime.now().time()
 
-        print(time)
-        print(time_of_visit)
 
         for x in sunday:
             if x == str(date_of_visit):
