@@ -8,8 +8,8 @@ def create_new_ref_number():
 
 
 def validate_date(date):
-    if date < timezone.now():
-        raise forms.ValidationError("Date cannot be in the past")
+    if date < timezone.now().date():
+        raise forms.ValidationError("You can't book in the past")
 
 
 sunday = [

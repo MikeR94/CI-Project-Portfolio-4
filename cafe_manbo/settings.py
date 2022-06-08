@@ -104,7 +104,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'cafe_manbo.wsgi.application'
 
-
+TIME_ZONE = 'Europe/London'
 USE_TZ = True
 
 MESSAGE_TAGS = {
