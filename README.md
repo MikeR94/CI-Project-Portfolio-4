@@ -17,9 +17,25 @@ You can view the live site here - <a href="https://cafe-manbo.herokuapp.com/" ta
     *  [Typography](<#typography>)
     *  [Colour Scheme](<#colour-scheme>)
     * [Project Management](<#project-management>)
-* [**Features**](<#features>)
-    * [Feature 1](<#feature-1>)
-    * [Feature 2](<#feature-2>)
+* [**Existing Features (Site User)**](<#existing-features-for-site-user>)
+    * [Site Navigation Bar](<#site-responsive-navigation-bar>)
+    * [Dynamic Reviews](<#dynamic-reviews>)
+    * [Hours & Location](<#hours-and-location>)
+    * [Footer](<#footer>)
+    * [Our Menu](<#our-menu>)
+    * [Gallery](<#gallery>)
+    * [Book Now](<#book-now>)
+    * [My Reservations](<#my-reservations>)
+    * [Account Creation](<#account-creation>)
+    * [Write A Review](<#write-a-review>)
+* [**Existing Existing Features (Staff Member)**](<#existing-features-for-staff-member>)
+    * [Staff Dashboard](<#staff-dashboard>)
+    * [Staff Navigation Bar](<#staff-responsive-navigation-bar>)
+    * [Bookings](<#bookings>)
+    * [Check In](<#check-in>)
+    * [Payments](<#payments>)
+    * [Reviews](<#reviews>)
+    * [Staff Help](<#staff-help>)
 * [**Future Features**](<#future-features>)
     * [Future Feature 1](<#future-feature-1>)
     * [Future Feature 2](<#future-feature-2>)
@@ -114,7 +130,7 @@ As mentioned above, the website for Cafe Manbo has been designed to be a fully e
 
 ## Existing Features For Site User
 
-  * ### Responsive Navigation Bar
+  * ### Site Responsive Navigation Bar
 
       * The navigation bar is an extremely important and integral part of any website so I decided to spend a lot of time trying to make one that is very user friendly that would promote a positive emotional response for the user.
       * Using a mixture of both CSS, JavaScript and Bootstrap, I've created a dynamic, responsive and animated navigation bar.
@@ -165,16 +181,16 @@ As mentioned above, the website for Cafe Manbo has been designed to be a fully e
 ![Review Modal Image](static/images/readme-images/review-modal-image.png)
 </details><br />
 
-  * ### Hours & Location
+  * ### Hours and Location
 
       * Informing the user where the restaurant is located is extremely important, therefore I decided to have clean, decisive information regarding the whereabouts of Cafe Manbo.
       * Integrated Google Maps so the user can visually see the location.
       * The address, location and phone number used are completely made up for security purposes.
       <br /><br />
 
-<details><summary><b>Hours & Location Image</b></summary>
+<details><summary><b>Hours and Location Image</b></summary>
 
-![Hours & Location Image](static/images/readme-images/hours-location-image.png)
+![Hours and Location Image](static/images/readme-images/hours-location-image.png)
 </details><br />
 
   * ### Footer
@@ -335,7 +351,7 @@ As mentioned above, the website for Cafe Manbo has been designed to be a fully e
 </details><br />
 
 
-## Existing Features For Site Staff Member
+## Existing Features For Staff Member
 
   * ### Staff Dashboard
 
@@ -369,7 +385,7 @@ As mentioned above, the website for Cafe Manbo has been designed to be a fully e
 ![Staff Dashboard Quick Statistics Image](static/images/readme-images/staff-dashboard-quick-statistic-image.png)
 </details><br />
 
-  * ### Responsive Navigation Bar
+  * ### Staff Responsive Navigation Bar
 
       * The navigation bar for the staff dashboard is positioned on the left hand side to give an administrative feel to this part of the website.
       * 7 available links for a staff member to click. Home, Dashboard, Bookings, Check In, Payments, Reviews and Staff Help <br /><br />
