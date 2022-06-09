@@ -437,12 +437,20 @@ As mentioned above, the website for Cafe Manbo has been designed to be a fully e
 
   * ### Check In
 
-      * Text 1
-      * Text 2<br /><br />
+      * This is the second part of the booking flow system. After a staff member has approved a booking, the booking will then be displayed here if the booking in question is on todays date. For example if a booking is made and approved for 15/05/2022, that booking will only be displayed on the check in page on 15/05/2022. This is done to aid staff members when it comes to checking guests in.
+      * If a staff member checks a guest in, the booking will then be removed from the check in page and then it will be sent to the third and final stage of the booking flow system which is the payments page.
+      * If a staff member marks a guest as no show then the booking will not be sent to the payments stage.
+      * Additionally, if a staff member is too busy and doesn't "no-show" a guest because they didn't turn up, the following day when the staff member clicks the 'Check In' link on the navigation bar, the system will send an automatic email out to the guest informing them that they did not show up.
+      * An email will be sent out to the guest for both 'Check In' and 'No Show'. This is sent out for security measures.<br /><br />
 
-<details><summary><b>Feature Image</b></summary>
+<details><summary><b>Staff Check In Image</b></summary>
 
-![Image]()
+![Staff Check In Image](static/images/readme-images/staff-check-in-image.png)
+</details><br />
+
+<details><summary><b>Staff Check In Responsive Image</b></summary>
+
+![Staff Check In Responsive Image](static/images/readme-images/staff-check-in-responsive-image.png)
 </details><br />
 
   * ### Payments
