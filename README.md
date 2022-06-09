@@ -300,8 +300,7 @@ As mentioned above, the website for Cafe Manbo has been designed to be a fully e
 
   * ### Account Creation
 
-      * To enable users to be able to create an account on the website, I used a brilliant package called [Django AllAuth](https://django-allauth.readthedocs.io/en/latest/installation.html) and then customised the html pages to fit the theme of the website.
-      * <br /><br />
+      * To enable users to be able to create an account on the website, I used a brilliant package called [Django AllAuth](https://django-allauth.readthedocs.io/en/latest/installation.html) and then customised the html pages to fit the theme of the website. <br /><br />
 
 <details><summary><b>Signup Image</b></summary>
 
