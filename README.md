@@ -455,12 +455,35 @@ As mentioned above, the website for Cafe Manbo has been designed to be a fully e
 
   * ### Payments
 
-      * Text 1
-      * Text 2<br /><br />
+      * This is the third and final part of the booking flow system. After a staff member has checked the booking in, the booking will then be displayed here.
+      * When the staff member clicks the yellow Payment button, it will then render a new page which will display additional information about that booking along with 2 input fields where a staff member can submit payment information.
+      * To prevent staff members submitting payments that have not been settled, I have included some simple form validation that will check if the amount paid is equal or more than the amount owed. 
+      * When a staff member has successfully submitted payment details for that booking, the payment form will be removed and the details page will be updated.
+      * This is then the end of the booking flow system however a staff member will still be able to access this booking through the Bookings > All Bookings page <br /><br />
 
-<details><summary><b>Feature Image</b></summary>
+<details><summary><b>Staff Payment Image</b></summary>
 
-![Image]()
+![Staff Payment Image](static/images/readme-images/staff-payment-image.png)
+</details><br />
+
+<details><summary><b>Staff Payment Responsive Image</b></summary>
+
+![Staff Payment Responsive Image](static/images/readme-images/staff-payment-responsive-image.png)
+</details><br />
+
+<details><summary><b>Staff Payment Details Image</b></summary>
+
+![Staff Payment Details Image](static/images/readme-images/staff-payment-details-image.png)
+</details><br />
+
+<details><summary><b>Staff Payment Details Submitted Image</b></summary>
+
+![Staff Payment Details Submitted Image](static/images/readme-images/staff-payment-details-submitted-image.png)
+</details><br />
+
+<details><summary><b>Staff Payment Validation Image</b></summary>
+
+![Staff Payment Validation Image](static/images/readme-images/staff-payment-validation-image.png)
 </details><br />
 
   * ### Reviews
