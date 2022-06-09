@@ -127,6 +127,14 @@ As mentioned above, the website for Cafe Manbo has been designed to be a fully e
 
 ![Trello Image](static/images/readme-images/trello-image.png)
 
+## Database 
+
+* ### Table Plus
+    To aid myself when needing to work with the database, I downloaded an external program called [TablePlus](https://tableplus.com/) which allows me to access and manipulate the project databases very easily and quickly. This vastly increased development time as I could change the values in the database and see the effect that it would have on the website.
+
+![TablePlus Image](static/images/readme-images/tableplus-image.png)
+
+
 
 ## Existing Features For Site User
 
