@@ -301,21 +301,38 @@ As mentioned above, the website for Cafe Manbo has been designed to be a fully e
   * ### Account Creation
 
       * To enable users to be able to create an account on the website, I used a brilliant package called [Django AllAuth](https://django-allauth.readthedocs.io/en/latest/installation.html) and then customised the html pages to fit the theme of the website.
-      * Text 2<br /><br />
+      * <br /><br />
 
-<details><summary><b>Feature Image</b></summary>
+<details><summary><b>Signup Image</b></summary>
 
-![Image]()
+![Signup Image](static/images/readme-images/signup-image.png)
+</details><br />
+
+<details><summary><b>Login Image</b></summary>
+
+![Login Image](static/images/readme-images/login-image.png)
+</details><br />
+
+<details><summary><b>Password Reset Image</b></summary>
+
+![Password Reset Image](static/images/readme-images/password-reset-image.png)
 </details><br />
 
   * ### Write A Review
 
-      * Text 1
-      * Text 2<br /><br />
+      * If a user has logged in, they are able to submit a review for the restaurant.
+      * This review then has to be approved by a member of staff before it gets rendered on the home page for other users to view.
+      * Standard form validation applies to all fields with the additional form validation on the body field asking the user to submit a review that is at least 80 characters long. This is done for two reasons, firstly it helps with the presentation of the preview cards and secondly, it can can prevent users submitting very small reviews that don't give a very insightful look at what it's like to dine at Cafe Manbo.
+      * When a user has successfully submitted a review, they will be presented with a thank you page, thanking the user for their review and also provide them with a preview of how their review will look like on the home page if their review is approved by a member of staff. <br /><br />
 
-<details><summary><b>Feature Image</b></summary>
+<details><summary><b>Write A Review Image</b></summary>
 
-![Image]()
+![Write A Review Image](static/images/readme-images/write-review-image.png)
+</details><br />
+
+<details><summary><b>Review Submitted Image</b></summary>
+
+![Review Submitted Image](static/images/readme-images/review-submitted-image.png)
 </details><br />
 
 
