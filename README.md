@@ -554,8 +554,11 @@ As mentioned above, the website for Cafe Manbo has been designed to be a fully e
     * Text.
 
 # Technologies Used
+* [Django](https://www.djangoproject.com/) - A model-view-template framework used to create Cafe Manbo
+* [Bootstrap](https://getbootstrap.com/) - A CSS framework used to aid in front-end development 
 * [HTML5](https://en.wikipedia.org/wiki/HTML) - Provides the content and structure for the website.
 * [CSS3](https://en.wikipedia.org/wiki/CSS) - Provides the styling for the website.
+* [JavaScript](https://en.wikipedia.org/wiki/JavaScript) - Provides interactive elements of the website
 * [Python](https://en.wikipedia.org/wiki/Python_(programming_language)) - Provides the functionality of the website.
 * [a11y](https://color.a11y.com/Contrast/) - Used to test the contrast and accessibility.
 * [Favicon](https://favicon.io/) - Used to create the favicon.
@@ -567,8 +570,18 @@ As mentioned above, the website for Cafe Manbo has been designed to be a fully e
 * [Google Chrome DevTools](https://developer.chrome.com/docs/devtools/) - Used to test responsiveness and debug.
 * [Responsive Design Checker](https://www.responsivedesignchecker.com/) - Used to test responsiveness.
 * [Balsamiq](https://balsamiq.com/) - Used to create the wire-frame.
-* [Draw.io](https://marketplace.visualstudio.com/items?itemName=hediet.vscode-drawio) - Used to create the logic flow chart.
 * [Trello](https://trello.com/en-GB) - Used as a project management tool to organise my work flow.
+* [Canva](https://www.canva.com/) - Used to design the menu.
+* [Cloudinary](https://cloudinary.com/) - Used to host all static files .
+* [ChartJS](https://www.chartjs.org/) - Used to present data in a bar and pie chart.
+* [DataTables](https://datatables.net/) - Used to provide extra functionality for All Bookings.
+* [TablePlus](https://tableplus.com/) - Used to view databases in a clean, simple way.
+* [Heroku](https://dashboard.heroku.com) - Used to deploy the website
+* [PEP8 Validation](http://pep8online.com/) - Used to validate Python code
+* [HTML Validation](https://validator.w3.org/) - Used to validate HTML code
+* [CSS Validation](https://jigsaw.w3.org/css-validator/) - Used to validate CSS code
+* [JSHint Validation](https://jshint.com/) - Used to validate JavaScript code
+* [Virutal Environment](https://docs.python.org/3/library/venv.html) - Used to create a virtual environment
 
 # Python Packages
 
