@@ -503,12 +503,26 @@ As mentioned above, the website for Cafe Manbo has been designed to be a fully e
 
   * ### Staff Help
 
-      * Text 1
-      * Text 2<br /><br />
+      * This is a simple link that will pop a modal up which is aimed to help and aid the staff member when navigating the staff dashboard.<br /><br />
 
-<details><summary><b>Feature Image</b></summary>
+<details><summary><b>Staff Help Booking Modal Image</b></summary>
 
-![Image]()
+![Staff Help Booking Modal Image](static/images/readme-images/staff-help-booking-image.png)
+</details><br />
+
+<details><summary><b>Staff Help Check In Modal Image</b></summary>
+
+![Staff Help Check In Modal Image](static/images/readme-images/staff-help-booking-image.png)
+</details><br />
+
+<details><summary><b>Staff Help Payment Modal Image</b></summary>
+
+![Staff Help Payment Modal Image](static/images/readme-images/staff-help-payment-image.png)
+</details><br />
+
+<details><summary><b>Staff Help Review Modal Image</b></summary>
+
+![Staff Help Review Modal Image](static/images/readme-images/staff-help-review-image.png)
 </details><br />
 
 [Back to top](<#contents>)
