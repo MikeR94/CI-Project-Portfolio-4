@@ -14,7 +14,9 @@ def show_user_reservations(request):
             user=request.user, guest_attended=False, guest_no_show=False
         )
         completed_booking = Booking.objects.filter(
-            user=request.user, guest_attended=True, guest_no_show=False,
+            user=request.user,
+            guest_attended=True,
+            guest_no_show=False,
         )
         no_show_booking = Booking.objects.filter(
             user=request.user, guest_no_show=True, guest_attended=False
@@ -25,7 +27,9 @@ def show_user_reservations(request):
         completed_booking_count = Booking.objects.filter(
             user=request.user, guest_attended=True
         ).count()
-        total_completed_booking_count = int(no_show_booking_count) + int(completed_booking_count)
+        total_completed_booking_count = int(no_show_booking_count) + int(
+            completed_booking_count
+        )
         context = {
             "booking": booking,
             "no_show_booking": no_show_booking,
@@ -49,10 +53,10 @@ def user_details_booking(request, booking_id):
             check_payment = None
         payment = check_payment
         context = {
-                "booking": booking_data,
-                "form": form,
-                "payment": payment,
-            }
+            "booking": booking_data,
+            "form": form,
+            "payment": payment,
+        }
     else:
         return HttpResponseRedirect("/")
     if request.method == "POST":
@@ -65,16 +69,16 @@ def user_details_booking(request, booking_id):
                 date_of_visit=instance.date_of_visit,
                 number_of_guests=instance.number_of_guests,
                 email=instance.email,
-                contact_number = instance.contact_number,
+                contact_number=instance.contact_number,
                 additional_info=instance.additional_info,
-                disabled_access=instance.disabled_access
+                disabled_access=instance.disabled_access,
             ).exists():
                 messages.add_message(
                     request,
                     messages.ERROR,
-                    f"Duplicate Booking - There seems to be this booking already in the calendar.",
+                    f"Duplicate Booking - Booking already in the calendar.",
                 )
-                
+
                 return HttpResponseRedirect(next)
             instance.save()
             for item in booking:
@@ -92,7 +96,7 @@ def user_details_booking(request, booking_id):
         messages.add_message(
             request,
             messages.ERROR,
-            f"There seems to be an error updating the booking, please try again.",
+            f"Error updating the booking, please try again.",
         )
     return render(request, "user_details_booking.html", context)
 

@@ -27,8 +27,7 @@ def book_now(request):
                 date_of_visit=instance.date_of_visit,
             ).exists():
                 return render(
-                    request, "book_double_error.html", double_context
-                )
+                    request, "book_double_error.html", double_context)
             if request.user.is_authenticated:
                 instance.user = request.user
                 instance.save()

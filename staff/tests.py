@@ -116,8 +116,7 @@ class TestUrls(TestCase):
     def test_staff_approve_review_url_is_resolved(self):
 
         self.user = User.objects.create_user(
-            username="admin", is_staff=True, id="50"
-        )
+            username="admin", is_staff=True, id="50")
         self.client.force_login(self.user)
 
         Review.objects.create(
@@ -125,7 +124,12 @@ class TestUrls(TestCase):
             user_id="50",
             first_name="Mike",
             last_name="Ralph",
-            body="Do yourself a favour and visit this lovely restaurant in Wakefield. The service is unmatched. The staff truly cares about your experience. The food is absolutely amazing – everything we tasted melted in other mouths. Absolutely the best meal we had while in Wakefield. Highly recommend!",
+            body="""Do yourself a favour and visit this lovely restaurant
+            in Wakefield. The service is unmatched. The staff truly
+            cares about your experience. The food is absolutely amazing
+            – everything we tasted melted in other mouths.
+            Absolutely the best meal we had while in Wakefield.
+            Highly recommend!""",
             stars="5 Star",
         )
 
@@ -138,8 +142,7 @@ class TestUrls(TestCase):
     def test_staff_deny_review_url_is_resolved(self):
 
         self.user = User.objects.create_user(
-            username="admin", is_staff=True, id="50"
-        )
+            username="admin", is_staff=True, id="50")
         self.client.force_login(self.user)
 
         Review.objects.create(

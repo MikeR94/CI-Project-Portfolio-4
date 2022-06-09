@@ -11,19 +11,54 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
-        ('booking', '0001_initial'),
+        ("booking", "0001_initial"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Payment',
+            name="Payment",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('amount_owed', models.DecimalField(decimal_places=2, max_digits=6, validators=[staff.models.MinValueValidator(Decimal('0.01'))])),
-                ('amount_paid', models.DecimalField(decimal_places=2, max_digits=6, validators=[staff.models.MinValueValidator(Decimal('0.01'))])),
-                ('amount_tipped', models.DecimalField(blank=True, decimal_places=2, max_digits=6)),
-                ('total_income', models.DecimalField(blank=True, decimal_places=2, max_digits=6)),
-                ('booking', models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, to='booking.booking')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "amount_owed",
+                    models.DecimalField(
+                        decimal_places=2,
+                        max_digits=6,
+                        validators=[staff.models.MinValueValidator(Decimal("0.01"))],
+                    ),
+                ),
+                (
+                    "amount_paid",
+                    models.DecimalField(
+                        decimal_places=2,
+                        max_digits=6,
+                        validators=[staff.models.MinValueValidator(Decimal("0.01"))],
+                    ),
+                ),
+                (
+                    "amount_tipped",
+                    models.DecimalField(blank=True, decimal_places=2, max_digits=6),
+                ),
+                (
+                    "total_income",
+                    models.DecimalField(blank=True, decimal_places=2, max_digits=6),
+                ),
+                (
+                    "booking",
+                    models.ForeignKey(
+                        null=True,
+                        on_delete=django.db.models.deletion.SET_NULL,
+                        to="booking.booking",
+                    ),
+                ),
             ],
         ),
     ]

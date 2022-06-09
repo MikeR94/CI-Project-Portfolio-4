@@ -234,7 +234,9 @@ def staff_dashboard(request):
         star2 = star2count * 2
         star1 = star1count * 1
         try:
-            average_star_rating = (star5 + star4 + star3 + star2 + star1) / total_review_count
+            average_star_rating = (
+                star5 + star4 + star3 + star2 + star1
+            ) / total_review_count
         except ZeroDivisionError:
             average_star_rating = 0
         try:
@@ -380,7 +382,8 @@ def staff_approve_booking(request, booking_id):
             messages.add_message(
                 request,
                 messages.SUCCESS,
-                f"Booking ref {object.ref_number} has been approved and an email has been sent.",
+                f"""Booking ref {object.ref_number}
+                has been approved and an email has been sent.""",
             )
         return HttpResponseRedirect(next)
     else:
@@ -407,7 +410,8 @@ def staff_deny_booking(request, booking_id):
             messages.add_message(
                 request,
                 messages.ERROR,
-                f"Booking ref {object.ref_number} has been declined and an email has been sent.",
+                f"""Booking ref {object.ref_number}
+                has been declined and an email has been sent.""",
             )
         return HttpResponseRedirect(next)
     else:
@@ -562,7 +566,8 @@ def staff_check_in(request, booking_id):
         messages.add_message(
             request,
             messages.SUCCESS,
-            f"Booking ref {item.ref_number} has been checked in and an email has been sent.",
+            f"""Booking ref {item.ref_number}
+            has been checked in and an email has been sent.""",
         )
         return HttpResponseRedirect(next)
     else:
@@ -579,7 +584,8 @@ def staff_no_show(request, booking_id):
         messages.add_message(
             request,
             messages.ERROR,
-            f"Booking ref {item.ref_number} has been marked as not attending and an email has been sent.",
+            f"""Booking ref {item.ref_number}
+            has been marked as not attending and an email has been sent.""",
         )
         return HttpResponseRedirect(next)
     else:
@@ -681,16 +687,16 @@ def staff_details_booking(request, booking_id):
                 date_of_visit=instance.date_of_visit,
                 number_of_guests=instance.number_of_guests,
                 email=instance.email,
-                contact_number = instance.contact_number,
+                contact_number=instance.contact_number,
                 additional_info=instance.additional_info,
-                disabled_access=instance.disabled_access
+                disabled_access=instance.disabled_access,
             ).exists():
                 messages.add_message(
                     request,
                     messages.ERROR,
-                    f"Duplicate Booking - There seems to be this booking already in the calendar.",
+                    f"Duplicate Booking - Booking already in the calendar.",
                 )
-                
+
                 return HttpResponseRedirect(next)
             instance.save()
             for item in data:
@@ -708,7 +714,7 @@ def staff_details_booking(request, booking_id):
         messages.add_message(
             request,
             messages.ERROR,
-            f"There seems to be an error updating the booking, please try again.",
+            f"Error updating the booking, please try again.",
         )
     return render(request, "staff_details_booking.html", context)
 

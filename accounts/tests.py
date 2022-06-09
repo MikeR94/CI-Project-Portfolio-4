@@ -49,7 +49,6 @@ class TestUrls(TestCase):
         self.assertEquals(resolve(url).func, user_details_booking)
         self.assertTemplateUsed(response, "user_details_booking.html")
 
-
     def test_user_details_booking_cancel_url_is_resolved(self):
         response = self.client.get("/user-details-booking/cancel/50")
         self.assertEqual(response.status_code, 302)

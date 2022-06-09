@@ -21,7 +21,9 @@ class ReviewForm(forms.ModelForm):
                     "title": "Please enter characters only",
                 }
             ),
-            "stars": forms.Select(attrs={
+            "stars": forms.Select(
+                attrs={
                     "class": "form-control",
-                })
+                }
+            ),
         }

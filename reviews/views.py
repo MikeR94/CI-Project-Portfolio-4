@@ -17,8 +17,6 @@ def create_review(request):
             instance = form.save(commit=False)
             instance.user = request.user
             instance.save()
-            double_context = {
-                "review": instance
-            }
+            double_context = {"review": instance}
             return render(request, "review_submitted.html", double_context)
     return render(request, "create_review.html", context)

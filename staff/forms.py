@@ -24,12 +24,16 @@ class PaymentForm(forms.ModelForm):
         if amount_paid < amount_owed:
             self._errors["amount_paid"] = self.error_class(
                 [
-                    "This bill has not been settled. Please settle this bill before submitting payment information"
+                    """This bill has not been settled.
+                    Please settle this bill before submitting payment
+                    information"""
                 ]
             )
             self._errors["amount_owed"] = self.error_class(
                 [
-                    "This bill has not been settled. Please settle this bill before submitting payment information"
+                    """This bill has not been settled.
+                    Please settle this bill before submitting payment
+                    information"""
                 ]
             )
             del self.cleaned_data["amount_paid"]

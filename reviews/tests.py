@@ -72,7 +72,12 @@ class TestForms(TestCase):
                 "first_name": "Mike",
                 "last_name": "Ralph",
                 "stars": "5 Star",
-                "body": "When we think about celebrations, Cafe Manbo is always our first option, and it never disappoints. From the starter to the dessert the quality and tastes of everything was outstanding, my meal might have been the best meal I have ever been served. Service was delightful and very professional. 10/10.",
+                "body": """When we think about celebrations, Cafe Manbo
+                is always our first option, and it never disappoints.
+                From the starter to the dessert the quality and tastes
+                of everything was outstanding, my meal might have been
+                the best meal I have ever been served. Service was delightful
+                and very professional. 10/10.""",
             }
         )
         self.assertIn("first_name", form.fields)
@@ -85,7 +90,12 @@ class TestForms(TestCase):
             "first_name": "Mike",
             "last_name": "Ralph",
             "stars": "5 Star",
-            "body": "When we think about celebrations, Cafe Manbo is always our first option, and it never disappoints. From the starter to the dessert the quality and tastes of everything was outstanding, my meal might have been the best meal I have ever been served. Service was delightful and very professional. 10/10.",
+            "body": """When we think about celebrations, Cafe Manbo
+            is always our first option, and it never disappoints.
+            From the starter to the dessert the quality and tastes
+            of everything was outstanding, my meal might have been
+            the best meal I have ever been served. Service was delightful
+            and very professional. 10/10.""",
         }
         test_form = ReviewForm(request.POST)
         self.assertTrue(test_form.is_valid())

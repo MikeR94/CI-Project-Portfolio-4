@@ -28,8 +28,7 @@ class Payment(models.Model):
         validators=[MinValueValidator(Decimal("0.01"))],
     )
     amount_tipped = models.DecimalField(
-        max_digits=6, decimal_places=2, blank=True
-    )
+        max_digits=6, decimal_places=2, blank=True)
     total_income = models.DecimalField(
         max_digits=6, decimal_places=2, null=False, blank=True
     )

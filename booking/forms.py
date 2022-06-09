@@ -1,7 +1,6 @@
 from django import forms
 from booking.models import Booking
 from datetime import date, datetime
-from django.utils import timezone
 from booking.utils import sunday
 
 
@@ -55,7 +54,6 @@ class BookingForm(forms.ModelForm):
         date_of_visit = cleaned_data.get("date_of_visit")
         today = date.today()
         time = datetime.now().time()
-
 
         for x in sunday:
             if x == str(date_of_visit):
