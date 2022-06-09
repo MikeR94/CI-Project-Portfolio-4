@@ -372,12 +372,27 @@ As mentioned above, the website for Cafe Manbo has been designed to be a fully e
 
   * ### Responsive Navigation Bar
 
-      * Text 1
-      * Text 2<br /><br />
+      * The navigation bar for the staff dashboard is positioned on the left hand side to give an administrative feel to this part of the website.
+      * 7 available links for a staff member to click. Home, Dashboard, Bookings, Check In, Payments, Reviews and Staff Help <br /><br />
+        * <strong>Home</strong> - <i>Returns the staff member back to the home page of the main website</i>
+        * <strong>Dashboard</strong> - <i>Loads the staff dashboard page</i>
+        * <strong>Bookings</strong> - <i>Loads the bookings page</i>
+        * <strong>Check In</strong> - <i>Loads the check in page</i>
+        * <strong>Payments</strong> - <i>Loads the payments page</i>
+        * <strong>Reviews</strong> - <i>Loads the reviews page</i>
+        * <strong>Staff Help</strong> - <i>Loads a modal to aid staff members</i><br /><br />
+    
+    * Bookings, Check In, Payments and Reviews have a red notification number that will be rendered to the side of the link if there is any form of information that is required for a staff member to deal with. For example, if there is a new booking that has come in from a guest, the Booking link will show a (1) next to it informing the staff member that there is a booking that requires attention.
 
-<details><summary><b>Feature Image</b></summary>
 
-![Image]()
+<details><summary><b>Staff Navigation Bar Image</b></summary>
+
+![Staff Navigation Bar Image](static/images/readme-images/staff-navbar-image.png)
+</details><br />
+
+<details><summary><b>Staff Navigation Bar Responsive Image</b></summary>
+
+![Staff Navigation Bar Responsive Image](static/images/readme-images/staff-navbar-responsive-image.png)
 </details><br />
 
   * ### Bookings
