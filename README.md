@@ -129,6 +129,11 @@ As mentioned above, the website for Cafe Manbo has been designed to be a fully e
 
 ## Database 
 
+* ### Database Schema
+    Text Here
+
+![Dataabse Schema Image](static/images/readme-images/database-schema-image.png)
+
 * ### Table Plus
     To aid myself when needing to work with the database, I downloaded an external program called [TablePlus](https://tableplus.com/) which allows me to access and manipulate the project databases very easily and quickly. This vastly increased development time as I could change the values in the database and see the effect that it would have on the website.
 
