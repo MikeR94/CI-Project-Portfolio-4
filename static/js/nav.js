@@ -1,5 +1,5 @@
 let nav = document.querySelector('nav');
-let bgColor = document.getElementsByClassName('dropdown-menu')
+let bgColor = document.getElementsByClassName('dropdown-menu');
 
 
 window.addEventListener('scroll', function () {

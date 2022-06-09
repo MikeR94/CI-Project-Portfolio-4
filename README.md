@@ -603,7 +603,7 @@ As mentioned above, the website for Cafe Manbo has been designed to be a fully e
 
 * ## Code Validation
 
-    * Cafe Manbo has been validated by using online validation tools [W3C HTML Validator](https://validator.w3.org/), [W3C CSS Validator](https://jigsaw.w3.org/css-validator/) and the [PEP8 Online Validator](http://pep8online.com/). I encountered many PEP8 errors and warnings however these have now been fixed and documented below. 
+    * Cafe Manbo has been validated by using online validation tools [W3C HTML Validator](https://validator.w3.org/), [W3C CSS Validator](https://jigsaw.w3.org/css-validator/), [JSHint JavaScript Validator](https://jshint.com/) and the [PEP8 Online Validator](http://pep8online.com/).
 
 * ### HTML Validation Image
 
@@ -612,6 +612,16 @@ As mentioned above, the website for Cafe Manbo has been designed to be a fully e
 * ### CSS Validation Image
 
     ![CSS Validation](static/images/readme-images/css-validation-image.png)
+
+* ### JSHint map.js Image
+
+    ![JavaScript Validation](static/images/readme-images/jshint-map-js-image.png)
+
+    * The JavaScript code for map.js was taken from the Code Institute Resume Project which shows students how to integrate google maps on a website.
+
+* ### JSHint nav.js Image
+
+    ![JavaScript Validation](static/images/readme-images/jshint-nav-js-image.png)
 
 * ### PEP8 Validation Image (run.py)
 
