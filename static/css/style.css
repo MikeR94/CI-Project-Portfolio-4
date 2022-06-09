@@ -245,6 +245,13 @@ body {
   background-color: white;
 }
 
+/* Info Card Section */
+
+.info-card-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
 /* Our Menu Section */
 
 .our-menu-image img {
@@ -371,6 +378,11 @@ table th {
 
 .golden-icon {
   color: #9c8300;
+}
+
+.food-hygiene-label {
+  width: 250px;
+  height: 126px;
 }
 
 /* Django Forms Styling */
@@ -558,6 +570,11 @@ table th {
   .nav-spacing {
     height: 61px;
   }
+
+  .food-hygiene-label {
+    width: 150px;
+    height: 75px;
+  }
 }
 
 @media screen and (max-width: 290px) {
@@ -592,5 +609,9 @@ table th {
 
   .nav-item a {
     font-size: 13px;
+  }
+
+  .food-hygiene-label {
+    display: none;
   }
 }

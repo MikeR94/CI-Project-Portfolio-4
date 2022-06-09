@@ -654,7 +654,7 @@ As mentioned above, the website for Cafe Manbo has been designed to be a fully e
 * ## Accessibility Testing
     * I also put the website through [a11y](https://color.a11y.com/Contrast/) to further test the contrast and found no issues. <br /><br />
 
-    ![a11y Test]()
+    ![a11y Test](static/images/readme-images/a11y-contrast-image.png)
 
 * ## Responsiveness Testing
     * I conducted responsive tests manually with [Google Chrome DevTools](https://developer.chrome.com/docs/devtools/) and [Responsive Design Checker](https://www.responsivedesignchecker.com/).<br /><br />
