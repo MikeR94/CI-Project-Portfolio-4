@@ -637,19 +637,19 @@ As mentioned above, the website for Cafe Manbo has been designed to be a fully e
 
 * ### Edge Desktop Lighthouse Result
 
-    ![Edge Desktop Lighthouse]()
+    ![Edge Desktop Lighthouse](static/images/readme-images/edge-desktop-lighthouse-image.png)
 
 * ### Edge Mobile Lighthouse Result
 
-    ![Edge Mobile Lighthouse]()
+    ![Edge Mobile Lighthouse](static/images/readme-images/edge-mobile-lighthouse-image.png)
 
 * ### Chrome Desktop Lighthouse Result
 
-    ![Chrome Desktop Lighthouse]()
+    ![Chrome Desktop Lighthouse](static/images/readme-images/chrome-desktop-lighthouse-image.png)
 
 * ### Chrome Mobile Lighthouse Result
 
-    ![Chrome Mobile Lighthouse]()
+    ![Chrome Mobile Lighthouse](static/images/readme-images/chrome-mobile-lighthouse-image.png)
 
 * ## Accessibility Testing
     * I also put the website through [a11y](https://color.a11y.com/Contrast/) to further test the contrast and found no issues. <br /><br />
