@@ -659,13 +659,18 @@ As mentioned above, the website for Cafe Manbo has been designed to be a fully e
 * ## Responsiveness Testing
     * I conducted responsive tests manually with [Google Chrome DevTools](https://developer.chrome.com/docs/devtools/) and [Responsive Design Checker](https://www.responsivedesignchecker.com/).<br /><br />
 
-    ![Responsive Test Sheet]()
+    ![Responsive Test Sheet](static/images/readme-images/responsive-check-image.png)
+
+
+    ![Responsive Test Sheet](static/images/readme-images/mobile-responsive-check-image.png)
 
 
 * ## Compressing Images
-    * All images that are displayed within the website have been compressed with [Compressor](https://compressor.io/) and I managed to save a total of XXX KB.<br /><br />
+    * All images that are displayed within the website have been compressed with [Compressor](https://compressor.io/) and I managed to save a total of 12.82 MB.<br /><br />
 
-    ![Compressed Image 1])
+    ![Compressed Image 1](static/images/readme-images/compressed-image-1.png)
+
+    ![Compressed Image 2](static/images/readme-images/compressed-image-2.png)
 
 * ## Manual Testing
     * In addition to the other tests, I have conducted a manual check list for myself to carry out to make sure that everything is working as intended.
