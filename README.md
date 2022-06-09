@@ -488,12 +488,17 @@ As mentioned above, the website for Cafe Manbo has been designed to be a fully e
 
   * ### Reviews
 
-      * Text 1
-      * Text 2<br /><br />
+      * This is the section which will present all reviews that have been submitted by guests. 
+      * Upon clicking the Reviews link on the navigation bar, the reviews that have not yet been actioned by a staff member will be presented here. At the top of the page is a link that will take the staff member to a page that will render all reviews. Here they can reset a review which will send it back to pending so they can either re-approve or re-deny the review.<br /><br />
 
-<details><summary><b>Feature Image</b></summary>
+<details><summary><b>Staff Reviews Image</b></summary>
 
-![Image]()
+![Staff Reviews Image](static/images/readme-images/staff-reviews-image.png)
+</details><br />
+
+<details><summary><b>Staff All Reviews Image</b></summary>
+
+![Staff All Reviews Image](static/images/readme-images/staff-all-reviews-image.png)
 </details><br />
 
   * ### Staff Help
