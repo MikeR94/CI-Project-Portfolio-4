@@ -236,13 +236,13 @@ def staff_dashboard(request):
         try:
             average_star_rating = (star5 + star4 + star3 + star2 + star1) / total_review_count
         except ZeroDivisionError:
-            average_star_rating = 50
+            average_star_rating = 0
         try:
             average_per_guest = int(
                 0 if income_count is None else income_count
             ) / int(0 if total_guests is None else total_guests)
         except ZeroDivisionError:
-            average_per_guest = 50
+            average_per_guest = 0
         context = {
             "jan_guests": jan_guests,
             "feb_guests": feb_guests,
