@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.sites',
+    'django_extensions',
     'cloudinary_storage',
     'django.contrib.staticfiles',
     'cloudinary',
@@ -64,6 +65,18 @@ INSTALLED_APPS = [
     'crispy_forms',
     'crispy_bootstrap5',
 ]
+
+GRAPH_MODELS = {
+    'all_applications': True,
+    'group_models': True,
+    "app_labels": [
+        "home",
+        "accounts",
+        "booking",
+        "staff",
+        "reviews",
+    ]
+}
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 
