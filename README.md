@@ -340,12 +340,34 @@ As mentioned above, the website for Cafe Manbo has been designed to be a fully e
 
   * ### Staff Dashboard
 
-      * Text 1
-      * Text 2<br /><br />
+      * The staff dashboard was created to give staff members a visually appealing but more importantly, an insightful way of viewing statistical data about Cafe Manbo.
+      * 4 bootstrap cards are located at the top of the page giving information about Total Bookings, Total Guests, Total Reviews and Total Income. All this data is completely dynamic and is gathered from the database.
+      * I have used a brilliant piece of third-party software from [ChartJS](https://www.chartjs.org/) which allows me to display data in a visually appealing way such as a bar or pie chart. Using this software I am able to immediately display to staff members how many bookings and how many guests have attended given a 12 month period.
+      * To complete the staff dashboard, I have created a 'Quick Statistics' section which gives additional fast and basic information about Cafe Manbo. All the data is completely dynamic <br /><br />
 
-<details><summary><b>Feature Image</b></summary>
+<details><summary><b>Staff Dashboard Image</b></summary>
 
-![Image]()
+![Staff Dashboard Image](static/images/readme-images/staff-dashboard-image.png)
+</details><br />
+
+<details><summary><b>Staff Dashboard Cards Image</b></summary>
+
+![Staff Dashboard Cards Image](static/images/readme-images/staff-dashboard-cards-image.png)
+</details><br />
+
+<details><summary><b>Staff Dashboard Bar Chart Image</b></summary>
+
+![Staff Dashboard Bar Chart Image](static/images/readme-images/staff-dashboard-bar-chart-image.png)
+</details><br />
+
+<details><summary><b>Staff Dashboard Pie Chart Image</b></summary>
+
+![Staff Dashboard Pie Chart Image](static/images/readme-images/staff-dashboard-pie-chart-image.png)
+</details><br />
+
+<details><summary><b>Staff Dashboard Quick Statistics Image</b></summary>
+
+![Staff Dashboard Quick Statistics Image](static/images/readme-images/staff-dashboard-quick-statistic-image.png)
 </details><br />
 
   * ### Responsive Navigation Bar
