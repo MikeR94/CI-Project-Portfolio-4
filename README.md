@@ -607,11 +607,11 @@ As mentioned above, the website for Cafe Manbo has been designed to be a fully e
 
 * ### HTML Validation Image
 
-    ![HTML Validation]()
+    ![HTML Validation](static/images/readme-images/html-validation-image.png)
 
 * ### CSS Validation Image
 
-    ![CSS Validation]()
+    ![CSS Validation](static/images/readme-images/css-validation-image.png)
 
 * ### PEP8 Validation Image (run.py)
 
