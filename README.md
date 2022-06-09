@@ -585,10 +585,16 @@ As mentioned above, the website for Cafe Manbo has been designed to be a fully e
 
 # Python Packages
 
-* [Random](https://docs.python.org/3/library/random.html) - Used to implement pseudo-random number generators.
-* [Datetime](https://docs.python.org/3/library/datetime.html) - Used to manipulate dates and times.
-* [OS](https://docs.python.org/3/library/os.html) - Used to provide a way of using operating system dependent functionality.
-* [Time](https://docs.python.org/3/library/time.html) - Used to provide various time-related functions.
+* [asgiref](https://pypi.org/project/asgiref/) - ASGI is a standard for Python asynchronous web apps and servers to communicate with each other.
+* [autopep8](https://pypi.org/project/autopep8/) - Automatically formats Python code to conform to the PEP 8 style guide.
+* [black](https://pypi.org/project/black/) - Black makes code review faster by producing the smallest diffs possible.
+* [certifi](https://pypi.org/project/certifi/) - Certifi provides Mozilla’s carefully curated collection of Root Certificates for validating the trustworthiness of SSL certificates while verifying the identity of TLS hosts.
+* [cffi](https://pypi.org/project/cffi/) - Foreign Function Interface for Python calling C code.
+* [charset-normalizer](https://pypi.org/project/charset-normalizer/) - A library that helps you read text from an unknown charset encoding.
+* [click](https://pypi.org/project/click/) - It aims to make the process of writing command line tools quick
+* [cloudinary](https://pypi.org/project/cloudinary/) - Cloudinary is a cloud service that offers a solution to a web application’s entire image management pipeline.
+* [colorama](https://pypi.org/project/colorama/) - Makes ANSI escape character sequences
+
 
 
 [Back to top](<#contents>)
