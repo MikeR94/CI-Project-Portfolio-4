@@ -382,8 +382,7 @@ As mentioned above, the website for Cafe Manbo has been designed to be a fully e
         * <strong>Reviews</strong> - <i>Loads the reviews page</i>
         * <strong>Staff Help</strong> - <i>Loads a modal to aid staff members</i><br /><br />
     
-    * Bookings, Check In, Payments and Reviews have a red notification number that will be rendered to the side of the link if there is any form of information that is required for a staff member to deal with. For example, if there is a new booking that has come in from a guest, the Booking link will show a (1) next to it informing the staff member that there is a booking that requires attention.
-
+    * Bookings, Check In, Payments and Reviews have a red notification number that will be rendered to the side of the link if there is any form of information that is required for a staff member to deal with. For example, if there is a new booking that has come in from a guest, the Booking link will show a (1) next to it informing the staff member that there is a booking that requires attention.<br /><br />
 
 <details><summary><b>Staff Navigation Bar Image</b></summary>
 
@@ -397,12 +396,43 @@ As mentioned above, the website for Cafe Manbo has been designed to be a fully e
 
   * ### Bookings
 
-      * Text 1
-      * Text 2<br /><br />
+      * This is the first part of the booking flow system. When a guest makes a booking, it will then be displayed here for a staff member to either approve or deny. When a staff member has approved or denied a booking, it will be removed from this page and a flash message will appear giving the staff member additional feedback that their action has been submitted
+      * A staff member can click the "All bookings View Here" which will render a new page which utilises [DataTables](https://datatables.net/). I've decided to use Data Tables to help with presentation and aid staff members in locating specific bookings. If and when the restaurant has hundreds, even thousands of bookings, a staff member can use the search feature to quickly identify and navigate to that booking.
+      * I have integrated automatic email sending which will send an email to the users booking email informing them that their booking has either been approved or denied.   <br /><br />
 
-<details><summary><b>Feature Image</b></summary>
+<details><summary><b>Staff Bookings Image</b></summary>
 
-![Image]()
+![Staff Bookings Image](static/images/readme-images/staff-bookings-image.png)
+</details><br />
+
+<details><summary><b>Staff Bookings Responsive Image</b></summary>
+
+![Staff Bookings Responsive Image](static/images/readme-images/staff-bookings-responsive-image.png)
+</details><br />
+
+<details><summary><b>Staff All Bookings Image</b></summary>
+
+![Staff All Bookings Image](static/images/readme-images/staff-all-bookings-image.png)
+</details><br />
+
+<details><summary><b>Staff All Bookings Responsive Image</b></summary>
+
+![Staff All Bookings Responsive Image](static/images/readme-images/staff-all-bookings-responsive-image.png)
+</details><br />
+
+<details><summary><b>Staff Details Booking Image</b></summary>
+
+![Staff Details Bookings Image](static/images/readme-images/staff-details-booking.png)
+</details><br />
+
+<details><summary><b>Staff Bookings Approved Flash Image</b></summary>
+
+![Staff Bookings Approved Flash Image](static/images/readme-images/staff-booking-approved-flash-image.png)
+</details><br />
+
+<details><summary><b>Staff Bookings Denied Flash Image</b></summary>
+
+![Staff Bookings Denied Flash Image](static/images/readme-images/staff-booking-denied-flash-image.png)
 </details><br />
 
   * ### Check In
