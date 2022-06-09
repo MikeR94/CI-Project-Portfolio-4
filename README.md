@@ -445,12 +445,12 @@ As mentioned above, the website for Cafe Manbo has been designed to be a fully e
 
 <details><summary><b>Staff Check In Image</b></summary>
 
-![Staff Check In Image](static/images/readme-images/staff-check-in-image.png)
+![Staff Check In Image](static/images/readme-images/staff-check-in-responsive-image.png)
 </details><br />
 
 <details><summary><b>Staff Check In Responsive Image</b></summary>
 
-![Staff Check In Responsive Image](static/images/readme-images/staff-check-in-responsive-image.png)
+![Staff Check In Responsive Image](static/images/readme-images/staff-check-in-image.png)
 </details><br />
 
   * ### Payments
