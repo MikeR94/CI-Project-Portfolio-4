@@ -3,6 +3,7 @@ from django.test import TestCase
 from accounts.models import User
 from booking.models import Booking
 from reviews.models import Review
+from staff.forms import PaymentForm
 from staff.models import Payment
 from staff.views import (
     staff_all_bookings,
@@ -116,7 +117,8 @@ class TestUrls(TestCase):
     def test_staff_approve_review_url_is_resolved(self):
 
         self.user = User.objects.create_user(
-            username="admin", is_staff=True, id="50")
+            username="admin", is_staff=True, id="50"
+        )
         self.client.force_login(self.user)
 
         Review.objects.create(
@@ -142,7 +144,8 @@ class TestUrls(TestCase):
     def test_staff_deny_review_url_is_resolved(self):
 
         self.user = User.objects.create_user(
-            username="admin", is_staff=True, id="50")
+            username="admin", is_staff=True, id="50"
+        )
         self.client.force_login(self.user)
 
         Review.objects.create(
@@ -361,3 +364,43 @@ class TestModels(TestCase):
         self.assertEquals(payment.amount_paid, 220)
         self.assertEquals(payment.amount_tipped, 20)
         self.assertEquals(payment.total_income, 220)
+
+
+class TestForms(TestCase):
+    def test_payment_form_is_accepting_correct_values(self):
+        """
+        Testing payment form is accepting correct values
+        """
+
+        form = PaymentForm(
+            data={
+                "amount_owed": "120",
+                "amount_paid": "140",
+            }
+        )
+        self.assertTrue(form.is_valid())
+
+    def test_payment_form_is_not_accepting_incorrect_values(self):
+        """
+        Testing payment form is not accepting incorrect values
+        """
+
+        form = PaymentForm(
+            data={
+                "amount_owed": "120",
+                "amount_paid": "110",
+            }
+        )
+        self.assertFalse(form.is_valid())
+        self.assertEqual(
+            form.errors["amount_owed"][0],
+            """This bill has not been settled.
+                    Please settle this bill before submitting payment
+                    information""",
+        )
+        self.assertEqual(
+            form.errors["amount_paid"][0],
+            """This bill has not been settled.
+                    Please settle this bill before submitting payment
+                    information""",
+        )
