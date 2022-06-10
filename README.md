@@ -712,18 +712,17 @@ As mentioned above, the website for Cafe Manbo has been designed to be a fully e
 
 
 * ## Manual Testing
-    * In addition to the other tests, I have conducted a manual check list for myself to carry out to make sure that everything is working as intended.
+In addition to the other tests, I have conducted a manual check list for myself to carry out to make sure that everything is working as intended.
 
-   * ### Manual Tests Conducted
-      * **Manual Test 1**
-        * Verification step
-        * Verification step
-        * Verification step
-      * **Manual Test 2**
-        * Verification step
-        * Verification step
-        * Verification step
-        <br /><br />
+
+| Status | **Main Website**
+|:-------:|:--------|
+| &check; | Test 1
+
+| Status | **Staff Dashboard**
+|:-------:|:--------|
+| &check; | Test 1
+
 
 * ## Browser Compatibility
     * The website has had manual and responsive tests conducted on the below browsers with additional Lighthouse testing on Google Chrome and Microsoft Edge and I was presented with no issues.
