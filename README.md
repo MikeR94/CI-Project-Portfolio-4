@@ -701,6 +701,16 @@ As mentioned above, the website for Cafe Manbo has been designed to be a fully e
 
     ![Compressed Image 2](static/images/readme-images/compressed-image-2.png)
 
+* ## Automated Testing
+    * During this project I have found the benefit of automated testing to be extremely beneficial. Automated testing as highlighted many minor discrepancies that would have been missed had it not been highlighted when conducting automated testing.
+
+    * I currently have 34 individual tests which provide 90% coverage as shown in the below image.
+
+    ![Automated Tests Image](static/images/readme-images/automated-tests-image.png)
+
+    ![Coverage Report Image](static/images/readme-images/coverage-report-image.png)
+
+
 * ## Manual Testing
     * In addition to the other tests, I have conducted a manual check list for myself to carry out to make sure that everything is working as intended.
 
