@@ -36,6 +36,7 @@ You can view the live site here - <a href="https://cafe-manbo.herokuapp.com/" ta
     * [Payments](<#payments>)
     * [Reviews](<#reviews>)
     * [Staff Help](<#staff-help>)
+    * [Automatic Emails](<#automatic-email-sending>)
 * [**Future Features**](<#future-features>)
     * [Future Feature 1](<#future-feature-1>)
     * [Future Feature 2](<#future-feature-2>)
@@ -557,6 +558,16 @@ As mentioned above, the website for Cafe Manbo has been designed to be a fully e
 ![Staff Help Review Modal Image](static/images/readme-images/staff-help-review-image.png)
 </details><br />
 
+  * ### Automatic Email Sending
+
+      * I decided that integrating automatic email sending to users would be beneficial as it acts as a further form of confirmation for the user about the status of their booking. <br /><br />
+
+<details><summary><b>Staff Help Booking Modal Image</b></summary>
+
+![Staff Help Booking Modal Image](static/images/readme-images/staff-help-booking-image.png)
+</details><br />
+
+
 [Back to top](<#contents>)
 
 
@@ -834,7 +845,7 @@ The live link to the Github repository can be found here - https://github.com/Mi
 # Credits
 ### Content
 
-* Text
+* I used this brilliant tutorial by Denis Ivy on how to send emails with Django [YouTube](https://www.youtube.com/watch?v=1BaLWYUO1k4&t=290s&ab_channel=DennisIvy)
 
 ### Media
 * The photos were compressed using [Compressor](https://compressor.io/).

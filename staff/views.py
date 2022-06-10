@@ -11,7 +11,7 @@ from django.core.mail import EmailMessage
 from django.conf import settings
 from django.template.loader import render_to_string
 from django.db.models import Sum
-from datetime import date
+from datetime import date, datetime
 from django.contrib import messages
 from staff.utils import (
     jan_start,
@@ -366,12 +366,13 @@ def staff_approve_booking(request, booking_id):
     if request.user.is_staff:
         next = request.POST.get("next", "/")
         booking = Booking.objects.filter(id=booking_id)
+        users_email = get_object_or_404(Booking, id=booking_id)
         template = render_to_string("approved_email_template.html")
         email = EmailMessage(
             "Cafe Manbo - [BOOKING APPROVED]",
             template,
             settings.EMAIL_HOST_USER,
-            ["mikeyralph@hotmail.co.uk"],
+            [users_email.email],
         )
         email.fail_silently = False
         email.send()
@@ -394,12 +395,13 @@ def staff_deny_booking(request, booking_id):
     if request.user.is_staff:
         next = request.POST.get("next", "/")
         booking = Booking.objects.filter(id=booking_id)
+        users_email = get_object_or_404(Booking, id=booking_id)
         template = render_to_string("denied_email_template.html")
         email = EmailMessage(
             "Cafe Manbo - [BOOKING DENIED]",
             template,
             settings.EMAIL_HOST_USER,
-            ["mikeyralph@hotmail.co.uk"],
+            [users_email.email],
         )
         email.fail_silently = False
         email.send()
@@ -522,14 +524,14 @@ def staff_check_in_page(request):
             guest_attended=True, bill_settled=False
         ).count()
         for booking in Booking.objects.filter(no_show_email_sent=False):
-            if booking.date_of_visit < timezone.now().date():
+            if booking.date_of_visit < datetime.now().date():
                 booking.no_show_email_sent = True
                 template = render_to_string("no_show_email_template.html")
                 email = EmailMessage(
                     "Cafe Manbo - [NO SHOW]",
                     template,
                     settings.EMAIL_HOST_USER,
-                    ["mikeyralph@hotmail.co.uk"],
+                    [booking.email],
                 )
                 email.fail_silently = False
                 email.send()
@@ -551,12 +553,13 @@ def staff_check_in(request, booking_id):
     if request.user.is_staff:
         next = request.POST.get("next", "/")
         data = Booking.objects.filter(id=booking_id)
+        users_email = get_object_or_404(Booking, id=booking_id)
         template = render_to_string("checked_in_email_template.html")
         email = EmailMessage(
             "Cafe Manbo - [CHECKED IN]",
             template,
             settings.EMAIL_HOST_USER,
-            ["mikeyralph@hotmail.co.uk"],
+            [users_email.email],
         )
         email.fail_silently = False
         email.send()
