@@ -130,7 +130,7 @@ As mentioned above, the website for Cafe Manbo has been designed to be a fully e
 ## Database 
 
 * ### Database Schema
-    Text Here
+    To create the database schema, I used an excellent graph modelling tool [Graph Models](https://django-extensions.readthedocs.io/en/latest/graph_models.html) which shows the entire relationship between all models in the database. After following the steps required to install Graph Models, I then used [dreampuf](https://dreampuf.github.io/GraphvizOnline/) to present the data in a clear and professional way
 
 ![Dataabse Schema Image](static/images/readme-images/database-schema-image.png)
 
@@ -595,6 +595,8 @@ As mentioned above, the website for Cafe Manbo has been designed to be a fully e
 * [CSS Validation](https://jigsaw.w3.org/css-validator/) - Used to validate CSS code
 * [JSHint Validation](https://jshint.com/) - Used to validate JavaScript code
 * [Virutal Environment](https://docs.python.org/3/library/venv.html) - Used to create a virtual environment
+* [Graph Models](https://django-extensions.readthedocs.io/en/latest/graph_models.html) - Used to generate a .dot file for all apps and models
+* [dreampuf](https://dreampuf.github.io/GraphvizOnline/) - Used to present the .dot file in the form of a database diagram
 
 # Python Packages
 
