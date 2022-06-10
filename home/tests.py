@@ -19,3 +19,8 @@ class TestUrls(TestCase):
         url = reverse("gallery")
         self.assertEquals(resolve(url).func, gallery)
         self.assertTemplateUsed(response, "gallery.html")
+
+    def test_wrong_uri_returns_404(self):
+        response = self.client.get('/something/different/')
+        self.assertEqual(response.status_code, 404)
+        self.assertTemplateUsed(response, '404.html')
