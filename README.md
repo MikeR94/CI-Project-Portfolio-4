@@ -127,12 +127,17 @@ As mentioned above, the website for Cafe Manbo has been designed to be a fully e
 
 ![Trello Image](static/images/readme-images/trello-image.png)
 
+ * ### GitHub Project Board
+      Additionally to Trello, I utilised the GitHub project management tool to breakdown, organise and plan my user stories. I decided to do this to give me further experience when working within an Agile environment. Although this project was built entirely by myself, I can fully appreciate and understand the importance of using a tool like this as each ticket has the ability to have multiple users assigned, comments can be made, labels can be added and so much more. <br /><br />
+
+![GitHub Project Image](static/images/readme-images/github-project-image.png)
+
 ## Database 
 
 * ### Database Schema
-    To create the database schema, I used an excellent graph modelling tool [Graph Models](https://django-extensions.readthedocs.io/en/latest/graph_models.html) which shows the entire relationship between all models in the database. After following the steps required to install Graph Models, I then used [dreampuf](https://dreampuf.github.io/GraphvizOnline/) to present the data in a clear and professional way
+    To create the database schema, I used an excellent graph modelling tool [Graph Models](https://django-extensions.readthedocs.io/en/latest/graph_models.html) which shows the entire relationship between all models in the database. After following the steps required to install Graph Models, I then used [dreampuf](https://dreampuf.github.io/GraphvizOnline/) to present the data in a clear and professional way. <br /><br />
 
-![Dataabse Schema Image](static/images/readme-images/database-schema-image.png)
+![Database Schema Image](static/images/readme-images/database-schema-image.png)
 
 * ### Table Plus
     To aid myself when needing to work with the database, I downloaded an external program called [TablePlus](https://tableplus.com/) which allows me to access and manipulate the project databases very easily and quickly. This vastly increased development time as I could change the values in the database and see the effect that it would have on the website.
