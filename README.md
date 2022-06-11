@@ -752,9 +752,21 @@ As mentioned above, the website for Cafe Manbo has been designed to be a fully e
 In addition to the other tests, I have conducted a manual check list for myself to carry out to make sure that everything is working as intended.
 
 
-| Status | **Main Website**
+| Status | **Main Website - User Logged Out**
 |:-------:|:--------|
-| &check; | Test 1
+| &check; | Clicking the nav logo loads the home page
+| &check; | Clicking the Home button on the nav bar loads the home page
+| &check; | Clicking the Our Menu button on the nav bar loads the external menu PDF in a new window
+| &check; | Clicking the Gallery button on the nav bar loads the gallery page
+| &check; | Clicking the Book Now button on the nav bar loads the book now page
+
+| Status | **Main Website - User Logged In**
+|:-------:|:--------|
+| &check; | Clicking the nav logo loads the home page
+| &check; | Clicking the Home button on the nav bar loads the home page
+| &check; | Clicking the Our Menu button on the nav bar loads the external menu PDF in a new window
+| &check; | Clicking the Gallery button on the nav bar loads the gallery page
+| &check; | Clicking the Book Now button on the nav bar loads the book now page
 
 | Status | **Staff Dashboard**
 |:-------:|:--------|
