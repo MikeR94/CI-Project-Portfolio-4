@@ -34,9 +34,13 @@
           <a class="nav-link pt-2" href="{% url 'book_now' %}">Book Now</a>
         </li>
         <li class="nav-item dropdown bg-dark">
-          {% if request.user.is_authenticated %}
+          {% if request.user.is_authenticated and request.user.username|length > 10 %}
           <a class="nav-link dropdown-toggle pt-2" href="#" id="navbarDropdown" data-bs-toggle="dropdown" role="button" aria-expanded="false">
             {{ user.username|slice:10 }}...
+          </a>
+          {% elif request.user.is_authenticated and request.user.username|length < 10 %}
+          <a class="nav-link dropdown-toggle pt-2" href="#" id="navbarDropdown" data-bs-toggle="dropdown" role="button" aria-expanded="false">
+            {{ user.username|slice:10 }}
           </a>
           {% else %}
           <a class="nav-link dropdown-toggle pt-2" href="#" id="navbarDropdown" data-bs-toggle="dropdown" role="button" aria-expanded="false"> Account </a>
