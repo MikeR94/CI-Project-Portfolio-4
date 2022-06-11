@@ -560,11 +560,37 @@ As mentioned above, the website for Cafe Manbo has been designed to be a fully e
 
   * ### Automatic Email Sending
 
-      * I decided that integrating automatic email sending to users would be beneficial as it acts as a further form of confirmation for the user about the status of their booking. <br /><br />
+      * I decided that integrating automatic email sending to users would be beneficial as it acts as a further form of confirmation for the user about the status of their booking.
+      * I originally used [GMail](https://en.wikipedia.org/wiki/Gmail) as the email provider to send the emails however I encountered multiple '500 server errors'. These errors would be caused due to Google having a security measure that would prevent "less secure apps" from accessing the google account. There was an option that was available which allowed users to "Allow less secure apps" but this was removed May 30th 2022. Since then, I had looked into multiple different Email providers and after much configuration and consideration, I found that using [Outlook](https://en.wikipedia.org/wiki/Microsoft_Outlook) was best suited for my current requirements.  <br /><br />
 
-<details><summary><b>Staff Help Booking Modal Image</b></summary>
+<details><summary><b>Outlook Approved Image</b></summary>
 
-![Staff Help Booking Modal Image](static/images/readme-images/staff-help-booking-image.png)
+![Outlook Approved Image](static/images/readme-images/outlook-approved-image.png)
+</details><br />
+
+<details><summary><b>Outlook Denied Image</b></summary>
+
+![Outlook Denied Image](static/images/readme-images/outlook-denied-image.png)
+</details><br />
+
+<details><summary><b>Outlook Checked In Image</b></summary>
+
+![Outlook Checked In Image](static/images/readme-images/outlook-check-in-image.png)
+</details><br />
+
+<details><summary><b>Outlook No Show Image</b></summary>
+
+![Outlook No Show Image](static/images/readme-images/outlook-no-show-image.png)
+</details><br />
+
+<details><summary><b>Email Code Image</b></summary>
+
+![Email Code Image](static/images/readme-images/email-code-image.png)
+</details><br />
+
+<details><summary><b>Email Code Settings Image</b></summary>
+
+![Email Code Settings Image](static/images/readme-images/email-code-settings-image.png)
 </details><br />
 
 
