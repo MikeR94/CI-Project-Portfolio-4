@@ -2,10 +2,14 @@
 
 <section class="container page-space mt-5 pb-5">
   <table class="table table_id text-center">
+    <p class="p-2">Welcome to your reservations page, <strong>{{ user.username }}</strong>! Just so you are aware, the email address registered with your account is <strong>{{ user.email }}</strong>.</p>
+    <br>
+    <hr>
+    <br>
     <thead>
       {% if booking or completed_booking or no_show_booking %}
       <p class="mb-5">
-        Please see below a list of all your bookings with us. Click the blue 'Details' button if you wish to see further information about that particular
+        Please see below a list of all your bookings with us. Click the blue <strong>'Details'</strong> button if you wish to see further information about that particular
         booking
       </p>
       {% endif %} {% if booking %}
@@ -103,8 +107,8 @@
     </div>
   </div>
   {% endif %} {% if not booking and not completed_booking and not no_show_booking %}
-  <div class="row d-flex align-items-center justify-content-between p-5">
-    <div class="col-lg-6 col-12 text-center text-lg-start mt-5">
+  <div class="row d-flex align-items-center justify-content-between p-2">
+    <div class="col-lg-6 col-12 text-center text-lg-start mt-2">
       <p>It appears you don't have any bookings with us as of yet.</p>
       <p>We would be absolutely delighted to have you come down to visit us!</p>
       <p>Please click the button below and complete the booking form and we will look forward to seeing you.</p>
