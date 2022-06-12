@@ -38,7 +38,7 @@ You can view the live site here - <a href="https://cafe-manbo.herokuapp.com/" ta
     * [Staff Help](<#staff-help>)
     * [Automatic Emails](<#automatic-email-sending>)
 * [**Future Features**](<#future-features>)
-    * [Future Feature 1](<#future-feature-1>)
+    * [Improved Booking System](<#improved-booking-system>)
     * [Future Feature 2](<#future-feature-2>)
 * [**Technologies Used**](<#technologies-used>)
 * [**Python Packages**](<#python-packages>)
@@ -431,7 +431,7 @@ As mentioned above, the website for Cafe Manbo has been designed to be a fully e
 
       * This is the first part of the booking flow system. When a guest makes a booking, it will then be displayed here for a staff member to either approve or deny. When a staff member has approved or denied a booking, it will be removed from this page and a flash message will appear giving the staff member additional feedback that their action has been submitted
       * A staff member can click the "All bookings View Here" which will render a new page which utilises [DataTables](https://datatables.net/). I've decided to use Data Tables to help with presentation and aid staff members in locating specific bookings. If and when the restaurant has hundreds, even thousands of bookings, a staff member can use the search feature to quickly identify and navigate to that booking.
-      * I have integrated automatic email sending which will send an email to the users booking email informing them that their booking has either been approved or denied.   <br /><br />
+      * I have integrated automatic email sending which will send an email to the users booking email informing them that their booking has either been approved or denied. <br /><br />
 
 <details><summary><b>Staff Bookings Image</b></summary>
 
@@ -599,11 +599,11 @@ As mentioned above, the website for Cafe Manbo has been designed to be a fully e
 
 * ## Future Features 
 
-* ### Future Feature 1
+* ### Improved Booking System
 
-    * Text.
+    * The booking system does have good form validation and also a way that prevents double bookings, however I do believe that I could improve the system to perform more advanced criteria checking. For example, if a user books for 17:00 on 05/05/2022, they will not be able to book again for 17:00 on 05/02/2022 however they would be able to book again for a different time on that same day given it is a time in the future.
 
-* ### Future Feature 2
+* ### Future Feature 2 
 
     * Text.
 
@@ -686,7 +686,9 @@ All the libraries used for this project are located in the requirements.txt file
 * [tomli](https://pypi.org/project/tomli/) - Tomli is a Python library for parsing TOML.
 * [urllib3](https://pypi.org/project/urllib3/) - HTTP library with thread-safe connection pooling, file post, and more.
 
+
 [Back to top](<#contents>)
+
 
 # Testing
 

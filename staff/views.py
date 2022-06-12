@@ -42,7 +42,6 @@ from staff.utils import (
 
 # Create your views here.
 
-
 def staff_dashboard(request):
     if request.user.is_staff:
         today = date.today()
