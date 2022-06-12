@@ -3,7 +3,6 @@ from booking.models import Booking
 from reviews.models import Review
 from staff.models import Payment
 from accounts.models import User
-from django.utils import timezone
 from . import forms
 from booking.forms import BookingForm
 from django.http import HttpResponseRedirect
@@ -40,9 +39,12 @@ from staff.utils import (
     dec_end,
 )
 
-# Create your views here.
 
 def staff_dashboard(request):
+    """
+    Renders the staff dashboard with informative
+    data for staff members to view
+    """
     if request.user.is_staff:
         today = date.today()
         jan_guests = (
@@ -295,6 +297,11 @@ def staff_dashboard(request):
 
 
 def staff_pending_bookings(request):
+    """
+    Renders the pending bookings page for
+    staff members to approve or deny pending
+    bookings.
+    """
     if request.user.is_staff:
         today = date.today()
         pending_bookings_count = Booking.objects.filter(
@@ -329,6 +336,10 @@ def staff_pending_bookings(request):
 
 
 def staff_all_bookings(request):
+    """
+    Renders the all_bookings page which
+    utilises datatables for easier searching.
+    """
     if request.user.is_staff:
         today = date.today()
         pending_bookings_count = Booking.objects.filter(
@@ -362,6 +373,11 @@ def staff_all_bookings(request):
 
 
 def staff_approve_booking(request, booking_id):
+    """
+    Allows a staff member to approve a
+    booking and sends an email out to the
+    bookings email address
+    """
     if request.user.is_staff:
         next = request.POST.get("next", "/")
         booking = Booking.objects.filter(id=booking_id)
@@ -391,6 +407,11 @@ def staff_approve_booking(request, booking_id):
 
 
 def staff_deny_booking(request, booking_id):
+    """
+    Allows a staff member to deny a
+    booking and sends an email out to the
+    bookings email address
+    """
     if request.user.is_staff:
         next = request.POST.get("next", "/")
         booking = Booking.objects.filter(id=booking_id)
@@ -420,6 +441,9 @@ def staff_deny_booking(request, booking_id):
 
 
 def staff_cancel_booking(request, booking_id):
+    """
+    Deletes the booking from the database
+    """
     if request.user.is_staff:
         booking = get_object_or_404(Booking, id=booking_id)
         booking.delete()
@@ -429,6 +453,11 @@ def staff_cancel_booking(request, booking_id):
 
 
 def staff_pending_reviews(request):
+    """
+    Renders the pending reviews that
+    have been submitted by guests for
+    staff members to approve or deny
+    """
     if request.user.is_staff:
         today = date.today()
         pending_reviews_count = Review.objects.filter(
@@ -462,6 +491,9 @@ def staff_pending_reviews(request):
 
 
 def staff_all_reviews(request):
+    """
+    Renders all reviews that have been submitted
+    """
     if request.user.is_staff:
         today = date.today()
         pending_reviews_count = Review.objects.filter(
@@ -495,6 +527,11 @@ def staff_all_reviews(request):
 
 
 def staff_check_in_page(request):
+    """
+    Renders the check in page for staff
+    members to be able to see bookings for
+    the current day.
+    """
     if request.user.is_staff:
         today = date.today()
         pending_reviews_count = Review.objects.filter(
@@ -549,6 +586,11 @@ def staff_check_in_page(request):
 
 
 def staff_check_in(request, booking_id):
+    """
+    Checks a guest in and sends an
+    email out to the bookings email
+    address
+    """
     if request.user.is_staff:
         next = request.POST.get("next", "/")
         data = Booking.objects.filter(id=booking_id)
@@ -577,6 +619,11 @@ def staff_check_in(request, booking_id):
 
 
 def staff_no_show(request, booking_id):
+    """
+    Marks the guest down as not showing up
+    and sends an email out to the bookings
+    email address
+    """
     if request.user.is_staff:
         next = request.POST.get("next", "/")
         data = Booking.objects.filter(id=booking_id)
@@ -595,6 +642,9 @@ def staff_no_show(request, booking_id):
 
 
 def staff_approve_review(request, review_id):
+    """
+    Approves a pending review
+    """
     if request.user.is_staff:
         next = request.POST.get("next", "/")
         data = Review.objects.filter(id=review_id)
@@ -608,6 +658,9 @@ def staff_approve_review(request, review_id):
 
 
 def staff_deny_review(request, review_id):
+    """
+    Denies a pending review
+    """
     if request.user.is_staff:
         next = request.POST.get("next", "/")
         data = Review.objects.filter(id=review_id)
@@ -621,6 +674,11 @@ def staff_deny_review(request, review_id):
 
 
 def staff_reset_review(request, review_id):
+    """
+    Resets the state of a review. This has
+    been implemented incase a staff member
+    accidentally approves a negative review.
+    """
     if request.user.is_staff:
         next = request.POST.get("next", "/")
         data = Review.objects.filter(id=review_id)
@@ -634,6 +692,11 @@ def staff_reset_review(request, review_id):
 
 
 def staff_details_booking(request, booking_id):
+    """
+    Loads additional information about a booking
+    and handles functionality to edit that
+    booking
+    """
     if request.user.is_staff:
         today = date.today()
         next = request.POST.get("next", "/")
@@ -722,6 +785,9 @@ def staff_details_booking(request, booking_id):
 
 
 def staff_payment_page(request):
+    """
+    Renders the staff payment page
+    """
     if request.user.is_staff:
         today = date.today()
         booking = Booking.objects.filter(
@@ -761,6 +827,10 @@ def staff_payment_page(request):
 
 
 def staff_create_payment(request, booking_id):
+    """
+    Used to submit payment information about
+    a booking
+    """
     if request.user.is_staff:
         today = date.today()
         form = forms.PaymentForm(request.POST or None)
