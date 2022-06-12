@@ -639,7 +639,9 @@ As mentioned above, the website for Cafe Manbo has been designed to be a fully e
 * [Graph Models](https://django-extensions.readthedocs.io/en/latest/graph_models.html) - Used to generate a .dot file for all apps and models
 * [dreampuf](https://dreampuf.github.io/GraphvizOnline/) - Used to present the .dot file in the form of a database diagram
 
-# Python Packages
+# Libraries
+
+All the libraries used for this project are located in the requirements.txt file which has been created in a virtual environment. These libraries have been documented below.
 
 * [asgiref](https://pypi.org/project/asgiref/) - ASGI is a standard for Python asynchronous web apps and servers to communicate with each other.
 * [autopep8](https://pypi.org/project/autopep8/) - Automatically formats Python code to conform to the PEP 8 style guide.
@@ -650,8 +652,39 @@ As mentioned above, the website for Cafe Manbo has been designed to be a fully e
 * [click](https://pypi.org/project/click/) - It aims to make the process of writing command line tools quick
 * [cloudinary](https://pypi.org/project/cloudinary/) - Cloudinary is a cloud service that offers a solution to a web application’s entire image management pipeline.
 * [colorama](https://pypi.org/project/colorama/) - Makes ANSI escape character sequences
-
-
+* [coverage](https://pypi.org/project/coverage/) - Used to measure code coverage, typically during test execution.
+* [crispy-bootstrap-5](https://pypi.org/project/crispy-bootstrap5/) - Bootstrap5 template pack for django-crispy-forms.
+* [cryptography](https://pypi.org/project/cryptography/) - cryptography includes both high level recipes and low level interfaces to common cryptographic algorithms such as symmetric ciphers, message digests, and key derivation functions.
+* [defusedxml](https://pypi.org/project/defusedxml/) - Contains several Python-only workarounds and fixes for denial of service and other vulnerabilities in Python's XML libraries.
+* [dj3-cloudinary-storage](https://pypi.org/project/dj3-cloudinary-storage/) - Used to facilitate integration with Cloudinary by implementing Django Storage API. 
+* [Django](https://pypi.org/project/Django/) - Django is a high-level Python web framework that encourages rapid development and clean, pragmatic design.
+* [django-allauth](https://pypi.org/project/django-allauth/) - Integrated set of Django applications addressing authentication, registration, account management as well as 3rd party (social) account authentication.
+* [django-crispy-forms](https://pypi.org/project/django-crispy-forms/) - Used to integrate Django DRY forms.
+* [django-extensions](https://pypi.org/project/django-extensions/) - Django Extensions is a collection of custom extensions for the Django Framework. 
+* [django-phone-field](https://pypi.org/project/django-phone-field/) - Lightweight model and form field for phone numbers in Django.
+* [gunicorn](https://pypi.org/project/gunicorn/) - Gunicorn ‘Green Unicorn’ is a Python WSGI HTTP Server for UNIX.
+* [idna](https://pypi.org/project/idna/) - Support for the Internationalised Domain Names in Applications (IDNA) protocol.
+* [mypy-extensions](https://pypi.org/project/mypy-extensions/) - The “mypy_extensions” module defines experimental extensions to the standard “typing” module that are supported by the mypy typechecker.
+* [numpy](https://pypi.org/project/numpy/) - NumPy is the fundamental package for array computing with Python.
+* [oauthlib](https://pypi.org/project/oauthlib/) - OAuthLib is a framework which implements the logic of OAuth1 or OAuth2 without assuming a specific HTTP request object or web framework.
+* [pandas](https://pypi.org/project/pandas/) - Used to provide fast, flexible, and expressive data structures designed to make working with "relational" or "labeled" data both easy and intuitive.
+* [pathspec](https://pypi.org/project/pathspec/) - pathspec is a utility library for pattern matching of file paths.
+* [pep8](https://pypi.org/project/pep8/) - pep8 is a tool to check your Python code against some of the style conventions in PEP 8.
+* [platformdirs](https://pypi.org/project/platformdirs/) - A small Python module for determining appropriate platform-specific dirs, e.g. a "user data dir".
+* [psycopg2](https://pypi.org/project/psycopg2/) - Psycopg is the most popular PostgreSQL database adapter for the Python programming language.
+* [pycodestyle](https://pypi.org/project/pycodestyle/) - pycodestyle is a tool to check your Python code against some of the style conventions in PEP 8.
+* [pycparser](https://pypi.org/project/pycparser/) - It parses C code into an AST and can serve as a front-end for C compilers or analysis tools.
+* [PyJWT](https://pypi.org/project/PyJWT/) - A Python implementation of RFC 7519.
+* [python-dateutil](https://pypi.org/project/python-dateutil/) - The dateutil module provides powerful extensions to the standard datetime module
+* [python3-openid](https://pypi.org/project/python3-openid/) - OpenID support for modern servers and consumers.
+* [pytz](https://pypi.org/project/pytz/) -  This library allows accurate and cross platform timezone calculations using Python 2.4 or higher.
+* [requests](https://pypi.org/project/requests/) - Requests is a simple, yet elegant, HTTP library.
+* [requests-oauhlib](https://pypi.org/project/requests-oauthlib/) - OAuthlib authentication support for Requests.
+* [six](https://pypi.org/project/six/) - Six is a Python 2 and 3 compatibility library. It provides utility functions for smoothing over the differences between the Python versions.
+* [sqlparse](https://pypi.org/project/sqlparse/) - sqlparse is a non-validating SQL parser for Python.
+* [toml](https://pypi.org/project/sqlparse/) - A non-validating SQL parser.
+* [tomli](https://pypi.org/project/tomli/) - Tomli is a Python library for parsing TOML.
+* [urllib3](https://pypi.org/project/urllib3/) - HTTP library with thread-safe connection pooling, file post, and more.
 
 [Back to top](<#contents>)
 
