@@ -832,7 +832,7 @@ In addition to the other tests, I have conducted a manual check list for myself 
 
     ### navigator.userAgent/appVersion and platform
     
-    * When inspecting the website with [Google Chrome DevTools](https://developer.chrome.com/docs/devtools/), the website is showing one issue which is the same issue I had on my Project Portfolio 1 and Project Portfolio 2 so I'm familiar with it.<br /><br />
+    * When inspecting the website with [Google Chrome DevTools](https://developer.chrome.com/docs/devtools/), the website is showing a navigator.userAgent issue. Throughout developing all of my projects this issue has always been present so I am familiar with it.<br /><br />
 
     ![Site Issue](assets/images/readme-images/navigator-agent-issue.png)
     
