@@ -830,18 +830,13 @@ In addition to the other tests, I have conducted a manual check list for myself 
 
 * ## Bugs Unresolved
 
-    ### Bugs Unresolved 1
-
-    * Text <br /><br />
-
     ### navigator.userAgent/appVersion and platform
     
     * When inspecting the website with [Google Chrome DevTools](https://developer.chrome.com/docs/devtools/), the website is showing one issue which is the same issue I had on my Project Portfolio 1 and Project Portfolio 2 so I'm familiar with it.<br /><br />
 
-    ![Site Issue](assets/images/readme-images/navigator-agent-issue-image.png)
+    ![Site Issue](assets/images/readme-images/navigator-agent-issue.png)
     
     * I've done some research and apparently this is a Google Chrome issue as per this [source](https://forum.codewithmosh.com/t/the-ultimate-javascript-console-issue-at-beginning-of-course/6535) and has been reported [here](https://githubmemory.com/repo/zalmoxisus/redux-devtools-extension/issues/808). Additionally, I have tested this website with Microsoft Edge and the issue doesn't show.
-
 
 
 [Back to top](<#contents>)
