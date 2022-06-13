@@ -1,5 +1,20 @@
-Hey User
+Hi {{ booking.first_name }}!
 
-Booking approved
+Your booking has been approved!
 
-Mike
+Please see below the details for your booking.
+
+Date - {{ booking.date_of_visit }}
+Time - {{ booking.time_of_visit }}
+Ref Number - {{ booking.ref_number }}
+Number of guests - {{ booking.number_of_guests }}
+Disabled Access - {% if booking.disabled_access == True %} Required{% else %} Not Required{% endif %}
+Additional Info - {% if booking.additional_info == "" %} N/A{% else %} {{ booking.additional_info }}{% endif %}
+
+If these are wrong, you can edit your booking at https://cafe-manbo.herokuapp.com/user-reservations or you can contact Cafe Manbo at cafemanbo@hotmail.com or 01924 206050
+
+We look forward to seeing you!
+
+Kind regards,
+
+Cafe Manbo

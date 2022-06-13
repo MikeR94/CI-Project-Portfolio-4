@@ -382,7 +382,10 @@ def staff_approve_booking(request, booking_id):
         next = request.POST.get("next", "/")
         booking = Booking.objects.filter(id=booking_id)
         users_email = get_object_or_404(Booking, id=booking_id)
-        template = render_to_string("approved_email_template.html")
+        context = {
+            "booking": users_email,
+        }
+        template = render_to_string("approved_email_template.html", context)
         email = EmailMessage(
             "Cafe Manbo - [BOOKING APPROVED]",
             template,
@@ -416,7 +419,10 @@ def staff_deny_booking(request, booking_id):
         next = request.POST.get("next", "/")
         booking = Booking.objects.filter(id=booking_id)
         users_email = get_object_or_404(Booking, id=booking_id)
-        template = render_to_string("denied_email_template.html")
+        context = {
+            "booking": booking,
+        }
+        template = render_to_string("denied_email_template.html", context)
         email = EmailMessage(
             "Cafe Manbo - [BOOKING DENIED]",
             template,
@@ -560,9 +566,12 @@ def staff_check_in_page(request):
             guest_attended=True, bill_settled=False
         ).count()
         for booking in Booking.objects.filter(no_show_email_sent=False):
+            context = {
+                "booking": booking
+            }
             if booking.date_of_visit < datetime.now().date():
                 booking.no_show_email_sent = True
-                template = render_to_string("no_show_email_template.html")
+                template = render_to_string("no_show_email_template.html", context)
                 email = EmailMessage(
                     "Cafe Manbo - [NO SHOW]",
                     template,
@@ -595,7 +604,10 @@ def staff_check_in(request, booking_id):
         next = request.POST.get("next", "/")
         data = Booking.objects.filter(id=booking_id)
         users_email = get_object_or_404(Booking, id=booking_id)
-        template = render_to_string("checked_in_email_template.html")
+        context = {
+            "booking": data,
+        }
+        template = render_to_string("checked_in_email_template.html", context)
         email = EmailMessage(
             "Cafe Manbo - [CHECKED IN]",
             template,
