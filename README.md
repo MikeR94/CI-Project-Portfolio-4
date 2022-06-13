@@ -819,11 +819,13 @@ In addition to the other tests, I have conducted a manual check list for myself 
 
 * ## Bugs Fixed 
 
-    ### Bug Fixed 1
+    ### Uncaught DOMException
         
-    * Text <br /><br />
+    * When a staff member was navigating the staff dashboard through the staff navigation bar, I noticed that I would receive the below console error. This error would appear when a staff member would click between two links. <br /><br />
 
-    ![Leaderboards Fixed]()
+    ![Uncaught DOMException](static/images/readme-images/staff-dashboard-console-error.png)
+
+    * To solve this error, I figured out that removing the standard .nav-link class from each link and targeting each link through a href and adding margin bottom to give spacing completely resolved this issue. The navigation bar remained fully responsive and now has zero console errors.
 
 
 * ## Bugs Unresolved
