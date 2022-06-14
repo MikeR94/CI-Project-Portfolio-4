@@ -827,6 +827,10 @@ In addition to the other tests, I have conducted a manual check list for myself 
 
     * To solve this error, I figured out that removing the standard .nav-link class from each link and targeting each link through a href and adding margin bottom to give spacing completely resolved this issue. The navigation bar remained fully responsive and now has zero console errors.
 
+    ### Uncaught (in promise)
+
+    * Upon loading the home page, sometimes (not often) I would see the below error message.
+
 
 * ## Bugs Unresolved
 
