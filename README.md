@@ -818,18 +818,69 @@ In addition to the other tests, I have conducted a manual check list for myself 
 | Status | **Main Website - User Logged Out**
 |:-------:|:--------|
 | &check; | Clicking the nav logo loads the home page
+| &check; | The nav bar is transparent on load and then the background turns dark upon scrolling 50px
+| &check; | The nav bar returns back to transparent when the user scrolls back to the top of the page
 | &check; | Clicking the Home button on the nav bar loads the home page
 | &check; | Clicking the Our Menu button on the nav bar loads the external menu PDF in a new window
 | &check; | Clicking the Gallery button on the nav bar loads the gallery page
-| &check; | Clicking the Book Now button on the nav bar loads the book now page
+| &check; | Clicking the Book Now button on the nav bar loads the login page
+| &check; | Clicking the Account button on the nav bar shows the Register and Login dropdowns
+| &check; | Clicking the Register button on the nav bar drop down loads the register page
+| &check; | Clicking the Login button on the nav bar drop down loads the login page
+| &check; | Clicking the Book Now button on the hero section loads login page
+| &check; | 4 Reviews are rendered for the user to see
+| &check; | Clicking the Read More button on the a review card loads the review modal
+| &check; | Clicking the Visit Us button in the Hours & Location section loads the login page
+| &check; | Clicking the cafemanbo@hotmail.co.uk link loads an email application separately
+| &check; | Google Maps is loaded correctly and displays the correct location of Cafe Manbo
+| &check; | Clicking the Home link on the footer loads the home page
+| &check; | Clicking the Our Menu link on the footer loads the external menu PDF in a new window
+| &check; | Clicking the Gallery link on the footer loads the gallery page
+| &check; | Clicking the Book Now link on the footer loads the login page
+| &check; | Clicking the Reservations link on the footer loads the login page
+| &check; | Clicking the Register link the on footer loads the register page
+| &check; | Clicking the Login link the on footer loads the login page
+| &check; | Clicking the Instagram link on the footer loads the Instagram home page in a new window
+| &check; | Clicking the LinkedIn link on the footer loads the LinkedIn home page in a new window
+| &check; | Clicking the Twitter link on the footer loads the Twitter home page in a new window
+| &check; | Clicking the Facebook link on the footer loads the Facebook home page in a new window
+| &check; | Clicking the cafemanbo@hotmail.co.uk link on the footer loads an email application separately
+| &check; | Typing in a incorrect URL will load the 404 error page
 
 | Status | **Main Website - User Logged In**
 |:-------:|:--------|
 | &check; | Clicking the nav logo loads the home page
+| &check; | The nav bar is transparent on load and then the background turns dark upon scrolling 50px
+| &check; | The nav bar returns back to transparent when the user scrolls back to the top of the page
 | &check; | Clicking the Home button on the nav bar loads the home page
 | &check; | Clicking the Our Menu button on the nav bar loads the external menu PDF in a new window
 | &check; | Clicking the Gallery button on the nav bar loads the gallery page
 | &check; | Clicking the Book Now button on the nav bar loads the book now page
+| &check; | The account button now shows the users username
+| &check; | If the users username is above 10 characters, only show 10 characters with 3 dots (...)
+| &check; | Clicking the account button (username) shows My Reservations, Write A Review and Logout dropdowns
+| &check; | Clicking the My Reservations button on the nav bar drop down loads the My Reservations Page
+| &check; | Clicking the Write A Review button on the nav bar drop down loads the Write A Review Page
+| &check; | Clicking the Logout button on the nav bar drop down loads the logout page
+| &check; | Clicking the Book Now button on the hero section loads book now page
+| &check; | 4 Reviews are rendered for the user to see
+| &check; | Clicking the Read More button on the a review card loads the review modal
+| &check; | Clicking the Visit Us button in the Hours & Location section loads the book now page
+| &check; | Clicking the cafemanbo@hotmail.co.uk link loads an email application separately
+| &check; | Google Maps is loaded correctly and displays the correct location of Cafe Manbo
+| &check; | Clicking the Home link on the footer loads the home page
+| &check; | Clicking the Our Menu link on the footer loads the external menu PDF in a new window
+| &check; | Clicking the Gallery link on the footer loads the gallery page
+| &check; | Clicking the Book Now link on the footer loads the book now page
+| &check; | Clicking the Reservations link on the footer loads the my reservations page
+| &check; | Clicking the Register link the on footer loads the register page
+| &check; | Clicking the Login link the on footer reloads the home page
+| &check; | Clicking the Instagram link on the footer loads the Instagram home page in a new window
+| &check; | Clicking the LinkedIn link on the footer loads the LinkedIn home page in a new window
+| &check; | Clicking the Twitter link on the footer loads the Twitter home page in a new window
+| &check; | Clicking the Facebook link on the footer loads the Facebook home page in a new window
+| &check; | Clicking the cafemanbo@hotmail.co.uk link on the footer loads an email application separately
+| &check; | Typing in a incorrect URL will load the 404 error page
 
 | Status | **Staff Dashboard**
 |:-------:|:--------|
