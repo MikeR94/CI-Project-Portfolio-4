@@ -23,7 +23,8 @@
       {% endif %}
     {% endfor %}
   {% endif %}
-  <div class="mb-4"><a href="{% url 'staff_all_bookings' %}">Previous Page</a></div> 
+  <div class="mb-4">All bookings <a href="{% url 'staff_all_bookings' %}">View Here</a></div> 
+  <div class="mb-4">Pending bookings <a href="{% url 'staff_pending_bookings' %}">View Here</a></div> 
   <div class="row">
   <table class="table table_id pt-5 text-center">
     <thead>

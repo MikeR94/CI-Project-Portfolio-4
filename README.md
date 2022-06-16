@@ -899,12 +899,99 @@ In addition to the other tests, I have conducted a manual check list for myself 
 | &check; | Time of Visit field has options from 17:00 to 22:30 in 30 minute increments
 | &check; | Date of Visit field is required
 | &check; | Date of Visit field can not be in the past from todays date
-| &check; | Date of Visit field can not accept values for the year 2023
+| &check; | Date of Visit field can not accept values that aren't in the year 2022
 | &check; | Date of Visit field can not accept dates that are sundays
+| &check; | Number of Guests field is required
+| &check; | Number of Guests field can be 0 (guest attending on their own)
+| &check; | Number of Guests field can not be above 24
+| &check; | Number of Guests field has to be an solid integer (1 or 2, not 1.5 or 2.5)
+| &check; | Contact Number field is required
+| &check; | Contact Number field accepts only number values
+| &check; | Additional Info field is not required but optional
+| &check; | Booking Success Page is displayed if the user submits a booking that meets all form and server validation
+| &check; | Booking Unsuccessful - Duplicate Entry page is displayed if a user makes a double booking
 
-| Status | **Staff Dashboard**
+| Status | **Write a Review Page - User Logged In**
 |:-------:|:--------|
-| &check; | Test 1
+| &check; | First Name field is required
+| &check; | First Name field does not accept empty field
+| &check; | First Name field does not accept just spaces
+| &check; | First Name field accepts only characters
+| &check; | Last Name field is required
+| &check; | Last Name field does not accept empty field
+| &check; | Last Name field does not accept just spaces
+| &check; | Last Name field accepts only characters
+| &check; | Stars field pre populates with 5 star
+| &check; | Stars field has 5 options, 1, 2, 3, 4 and 5 star
+| &check; | Body Name field is required
+| &check; | Body Name field does not accept empty field
+| &check; | Body Name field does not accept just spaces
+| &check; | Body Name field requires 80 characters or more
+| &check; | Review Successfully Submitted page is displayed if the user submits a review that meets all form validation
+
+| Status | **My Reservations Page - User Logged In**
+|:-------:|:--------|
+| &check; | If a user has no bookings, show the welcome text and the "it appears you don't have any bookings" text and duck image
+| &check; | If a user has a booking, show the welcome text and display pending bookings and the completed bookings accordion 
+| &check; | Ensure pending bookings are displayed and completed bookings are hidden in the accordion
+| &check; | Ensure the users username and email is displayed in the welcome text
+
+| Status | **Staff Dashboard - Navigation Bar - Staff Member Logged In**
+|:-------:|:--------|
+| &check; | Clicking Home will redirect the staff member to the home page (index.html)
+| &check; | Clicking Dashboard will load the staff dashboard page
+| &check; | Clicking Bookings will load the staff bookings page
+| &check; | The Bookings link will show the correct amount of pending bookings as a notification
+| &check; | Clicking Check In will load the staff check in page
+| &check; | The Check In link will show the correct amount of pending check ins as a notification
+| &check; | Clicking Payments will load the staff payments page
+| &check; | The Payments link will show the correct amount of pending payments as a notification
+| &check; | Clicking Reviews will load the staff reviews page
+| &check; | The Reviews link will show the correct amount of pending reviews as a notification
+| &check; | Clicking Staff Help will load the staff help modal
+
+| Status | **Staff Dashboard - Dashboard Page - Staff Member Logged In**
+|:-------:|:--------|
+| &check; | Total Bookings Card renders correct number of total bookings
+| &check; | Total Guests Card renders correct number of total guests
+| &check; | Total Reviews Card renders correct number of total reviews
+| &check; | Total Income Card renders correct number of total income
+| &check; | Guests Attended chart (Chart.JS) renders data correctly
+| &check; | Number of Bookings chart (Chart.JS) renders data correctly
+| &check; | Total Income chart (Chart.JS) renders data correctly
+| &check; | Quick Statistics section renders data correctly
+
+| Status | **Staff Dashboard - Bookings Page - Staff Member Logged In**
+|:-------:|:--------|
+| &check; | Bookings that have no yet been approved or denied are displayed
+| &check; | Clicking Approve approves the booking, sends an email and shows a flash message
+| &check; | Clicking Deny approves the booking, sends an email and shows a flash message
+| &check; | Clicking Details loads a new page with extra information about that specific booking
+
+| Status | **Staff Dashboard - Check In Page - Staff Member Logged In**
+|:-------:|:--------|
+| &check; | Guests that have not yet been checked in are displayed here if the booking is for todays date
+| &check; | Clicking Check In checks the guests in, sends an email and shows a flash message
+| &check; | Clicking No Show marks the guests as not attending, sends an email and shows a flash message
+| &check; | Clicking the Check In button on the navigation bar checks if any guests have not attended and then sends an email to the bookings email addresses
+
+| Status | **Staff Dashboard - Payments Page - Staff Member Logged In**
+|:-------:|:--------|
+| &check; | Bookings that have been approved and checked but awaiting payment information in will be displayed here
+| &check; | Clicking the Payment button will load a new page which shows information about that specific booking and 2 input fields to submit payment information
+| &check; | Amount paid input field must be equal to or greater than the Amount owed input field
+
+| Status | **Staff Dashboard - Reviews Page - Staff Member Logged In**
+|:-------:|:--------|
+| &check; | Reviews that have have been submitted but not yet approved or denied will be displayed here
+| &check; | Clicking Approve will approve the review, and then meet the conditions to be displayed on the home page
+| &check; | Clicking Deny will deny the review and it will not meet the conditions to be displayed on the home page
+| &check; | Clicking All Reviews loads the all reviews page
+| &check; | Clicking Reset Review will reset the reviews conditions and place the review back into pending reviews
+
+| Status | **Staff Dashboard - Staff Help Page - Staff Member Logged In**
+|:-------:|:--------|
+| &check; | Clicking the Staff Help link on the navigation bar will load a modal that can assist the staff member
 
 
 * ## Browser Compatibility
