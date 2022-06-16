@@ -619,9 +619,20 @@ As mentioned above, the website for Cafe Manbo has been designed to be a fully e
 
     * The booking system does have good form validation and also a way that prevents double bookings, however I do believe that I could improve the system to perform more advanced criteria checking. For example, if a user books for 17:00 on 05/05/2022, they will not be able to book again for 17:00 on 05/02/2022 however they would be able to book again for a different time on that same day given it is a time in the future.
 
-* ### Future Feature 2 
+* ### Contact/Enquiry
 
-    * Text.
+    * Although guests can contact the restaurant via phone or email, I think it would make for a better user experience if a user could fill in a contact or enquiry form. This could work in tandem with the other future feature 'Dedicated User Profile Page' and any enquiries or replies could be sent there for the guest to see.
+
+* ### Dedicated User Profile Page
+
+    * At the moment when a guest creates an account, all the functionality needed for the guest to operate the website, make bookings, see details is there however I would like to make a dedicate profile page which would give the ability for users to do the following
+
+        * Change profile details
+        * View profile details
+        * View reservations
+        * View submitted reviews
+        * View data about the guest in relation to Cafe Manbo
+        * Message centre for the guest to communicate with staff members
 
 # Technologies Used
 * [Django](https://www.djangoproject.com/) - A model-view-template framework used to create Cafe Manbo
