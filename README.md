@@ -983,17 +983,23 @@ The live link to the Github repository can be found here - https://github.com/Mi
 
 ### Content
 
-* I used this brilliant tutorial by Denis Ivy on how to send emails with Django [YouTube](https://www.youtube.com/watch?v=1BaLWYUO1k4&t=290s&ab_channel=DennisIvy)
+* I used this brilliant tutorial by Denis Ivy on how to send emails with Django [YouTube](https://www.youtube.com/watch?v=1BaLWYUO1k4&t=290s&ab_channel=DennisIvy).
+* This website was designed heavily utilising the [Bootstrap](https://getbootstrap.com/) framework and I referenced the [Bootstrap Documentation](https://getbootstrap.com/docs/5.2/getting-started/introduction/) when implementing features.
+* The navigation bar toggler animation was from [uknowhat](https://www.youtube.com/watch?v=vJ85fm4m7lw&ab_channel=uknowhat) and slightly modified to fit the website theme.
+* The table styling was from [AllThingsSmitty](https://codepen.io/AllThingsSmitty/pen/MyqmdM) and was slightly modified to fit the website theme.
+* The implementation of the google maps API was referenced from the [Code Institute](https://learn.codeinstitute.net/login?next=/dashboard) lesson.
+* I relied heavily on the [Django 3.2 Documentation](https://docs.djangoproject.com/en/3.2/) when developing this website. The documentation is brilliant and goes in depth on how to implement features to the website.
+* I've submitted and approved some reviews on the website already and the text used was from [eatsleepwander](https://eatsleepwander.com/good-restaurant-review-examples-to-copy-paste/).
 
 ### Media
 * The photos were compressed using [Compressor](https://compressor.io/).
 * The favicon image came from [encrypted-tbn0](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjtOmemr76GOUK79y3itlIDr5bYfWiS-F2xixdV1qg4e9WI8POOvZ0TV06TKCmL7zE3Ko&usqp=CAU) and then turned into a favicon by [Favicon](https://favicon.io/).
-* The golden menu image was from [ForbesIndustries](https://www.forbesindustries.com/product/menu-stand-6836/) and I then used [Microsoft Paint](https://en.wikipedia.org/wiki/Microsoft_Paint) to add the "Food with a smile" text to it
-* The food hygiene label image was from [Food Standards Agency](https://ratings.food.gov.uk/open-data/en-gb)
-* All the images used on the gallery page and also the hero image was from [Pexels/Restaurant](https://www.pexels.com/search/restaurant/)
-* The thank you image used on the write a review page came from [Clipartmax](https://www.clipartmax.com/so/thank-you-clipart-animated/)
-* The unhappy duck image used on the my reservations page when the user does not have any bookings was from [iStockPhoto](https://www.istockphoto.com/illustrations/sad-duck)
-* The menu PDF was designed using [Canva](https://www.canva.com/)
+* The golden menu image was from [ForbesIndustries](https://www.forbesindustries.com/product/menu-stand-6836/) and I then used [Microsoft Paint](https://en.wikipedia.org/wiki/Microsoft_Paint) to add the "Food with a smile" text to it.
+* The food hygiene label image was from [Food Standards Agency](https://ratings.food.gov.uk/open-data/en-gb).
+* All the images used on the gallery page and also the hero image was from [Pexels/Restaurant](https://www.pexels.com/search/restaurant/).
+* The thank you image used on the write a review page came from [Clipartmax](https://www.clipartmax.com/so/thank-you-clipart-animated/).
+* The unhappy duck image used on the my reservations page when the user does not have any bookings was from [iStockPhoto](https://www.istockphoto.com/illustrations/sad-duck).
+* The menu PDF was designed using [Canva](https://www.canva.com/).
 
 
 [Back to top](<#contents>)
