@@ -32,19 +32,6 @@ class Booking(models.Model):
     )
     time_of_visit = models.TimeField(
         choices=(
-            (datetime.strptime("07:00 am", "%I:%M %p").time(), "07:00"),
-            (datetime.strptime("09:00 am", "%I:%M %p").time(), "09:00"),
-            (datetime.strptime("10:00 am", "%I:%M %p").time(), "10:00"),
-            (datetime.strptime("10:30 am", "%I:%M %p").time(), "10:30"),
-            (datetime.strptime("11:00 am", "%I:%M %p").time(), "11:00"),
-            (datetime.strptime("11:30 am", "%I:%M %p").time(), "11:30"),
-            (datetime.strptime("12:00 am", "%I:%M %p").time(), "12:00"),
-            (datetime.strptime("12:30 pm", "%I:%M %p").time(), "12:30"),
-            (datetime.strptime("1:00 pm", "%I:%M %p").time(), "13:00"),
-            (datetime.strptime("1:30 pm", "%I:%M %p").time(), "13:30"),
-            (datetime.strptime("2:00 pm", "%I:%M %p").time(), "14:00"),
-            (datetime.strptime("2:30 pm", "%I:%M %p").time(), "14:30"),
-            (datetime.strptime("3:00 pm", "%I:%M %p").time(), "15:00"),
             (datetime.strptime("5:00 pm", "%I:%M %p").time(), "17:00"),
             (datetime.strptime("5:30 pm", "%I:%M %p").time(), "17:30"),
             (datetime.strptime("6:00 pm", "%I:%M %p").time(), "18:00"),

@@ -52,8 +52,16 @@ class BookingForm(forms.ModelForm):
         cleaned_data = super(BookingForm, self).clean()
         time_of_visit = cleaned_data.get("time_of_visit")
         date_of_visit = cleaned_data.get("date_of_visit")
+        number_of_guests = cleaned_data.get("number_of_guests")
         today = date.today()
         time = datetime.now().time()
+
+        if number_of_guests > 24:
+                self._errors["number_of_guests"] = self.error_class(
+                        ["Sorry we are only accept maximum bookings of 24"]
+                    )
+                del self.cleaned_data["number_of_guests"]
+
 
         for x in sunday:
             if x == str(date_of_visit):
@@ -62,7 +70,7 @@ class BookingForm(forms.ModelForm):
                 )
                 del self.cleaned_data["date_of_visit"]
 
-        if "2023" in str(date_of_visit):
+        if not "2022" in str(date_of_visit):
             self._errors["date_of_visit"] = self.error_class(
                 ["Sorry we are only taking bookings for this year"]
             )
