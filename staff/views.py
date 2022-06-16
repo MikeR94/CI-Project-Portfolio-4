@@ -420,7 +420,7 @@ def staff_deny_booking(request, booking_id):
         booking = Booking.objects.filter(id=booking_id)
         users_email = get_object_or_404(Booking, id=booking_id)
         context = {
-            "booking": booking,
+            "booking": users_email,
         }
         template = render_to_string("denied_email_template.html", context)
         email = EmailMessage(
