@@ -65,21 +65,25 @@ For my fourth project, I intend to create an authentic, practical and useful res
 
 ### Site User
 
-* As a Site User I can book online to come visit the restaurant
-* As a Site User I can view all my bookings in one place
-* As a Site User I can amend and cancel my booking
-* As a Site User I can create a review about my visit to Cafe Manbo
-* As a Site User I can view the menu
-* As a Site User I can view images relating to Cafe Manbo
-* As a Site User I can see reviews from other guests
+|  | | |
+|:-------:|:--------|:--------|
+| As a Site User | I can book online to come visit the restaurant | &check; |
+| As a Site User | I can view all my bookings in one place | &check; |
+| As a Site User | I can amend and cancel my booking | &check; |
+| As a Site User | I can create a review about my visit to Cafe Manbo | &check; |
+| As a Site User | I can view the menu | &check; |
+| As a Site User | I can view images relating to Cafe Manbo | &check; |
+| As a Site User | I can see reviews from other guests | &check; |
 
 ### Site Staff Member
 
-* As a Site Staff Member I can approve, deny and amend bookings
-* As a Site Staff Member I can approve and deny submitted reviews
-* As a Site Staff Member I can check guests in or not check guests
-* As a Site Staff Member I can submit payment information about a completed booking
-* As a Site Staff Member I can view a Staff Dashboard to view statistical data about Cafe Manbo
+|  | | |
+|:-------:|:--------|:--------|
+| As a Site Staff Member | I can approve, deny and amend bookings | &check; |
+| As a Site Staff Member | I can approve and deny submitted reviews | &check; |
+| As a Site Staff Member | I can check guests in or no show guests if they don't turn up | &check; |
+| As a Site Staff Member | I can submit payment information about a completed booking | &check; |
+| As a Site Staff Member | I can view a Staff Dashboard to view statistical data about Cafe Manbo | &check; |
 
 
 ## Design Prototype
