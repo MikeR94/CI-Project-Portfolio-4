@@ -665,6 +665,7 @@ As mentioned above, the website for Cafe Manbo has been designed to be a fully e
 * [Virutal Environment](https://docs.python.org/3/library/venv.html) - Used to create a virtual environment
 * [Graph Models](https://django-extensions.readthedocs.io/en/latest/graph_models.html) - Used to generate a .dot file for all apps and models
 * [dreampuf](https://dreampuf.github.io/GraphvizOnline/) - Used to present the .dot file in the form of a database diagram
+* [Microsoft Paint](https://en.wikipedia.org/wiki/Microsoft_Paint) - Used to add "Food with a smile" to golden menu stand image
 
 # Libraries
 
@@ -979,6 +980,7 @@ The live link to the Github repository can be found here - https://github.com/Mi
 [Back to top](<#contents>)
 
 # Credits
+
 ### Content
 
 * I used this brilliant tutorial by Denis Ivy on how to send emails with Django [YouTube](https://www.youtube.com/watch?v=1BaLWYUO1k4&t=290s&ab_channel=DennisIvy)
@@ -986,6 +988,13 @@ The live link to the Github repository can be found here - https://github.com/Mi
 ### Media
 * The photos were compressed using [Compressor](https://compressor.io/).
 * The favicon image came from [encrypted-tbn0](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjtOmemr76GOUK79y3itlIDr5bYfWiS-F2xixdV1qg4e9WI8POOvZ0TV06TKCmL7zE3Ko&usqp=CAU) and then turned into a favicon by [Favicon](https://favicon.io/).
+* The golden menu image was from [ForbesIndustries](https://www.forbesindustries.com/product/menu-stand-6836/) and I then used [Microsoft Paint](https://en.wikipedia.org/wiki/Microsoft_Paint) to add the "Food with a smile" text to it
+* The food hygiene label image was from [Food Standards Agency](https://ratings.food.gov.uk/open-data/en-gb)
+* All the images used on the gallery page and also the hero image was from [Pexels/Restaurant](https://www.pexels.com/search/restaurant/)
+* The thank you image used on the write a review page came from [Clipartmax](https://www.clipartmax.com/so/thank-you-clipart-animated/)
+* The unhappy duck image used on the my reservations page when the user does not have any bookings was from [iStockPhoto](https://www.istockphoto.com/illustrations/sad-duck)
+* The menu PDF was designed using [Canva](https://www.canva.com/)
+
 
 [Back to top](<#contents>)
 
