@@ -605,7 +605,7 @@ def staff_check_in(request, booking_id):
         data = Booking.objects.filter(id=booking_id)
         users_email = get_object_or_404(Booking, id=booking_id)
         context = {
-            "booking": data,
+            "booking": users_email,
         }
         template = render_to_string("checked_in_email_template.html", context)
         email = EmailMessage(
