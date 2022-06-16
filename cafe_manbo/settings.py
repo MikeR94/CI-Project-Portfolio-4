@@ -117,8 +117,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'cafe_manbo.wsgi.application'
 
-TIME_ZONE = 'Europe/London'
-USE_TZ = True
 
 MESSAGE_TAGS = {
     messages.SUCCESS: 'alert alert-success',
@@ -166,7 +164,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/London'
 
 USE_I18N = True
 
