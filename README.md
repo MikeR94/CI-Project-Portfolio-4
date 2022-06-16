@@ -1203,68 +1203,39 @@ In addition to the other tests, I have conducted a manual check list for myself 
   
 The project was deployed to [Heroku](https://www.heroku.com). The deployment process is as follows: 
   
-1. Log in to Heroku or create an account if required.
+### 1. Create the Heroku App:
+* Before creating the Heroku app make sure your project has the following files:
+    * ***requirements.txt*** - To create this type the following within the terminal: ```pip3 freeze --local > requirements.txt```.
+    * ***Procfile*** - To create this type the following within the terminal: ```python run.py > Procfile```.
+* Select "Create new app" within Heroku.
+### 2. Attach the Postgres database:
+* Search "Postgres" within the Resources tab and select the Heroku Postgres option.
+### 3. Create the settings.py file:
+* In Heroku navigate to the Settings tab, click on Reveal Config Vars and copy the DATABASE_URL.
+* Within the GitPod workspace, create an env.py file within the main directory.
+* Import the env.py file within the settings.py file.
+* Create a SECRET_KEY value within the Reveal Config Vars in Heroku.
+* Add the DATABASE_URL value and your chosen SECRET_KEY value to the env.py file.
+* Run the following command in your terminal ```python3 manage.py migrate```.
+* Add the CLOUDINARY_URL to the Reveal Config Vars in Heroku and add this to your settings.py file.
+* Add the following sections to your settings.py file:
+    * Cloudinary to the INSTALLED_APPS list
+    * STATICFILES_STORAGE
+    * STATICFILES_DIRS
+    * STATIC_ROOT
+    * MEDIA_URL
+    * DEFAULT_FILE_STORAGE
+    * TEMPLATES_DIR
+    * Update DIRS in TEMPLATES with TEMPLATES_DIR
+    * Update ALLOWED_HOSTS with ['app_name.heroku.com','localhost']
+### 4. Store Static and Media files in Cloudinary and Deploy to Heroku:
+* Create three directories in the top level directory: media, storage and templates.
+* Create a file named "Procfile" in the main directory and ass the following: [web: gunicorn project-name.wsgi].
+* Login to Heroku within the terminal window using ```heroku login -i```
+* Run the following command in the terminal window: ```heroku git:remote -a your_app_name_here```. By doing this you will link the app to your GidPod terminal.
+* After linking the app you can deploy new versions to Heroku by running the command ```git push heroku main```.
 
-<details><summary><b>Heroku Step 1</b></summary>
 
-![Heroku Step 1]()
-</details><br />
-
-2. Click the button labeled New from the dashboard in the top right corner, just below the header and then select "Create new app".
-
-<details><summary><b>Heroku Step 2</b></summary>
-
-![Heroku Step 2]()
-</details><br />
-
-3. Enter a unique application name and then select your region. Once you are ready, click "Create app".
-
-<details><summary><b>Heroku Step 3</b></summary>
-
-![Heroku Step 3]()
-</details><br />
-
-4. This will bring you to the project "Deploy" tab. From here, click the "Settings" tab and scroll down to the "Config Vars" section and click on "Reveal Config Vars". In the KEY input field, enter "PORT" and in the VALUE input field, enter "8000". After that, click the "Add" button to the right.
-
-<details><summary><b>Heroku Step 4</b></summary>
-
-![Heroku Step 4]()
-</details><br />
-
-5. Scroll down to the buildpacks section of the settings page and click the button "Add buildpack".
-
-<details><summary><b>Heroku Step 5</b></summary>
-
-![Heroku Step 5]()
-</details><br />
-
-6. Add both "Python" and "node.js" and make sure that Python is above node.js. If it isn't you can just drag it above.
-
-<details><summary><b>Heroku Step 6</b></summary>
-
-![Heroku Step 6]()
-</details><br />
-
-7. Scroll back to the top of the settings page, and navigate to the "Deploy" tab. Select Github as the deployment method.
-
-<details><summary><b>Heroku Step 7</b></summary>
-
-![Heroku Step 7]()
-</details><br />
-
-8. Search for the repository name and click the connect button next to the intended repository.
-
-<details><summary><b>Heroku Step 8</b></summary>
-
-![Heroku Step 8]()
-</details><br />
-
-9. From the bottom of the deploy page select your preferred deployment type. I personally enabled automatic deployments. After that, click "Deploy Branch".
-
-<details><summary><b>Heroku Step 9</b></summary>
-
-![Heroku Step 9]()
-</details><br />
 
 The live link to the Github repository can be found here - https://github.com/MikeR94/CI-Project-Portfolio-4
 
