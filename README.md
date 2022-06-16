@@ -584,9 +584,19 @@ As mentioned above, the website for Cafe Manbo has been designed to be a fully e
 ![Outlook Approved Image](static/images/readme-images/outlook-approved-image.png)
 </details><br />
 
+<details><summary><b>Outlook Approved Template</b></summary>
+
+![Outlook Approved Templated Image](static/images/readme-images/booking-approved-email-template-image.png)
+</details><br />
+
 <details><summary><b>Outlook Denied Image</b></summary>
 
 ![Outlook Denied Image](static/images/readme-images/outlook-denied-image.png)
+</details><br />
+
+<details><summary><b>Outlook Denied Template</b></summary>
+
+![Outlook Denied Templated Image](static/images/readme-images/booking-denied-email-template-image.png)
 </details><br />
 
 <details><summary><b>Outlook Checked In Image</b></summary>
@@ -594,9 +604,19 @@ As mentioned above, the website for Cafe Manbo has been designed to be a fully e
 ![Outlook Checked In Image](static/images/readme-images/outlook-check-in-image.png)
 </details><br />
 
+<details><summary><b>Outlook Checked In Template</b></summary>
+
+![Outlook Checked In Templated Image](static/images/readme-images/booking-checked-in-email-template-image.png)
+</details><br />
+
 <details><summary><b>Outlook No Show Image</b></summary>
 
 ![Outlook No Show Image](static/images/readme-images/outlook-no-show-image.png)
+</details><br />
+
+<details><summary><b>Outlook No Show Template</b></summary>
+
+![Outlook No Show Templated Image](static/images/readme-images/booking-no-show-email-template-image.png)
 </details><br />
 
 <details><summary><b>Email Code Image</b></summary>
