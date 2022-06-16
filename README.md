@@ -756,7 +756,7 @@ All the libraries used for this project are located in the requirements.txt file
 
 * ## Lighthouse Testing 
 
-    * Furthermore the website has been through the [Chrome Dev Tools](https://developer.chrome.com/docs/devtools/) and [Microsoft Edge Dev Tools](https://docs.microsoft.com/en-us/microsoft-edge/devtools-guide-chromium/open/?tabs=cmd-Windows) Lighthouse Testing which tests the website for the following:
+    * Furthermore the website has been through the [Chrome Dev Tools](https://developer.chrome.com/docs/devtools/) Lighthouse Testing which tests the website for the following:
         * Performance - How the page performs whilst loading.
         * Accessibility - Is the site accessible for all players and how can it be improved.
         * Best Practices - Site conforms to industry best practices.
@@ -764,21 +764,134 @@ All the libraries used for this project are located in the requirements.txt file
 
     * The lighthouse tests were conducted in incognito/private windows due to extensions interfering with the results.<br /><br />
 
-* ### Edge Desktop Lighthouse Result
+* ### Chrome Desktop Lighthouse Result - Home Page
 
-    ![Edge Desktop Lighthouse](static/images/readme-images/edge-desktop-lighthouse-image.png)
+    ![Chrome Desktop Lighthouse](static/images/readme-images/desktop-lighthouse-home-image.png)
 
-* ### Edge Mobile Lighthouse Result
+* ### Chrome Mobile Lighthouse Result - Home Page
 
-    ![Edge Mobile Lighthouse](static/images/readme-images/edge-mobile-lighthouse-image.png)
+    ![Chrome Mobile Lighthouse](static/images/readme-images/mobile-lighthouse-home-image.png)
 
-* ### Chrome Desktop Lighthouse Result
+* ### Chrome Desktop Lighthouse Result - Gallery Page
 
-    ![Chrome Desktop Lighthouse](static/images/readme-images/chrome-desktop-lighthouse-image.png)
+    ![Chrome Desktop Lighthouse](static/images/readme-images/desktop-lighthouse-gallery-image.png)
 
-* ### Chrome Mobile Lighthouse Result
+* ### Chrome Mobile Lighthouse Result - Gallery Page
 
-    ![Chrome Mobile Lighthouse](static/images/readme-images/chrome-mobile-lighthouse-image.png)
+    ![Chrome Mobile Lighthouse](static/images/readme-images/mobile-lighthouse-gallery-image.png)
+
+* ### Chrome Desktop Lighthouse Result - Book Now Page
+
+    ![Chrome Desktop Lighthouse](static/images/readme-images/desktop-lighthouse-book-now-image.png)
+
+* ### Chrome Mobile Lighthouse Result - Book Now Page
+
+    ![Chrome Mobile Lighthouse](static/images/readme-images/mobile-lighthouse-book-now-image.png)
+
+* ### Chrome Desktop Lighthouse Result - My Reservations Page
+
+    ![Chrome Desktop Lighthouse](static/images/readme-images/desktop-lighthouse-reservations-image.png)
+
+* ### Chrome Mobile Lighthouse Result - My Reservations Page
+
+    ![Chrome Mobile Lighthouse](static/images/readme-images/mobile-lighthouse-reservations-image.png)
+
+* ### Chrome Desktop Lighthouse Result - Write A Review Page
+
+    ![Chrome Desktop Lighthouse](static/images/readme-images/desktop-lighthouse-review-image.png)
+
+* ### Chrome Mobile Lighthouse Result - Write A Review Page
+
+    ![Chrome Mobile Lighthouse](static/images/readme-images/mobile-lighthouse-review-image.png)
+
+* ### Chrome Desktop Lighthouse Result - Signup Page
+
+    ![Chrome Desktop Lighthouse](static/images/readme-images/desktop-lighthouse-signup-image.png)
+
+* ### Chrome Mobile Lighthouse Result - Signup Page
+
+    ![Chrome Mobile Lighthouse](static/images/readme-images/mobile-lighthouse-signup-image.png)
+
+* ### Chrome Desktop Lighthouse Result - Login Page
+
+    ![Chrome Desktop Lighthouse](static/images/readme-images/desktop-lighthouse-login-image.png)
+
+* ### Chrome Mobile Lighthouse Result - Login Page
+
+    ![Chrome Mobile Lighthouse](static/images/readme-images/mobile-lighthouse-login-image.png)
+
+* ### Chrome Desktop Lighthouse Result - Logout Page
+
+    ![Chrome Desktop Lighthouse](static/images/readme-images/desktop-lighthouse-logout-image.png)
+
+* ### Chrome Mobile Lighthouse Result - Logout Page
+
+    ![Chrome Mobile Lighthouse](static/images/readme-images/mobile-lighthouse-logout-image.png)
+
+* ### Chrome Desktop Lighthouse Result - Staff Dashboard - Dashboard Page
+
+    ![Chrome Desktop Lighthouse](static/images/readme-images/desktop-lighthouse-staff-dashboard-image.png)
+
+* ### Chrome Mobile Lighthouse Result - Staff Dashboard - Dashboard Page
+
+    ![Chrome Mobile Lighthouse](static/images/readme-images/mobile-lighthouse-staff-dashboard-image.png)
+
+* ### Chrome Desktop Lighthouse Result - Staff Dashboard - Pending Bookings Page
+
+    ![Chrome Desktop Lighthouse](static/images/readme-images/desktop-lighthouse-staff-pending-bookings-image.png)
+
+* ### Chrome Mobile Lighthouse Result - Staff Dashboard - Pending Bookings Page
+
+    ![Chrome Mobile Lighthouse](static/images/readme-images/mobile-lighthouse-staff-pending-bookings-image.png)
+
+* ### Chrome Desktop Lighthouse Result - Staff Dashboard - All Bookings Page
+
+    ![Chrome Desktop Lighthouse](static/images/readme-images/desktop-lighthouse-staff-all-bookings-image.png)
+
+* ### Chrome Mobile Lighthouse Result - Staff Dashboard - All Bookings Page
+
+    ![Chrome Mobile Lighthouse](static/images/readme-images/mobile-lighthouse-staff-all-bookings-image.png)
+
+* ### Chrome Desktop Lighthouse Result - Staff Dashboard - Check In Page
+
+    ![Chrome Desktop Lighthouse](static/images/readme-images/desktop-lighthouse-staff-check-in-image.png)
+
+* ### Chrome Mobile Lighthouse Result - Staff Dashboard - Check In Page
+
+    ![Chrome Mobile Lighthouse](static/images/readme-images/mobile-lighthouse-staff-check-in-image.png)
+
+* ### Chrome Desktop Lighthouse Result - Staff Dashboard - Payment Page
+
+    ![Chrome Desktop Lighthouse](static/images/readme-images/desktop-lighthouse-staff-payment-image.png)
+
+* ### Chrome Mobile Lighthouse Result - Staff Dashboard - Payment Page
+
+    ![Chrome Mobile Lighthouse](static/images/readme-images/mobile-lighthouse-staff-payment-image.png)
+
+* ### Chrome Desktop Lighthouse Result - Staff Dashboard - Submit Payment Page
+
+    ![Chrome Desktop Lighthouse](static/images/readme-images/desktop-lighthouse-staff-submit-payment-image.png)
+
+* ### Chrome Mobile Lighthouse Result - Staff Dashboard - Submit Payment Page
+
+    ![Chrome Mobile Lighthouse](static/images/readme-images/mobile-lighthouse-staff-submit-payment-image.png)
+
+* ### Chrome Desktop Lighthouse Result - Staff Dashboard - Pending Reviews Page
+
+    ![Chrome Desktop Lighthouse](static/images/readme-images/desktop-lighthouse-staff-reviews-image.png)
+
+* ### Chrome Mobile Lighthouse Result - Staff Dashboard - Pending Reviews Page
+
+    ![Chrome Mobile Lighthouse](static/images/readme-images/mobile-lighthouse-staff-reviews-image.png)
+
+* ### Chrome Desktop Lighthouse Result - Staff Dashboard - All Reviews Page
+
+    ![Chrome Desktop Lighthouse](static/images/readme-images/desktop-lighthouse-staff-all-reviews-image.png)
+
+* ### Chrome Mobile Lighthouse Result - Staff Dashboard - All Reviews Page
+
+    ![Chrome Mobile Lighthouse](static/images/readme-images/mobile-lighthouse-staff-all-reviews-image.png)
+
 
 * ## Accessibility Testing
     * I also put the website through [a11y](https://color.a11y.com/Contrast/) to further test the contrast and found no issues. <br /><br />
