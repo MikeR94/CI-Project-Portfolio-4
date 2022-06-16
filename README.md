@@ -843,6 +843,30 @@ In addition to the other tests, I have conducted a manual check list for myself 
 
     * To solve this error, I simply entered my billing details to my google cloud project account. This was for security reasons only and I have not been charged.
 
+    ### HTML Validation Error (Duplicate attribute defer)
+
+    * When validating my HTML code through the [HTML Validation](https://validator.w3.org/) website, I was presented with the below error.
+
+    ![Duplicate attribute defer](static/images/readme-images/duplicate-defer-error-image.png)
+
+    * To fix this issue, I had to remove the duplicate 'defer' attribute.
+
+    ### HTML Validation Error (Section lacks heading)
+
+    * When validating my HTML code through the [HTML Validation](https://validator.w3.org/) website, I was presented with the below warning.
+
+    ![Section lacks heading](static/images/readme-images/section-lacks-heading-warning-image.png)
+
+    * To fix this issue, I changed the <'section'> tag to a <'div'> tag because I tried using all the different H1-6 tags however this warning kept appearing. Changing the <'section'> tag to a <'div'> tag fixed this warning.
+
+    ### HTML Validation Error (Bad value false)
+
+    * When validating my HTML code through the [HTML Validation](https://validator.w3.org/) website, I was presented with the below error.
+
+    ![Bad value false](static/images/readme-images/bad-value-false-error-image.png)
+
+    * I found an article online which mentioned that setting async="false" would fix my "Uncaught in promise" console error however I later found at that this has been deprecated. Additionally I solved the "Uncaught in promise" error as mentioned above. To fix this HTML Validation Error, I simply removed the async="false" attribute.
+
 * ## Bugs Unresolved
 
     ### navigator.userAgent/appVersion and platform
