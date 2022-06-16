@@ -49,7 +49,7 @@ class Booking(models.Model):
     number_of_guests = models.PositiveIntegerField(
         blank=False,
         null=False,
-        validators=[MinValueValidator(Decimal("0.01"))],
+        validators=[MinValueValidator(Decimal("0.00"))],
     )
     guest_attended = models.BooleanField(default=False)
     guest_no_show = models.BooleanField(default=False)
