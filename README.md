@@ -831,6 +831,9 @@ In addition to the other tests, I have conducted a manual check list for myself 
 
     * Upon loading the home page, sometimes (not often) I would see the below error message.
 
+    ![Uncaught In Promise](static/images/readme-images/uncaught-promise-error-image.png)
+
+    * To solve this error, I noticed that it was being caused due to the map.js file which has the initMap function which powers the google maps API and this file was being rendered after the google maps API was making the call. Therefore to fix this issue, I moved the maps.js file further up the code tree so that this file would be loaded first before the google maps API made the call to launch the initMap function.
 
 * ## Bugs Unresolved
 
