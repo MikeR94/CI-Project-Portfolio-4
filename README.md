@@ -882,6 +882,26 @@ In addition to the other tests, I have conducted a manual check list for myself 
 | &check; | Clicking the cafemanbo@hotmail.co.uk link on the footer loads an email application separately
 | &check; | Typing in a incorrect URL will load the 404 error page
 
+| Status | **Book Now Page - User Logged In**
+|:-------:|:--------|
+| &check; | First Name field is required
+| &check; | First Name field does not accept empty field
+| &check; | First Name field does not accept just spaces
+| &check; | First Name field accepts only characters
+| &check; | Last Name field is required
+| &check; | Last Name field does not accept empty field
+| &check; | Last Name field does not accept just spaces
+| &check; | Last Name field accepts only characters
+| &check; | Email field is required
+| &check; | Email field requires an email related value. For example "Test@test.com"
+| &check; | Time of Visit field is required
+| &check; | Time of Visit field can not be in the past on today
+| &check; | Time of Visit field has options from 17:00 to 22:30 in 30 minute increments
+| &check; | Date of Visit field is required
+| &check; | Date of Visit field can not be in the past from todays date
+| &check; | Date of Visit field can not accept values for the year 2023
+| &check; | Date of Visit field can not accept dates that are sundays
+
 | Status | **Staff Dashboard**
 |:-------:|:--------|
 | &check; | Test 1
