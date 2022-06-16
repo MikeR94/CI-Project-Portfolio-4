@@ -28,6 +28,7 @@ You can view the live site here - <a href="https://cafe-manbo.herokuapp.com/" ta
     * [My Reservations](<#my-reservations>)
     * [Account Creation](<#account-creation>)
     * [Write A Review](<#write-a-review>)
+    * [404 & 500 Pages](<#404-and-500-error-pages>)
 * [**Existing Existing Features (Staff Member)**](<#existing-features-for-staff-member>)
     * [Staff Dashboard](<#staff-dashboard>)
     * [Staff Navigation Bar](<#staff-responsive-navigation-bar>)
@@ -366,6 +367,21 @@ As mentioned above, the website for Cafe Manbo has been designed to be a fully e
 <details><summary><b>Review Submitted Image</b></summary>
 
 ![Review Submitted Image](static/images/readme-images/review-submitted-image.png)
+</details><br />
+
+  * ### 404 and 500 Error Pages
+
+      * If a user navigates to a page that does not exist, they will be presented with a custom 404 error page
+      * If a user navigates to a page and they encounter an issue which is server side related, they will be presented with a custom 500 error page <br /><br />
+
+<details><summary><b>404 Error Page Image</b></summary>
+
+![404 Error Page Image](static/images/readme-images/404-error-image.png)
+</details><br />
+
+<details><summary><b>500 Error Page Image</b></summary>
+
+![500 Error Page Image](static/images/readme-images/500-error-image.png)
 </details><br />
 
 
