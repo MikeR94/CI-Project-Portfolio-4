@@ -389,6 +389,12 @@ table th {
   height: 126px;
 }
 
+/* Gallery */
+
+.img-width-100 {
+  width: 100%;
+}
+
 /* Django Forms Styling */
 
 #id_amount_owed {

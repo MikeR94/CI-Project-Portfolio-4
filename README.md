@@ -797,6 +797,8 @@ All the libraries used for this project are located in the requirements.txt file
 
     ![Chrome Mobile Lighthouse](static/images/readme-images/mobile-lighthouse-home-image.png)
 
+    * Performance is at 77 due to Google Maps blocking the main thread for 440ms. I've decided that this is not something that is too severe however if it did become a significant problem then I would disable Google Maps for mobile users.
+
 * ### Chrome Desktop Lighthouse Result - Gallery Page
 
     ![Chrome Desktop Lighthouse](static/images/readme-images/desktop-lighthouse-gallery-image.png)
