@@ -1220,38 +1220,147 @@ In addition to the other tests, I have conducted a manual check list for myself 
   
 The project was deployed to [Heroku](https://www.heroku.com). The deployment process is as follows: 
   
-### 1. Create the Heroku App:
-* Before creating the Heroku app make sure your project has the following files:
-    * ***requirements.txt*** - To create this type the following within the terminal: ```pip3 freeze --local > requirements.txt```.
-    * ***Procfile*** - To create this type the following within the terminal: ```python run.py > Procfile```.
-* Select "Create new app" within Heroku.
-### 2. Attach the Postgres database:
-* Search "Postgres" within the Resources tab and select the Heroku Postgres option.
-### 3. Create the settings.py file:
-* In Heroku navigate to the Settings tab, click on Reveal Config Vars and copy the DATABASE_URL.
-* Within the GitPod workspace, create an env.py file within the main directory.
-* Import the env.py file within the settings.py file.
-* Create a SECRET_KEY value within the Reveal Config Vars in Heroku.
-* Add the DATABASE_URL value and your chosen SECRET_KEY value to the env.py file.
-* Run the following command in your terminal ```python3 manage.py migrate```.
-* Add the CLOUDINARY_URL to the Reveal Config Vars in Heroku and add this to your settings.py file.
-* Add the following sections to your settings.py file:
-    * Cloudinary to the INSTALLED_APPS list
-    * STATICFILES_STORAGE
-    * STATICFILES_DIRS
-    * STATIC_ROOT
-    * MEDIA_URL
-    * DEFAULT_FILE_STORAGE
-    * TEMPLATES_DIR
-    * Update DIRS in TEMPLATES with TEMPLATES_DIR
-    * Update ALLOWED_HOSTS with ['app_name.heroku.com','localhost']
-### 4. Store Static and Media files in Cloudinary and Deploy to Heroku:
-* Create three directories in the top level directory: media, storage and templates.
-* Create a file named "Procfile" in the main directory and ass the following: [web: gunicorn project-name.wsgi].
-* Login to Heroku within the terminal window using ```heroku login -i```
-* Run the following command in the terminal window: ```heroku git:remote -a your_app_name_here```. By doing this you will link the app to your GidPod terminal.
-* After linking the app you can deploy new versions to Heroku by running the command ```git push heroku main```.
+### 1. Create a new GitHub repository from CI template:
 
+* Firstly we need to create a new GitHub repository. Head over to this [link](https://github.com/Code-Institute-Org/gitpod-full-template) and click 'Use this template'</br></br>
+
+![Deployment Step 1](static/images/readme-images/deploy-1.png)</br></br>
+
+* Fill in the appropriate details and then click 'Create repository from template'</br></br>
+
+![Deployment Step 2](static/images/readme-images/deploy-2.png)</br></br>
+
+* Click 'Code' and then copy either the HTTPS or SSH link. I used SSH.</br></br>
+
+![Deployment Step 3](static/images/readme-images/deploy-3.png)</br></br>
+
+* Open up Command Prompt, navigate to where you wish your project to be stored and then type the following commands: <br/><br/>
+    * ```git clone HTTPS or SSH link``` - This will clone your project to your local machine
+    * ```cd name of project``` - This will cd into your project
+    * ```code .``` - This will launch your project in VSCode<br/><br/>
+
+![Deployment Step 4](static/images/readme-images/deploy-4.png)</br></br>
+
+* It is good practice to initialize a virtual environment when working on any project. A virtual Environment provides the facility to work on a specific project without affecting other projects. It allows a unique working environment for avoiding dependencies. I followed this brilliant article by [medium.com](https://medium.com/@shilpasree209/how-to-set-up-visual-studio-code-creating-virtual-environment-and-writing-the-first-python-7155596b2573) to setup my virtual environment.
+
+* When you have successfully installed a virtual environment, type the following commands into the VSCode terminal: <br/><br/>
+    * ```virtualenv env``` - This will create a new virtual environment for your project
+    * ```source env/scripts/activate``` - This will activate your virtual environment
+    * **Don't forget to add ***env*** to your .gitignore file**
+    * You can tell if your virtual environment is working by looking for (env) above your PC name in the terminal<br/><br/>
+
+![Virtual Env Image](static/images/readme-images/venv-image.png)<br/><br/>
+
+### 2. Installing Django and supporting libraries:
+
+* Now it's time to install Django and it's supporting libraries. In the terminal, type the following commands: <br/><br/>
+    * ```pip3 install 'django<3.2' gunicorn```
+    * ```pip3 install dj_database_url psycopg2```
+    * ```pip3 install dj3-cloudinary-storage```
+<br/><br/>
+
+* After you have successfully installed the above, type the following command: <br/><br/>
+    * ```pip3 freeze --local > requirements.txt```
+    <br/><br/>
+
+* This will create a requirements.txt file as show below <br/><br/>
+
+![Deployment Step 5](static/images/readme-images/deploy-5.png)</br></br>
+
+* Now we need to create our Django project and the applications. In the terminal type the following command: <br/><br/>
+
+    * ```django-admin startproject PROJ_NAME .``` 
+    * ```django-admin startapp APP_NAME .``` <br/><br/>
+
+* You then need to add your application to the INSTALLED_APPS section in your settings.py as shown below</br></br>
+
+![Deployment Step 6](static/images/readme-images/deploy-6.png)</br></br>
+
+* Then type the following commands in the terminal:  <br/><br/>
+    * ```python manage.py migrate```  
+    * ```python manage.py runserver```   <br/><br/>
+
+### 3. Deploying an app to Heroku:
+
+* After you have successfully navigated to [Heroku](https://dashboard.heroku.com/apps), created an account and logged in, click 'New' and then click 'Create new app'</br></br>
+
+![Deployment Step 7](static/images/readme-images/deploy-7.png)</br></br>
+
+* Pick a suitable app name and choose your preferred region. Since I live in the United Kingdom, I have chosen Europe as my region</br></br>
+
+![Deployment Step 8](static/images/readme-images/deploy-8.png)</br></br>
+
+* Inside your application, click the 'Resources' tab and then search for 'Heroku Postgres'. Attach this to your project as a database by clicking 'Submit Order Form'. If done correctly, you should see the below image.</br></br>
+
+![Deployment Step 9](static/images/readme-images/deploy-9.png)</br></br>
+
+* If you click the Heroku Postgres link, it will then open a new page which has all the information about your new Heroku Postgres database. This is where we will find our credentials. Click 'Settings' and then click 'View Credentials' and you will then see the below image (with your details not mine)
+
+* The piece of information that we are particularly interested in, is the URI. </br></br>
+
+![Deployment Step 10](static/images/readme-images/deploy-10.png)</br></br>
+
+* Since we are in Heroku, navigate to your project settings and click 'Reveal Config Vars'. Add your Heroku config vars to your project as shown below 
+
+    * DISABLE_COLLECTSTATIC = 1 is a temporary step for the moment and it will be removed before deployment</br></br>
+
+![Heroku Config Vars](static/images/readme-images/heroku-config-vars.png)</br></br>
+
+* Back in VSCode, create a new file called ***env.py*** and ensure this is added to your gitignore file. Copy the below code but change the variable content to your specific details.</br></br>
+
+![Deployment Step 11](static/images/readme-images/deploy-11.png)</br></br>
+
+* In settings.py, look for the line that says '**from pathlib import Path**' and then insert the code below.</br></br>
+
+![Deployment Step 12](static/images/readme-images/deploy-12.png)</br></br>
+
+* Replace the default random security key that Django provides with your SECRET_KEY that you created in your env.py file.</br></br>
+
+![Deployment Step 13](static/images/readme-images/deploy-13.png)</br></br>
+
+* Set **DEBUG = 'DEVELOPMENT' in os.environ**. This allows you to have DEBUG set to True when developing locally, however DEBUG will be set to False when deployed to Heroku.</br></br> 
+
+![Deployment Step 14](static/images/readme-images/deploy-14.png)</br></br>
+
+* Additionally, copy the below code to enable use of both the PostgreSQL and SQLite databases. We will use the SQLite database for local development and then the PostgreSQL database for the deployed application.</br></br>
+
+![Deployment Step 15](static/images/readme-images/deploy-15.png)</br></br>
+
+* Add the cloudinary application to the INSTALLED_APPS in settings.py. Take notice of the order, this is important.</br></br>
+
+![Deployment Step 16](static/images/readme-images/deploy-16.png)</br></br>
+
+* Find **STATIC_URL = '/static/'** in your settings.py file and copy the below code. This tells Django to use Cloudinary to store media and static files.</br></br>
+
+![Deployment Step 17](static/images/readme-images/deploy-17.png)</br></br>
+
+* Add the below code to your settings.py file. This links the file to the templates directory in Heroku</br></br>
+
+![Deployment Step 18](static/images/readme-images/deploy-18.png)</br></br>
+
+* Add your allowed hosts to ALLOWED_HOSTS. For example, I have linked my pp4-deployment-process application and also linked both 127.0.0.1 and localhost to allow me to launch the application locally.</br></br>
+
+![Deployment Step 19](static/images/readme-images/deploy-19.png)</br></br>
+
+* Now we need to create 3 new folders and 1 new file on the top level directory </br></br>
+    * **media** (folder)
+    * **static** (folder)
+    * **templates** (folder)
+    * **Procfile** (file)
+
+* Within the Procfile, add the following line of code ```web: gunicorn PROJ_NAME.wsgi```. PROJ_NAME is the name of your application. If done correctly, your project directory should look like the below image.
+
+![Deployment Step 20](static/images/readme-images/deploy-20.png)</br></br>
+
+* Make sure to save all files and then type the following commands in the terminal: </br></br>
+    * ```git add .```
+    * ```git commit -m "Deployment commit"```
+    * ```git push```
+
+* The final step is to then deploy your application. My preferred way of deployment was to use the Heroku CLI. </br></br>
+    * ```heroku login``` - This will open a new window for you to log in
+    * ```heroku git:remote -a PROJ_NAME``` - This will tell Heroku to build your application from this repo 
+    * ```git push heroku main``` - This will build your application</br></br>
 
 
 The live link to the Github repository can be found here - https://github.com/MikeR94/CI-Project-Portfolio-4
