@@ -10,6 +10,9 @@ from booking.models import Booking
 
 
 class TestUrls(TestCase):
+    """
+    A class to test the accounts URLS
+    """
     def test_user_reservations_url_is_resolved(self):
         """
         Test if the user reservations url is
@@ -89,6 +92,9 @@ class TestUrls(TestCase):
 
 
 class TestModels(TestCase):
+    """
+    A class to test the accounts models
+    """
     def test_user_account(self):
         """
         Testing user account is accepting correct values

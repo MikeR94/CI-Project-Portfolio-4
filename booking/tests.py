@@ -8,7 +8,14 @@ from booking.forms import BookingForm
 
 
 class TestUrls(TestCase):
+    """
+    A class to test the booking URLS
+    """
     def test_book_now_is_resolved(self):
+        """
+        Tests if the book_now url is working
+        correctly
+        """
         response = self.client.get("/book-now")
         self.assertEqual(response.status_code, 302)
 
@@ -25,6 +32,9 @@ class TestUrls(TestCase):
 
 
 class TestModels(TestCase):
+    """
+    A class to test the booking models
+    """
     def test_booking_model(self):
         """
         Testing Booking model is passing values correctly
@@ -63,6 +73,9 @@ class TestModels(TestCase):
 
 
 class TestForms(TestCase):
+    """
+    A class to test the booking forms
+    """
     def test_booking_form(self):
         """
         Testing booking form is accepting correct values
@@ -109,6 +122,7 @@ class TestForms(TestCase):
         }
         test_form = BookingForm(request.POST)
         self.assertTrue(test_form.is_valid())
+
 
     def test_booking_form_date_of_visit_errors(self):
         """

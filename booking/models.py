@@ -5,18 +5,28 @@ from django.core.validators import BaseValidator
 from booking.utils import create_new_ref_number, validate_date
 from decimal import Decimal
 
-# Create your models here.
-
 
 class MinValueValidator(BaseValidator):
+    """
+    A class to initialize a minimum value
+    validator
+    """
     message = "Ensure this value is greater than 0."
     code = "min_value"
 
     def compare(self, a, b):
+        """
+        Compares if b is greater
+        than a
+        """
         return a < b
 
 
 class Booking(models.Model):
+    """
+    A class to create a Booking
+    model
+    """
     first_name = models.CharField(max_length=25, null=False, blank=False)
     last_name = models.CharField(max_length=25, null=False, blank=False)
     email = models.EmailField(null=False, blank=False)
@@ -65,4 +75,7 @@ class Booking(models.Model):
     user = models.ForeignKey(User, null=True, on_delete=models.SET_NULL)
 
     def __str__(self):
+        """
+        Returns the booking first name
+        """
         return self.first_name

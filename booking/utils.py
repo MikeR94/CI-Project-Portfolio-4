@@ -4,14 +4,24 @@ from django import forms
 
 
 def create_new_ref_number():
+    """
+    Generates a new random number
+    used for booking references
+    """
     return str(random.randint(1000000000, 9999999999))
 
 
 def validate_date(date):
+    """
+    A function that validates if
+    the users chosen date is not
+    in the past
+    """
     if date < timezone.now().date():
         raise forms.ValidationError("You can't book in the past")
+        
 
-
+# All the dates for every sunday in 2022
 sunday = [
     "2022-01-02",
     "2022-01-09",

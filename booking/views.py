@@ -3,10 +3,12 @@ from django.shortcuts import render
 from booking.models import Booking
 from booking.forms import BookingForm
 
-# Create your views here.
-
 
 def book_now(request):
+    """
+    This function handles when a
+    guest makes a booking on the website
+    """
     if request.user.is_authenticated:
         form = BookingForm(request.POST or None)
         context = {

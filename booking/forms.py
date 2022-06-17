@@ -5,14 +5,26 @@ from booking.utils import sunday
 
 
 class DateInput(forms.DateInput):
+    """
+    A class to register the input_type
+    as date
+    """
     input_type = "date"
 
 
 class TimeInput(forms.TimeInput):
+    """
+    A class to register the input_type
+    as time
+    """
     input_type = "time"
 
 
 class BookingForm(forms.ModelForm):
+    """
+    A class to create a Booking form
+    from the Booking model
+    """
     class Meta:
         model = Booking
         fields = [
@@ -48,7 +60,12 @@ class BookingForm(forms.ModelForm):
             ),
         }
 
+
     def clean(self):
+        """
+        A function to clean the form data
+        and perform custom form validation
+        """
         cleaned_data = super(BookingForm, self).clean()
         time_of_visit = cleaned_data.get("time_of_visit")
         date_of_visit = cleaned_data.get("date_of_visit")
