@@ -21,6 +21,21 @@ class PaymentForm(forms.ModelForm):
         amount_paid = cleaned_data.get("amount_paid")
         amount_owed = cleaned_data.get("amount_owed")
 
+        if amount_paid > 99999:
+            self._errors["amount_paid"] = self.error_class(
+                [
+                    """Please enter a number lower
+                    than 6 digits"""
+                ]
+            )
+        if amount_owed > 99999:
+            self._errors["amount_owed"] = self.error_class(
+                [
+                    """Please enter a number lower
+                    than 6 digits"""
+                ]
+            )
+
         if amount_paid < amount_owed:
             self._errors["amount_paid"] = self.error_class(
                 [
