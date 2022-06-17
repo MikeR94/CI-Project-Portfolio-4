@@ -1193,6 +1193,16 @@ In addition to the other tests, I have conducted a manual check list for myself 
 
     * I found an article online which mentioned that setting async="false" would fix my "Uncaught in promise" console error however I later found at that this has been deprecated. Additionally I solved the "Uncaught in promise" error as mentioned above. To fix this HTML Validation Error, I simply removed the async="false" attribute.
 
+    ### Gallery Page Lighthouse Results
+
+    * When testing the entire website with [Chrome Dev Tools](https://developer.chrome.com/docs/devtools/) Lighthouse tool, I was not satisfied with the performance score.
+
+    ![Old Lighthouse Gallery Score](static/images/readme-images/desktop-lighthouse-gallery-old-image.png)
+
+    * After attempting many different methods to fix this issue and increase the performance, I decided to implement a Bootstrap 5 carousel which greatly increased the performance of this page. I also think it makes the page more user friendly and more appealing to the eye.
+
+    ![New Lighthouse Gallery Score](static/images/readme-images/desktop-lighthouse-gallery-image.png)
+
 * ## Bugs Unresolved
 
     ### navigator.userAgent/appVersion and platform
