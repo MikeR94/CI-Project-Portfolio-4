@@ -5,10 +5,11 @@ from django.http import HttpResponseRedirect
 from staff.models import Payment
 from django.contrib import messages
 
-# Create your views here.
-
 
 def show_user_reservations(request):
+    """
+    Render the user reservations page
+    """
     if request.user.is_authenticated:
         booking = Booking.objects.filter(
             user=request.user, guest_attended=False, guest_no_show=False
@@ -41,6 +42,11 @@ def show_user_reservations(request):
 
 
 def user_details_booking(request, booking_id):
+    """
+    Render the user details booking page
+    which shows additional information
+    about a users booking
+    """
     if request.user.is_authenticated:
         next = request.POST.get("next", "/")
         booking = Booking.objects.filter(id=booking_id)
@@ -102,6 +108,10 @@ def user_details_booking(request, booking_id):
 
 
 def user_cancel_booking(request, booking_id):
+    """
+    Function to cancel a booking and
+    remove it from the database
+    """
     if request.user.is_authenticated:
         booking = get_object_or_404(Booking, id=booking_id)
         booking.delete()

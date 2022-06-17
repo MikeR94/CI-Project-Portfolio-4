@@ -11,6 +11,10 @@ from booking.models import Booking
 
 class TestUrls(TestCase):
     def test_user_reservations_url_is_resolved(self):
+        """
+        Test if the user reservations url is
+        working correctly
+        """
         response = self.client.get("/user-reservations")
         self.assertEqual(response.status_code, 302)
         self.user = User.objects.create_user(
@@ -24,7 +28,12 @@ class TestUrls(TestCase):
         self.assertEquals(resolve(url).func, show_user_reservations)
         self.assertTemplateUsed(response, "user_reservations.html")
 
+
     def test_user_details_booking_url_is_resolved(self):
+        """
+        Test if the user details booking url is
+        working correctly
+        """
         response = self.client.get("/user-details-booking/50")
         self.assertEqual(response.status_code, 302)
         self.user = User.objects.create_user(
@@ -49,7 +58,12 @@ class TestUrls(TestCase):
         self.assertEquals(resolve(url).func, user_details_booking)
         self.assertTemplateUsed(response, "user_details_booking.html")
 
+
     def test_user_details_booking_cancel_url_is_resolved(self):
+        """
+        Test if the user details cancel booking url is
+        working correctly
+        """
         response = self.client.get("/user-details-booking/cancel/50")
         self.assertEqual(response.status_code, 302)
 
@@ -96,6 +110,7 @@ class TestModels(TestCase):
         self.assertEquals(user.email, "testemail@hotmail.co.uk")
         self.assertEquals(user.is_active, True)
         self.assertEquals(user.is_staff, False)
+
 
     def test_staff_account(self):
         """
