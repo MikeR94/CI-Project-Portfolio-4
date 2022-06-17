@@ -134,5 +134,5 @@ class TestForms(TestCase):
         test_form = BookingForm(request.POST)
         self.assertFalse(test_form.is_valid())
         self.assertEqual(
-            test_form.errors["date_of_visit"][0], "You can't book in the past"
+            test_form.errors["date_of_visit"][0], "Sorry we are only taking bookings for this year"
         )
