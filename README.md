@@ -257,7 +257,7 @@ As mentioned above, the website for Cafe Manbo has been designed to be a fully e
 
 <details><summary><b>Gallery Image</b></summary>
 
-![Gallery Image](static/images/readme-images/gallery-image.jpg)
+![Gallery Image](static/images/readme-images/gallery-image.png)
 </details><br />
 
   * ### Book Now
