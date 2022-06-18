@@ -26,7 +26,14 @@ from staff.views import (
 
 
 class TestUrls(TestCase):
+    """
+    A class to test the staff URLS
+    """
     def test_staff_dashboard_url_is_resolved(self):
+        """
+        Tests if the staff_dashboard url is 
+        working correctly
+        """
         response = self.client.get("/staff/dashboard")
         self.assertEqual(response.status_code, 302)
 
@@ -40,7 +47,12 @@ class TestUrls(TestCase):
         self.assertEquals(resolve(url).func, staff_dashboard)
         self.assertTemplateUsed(response, "staff_dashboard.html")
 
+
     def test_staff_pending_bookings_url_is_resolved(self):
+        """
+        Tests if the staff_pending_bookings url is 
+        working correctly
+        """
         response = self.client.get("/staff/pending-bookings")
         self.assertEqual(response.status_code, 302)
 
@@ -55,7 +67,10 @@ class TestUrls(TestCase):
         self.assertTemplateUsed(response, "staff_pending_bookings.html")
 
     def test_staff_approve_bookings_url_is_resolved(self):
-
+        """
+        Tests if the staff_approve_bookings url is 
+        working correctly
+        """
         self.user = User.objects.create_user(username="admin", is_staff=True)
         self.client.force_login(self.user)
 
@@ -77,8 +92,12 @@ class TestUrls(TestCase):
         url = reverse("staff_approve_booking", kwargs={"booking_id": "50"})
         self.assertEquals(resolve(url).func, staff_approve_booking)
 
-    def test_staff_deny_bookings_url_is_resolved(self):
 
+    def test_staff_deny_bookings_url_is_resolved(self):
+        """
+        Tests if the staff_deny_bookings url is 
+        working correctly
+        """
         self.user = User.objects.create_user(username="admin", is_staff=True)
         self.client.force_login(self.user)
 
@@ -100,7 +119,12 @@ class TestUrls(TestCase):
         url = reverse("staff_deny_booking", kwargs={"booking_id": "50"})
         self.assertEquals(resolve(url).func, staff_deny_booking)
 
+
     def test_staff_pending_reviews_url_is_resolved(self):
+        """
+        Tests if the staff_pending_reviews url is 
+        working correctly
+        """
         response = self.client.get("/staff/pending-reviews")
         self.assertEqual(response.status_code, 302)
 
@@ -114,8 +138,12 @@ class TestUrls(TestCase):
         self.assertEquals(resolve(url).func, staff_pending_reviews)
         self.assertTemplateUsed(response, "staff_pending_reviews.html")
 
-    def test_staff_approve_review_url_is_resolved(self):
 
+    def test_staff_approve_review_url_is_resolved(self):
+        """
+        Tests if the staff_approve_review url is 
+        working correctly
+        """
         self.user = User.objects.create_user(
             username="admin", is_staff=True, id="50"
         )
@@ -141,8 +169,12 @@ class TestUrls(TestCase):
         url = reverse("staff_approve_review", kwargs={"review_id": "50"})
         self.assertEquals(resolve(url).func, staff_approve_review)
 
-    def test_staff_deny_review_url_is_resolved(self):
 
+    def test_staff_deny_review_url_is_resolved(self):
+        """
+        Tests if the staff_deny_review url is 
+        working correctly
+        """
         self.user = User.objects.create_user(
             username="admin", is_staff=True, id="50"
         )
@@ -168,8 +200,12 @@ class TestUrls(TestCase):
         url = reverse("staff_deny_review", kwargs={"review_id": "50"})
         self.assertEquals(resolve(url).func, staff_deny_review)
 
-    def test_staff_details_bookings_url_is_resolved(self):
 
+    def test_staff_details_bookings_url_is_resolved(self):
+        """
+        Tests if the staff_details_booking url is 
+        working correctly
+        """
         response = self.client.get("/staff/details-booking/50")
         self.assertEqual(response.status_code, 302)
 
@@ -195,8 +231,12 @@ class TestUrls(TestCase):
         self.assertEquals(resolve(url).func, staff_details_booking)
         self.assertTemplateUsed(response, "staff_details_booking.html")
 
-    def test_staff_all_bookings_url_is_resolved(self):
 
+    def test_staff_all_bookings_url_is_resolved(self):
+        """
+        Tests if the staff_all_bookings url is 
+        working correctly
+        """
         response = self.client.get("/staff/all-bookings")
         self.assertEqual(response.status_code, 302)
 
@@ -209,8 +249,12 @@ class TestUrls(TestCase):
         url = reverse("staff_all_bookings")
         self.assertEquals(resolve(url).func, staff_all_bookings)
 
-    def test_staff_all_reviews_url_is_resolved(self):
 
+    def test_staff_all_reviews_url_is_resolved(self):
+        """
+        Tests if the staff_all_reviews url is 
+        working correctly
+        """
         response = self.client.get("/staff/all-reviews")
         self.assertEqual(response.status_code, 302)
 
@@ -224,8 +268,12 @@ class TestUrls(TestCase):
         self.assertEquals(resolve(url).func, staff_all_reviews)
         self.assertTemplateUsed(response, "staff_all_reviews.html")
 
-    def test_staff_check_in_page_url_is_resolved(self):
 
+    def test_staff_check_in_page_url_is_resolved(self):
+        """
+        Tests if the staff_check_in url is 
+        working correctly
+        """
         response = self.client.get("/staff/check-in-page")
         self.assertEqual(response.status_code, 302)
 
@@ -239,8 +287,12 @@ class TestUrls(TestCase):
         self.assertEquals(resolve(url).func, staff_check_in_page)
         self.assertTemplateUsed(response, "staff_check_in.html")
 
-    def test_staff_check_in_booking_id_url_is_resolved(self):
 
+    def test_staff_check_in_booking_id_url_is_resolved(self):
+        """
+        Tests if the staff_check_in_booking_id 
+        url is working correctly
+        """
         Booking.objects.create(
             id="50",
             first_name="Mike",
@@ -262,8 +314,12 @@ class TestUrls(TestCase):
         url = reverse("staff_check_in", kwargs={"booking_id": "50"})
         self.assertEquals(resolve(url).func, staff_check_in)
 
-    def test_staff_no_show_booking_id_url_is_resolved(self):
 
+    def test_staff_no_show_booking_id_url_is_resolved(self):
+        """
+        Tests if the staff_no_show_booking_id
+        url is working correctly
+        """
         Booking.objects.create(
             id="50",
             first_name="Mike",
@@ -285,8 +341,12 @@ class TestUrls(TestCase):
         url = reverse("staff_no_show", kwargs={"booking_id": "50"})
         self.assertEquals(resolve(url).func, staff_no_show)
 
-    def test_staff_payment_page_url_is_resolved(self):
 
+    def test_staff_payment_page_url_is_resolved(self):
+        """
+        Tests if the staff_payment_page url is 
+        working correctly
+        """
         response = self.client.get("/staff/payment-page")
         self.assertEqual(response.status_code, 302)
 
@@ -300,8 +360,12 @@ class TestUrls(TestCase):
         self.assertEquals(resolve(url).func, staff_payment_page)
         self.assertTemplateUsed(response, "staff_payment_page.html")
 
-    def test_staff_create_payment_url_is_resolved(self):
 
+    def test_staff_create_payment_url_is_resolved(self):
+        """
+        Tests if the staff_create_payment url is 
+        working correctly
+        """
         Booking.objects.create(
             id="50",
             first_name="Mike",
@@ -327,8 +391,12 @@ class TestUrls(TestCase):
         self.assertEquals(resolve(url).func, staff_create_payment)
         self.assertTemplateUsed(response, "staff_submit_payment.html")
 
-    def test_staff_details_booking_cancel_booking_url_is_resolved(self):
 
+    def test_staff_details_booking_cancel_booking_url_is_resolved(self):
+        """
+        Tests if the staff_details_booking_cancel_booking
+        url is working correctly
+        """
         Booking.objects.create(
             id="50",
             first_name="Mike",
@@ -352,11 +420,13 @@ class TestUrls(TestCase):
 
 
 class TestModels(TestCase):
+    """
+    A class to test the staff models
+    """
     def test_payment_model(self):
         """
         Testing payment model is accepting correct values
         """
-
         payment = Payment.objects.create(
             id=1,
             amount_owed=200,
@@ -373,11 +443,13 @@ class TestModels(TestCase):
 
 
 class TestForms(TestCase):
+    """
+    A class to test the staff forms
+    """
     def test_payment_form_is_accepting_correct_values(self):
         """
         Testing payment form is accepting correct values
         """
-
         form = PaymentForm(
             data={
                 "amount_owed": "120",
@@ -386,11 +458,11 @@ class TestForms(TestCase):
         )
         self.assertTrue(form.is_valid())
 
+
     def test_payment_form_is_not_accepting_incorrect_values(self):
         """
         Testing payment form is not accepting incorrect values
         """
-
         form = PaymentForm(
             data={
                 "amount_owed": "120",

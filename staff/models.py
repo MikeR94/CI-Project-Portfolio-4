@@ -3,18 +3,28 @@ from booking.models import Booking
 from django.core.validators import BaseValidator
 from decimal import Decimal
 
-# Create your models here.
-
 
 class MinValueValidator(BaseValidator):
+    """
+    A class to initialize a minimum value
+    validator
+    """
     message = "Ensure this value is greater than 0."
     code = "min_value"
 
     def compare(self, a, b):
+        """
+        Compares if b is greater
+        than a
+        """
         return a < b
 
 
 class Payment(models.Model):
+    """
+    A class to create a Payment
+    model
+    """
     amount_owed = models.DecimalField(
         max_digits=60,
         decimal_places=2,
@@ -37,4 +47,7 @@ class Payment(models.Model):
     booking = models.ForeignKey(Booking, null=True, on_delete=models.SET_NULL)
 
     def __str__(self):
+        """
+        Returns the payment first name
+        """
         return self.total_income

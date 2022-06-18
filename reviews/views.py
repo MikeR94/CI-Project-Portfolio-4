@@ -16,7 +16,6 @@ def create_review(request):
     else:
         return HttpResponseRedirect("/")
     if request.method == "POST":
-
         if form.is_valid():
             instance = form.save(commit=False)
             instance.user = request.user

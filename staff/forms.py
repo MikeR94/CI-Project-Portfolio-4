@@ -3,6 +3,10 @@ from staff.models import Payment
 
 
 class PaymentForm(forms.ModelForm):
+    """
+    A class to create a Payment form
+    from the Payment model
+    """
     class Meta:
         model = Payment
         fields = [
@@ -17,6 +21,10 @@ class PaymentForm(forms.ModelForm):
         }
 
     def clean(self):
+        """
+        A function to clean the form data
+        and perform custom form validation
+        """
         cleaned_data = super(PaymentForm, self).clean()
         amount_paid = cleaned_data.get("amount_paid")
         amount_owed = cleaned_data.get("amount_owed")
