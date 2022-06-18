@@ -86,7 +86,7 @@ class BookingForm(forms.ModelForm):
                 )
                 del self.cleaned_data["date_of_visit"]
 
-        if not "2022" in str(date_of_visit):
+        if "2022" not in str(date_of_visit):
             self._errors["date_of_visit"] = self.error_class(
                 ["Sorry we are only taking bookings for this year"]
             )
