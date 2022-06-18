@@ -3,6 +3,10 @@ from reviews.models import Review
 
 
 class ReviewForm(forms.ModelForm):
+    """
+    A class to create a Review form
+    from the Review model
+    """
     class Meta:
         model = Review
         fields = ["first_name", "last_name", "stars", "body"]

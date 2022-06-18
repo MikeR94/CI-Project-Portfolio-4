@@ -8,7 +8,14 @@ from reviews.views import create_review
 
 
 class TestUrls(TestCase):
+    """
+    A class to test the review URLS
+    """
     def test_create_review_url_is_resolved(self):
+        """
+        Tests if the create_review url is working
+        correctly
+        """
         response = self.client.get("/create/review")
         self.assertEqual(response.status_code, 302)
         self.user = User.objects.create_user(
@@ -24,6 +31,9 @@ class TestUrls(TestCase):
 
 
 class TestModels(TestCase):
+    """
+    A class to test the review models
+    """
     def test_review_model(self):
         """
         Testing review model is accepting correct values
@@ -58,6 +68,9 @@ class TestModels(TestCase):
 
 
 class TestForms(TestCase):
+    """
+    A class to test the review forms
+    """
     def test_review_form(self):
         """
         Testing review form is accepting correct values

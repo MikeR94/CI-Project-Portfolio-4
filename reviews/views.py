@@ -4,6 +4,10 @@ from django.http import HttpResponseRedirect
 
 
 def create_review(request):
+    """
+    A function to allow a user
+    to create and submit a review
+    """
     if request.user.is_authenticated:
         form = forms.ReviewForm(request.POST or None)
         context = {

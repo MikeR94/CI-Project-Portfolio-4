@@ -3,10 +3,12 @@ from accounts.models import User
 from reviews.utils import validate_not_spaces
 from django.core.validators import MinLengthValidator
 
-# Create your models here.
-
 
 class Review(models.Model):
+    """
+    A class to create a Review
+    model
+    """
     first_name = models.CharField(
         max_length=25,
         null=False,
@@ -45,4 +47,7 @@ class Review(models.Model):
     )
 
     def __str__(self):
+        """
+        Returns the review first name
+        """
         return self.first_name
