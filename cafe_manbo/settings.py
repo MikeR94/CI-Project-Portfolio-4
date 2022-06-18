@@ -18,12 +18,10 @@ from django.contrib.messages import constants as messages
 if os.path.isfile("env.py"):
    import env
 
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
@@ -35,7 +33,6 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = 'DEVELOPMENT' in os.environ
 
 ALLOWED_HOSTS = ["cafe-manbo.herokuapp.com", "127.0.0.1", "localhost"]
-
 
 ACCOUNT_EMAIL_VERIFICATION = 'none'
 
@@ -117,7 +114,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'cafe_manbo.wsgi.application'
 
-
 MESSAGE_TAGS = {
     messages.SUCCESS: 'alert alert-success',
     messages.ERROR: 'alert alert-danger',
@@ -125,7 +121,6 @@ MESSAGE_TAGS = {
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
-
 if 'DEVELOPMENT' in os.environ:
     DATABASES = {
         'default': {
@@ -138,11 +133,8 @@ else:
     'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
     }
 
-
-
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
-
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -158,7 +150,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
@@ -172,10 +163,8 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
-
 STATIC_URL = 'static/'
 
 STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
@@ -184,7 +173,6 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 MEDIA_URL = 'media/'
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
-
 
 #SMTP Configuration
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
