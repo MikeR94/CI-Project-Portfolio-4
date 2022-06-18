@@ -19,7 +19,7 @@ def validate_date(date):
     """
     if date < timezone.now().date():
         raise forms.ValidationError("You can't book in the past")
-        
+
 
 # All the dates for every sunday in 2022
 sunday = [
