@@ -30,14 +30,14 @@ class Payment(models.Model):
         decimal_places=2,
         blank=False,
         validators=[MinValueValidator(Decimal("0.01"))],
-    
+
     )
     amount_paid = models.DecimalField(
         max_digits=60,
         decimal_places=2,
         blank=False,
         validators=[MinValueValidator(Decimal("0.01"))],
-    
+
     )
     amount_tipped = models.DecimalField(
         max_digits=60, decimal_places=2, blank=True,)

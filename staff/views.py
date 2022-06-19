@@ -571,7 +571,8 @@ def staff_check_in_page(request):
             }
             if booking.date_of_visit < datetime.now().date():
                 booking.no_show_email_sent = True
-                template = render_to_string("no_show_email_template.html", context)
+                template = render_to_string(
+                    "no_show_email_template.html", context)
                 email = EmailMessage(
                     "Cafe Manbo - [NO SHOW]",
                     template,

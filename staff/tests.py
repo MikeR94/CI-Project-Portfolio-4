@@ -29,9 +29,10 @@ class TestUrls(TestCase):
     """
     A class to test the staff URLS
     """
+
     def test_staff_dashboard_url_is_resolved(self):
         """
-        Tests if the staff_dashboard url is 
+        Tests if the staff_dashboard url is
         working correctly
         """
         response = self.client.get("/staff/dashboard")
@@ -50,7 +51,7 @@ class TestUrls(TestCase):
 
     def test_staff_pending_bookings_url_is_resolved(self):
         """
-        Tests if the staff_pending_bookings url is 
+        Tests if the staff_pending_bookings url is
         working correctly
         """
         response = self.client.get("/staff/pending-bookings")
@@ -66,9 +67,10 @@ class TestUrls(TestCase):
         self.assertEquals(resolve(url).func, staff_pending_bookings)
         self.assertTemplateUsed(response, "staff_pending_bookings.html")
 
+
     def test_staff_approve_bookings_url_is_resolved(self):
         """
-        Tests if the staff_approve_bookings url is 
+        Tests if the staff_approve_bookings url is
         working correctly
         """
         self.user = User.objects.create_user(username="admin", is_staff=True)
@@ -95,7 +97,7 @@ class TestUrls(TestCase):
 
     def test_staff_deny_bookings_url_is_resolved(self):
         """
-        Tests if the staff_deny_bookings url is 
+        Tests if the staff_deny_bookings url is
         working correctly
         """
         self.user = User.objects.create_user(username="admin", is_staff=True)
@@ -122,7 +124,7 @@ class TestUrls(TestCase):
 
     def test_staff_pending_reviews_url_is_resolved(self):
         """
-        Tests if the staff_pending_reviews url is 
+        Tests if the staff_pending_reviews url is
         working correctly
         """
         response = self.client.get("/staff/pending-reviews")
@@ -141,12 +143,11 @@ class TestUrls(TestCase):
 
     def test_staff_approve_review_url_is_resolved(self):
         """
-        Tests if the staff_approve_review url is 
+        Tests if the staff_approve_review url is
         working correctly
         """
         self.user = User.objects.create_user(
-            username="admin", is_staff=True, id="50"
-        )
+            username="admin", is_staff=True, id="50")
         self.client.force_login(self.user)
 
         Review.objects.create(
@@ -172,12 +173,11 @@ class TestUrls(TestCase):
 
     def test_staff_deny_review_url_is_resolved(self):
         """
-        Tests if the staff_deny_review url is 
+        Tests if the staff_deny_review url is
         working correctly
         """
         self.user = User.objects.create_user(
-            username="admin", is_staff=True, id="50"
-        )
+            username="admin", is_staff=True, id="50")
         self.client.force_login(self.user)
 
         Review.objects.create(
@@ -191,7 +191,7 @@ class TestUrls(TestCase):
             – everything we tasted melted in other mouths.
             Absolutely the best meal we had while in Wakefield.
             Highly recommend!""",
-            stars="5 Star"
+            stars="5 Star",
         )
 
         response = self.client.get("/staff/deny-review/50")
@@ -203,7 +203,7 @@ class TestUrls(TestCase):
 
     def test_staff_details_bookings_url_is_resolved(self):
         """
-        Tests if the staff_details_booking url is 
+        Tests if the staff_details_booking url is
         working correctly
         """
         response = self.client.get("/staff/details-booking/50")
@@ -234,7 +234,7 @@ class TestUrls(TestCase):
 
     def test_staff_all_bookings_url_is_resolved(self):
         """
-        Tests if the staff_all_bookings url is 
+        Tests if the staff_all_bookings url is
         working correctly
         """
         response = self.client.get("/staff/all-bookings")
@@ -252,7 +252,7 @@ class TestUrls(TestCase):
 
     def test_staff_all_reviews_url_is_resolved(self):
         """
-        Tests if the staff_all_reviews url is 
+        Tests if the staff_all_reviews url is
         working correctly
         """
         response = self.client.get("/staff/all-reviews")
@@ -271,7 +271,7 @@ class TestUrls(TestCase):
 
     def test_staff_check_in_page_url_is_resolved(self):
         """
-        Tests if the staff_check_in url is 
+        Tests if the staff_check_in url is
         working correctly
         """
         response = self.client.get("/staff/check-in-page")
@@ -290,7 +290,7 @@ class TestUrls(TestCase):
 
     def test_staff_check_in_booking_id_url_is_resolved(self):
         """
-        Tests if the staff_check_in_booking_id 
+        Tests if the staff_check_in_booking_id
         url is working correctly
         """
         Booking.objects.create(
@@ -344,7 +344,7 @@ class TestUrls(TestCase):
 
     def test_staff_payment_page_url_is_resolved(self):
         """
-        Tests if the staff_payment_page url is 
+        Tests if the staff_payment_page url is
         working correctly
         """
         response = self.client.get("/staff/payment-page")
@@ -363,7 +363,7 @@ class TestUrls(TestCase):
 
     def test_staff_create_payment_url_is_resolved(self):
         """
-        Tests if the staff_create_payment url is 
+        Tests if the staff_create_payment url is
         working correctly
         """
         Booking.objects.create(
@@ -423,6 +423,7 @@ class TestModels(TestCase):
     """
     A class to test the staff models
     """
+
     def test_payment_model(self):
         """
         Testing payment model is accepting correct values
@@ -446,6 +447,7 @@ class TestForms(TestCase):
     """
     A class to test the staff forms
     """
+
     def test_payment_form_is_accepting_correct_values(self):
         """
         Testing payment form is accepting correct values
