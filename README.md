@@ -767,17 +767,142 @@ All the libraries used for this project are located in the requirements.txt file
 
     ![JavaScript Validation](static/images/readme-images/jshint-nav-js-image.png)
 
-* ### PEP8 Validation Image (run.py)
+* ### PEP8 Validation Image (accounts/apps.py)
 
-    ![PEP8 Validation (run.py)]()
+    ![PEP8 Validation (accounts/apps.py)](static/images/readme-images/pep8-accounts-apps.png)
 
-* ### PEP8 Validation Image (print.py)
+* ### PEP8 Validation Image (accounts/tests.py)
 
-    ![PEP8 Validation (print.py)]()
+    ![PEP8 Validation (accounts/tests.py)](static/images/readme-images/pep8-accounts-tests.png)
 
-* ### PEP8 Validation Image (questions.py)
+* ### PEP8 Validation Image (accounts/urls.py)
 
-    ![PEP8 Validation (questions.py)]()
+    ![PEP8 Validation (accounts/urls.py)](static/images/readme-images/pep8-accounts-urls.png)
+
+* ### PEP8 Validation Image (accounts/views.py)
+
+    ![PEP8 Validation (accounts/views.py)](static/images/readme-images/pep8-accounts-views.png)
+
+* ### PEP8 Validation Image (bookings/apps.py)
+
+    ![PEP8 Validation (bookings/apps.py)](static/images/readme-images/pep8-bookings-apps.png)
+
+* ### PEP8 Validation Image (bookings/forms.py)
+
+    ![PEP8 Validation (bookings/forms.py)](static/images/readme-images/pep8-bookings-forms.png)
+
+* ### PEP8 Validation Image (bookings/models.py)
+
+    ![PEP8 Validation (bookings/models.py)](static/images/readme-images/pep8-bookings-models.png)
+
+* ### PEP8 Validation Image (bookings/tests.py)
+
+    ![PEP8 Validation (bookings/tests.py)](static/images/readme-images/pep8-bookings-tests.png)
+
+* ### PEP8 Validation Image (bookings/urls.py)
+
+    ![PEP8 Validation (bookings/urls.py)](static/images/readme-images/pep8-bookings-urls.png)
+
+* ### PEP8 Validation Image (bookings/utils.py)
+
+    ![PEP8 Validation (bookings/utils.py)](static/images/readme-images/pep8-bookings-utils.png)
+
+* ### PEP8 Validation Image (bookings/views.py)
+
+    ![PEP8 Validation (bookings/views.py)](static/images/readme-images/pep8-bookings-views.png)
+
+* ### PEP8 Validation Image (cafe/asgi.py)
+
+    ![PEP8 Validation (cafe/asgi.py)](static/images/readme-images/pep8-cafe-asgi.png)
+
+* ### PEP8 Validation Image (cafe/settings.py)
+
+    ![PEP8 Validation (cafe/settings.py)](static/images/readme-images/pep8-cafe-settings.png)
+
+* ### PEP8 Validation Image (cafe/urls.py)
+
+    ![PEP8 Validation (cafe/urls.py)](static/images/readme-images/pep8-cafe-urls.png)
+
+* ### PEP8 Validation Image (cafe/wsgi.py)
+
+    ![PEP8 Validation (cafe/wsgi.py)](static/images/readme-images/pep8-cafe-wsgi.png)
+
+* ### PEP8 Validation Image (home/apps.py)
+
+    ![PEP8 Validation (home/apps.py)](static/images/readme-images/pep8-home-apps.png)
+
+* ### PEP8 Validation Image (home/tests.py)
+
+    ![PEP8 Validation (home/tests.py)](static/images/readme-images/pep8-home-tests.png)
+
+* ### PEP8 Validation Image (home/urls.py)
+
+    ![PEP8 Validation (home/urls.py)](static/images/readme-images/pep8-home-urls.png)
+
+* ### PEP8 Validation Image (home/utils.py)
+
+    ![PEP8 Validation (home/utils.py)](static/images/readme-images/pep8-home-utils.png)
+
+* ### PEP8 Validation Image (home/views.py)
+
+    ![PEP8 Validation (home/views.py)](static/images/readme-images/pep8-home-views.png)
+
+* ### PEP8 Validation Image (reviews/apps.py)
+
+    ![PEP8 Validation (reviews/apps.py)](static/images/readme-images/pep8-reviews-apps.png)
+
+* ### PEP8 Validation Image (reviews/forms.py)
+
+    ![PEP8 Validation (reviews/forms.py)](static/images/readme-images/pep8-reviews-forms.png)
+
+* ### PEP8 Validation Image (reviews/models.py)
+
+    ![PEP8 Validation (reviews/models.py)](static/images/readme-images/pep8-reviews-models.png)
+
+* ### PEP8 Validation Image (reviews/tests.py)
+
+    ![PEP8 Validation (reviews/tests.py)](static/images/readme-images/pep8-reviews-tests.png)
+
+* ### PEP8 Validation Image (reviews/urls.py)
+
+    ![PEP8 Validation (reviews/urls.py)](static/images/readme-images/pep8-reviews-urls.png)
+
+* ### PEP8 Validation Image (reviews/utils.py)
+
+    ![PEP8 Validation (reviews/utils.py)](static/images/readme-images/pep8-reviews-utils.png)
+
+* ### PEP8 Validation Image (reviews/views.py)
+
+    ![PEP8 Validation (reviews/views.py)](static/images/readme-images/pep8-reviews-views.png)
+
+* ### PEP8 Validation Image (staff/apps.py)
+
+    ![PEP8 Validation (staff/apps.py)](static/images/readme-images/pep8-staff-apps.png)
+
+* ### PEP8 Validation Image (staff/forms.py)
+
+    ![PEP8 Validation (staff/forms.py)](static/images/readme-images/pep8-staff-forms.png)
+
+* ### PEP8 Validation Image (staff/tests.py)
+
+    ![PEP8 Validation (staff/tests.py)](static/images/readme-images/pep8-staff-tests.png)
+
+* ### PEP8 Validation Image (staff/urls.py)
+
+    ![PEP8 Validation (staff/urls.py)](static/images/readme-images/pep8-staff-urls.png)
+
+* ### PEP8 Validation Image (staff/utils.py)
+
+    ![PEP8 Validation (staff/utils.py)](static/images/readme-images/pep8-staff-utils.png)
+
+* ### PEP8 Validation Image (staff/views.py)
+
+    ![PEP8 Validation (staff/views.py)](static/images/readme-images/pep8-staff-views.png)
+
+* ### PEP8 Validation Image (manage.py)
+
+    ![PEP8 Validation (manage.py)](static/images/readme-images/pep8-manage.png)
+
 
 * ## Lighthouse Testing 
 
