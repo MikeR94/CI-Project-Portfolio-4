@@ -113,6 +113,10 @@ As mentioned above, the website for Cafe Manbo has been designed to be a fully e
     * A simple and logical booking flow system.
     * A staff help modal to aid staff members.
 
+## Booking Flow Logic Diagram
+
+![Booking Flow Logic Diagram](static/images/readme-images/booking-flow-logic-diagram-image.png)
+
 ## Design Choices
 
  * ### Typography
