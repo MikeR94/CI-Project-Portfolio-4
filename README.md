@@ -88,10 +88,10 @@ For my fourth project, I intend to create an authentic, practical and useful res
 
 ## Design Prototype
 
-The very first design prototype was created using [Balsamiq](https://balsamiq.com/). Descriptive text<br /><br />
+The very first design prototype was created using [Balsamiq](https://balsamiq.com/). I created a very basic wire frame which so I could visually understand where elements could sit and to also get a general feel of how the website would look before I had started to develop it. This is an extremely important part of the design process as it allows me to understand what I need to do to achieve the final end product. Spending a couple of hours doing this saves a lot of time in the development process and I will continue with this approach throughout any project I work on.<br /><br />
 
 
-![Balsamiq Start Prototype]()
+![Balsamiq Start Prototype](static/images/readme-images/wireframe-image.png)
 
 
 [Back to top](<#contents>)
