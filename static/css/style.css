@@ -637,4 +637,8 @@ table th {
   .food-hygiene-label {
     display: none;
   }
+
+  .dash-card-text {
+    font-size: 16px;
+  }
 }
