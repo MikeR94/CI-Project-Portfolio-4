@@ -50,7 +50,6 @@ You can view the live site here - <a href="https://cafe-manbo.herokuapp.com/" ta
     * [**Content**](<#content>)
     * [**Media**](<#media>)
 *  [**Acknowledgments**](<#acknowledgements>)
-*  [**Personal Development**](<#personal-development>)
 
 
 # Objective
@@ -1523,9 +1522,6 @@ The live link to the Github repository can be found here - https://github.com/Mi
 
 # Acknowledgments
 The site was completed as a part of a Full Stack Software Developer Diploma at the [Code Institute](https://codeinstitute.net/) and is my Portfolio Project 4. I would like to thank my mentor [Precious Ijege](https://www.linkedin.com/in/precious-ijege-908a00168/), my educator [Luke Walters](https://www.linkedin.com/in/luke-walters-leatherbarrow-531107101/), and my brother [Jack Ralph](https://www.linkedin.com/in/jackthomasralph/), the Slack community, and all at the Code Institute for their help and support.
-
-# Personal Development
-Text
 
 Mike Ralph 2022.
 
