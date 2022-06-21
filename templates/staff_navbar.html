@@ -8,14 +8,14 @@
         <a href="/" class="d-flex align-items-center mb-5 me-md-auto text-white text-decoration-none">
           <span class="d-none d-sm-inline staff-nav-bar-logo">Cafe Manbo</span>
         </a>
-        <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
+        <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" >
           <li class="mb-2">
-            <a href="{% url 'home' %}" data-bs-toggle="collapse" class="text-decoration-none px-0 align-middle">
+            <a href="{% url 'home' %}" class="text-decoration-none px-0 align-middle">
               <i class="fs-4 bi-house text-white"></i> <span class="ms-1 d-none d-sm-inline staff-link text-white">Home</span>
             </a>
           </li>
           <li class="mb-2">
-            <a href="{% url 'staff_dashboard' %}" data-bs-toggle="collapse" class="text-decoration-none px-0 align-middle">
+            <a href="{% url 'staff_dashboard' %}" class="text-decoration-none px-0 align-middle">
               <i class="fs-4 bi-speedometer2 text-white"></i> <span class="ms-1 d-none d-sm-inline staff-link text-white">Dashboard</span>
             </a>
           </li>
@@ -34,14 +34,14 @@
             >
           </li>
           <li class="mb-2">
-            <a href="{% url 'staff_payment_page'%}" data-bs-toggle="collapse" class="text-decoration-none px-0 align-middle">
+            <a href="{% url 'staff_payment_page'%}" class="text-decoration-none px-0 align-middle">
               <i class="fs-4 bi-cash text-white"></i> <span class="ms-1 d-none d-sm-inline staff-link text-white">Payments</span> {% if pending_payment_count != 0 %}
               <span class="text-decoration-none disable-hover text-white">-</span>
               <span class="red-exclamation disable-hover"> {{pending_payment_count}}</span> {% endif %}</a
             >
           </li>
           <li class="mb-2">
-            <a href="{% url 'staff_pending_reviews' %}" data-bs-toggle="collapse" class="text-decoration-none px-0 align-middle">
+            <a href="{% url 'staff_pending_reviews' %}" class="text-decoration-none px-0 align-middle">
               <i class="fs-4 bi-pen text-white"></i> <span class="ms-1 d-none d-sm-inline staff-link text-white">Reviews</span> {% if pending_reviews_count != 0 %}
               <span class="text-decoration-none disable-hover text-white">-</span>
               <span class="red-exclamation disable-hover"> {{pending_reviews_count}}</span> {% endif %}</a
