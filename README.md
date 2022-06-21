@@ -1176,6 +1176,8 @@ All the libraries used for this project are located in the requirements.txt file
 
     * I currently have 34 individual tests which provide 91% coverage as shown in the below image.
 
+    * To run the automated tests, type the command - ```python manage.py test```
+
     ![Automated Tests Image](static/images/readme-images/automated-tests-image.png)
 
     ![Coverage Report Image](static/images/readme-images/coverage-report-image.png)
