@@ -1,5 +1,6 @@
 {% extends "base.html" %} {% block content %} {% include "navbar_2.html" %} {% load static %}
 
+<!-- User Reservations Main Content -->
 <section class="container page-space mt-5 pb-5">
   <table class="table table_id text-center">
     <p class="p-2">Welcome to your reservations page, <strong>{{ user.username }}</strong>! Just so you are aware, the email address registered with your account is <strong>{{ user.email }}</strong>.</p>
@@ -40,6 +41,8 @@
       {% endfor %}
     </tbody>
   </table>
+
+  <!-- Completed Bookings Accordion Section -->
   {% if booking or completed_booking or no_show_booking %}
   <br />
   <hr />
