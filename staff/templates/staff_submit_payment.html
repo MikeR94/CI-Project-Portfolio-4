@@ -4,8 +4,10 @@
 
 {% load static %}
 
-<link rel="stylesheet" href="{% static 'css/user_reservations.css' %}">
+<!-- Table Styling CSS -->
+<link rel="stylesheet" href="{% static 'css/table_styling.css' %}">
 
+<!-- Staff Submit Payment Main Content -->
 <div class="col-9 ps-5 mt-5">
   <div class="row">
     <div class="col-12 mb-4">
@@ -47,28 +49,30 @@
        </tr>
      </tbody>
    </table>
-    <div>
-    {% if booking.bill_settled == False and booking.bill_submitted == False %}
-    <form method="POST">
-      <input type="hidden" name="next" value="{{request.path}}">
-      {% csrf_token %}
-          {{ form|crispy }}
-          <p>
-              <button type="submit" class="black-button">Submit</button>
-          </p>
-      </div>
-    </form>
-    {% elif booking.bill_settled == False and booking.bill_submitted == True %}
-    <p class="text-danger">Payment information for this booking has been submitted and the bill has not been settled</p>
-    <form method="POST">
-      <input type="hidden" name="next" value="{{request.path}}">
-      {% csrf_token %}
-          {{ form|crispy }}
-          <p>
-              <button type="submit" class="black-button">Submit</button>
-          </p>
-      </div>
-    </form>
+   
+   <!-- Payment Form -->
+  <div>
+  {% if booking.bill_settled == False and booking.bill_submitted == False %}
+  <form method="POST">
+    <input type="hidden" name="next" value="{{request.path}}">
+    {% csrf_token %}
+        {{ form|crispy }}
+        <p>
+            <button type="submit" class="black-button">Submit</button>
+        </p>
+    </div>
+  </form>
+  {% elif booking.bill_settled == False and booking.bill_submitted == True %}
+  <p class="text-danger">Payment information for this booking has been submitted and the bill has not been settled</p>
+  <form method="POST">
+    <input type="hidden" name="next" value="{{request.path}}">
+    {% csrf_token %}
+        {{ form|crispy }}
+        <p>
+            <button type="submit" class="black-button">Submit</button>
+        </p>
+    </div>
+  </form>
   {% else %}
   <p class="text-success">Payment information for this booking has been submitted and the bill has been settled</p>
   {% endif %}
