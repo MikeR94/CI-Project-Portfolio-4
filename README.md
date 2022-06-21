@@ -46,6 +46,7 @@ You can view the live site here - <a href="https://cafe-manbo.herokuapp.com/" ta
 * [**Python Packages**](<#python-packages>)
 * [**Testing**](<#testing>)
 * [**Deployment To Heroku**](<#deployment-to-heroku>)
+* [**Cloning This Project**](<#cloning-and-setting-up-this-project>)
 * [**Credits**](<#credits>)
     * [**Content**](<#content>)
     * [**Media**](<#media>)
@@ -1596,6 +1597,62 @@ The project was deployed to [Heroku](https://www.heroku.com). The deployment pro
 
 
 The live link to the Github repository can be found here - https://github.com/MikeR94/CI-Project-Portfolio-4
+
+[Back to top](<#contents>)
+
+# Cloning and setting up this project
+  
+If you wish to clone and setup this project locally then the process is as follows: 
+
+
+* Go to the project [repository](https://github.com/MikeR94/CI-Project-Portfolio-4) and clone the project. Click 'Code' and then copy either the HTTPS or SSH link. I used SSH.</br></br>
+
+![Clone Step 1](static/images/readme-images/clone-1.png)</br></br>
+
+* Open up Command Prompt, navigate to where you wish your project to be stored and then type the following commands: <br/><br/>
+    * ```git clone HTTPS or SSH link``` - This will clone your project to your local machine
+    * ```cd name of project``` - This will cd into your project
+    * ```code .``` - This will launch your project in VSCode<br/><br/>
+
+![Clone Step 2](static/images/readme-images/clone-2.png)</br></br>
+
+* It is good practice to initialize a virtual environment when working on any project. A virtual Environment provides the facility to work on a specific project without affecting other projects. It allows a unique working environment for avoiding dependencies. I followed this brilliant article by [medium.com](https://medium.com/@shilpasree209/how-to-set-up-visual-studio-code-creating-virtual-environment-and-writing-the-first-python-7155596b2573) to setup my virtual environment.
+
+* When you have successfully installed a virtual environment, type the following commands into the VSCode terminal: <br/><br/>
+    * ```virtualenv env``` - This will create a new virtual environment for your project
+    * ```source env/scripts/activate``` - This will activate your virtual environment
+    * **Don't forget to add ***env*** to your .gitignore file**
+    * You can tell if your virtual environment is working by looking for (env) above your PC name in the terminal<br/><br/>
+
+![Clone Step 3](static/images/readme-images/clone-3.png)<br/><br/>
+
+* Now it's time to install project requirements needed to run the project. In the terminal, type the following command: <br/><br/>
+    * ```pip3 install -r requirements.txt```<br/><br/>
+
+* This will download all the necessary dependencies stated in the requirements.txt file which will enable the project to work. <br/><br/>
+
+![Clone Step 4](static/images/readme-images/clone-4.png)</br></br>
+
+* Now we need to create our env.py file which tells our project which variables to use. These variables are usually hidden for security purposes so make sure to not publicly share your .env file. As you can see I have set ["STATIC_FILES_STORAGE"] and ["CONTRIB_AUTH_PASSWORD"] in my .env file. This is not a secret variable, I have only done this as these variables were too long to pass PEP8 validation so I decided to parse them from the .env file so that the settings.py file is now fully PEP8 compliant.
+
+* Any variables that you declare in your .env file, make sure you add them all (apart from ["DEVELOPMENT"] ) to your config vars when you deploy to Heroku. <br/><br/>
+
+
+![Clone Step 5](static/images/readme-images/clone-5.png)</br></br>
+
+* Now when we try to run the server by typing ```python manage.py runserver``` you will see that we have unapplied migrations. This is normal and expected. <br/><br/>
+
+![Clone Step 6](static/images/readme-images/clone-6.png)</br></br>
+
+* Type the command ```python manage.py migrate```. This will apply all the migrations necessary for the project to work. <br/><br/>
+
+![Clone Step 7](static/images/readme-images/clone-7.png)</br></br>
+
+* After all the migrations have been successfully made, type the command ```python manage.py runserver```.  <br/><br/>
+
+![Clone Step 8](static/images/readme-images/clone-8.png)</br></br>
+
+* This will successfully launch the project locally and is ready for development.</br></br>
 
 [Back to top](<#contents>)
 
